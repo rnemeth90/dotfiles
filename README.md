@@ -5,7 +5,7 @@
 Run the following to configure WSL from scratch...
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/jldeen/dotfiles/wsl/configure.sh)"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/rnemeth90/dotfiles/master/init.sh)"
 ```
 
 ### Notes
