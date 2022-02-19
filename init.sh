@@ -59,7 +59,7 @@ mv dircolors.256dark .dircolors
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use rnemeth's dotfiles? y/n" -n 1 -r
+read -p "Do you want to use rnemeth's dotfiles? y/n " -n 1 -r
 echo ''
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -68,8 +68,6 @@ then
 	git clone https://github.com/rnemeth90/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
-	echo ''
-	echo "Checking out wsl branch..." && git checkout wsl
 	echo ''
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
