@@ -2,7 +2,7 @@
 
 # Update pkg lists
 echo "Updating package lists..."
-sudo apt-get update
+sudo apt update
 
 # Install oh my bash
 echo ''
