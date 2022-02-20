@@ -142,7 +142,7 @@ fi
 
 # symlink .dotfiles bin to ~
 chmod -R a+x $HOME/.dotfiles/bin
-ln -s $HOME/.dotfiles/bin $HOME/bin
+ln -s ~/.dotfiles/bin $HOME/bin
 
 echo ''
 echo '  All installed!'
