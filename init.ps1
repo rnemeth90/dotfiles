@@ -1,5 +1,7 @@
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Force
 
+$username = $env:USERNAME
+
 # Downloading Choco
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
@@ -12,14 +14,16 @@ choco feature enable -n allowGlobalConfirmation
 New-item -Type Directory -Path $env:SystemDrive\repos
 Set-Path -Location $env:SystemDrive\repos
 git clone https://github.com/rnemeth90/dotfiles.git
-Set-Path -Location $env:SystemDrive\repos\dotfiles\build\windows
+Set-Path -Location $env:SystemDrive\repos\dotfiles\
+git checkout powershell
 
-New-Item -Path $env:USERPROFILE\OneDrive\Documents\PowerShell\Microsoft.VSCode_profile.ps1 -ItemType SymbolicLink -Value $env:SystemDrive\Repos\dotfiles\build\windows\Microsoft.VSCode_profile.ps1
-New-Item -Path $env:USERPROFILE\OneDrive\Documents\PowerShell\Microsoft.Powershell_Profile.ps1 -ItemType SymbolicLink -Value $env:SystemDrive\Repos\dotfiles\build\windows\Microsoft.PowerShell_profile.ps1
+
+New-Item -Path $env:USERPROFILE\OneDrive\Documents\PowerShell\ -ItemType SymbolicLink -Value $env:SystemDrive\Repos\dotfiles\build\windows\Microsoft.VSCode_profile.ps1
 New-Item -Path $env:USERPROFILE\.gitconfig -ItemType SymbolicLink -Value $env:SystemDrive\Repos\dotfiles\.config\.gitconfig
 
-New-Item -Path C:\users\ryan\OneDrive\Documents\PowerShell\Microsoft.Powershell_Profile.ps1 -ItemType SymbolicLink -Value C:\Repos\dotfiles\build\windows\Microsoft.PowerShell_profile.ps1
-New-Item -Path C:\users\ryan\.gitconfig -ItemType SymbolicLink -Value C:\Repos\dotfiles\.config\.gitconfig
+New-Item -Path c:\users\$($Env:USERNAME)\Documents\PowerShell\Microsoft.Powershell_Profile.ps1 -ItemType SymbolicLink  -Value $env:SystemDrive\repos\dotfiles\Microsoft.PowerShell_profile.ps1
+New-Item -Path c:\users\$($Env:USERNAME)\Documents\PowerShell\Microsoft.VSCode_profile.ps1 -ItemType SymbolicLink -Value $env:SystemDrive\repos\dotfiles\Microsoft.VSCode_profile.ps1
+
 #New-Item -Path "C:\Users\Ryan.Nemeth\AppData\Local\Packages\KaliLinux.54290C8133FEE_ey8k8hqnwqnmg\LocalState\rootfs\home\ryan\.bashrc" -ItemType SymbolicLink -Value "C:\repos\dotfiles\build\linux\.bashrc"
 
 
