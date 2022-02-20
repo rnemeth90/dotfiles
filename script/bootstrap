@@ -140,5 +140,9 @@ else
     echo "No current $HOME/bin folder found. Proceeding to link bin folder for scripts..."
 fi
 
+# symlink .dotfiles bin to ~
+chmod -R a+x $HOME/.dotfiles/bin
+ln -s $HOME/.dotfiles/bin $HOME/bin
+
 echo ''
 echo '  All installed!'
