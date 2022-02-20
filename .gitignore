@@ -1,0 +1,24 @@
+# Could just force-add these files and leave this as '*', but this way I have a
+# nice explicit list for documentation's sake.
+
+# Ignore everything by default.
+*
+
+# Bash stuff (profile just sources bashrc, since it's the only thing sourced
+# when a shell is a login shell).
+.*.swp
+.bash_history
+.bash_local
+.bash_logout
+!.profile
+
+# The gitignore of this repository itself (!)
+!.gitignore
+# My global Git excludes file (acts as a global .gitignore)
+!.gitexcludes
+
+# Virtualenvwrapper hooks
+!.virtualenvs
+!.virtualenvs/postmkvirtualenv
+
+.ssh
