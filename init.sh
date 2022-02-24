@@ -4,8 +4,6 @@
 echo "Updating package lists..."
 sudo apt update
 
-
-
 # Install Helm
 echo ''
 echo "Now adding helm sources..."
@@ -32,6 +30,12 @@ echo ''
 echo "Now installing AzureCli sources..."
 echo ''
 sudo curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
+echo ''
+echo "Now installing mizu..."
+echo ''
+curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64
+sudo chmod 755 mizu
 
 # Install everything else
 echo ''
@@ -86,11 +90,11 @@ else
 	echo "source $HOME/.git-completion.bash" >> ${ZDOTDIR:-$HOME}/.bashrc && echo "added git-completion to .bashrc..."
 fi
 
-# # Install oh my bash
-# echo ''
-# echo "Now installing oh my bash..."
-# echo ''
-# sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+# Install oh my bash
+echo ''
+echo "Now installing oh my bash..."
+echo ''
+sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 echo ''
 echo '	Done! Please reboot your computer for changes to be made.'
