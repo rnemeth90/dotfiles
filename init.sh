@@ -42,7 +42,8 @@ echo ''
 echo "Now installing everything else..."
 echo ''
 sudo apt install -y jq kubetail nmap nodejs golang ranger neofetch figlet kubectl helm  gnupg software-properties-common curl \
-                    apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git
+                    apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git \
+                    nikto dnsenum
 
 echo ''
 echo "Now configuring git-completion..."
