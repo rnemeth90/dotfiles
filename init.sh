@@ -56,6 +56,13 @@ curl -Lo mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux
 mv mizu ~/.dotfiles/bin
 sudo chmod 755 mizu
 
+# Install dotnet
+echo ''
+info "Now installing dotnet..."
+echo ''
+bash -c "$(curl -fsSL https://dot.net/v1/dotnet-install.sh)"
+
+
 # Install everything else
 echo ''
 info "Now installing everything else..."
