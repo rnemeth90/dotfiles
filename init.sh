@@ -4,8 +4,6 @@
 echo "Updating package lists..."
 sudo apt update
 
-
-
 # Install Helm
 echo ''
 echo "Now adding helm sources..."
@@ -38,7 +36,8 @@ echo ''
 echo "Now installing everything else..."
 echo ''
 sudo apt install -y jq kubetail nmap nodejs golang ranger neofetch figlet kubectl helm  gnupg software-properties-common curl \
-                    apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git
+                    apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git \
+                    dnsenum nikto
 
 echo ''
 echo "Now configuring git-completion..."
