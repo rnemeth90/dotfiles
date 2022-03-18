@@ -39,6 +39,7 @@ Install mingw # gcc, need to compile treesitter
 Install make
 Install cmake
 Install azure-cli
+Install sysinternals
 
 
 # cname, mx, dns tooling
