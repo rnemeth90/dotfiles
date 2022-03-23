@@ -40,7 +40,7 @@ Install make
 Install cmake
 Install azure-cli
 Install sysinternals
-
+Install ngrok
 
 # cname, mx, dns tooling
 Install bind-toolsonly # clitool: big
