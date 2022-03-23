@@ -64,6 +64,8 @@ wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.
 sudo dpkg -i packages-microsoft-prod.deb
 sudo apt update
 sudo apt install dotnet-sdk-6.0
+dotnet tool install -g Microsoft.dotnet-httprepl
+dotnet tool install -g dotnet-ef
 
 # Install everything else
 echo ''
