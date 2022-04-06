@@ -130,11 +130,11 @@ else
 	echo "source $HOME/.git-completion.bash" >> ${ZDOTDIR:-$HOME}/.bashrc && echo "added git-completion to .bashrc..."
 fi
 
-# Install oh my bash
-echo ''
-info "Now installing oh my bash..."
-echo ''
-sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+# # Install oh my bash
+# echo ''
+# info "Now installing oh my bash..."
+# echo ''
+# sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 
 echo ''
 success '	Done! Please reboot your computer for changes to be made.'
