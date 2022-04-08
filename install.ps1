@@ -56,3 +56,5 @@ RefreshEnv.cmd
 # pip install pre-commit
 # pip install pynvim
 # gem install neovim
+
+npm i -g typescript
