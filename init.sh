@@ -94,6 +94,18 @@ if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
 	fail "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
 fi
 
+echo ''
+info "Now adding ksniff for kubectl..."
+(
+  set -x; cd "$(mktemp -d)" &&
+  curl -fsSLO "https://github.com/kubernetes-sigs/krew/releases/latest/download/krew.tar.gz" &&
+  tar zxvf krew.tar.gz &&
+  KREW=./krew-"$(uname | tr '[:upper:]' '[:lower:]')_$(uname -m | sed -e 's/x86_64/amd64/' -e 's/arm.*$/arm/')" &&
+  "$KREW" install krew
+)
+kubectl krew install sniff
+
+
 # Bash color scheme
 echo ''
 info "Now installing solarized dark WSL color scheme..."
