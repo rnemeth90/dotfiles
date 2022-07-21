@@ -82,7 +82,7 @@ info "Now installing everything else..."
 echo ''
 sudo apt install -y jq kubetail nmap nodejs golang ranger neofetch figlet kubectl helm  gnupg software-properties-common curl \
                     apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git \
-                    nikto dnsenum net-tools
+                    nikto dnsenum net-tools build-essential curl file git
 
 echo ''
 info "Now configuring git-completion..."
@@ -105,6 +105,15 @@ info "Now adding ksniff for kubectl..."
 )
 kubectl krew install sniff
 
+# Install brew
+echo ''
+info "Now installing brew..."
+echo ''
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 # Bash color scheme
 echo ''
