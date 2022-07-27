@@ -1,6 +1,8 @@
 #!/bin/bash
-#
-# bootstrap installs things.
+
+#################################
+# bootstrap sets up my dotfiles #
+#################################
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
