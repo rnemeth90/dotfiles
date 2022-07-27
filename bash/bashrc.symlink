@@ -117,3 +117,5 @@ source "$OSH"/oh-my-bash.sh
 export GOPATH="/repos/golang/"
 export GOBIN="/repos/golang/bin"
 export PATH="$GOBIN:$PATH"
+
+#PATH=/repos:$GOPATH:$GOBIN:$PATH
