@@ -22,3 +22,6 @@
 !.virtualenvs/postmkvirtualenv
 
 .ssh
+bin_old
+.dircolors
+*.deb*
