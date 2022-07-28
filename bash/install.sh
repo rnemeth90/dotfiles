@@ -9,7 +9,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
   echo ''
   echo "Now installing oh my bash..."
   echo ''
-  sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 fi
 
 # Bash color scheme
