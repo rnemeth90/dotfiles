@@ -21,33 +21,12 @@ fail () {
 # Update pkg lists
 echo "Updating package lists..."
 sudo apt update
-
-# ADD PART FOR INSTALL SCRIPT
-# chmod a+x $HOME/.dotfiles/script/install
-
-
-# Install everything else
-echo ''
-info "Now installing everything else..."
-echo ''
-sudo apt install -y jq kubetail nmap nodejs golang ranger neofetch figlet kubectl helm  gnupg software-properties-common curl \
-                    apt-transport-https ca-certificates curl terraform python3-pip nfs-common bash-completion speedtest-cli git \
-                    nikto dnsenum net-tools build-essential curl file git
-
-# Setup git completion
-echo ''
-info "Now configuring git-completion..."
-GIT_VERSION=`git --version | awk '{print $3}'`
-URL="https://raw.github.com/git/git/v$GIT_VERSION/contrib/completion/git-completion.bash"
-echo ''
-echo "Downloading git-completion for git version: $GIT_VERSION..."
-if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
-	fail "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
-fi
+sudo apt install git -y
+sudo apt install npm -y
 
 # Pull down personal dotfiles and make links
 echo ''
-read -p "Do you want to use rnemeth's dotfiles? y/n " -n 1 -r
+read -p "Do you want to use rnemeth's dotfiles? y/N " -n 1 -r
 echo ''
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -72,6 +51,33 @@ else
 	echo "Setting defaults for .bashrc..."
 	echo ''
 	echo "source $HOME/.git-completion.bash" >> ${ZDOTDIR:-$HOME}/.bashrc && echo "added git-completion to .bashrc..."
+fi
+
+# ADD PART FOR INSTALL SCRIPT
+# chmod a+x $HOME/.dotfiles/script/install
+echo ''
+read -p "Do you want to install software? y/N " -n 1 -r
+echo ''
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+  echo ''
+  info "Now installing software..."
+  echo ''
+  cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
+	echo ''
+  chmod a+x $HOME/.dotfiles/script/install && $HOME/.dotfiles/script/install
+  echo ''
+fi
+
+# Setup git completion
+echo ''
+info "Now configuring git-completion..."
+GIT_VERSION=`git --version | awk '{print $3}'`
+URL="https://raw.github.com/git/git/v$GIT_VERSION/contrib/completion/git-completion.bash"
+echo ''
+echo "Downloading git-completion for git version: $GIT_VERSION..."
+if ! curl "$URL" --silent --output "$HOME/.git-completion.bash"; then
+	fail "ERROR: Couldn't download completion script. Make sure you have a working internet connection." && exit 1
 fi
 
 echo ''
