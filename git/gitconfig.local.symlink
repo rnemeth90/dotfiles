@@ -1,0 +1,5 @@
+[user]
+        name = Ryan Nemeth
+        email = ryannemeth@live.com
+[credential]
+        helper = credential.helper
