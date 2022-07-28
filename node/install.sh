@@ -2,7 +2,7 @@
 # Install nodejs and npm
 
 echo ''
-info "Now installing node..."
+echo "Now installing node..."
 echo ''
 
 sudo apt install nodejs -y
