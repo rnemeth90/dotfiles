@@ -7,14 +7,14 @@ echo ''
 if [[ $REPLY =~ ^[Yy]$ ]]
   then
   echo ''
-  info "Now installing oh my bash..."
+  echo "Now installing oh my bash..."
   echo ''
   sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
 fi
 
 # Bash color scheme
 echo ''
-info "Now installing solarized dark WSL color scheme..."
+echo "Now installing solarized dark WSL color scheme..."
 echo ''
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark
 mv dircolors.256dark .dircolors

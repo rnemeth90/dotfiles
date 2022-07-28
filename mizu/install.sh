@@ -2,7 +2,7 @@
 # Install mizu
 
 echo ''
-info "Now installing mizu..."
+echo "Now installing mizu..."
 echo ''
 
 cd ~/bin

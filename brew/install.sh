@@ -2,7 +2,7 @@
 # Install brew
 
 echo ''
-info "Now installing brew..."
+echo "Now installing brew..."
 echo ''
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
