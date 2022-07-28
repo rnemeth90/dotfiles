@@ -2,7 +2,7 @@
 # curl -sL https://dot.net/v1/dotnet-install.sh | bash
 
 echo ''
-echo "Now installing dotnet..."
+echo "Now installing dotnet and friends..."
 echo ''
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
