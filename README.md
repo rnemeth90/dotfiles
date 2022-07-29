@@ -18,11 +18,14 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## topical
 
-Everything's built around topic areas. If you're adding a new area to your
-forked dotfiles — say, "Java" — you can simply add a `java` directory and put
-files in there. Anything with an extension of `.bash` will get automatically
-included into your shell. Anything with an extension of `.symlink` will get
-symlinked without extension into `$HOME` when you run `script/bootstrap`.
+My dotfiles are build to be modular. For example, say I start programming in go,
+and I want my shell to support go (i.e. binaries installed, config files, etc.).
+All I need to do, is create a directory named 'go' in the root of this repo. Then within
+the folder, I can add any config files with a .symlink extension, and these will be included 
+in my $PATH. I can also add a 'install.sh' script with instructions for installing the 'go'
+binary and any other go mods I may need. Then just run the init.sh script again and these 
+items will be included. It's that simple. 
+
 
 ## what's inside
 
@@ -43,7 +46,7 @@ There's a few special files in the hierarchy.
   expected to setup `$PATH` or similar.
 - **topic/completion.bash**: Any file named `completion.bash` is loaded
   last and is expected to setup autocomplete.
-- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/install`. To avoid being loaded automatically, its extension is `.sh`, not `.bash`.
+- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/installer`. To avoid being loaded automatically, it has no extension`.
 - **topic/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
