@@ -16,7 +16,7 @@ If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read Holman's post on the
 subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
-## topical
+## modular
 
 My dotfiles are build to be modular. For example, say I start programming in go,
 and I want my shell to support go (i.e. binaries installed, config files, etc.).
@@ -40,14 +40,14 @@ There's a few special files in the hierarchy.
 
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.
-- **topic/\*.bash**: Any files ending in `.bash` get loaded into your
+- **module/\*.bash**: Any files ending in `.bash` get loaded into your
   environment.
-- **topic/path.bash**: Any file named `path.bash` is loaded first and is
+- **module/path.bash**: Any file named `path.bash` is loaded first and is
   expected to setup `$PATH` or similar.
-- **topic/completion.bash**: Any file named `completion.bash` is loaded
+- **module/completion.bash**: Any file named `completion.bash` is loaded
   last and is expected to setup autocomplete.
-- **topic/install.sh**: Any file named `install.sh` is executed when you run `script/installer`. To avoid being loaded automatically, it has no extension`.
-- **topic/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
+- **module/install.sh**: Any file named `install.sh` is executed when you run `script/installer`. To avoid being loaded automatically, it has no extension`.
+- **module/\*.symlink**: Any file ending in `*.symlink` gets symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
