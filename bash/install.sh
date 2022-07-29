@@ -2,19 +2,18 @@
 
 # Install oh my bash
 echo ''
-read -p "Do you want to install oh-my-bash? y/n " -n 1 -r
+echo "#############################"
+echo "# Now installing oh my bash #"
+echo "#############################"
 echo ''
-if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-  echo ''
-  echo "Now installing oh my bash..."
-  echo ''
-  bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-fi
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
 
 # Bash color scheme
 echo ''
-echo "Now installing solarized dark WSL color scheme..."
+echo "##################################################"
+echo "# Now installing solarized dark WSL color scheme #"
+echo "##################################################"
 echo ''
 wget https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark
 mv dircolors.256dark .dircolors

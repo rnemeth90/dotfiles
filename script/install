@@ -9,4 +9,4 @@ cd "$(dirname $0)"/..
 
 # find the installers and run them interatively
 find ../ -name install.sh -type f -exec chmod a+x {} \;
-find ../ -name install.sh | while read installer ; do sh -c "${installer}" 2> /dev/null; done
+find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
