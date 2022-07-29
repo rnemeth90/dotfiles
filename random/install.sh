@@ -1,9 +1,30 @@
 #!/bin/bash
 # Install everything else
 
-# echo ''
-# echo "Now installing everything else..."
-# echo ''
-# sudo apt install -y jq kubetail nmap nodejs golang ranger neofetch figlet gnupg software-properties-common curl \
-#                     apt-transport-https ca-certificates curl python3-pip nfs-common bash-completion speedtest-cli git \
-#                     wapiti dnsenum net-tools build-essential curl file 
+echo ''
+echo "Now installing everything else..."
+echo ''
+sudo apt install -y \
+apt-transport-https \
+bash-completion \
+build-essential \
+ca-certificates \
+curl \
+dnsenum \
+figlet \
+file \
+gnupg \
+golang \
+jq \
+kubetail \
+kubecolor \
+nmap \
+neofetch \
+net-tools \
+nfs-common \
+nodejs \
+python3-pip \
+ranger \
+software-properties-common \
+speedtest-cli \
+wapiti

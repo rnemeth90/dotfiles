@@ -54,7 +54,7 @@ else
 fi
 
 # ADD PART FOR INSTALL SCRIPT
-# chmod a+x $HOME/.dotfiles/script/install
+# chmod a+x $HOME/.dotfiles/script/installer
 echo ''
 read -p "Do you want to install software? y/N " -n 1 -r
 echo ''
@@ -65,7 +65,7 @@ then
   echo ''
   cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
-  chmod a+x $HOME/.dotfiles/script/install && $HOME/.dotfiles/script/install
+  chmod a+x $HOME/.dotfiles/script/installer && $HOME/.dotfiles/script/installer
   echo ''
 fi
 
