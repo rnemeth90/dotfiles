@@ -166,7 +166,7 @@ main() {
 
     bash_and_git_configs
 
-    create_and_set_github_ssh_key
+    # create_and_set_github_ssh_key
 
     install_extensions_and_pkg_managers
 
