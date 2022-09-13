@@ -1,0 +1,118 @@
+#!/bin/bash
+
+# Bash Variables.
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Ignore commands that start with spaces and duplicates.
+
+export HISTCONTROL=ignoreboth
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of lines of history
+# persisted in the history file (default value is 500).
+
+export HISTFILESIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't add certain commands to the history file.
+
+export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of commands recorded
+# in the command history (default value is 500).
+
+export HISTSIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prefer US English and use UTF-8 encoding.
+
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use custom `less` colors for `man` pages.
+
+export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
+export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't clear the screen after quitting a `man` page.
+
+export MANPAGER="less -X"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of lines of history persisted
+# in the `Node` REPL history file (default value is 1000).
+#
+# https://github.com/nodejs/node/blob/c948877688ff2b6a37f2c88724b656aae495c7b2/doc/api/repl.md#persistent-history
+
+export NODE_REPL_HISTORY_SIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history.
+
+export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
+
+export PYTHONIOENCODING="UTF-8"
+
+# Homebrew paths
+
+export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
+export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
+export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
+export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
+export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
+
+# broot source
+
+source "$HOME/.config/broot/launcher/bash/br"
+
+# fzf configs
+
+export FZF_IGNORES=Applications,Library,Movies,Music,Pictures,Qt,node_modules,venv,.DS_Store,.Trash,.cache,.git,.mypy_cache,.npm,.pyenv,.pytest_cache,.stack,.temp,__pycache__
+export FZF_DEFAULT_COMMAND='command fd --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
+export FZF_DEFAULT_OPTS='--ansi --preview "bat --color=always --style=header,grid --line-range :300 {}"'
+export FZF_ALT_C_COMMAND='command fd --type d --type l --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
+export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
+export FZF_COMPLETION_TRIGGER='**'
+
+# nvm
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Starship prompt config file
+
+export STARSHIP_CONFIG=~/dotfiles/starship/starship.toml
+
+# pyenv
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+# poetry
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+# deno
+
+export DENO_INSTALL="/home/$USER/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
