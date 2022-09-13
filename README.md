@@ -3,7 +3,8 @@
 ## 🔨 Full Setup
 
 ```
-cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && ./setup.sh
+cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find . -type f -iname "*.sh" -exec chmod +x {} \;
+ && ./setup.sh
 ```
 
 ## ❔ What does this do?
