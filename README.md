@@ -30,3 +30,6 @@ I took a lot of my initial inspiration from these two repos:
 https://github.com/alrra/dotfiles (for MacOS or Ubuntu)
 
 https://github.com/ruohola/dotfiles (for MacOS)
+
+## TO DO:
+- [ ] edit settings in `/etc/default/grub`
