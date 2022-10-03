@@ -18,12 +18,12 @@ install_pop_shell() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Oh My bash
+# # Oh My bash
 
-install_oh_my_bash() {
-    print_in_purple "\n • Installing Oh My bash \n\n"
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
-}
+# install_oh_my_bash() {
+#     print_in_purple "\n • Installing Oh My bash \n\n"
+#     bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+# }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
