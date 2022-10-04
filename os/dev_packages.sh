@@ -46,26 +46,6 @@ install_brewfile() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# KITTY TERMINAL EMULATOR
-
-install_kitty() {
-
-        print_in_purple "\n • Installing kitty terminal emulator \n\n"
-
-        # download and setup some additional fonts for kitty & starship prompt (installed in previous step with brew)
-        sudo mkdir /usr/share/fonts/nerd-fonts
-        curl https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraMono.zip -o FiraMono.zip \
-            && sudo unzip FiraMono.zip -d /usr/share/fonts/nerd-fonts
-
-        sudo dnf install -y kitty
-
-        mkdir ~/.config/kitty
-        ln ~/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # POSTGRES
 
 install_and_setup_postgres() {
