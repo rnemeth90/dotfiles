@@ -140,8 +140,6 @@ main() {
 
     install_brewfile
 
-    install_kitty
-
     install_and_setup_postgres
 
     nvm_node_yarn

@@ -191,6 +191,14 @@ install_terraform() {
     sudo dnf install terraform -y
 }
 
+install_ranger() {
+
+    print_in_purple "\n • Installing ranger... \n\n"
+    sudo dnf install ranger -y
+}
+
+
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
@@ -220,6 +228,8 @@ main() {
         install_mizu
 
         install_random
+
+        install_ranger
 
         install_terraform
 }
