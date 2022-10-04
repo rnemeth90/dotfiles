@@ -57,6 +57,16 @@ install_VLC() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+install_terminator() {
+
+        print_in_purple "\n • Installing terminator \n\n"
+
+        sudo dnf install -y terminator
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_ulauncher() {
 
         print_in_purple "\n • Installing Ulauncher \n\n"

@@ -24,6 +24,8 @@ create_symlinks() {
         "git/gitconfig"
         "git/gitignore"
 
+        ".config/terminator/config"
+        ".config/terminator/plugins"
     )
 
     local i=""
