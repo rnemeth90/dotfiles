@@ -217,12 +217,8 @@ function set_win_title(){
 main() {
     enable_color_support
 
-    starship_precmd_user_func="set_win_title"
-
     PS2="⚡ "
     export PS2
-
-    eval "$(starship init bash)"
 
     # set_prompts
 }
