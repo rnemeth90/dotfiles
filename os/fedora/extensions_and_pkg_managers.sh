@@ -73,7 +73,7 @@ install_homebrew() {
 
 main() {
 
-	# install_gnome_ext_tweaks_appind
+	install_gnome_ext_tweaks_appind
 
 	add_flatpak_store_and_update
 

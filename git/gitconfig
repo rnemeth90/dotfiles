@@ -117,6 +117,8 @@
 [user]
 
     useConfigOnly = true
+	email = ryannemeth@live.com
+	name = Ryan Nemeth
 
 [include]
 

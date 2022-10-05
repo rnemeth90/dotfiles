@@ -67,6 +67,36 @@ install_terminator() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+install_docker() {
+
+        print_in_purple "\n • Installing docker \n\n"
+
+        sudo dnf install -y docker
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_mutt() {
+
+        print_in_purple "\n • Installing mutt \n\n"
+
+        sudo dnf install -y mutt
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_virtualbox() {
+
+        print_in_purple "\n • Installing Virtual Box \n\n"
+
+        sudo dnf install -y virtualbox
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_ulauncher() {
 
         print_in_purple "\n • Installing Ulauncher \n\n"
@@ -124,11 +154,36 @@ install_helm() {
 
 install_htop() {
     print_in_purple "\n • Installing htop \n\n"
-    sudo dnf install htop -yarn
+    sudo dnf install htop -y
 
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_nmap() {
+    print_in_purple "\n • Installing nmap \n\n"
+    sudo dnf install nmap -y
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_wireshark() {
+    print_in_purple "\n • Installing wireshark \n\n"
+    sudo dnf install wireshark -y
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_tor() {
+    print_in_purple "\n • Installing tor \n\n"
+    sudo dnf install tor -y
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 
 # Kubectl
 
@@ -229,6 +284,8 @@ main() {
 
         install_brave
 
+        install_docker
+
         install_helm
 
         install_htop
@@ -237,11 +294,23 @@ main() {
 
         install_mizu
 
+        install_mutt
+
         install_random
 
         install_ranger
 
+        install_terminator
+
         install_terraform
+
+        install_virtualbox
+
+        install_wireshark
+
+        install_nmap
+
+        install_tor
 }
 
 main
