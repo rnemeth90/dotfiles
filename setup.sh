@@ -170,13 +170,13 @@ main() {
 
     install_extensions_and_pkg_managers
 
-    setup_os_theme_and_terminal_style
+    # setup_os_theme_and_terminal_style
 
     install_apps
 
-    fedora_setup_final
-
     install_dev_packages
+
+    fedora_setup_final
 
 }
 

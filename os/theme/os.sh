@@ -64,9 +64,9 @@ main() {
 
   # install_oh_my_bash
 
-	install_fonts
+	# install_fonts
 
-	style_setup_help
+	# style_setup_help
 
 }
 

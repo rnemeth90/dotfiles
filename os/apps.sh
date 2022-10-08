@@ -171,7 +171,13 @@ install_nmap() {
 install_wireshark() {
     print_in_purple "\n • Installing wireshark \n\n"
     sudo dnf install wireshark -y
+}
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_powertop() {
+    print_in_purple "\n • Installing powertop \n\n"
+    sudo dnf install powertop -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -262,6 +268,12 @@ install_ranger() {
     sudo dnf install ranger -y
 }
 
+install_neofetch() {
+
+    print_in_purple "\n • Installing neofetch... \n\n"
+    sudo dnf install neofetch -y
+}
+
 
 
 # ----------------------------------------------------------------------
@@ -311,6 +323,8 @@ main() {
         install_nmap
 
         install_tor
+
+        install_powertop
 }
 
 main
