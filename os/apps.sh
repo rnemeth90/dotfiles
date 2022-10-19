@@ -274,6 +274,10 @@ install_neofetch() {
     sudo dnf install neofetch -y
 }
 
+install_dhcpdump() {
+  print_in_purple "\n • Installing dhcpdump... \n\n"
+  sudo dnf install dhcpdump -y
+}
 
 
 # ----------------------------------------------------------------------
@@ -295,6 +299,8 @@ main() {
         install_chrome
 
         install_brave
+
+        install_dhcpdump
 
         install_docker
 
