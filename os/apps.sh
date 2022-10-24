@@ -279,6 +279,12 @@ install_dhcpdump() {
   sudo dnf install dhcpdump -y
 }
 
+install_glow() {
+  print_in_purple "\n • Installing glow... \n\n"
+  go get github.com/chrislusf/glow
+  go get github.com/chrislusf/glow/flow
+
+}
 
 # ----------------------------------------------------------------------
 # | Main                                                               |
@@ -303,6 +309,8 @@ main() {
         install_dhcpdump
 
         install_docker
+
+        install_glow
 
         install_helm
 
