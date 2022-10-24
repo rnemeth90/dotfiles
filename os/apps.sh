@@ -281,9 +281,8 @@ install_dhcpdump() {
 
 install_glow() {
   print_in_purple "\n • Installing glow... \n\n"
-  go get github.com/chrislusf/glow
-  go get github.com/chrislusf/glow/flow
-
+  go install github.com/chrislusf/glow@latest
+  go install github.com/chrislusf/glow/flow@latest
 }
 
 # ----------------------------------------------------------------------
