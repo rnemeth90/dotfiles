@@ -2,67 +2,51 @@
 
 declare DOT=$HOME/dotfiles
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "$DOT/setup/utils.sh"
+cd "$(dirname "${BASH_SOURCE[0]}")" &&
+  . "$DOT/setup/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_gnome_ext_tweaks_appind() {
-
-	print_in_purple "\n • Installing gnome extensions, tweaks and shell-extension-appindicator\n\n"
-
-	sudo apt install -y gnome-extensions-app gnome-tweaks
-	sudo apt install -y gnome-shell-extension-appindicator
-
+  print_in_purple "\n • Installing gnome extensions, tweaks and shell-extension-appindicator\n\n"
+  sudo apt install -y gnome-extensions-app gnome-tweaks
+  sudo apt install -y gnome-shell-extension-appindicator
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 add_flatpak_store_and_update() {
-
-	print_in_purple "\n • Add flatpak store and update\n\n"
-
-	flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-	flatpak update
-
+  print_in_purple "\n • Add flatpak store and update\n\n"
+  flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  flatpak update
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_snap() {
-
-	print_in_purple "\n • Installing snap\n\n"
-
-	sudo apt install -y snapd
-	sudo ln -s /var/lib/snapd/snap /snap
-
+  print_in_purple "\n • Installing snap\n\n"
+  sudo apt install -y snapd
+  sudo ln -s /var/lib/snapd/snap /snap
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 enable_extra_rpm_pkgs_and_non_free() {
-
-	print_in_purple "\n • Enable extra rpm pkgs / non-free options / 3rd party options\n\n"
-
-	sudo rpm -Uvh https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-	sudo mint install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-	sudo mint upgrade --refresh
-	sudo dnf groupupdate core
-	sudo dnf install -y rpmfusion-free-release-tainted
-	sudo dnf install -y dnf-plugins-core
-	sudo dnf install -y fedora-workstation-repositories
-
+  print_in_purple "\n • Enable extra rpm pkgs / non-free options / 3rd party options\n\n"
+  sudo rpm -Uvh https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+  sudo mint install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+  sudo mint upgrade --refresh
+  sudo dnf groupupdate core
+  sudo dnf install -y rpmfusion-free-release-tainted
+  sudo dnf install -y dnf-plugins-core
+  sudo dnf install -y fedora-workstation-repositories
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_homebrew() {
-
-	print_in_purple "\n • Installing Homebrew \n\n"
-
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
+  print_in_purple "\n • Installing Homebrew \n\n"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -72,17 +56,11 @@ install_homebrew() {
 # ----------------------------------------------------------------------
 
 main() {
-
-	# install_gnome_ext_tweaks_appind
-
-	add_flatpak_store_and_update
-
-	install_snap
-
-	# enable_extra_rpm_pkgs_and_non_free
-
-	install_homebrew
-
+  # install_gnome_ext_tweaks_appind
+  add_flatpak_store_and_update
+  install_snap
+  # enable_extra_rpm_pkgs_and_non_free
+  install_homebrew
 }
 
 main
