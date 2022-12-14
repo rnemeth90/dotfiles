@@ -2,165 +2,129 @@
 
 declare DOT=$HOME/dotfiles
 
-cd "$(dirname "${BASH_SOURCE[0]}")" \
-    && . "$DOT/setup/utils.sh"
-
+cd "$(dirname "${BASH_SOURCE[0]}")" &&
+  . "$DOT/setup/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_VSCode() {
-
-    print_in_purple "\n • Installing VSCode \n\n"
-
-    sudo apt-get install wget gpg
-    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-    sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-    rm -f packages.microsoft.gpg
-
-    sudo apt install apt-transport-https
-    sudo apt update
-    sudo apt install code # or code-insiders
+  print_in_purple "\n • Installing VSCode \n\n"
+  sudo apt-get install wget gpg
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
+  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  rm -f packages.microsoft.gpg
+  sudo apt install apt-transport-https
+  sudo apt update
+  sudo apt install code -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_VLC() {
-
-        print_in_purple "\n • Installing VLC \n\n"
-
-        sudo apt install -y vlc
-
+  print_in_purple "\n • Installing VLC \n\n"
+  sudo apt install -y vlc
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_terminator() {
-
-        print_in_purple "\n • Installing terminator \n\n"
-
-        sudo apt install -y terminator
-
+  print_in_purple "\n • Installing terminator \n\n"
+  sudo apt install -y terminator
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_docker() {
-
-        print_in_purple "\n • Installing docker \n\n"
-
-        sudo apt install -y docker
-
+  print_in_purple "\n • Installing docker \n\n"
+  sudo apt install -y docker
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_mutt() {
-
-        print_in_purple "\n • Installing mutt \n\n"
-
-        sudo apt install -y mutt
-
+  print_in_purple "\n • Installing mutt \n\n"
+  sudo apt install -y mutt
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_virtualbox() {
-
-        print_in_purple "\n • Installing Virtual Box \n\n"
-
-        sudo apt install -y virtualbox
-
+  print_in_purple "\n • Installing Virtual Box \n\n"
+  sudo apt install -y virtualbox
 }
 
 # - - - - - - - - - - - - - - - - - - - - -   - - - - - - - - - - - - - -
 
 install_chrome() {
   print_in_purple "\n • Installing Chrome \n\n"
-
   wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
   sudo add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
   sudo apt update
-  sudo apt install google-chrome-stable
+  sudo apt install google-chrome-stable -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Brave Browser
 
 install_brave() {
-
-    print_in_purple "\n • Installing Brave \n\n"
-
-    sudo apt install curl
-    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
-    sudo apt update
-    sudo apt install brave-browser
+  print_in_purple "\n • Installing Brave \n\n"
+  sudo apt install curl
+  sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main" | sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+  sudo apt update
+  sudo apt install brave-browser -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Helm
 
 install_helm() {
-    print_in_purple "\n • Installing helm \n\n"
-    curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
-    sudo apt-get install apt-transport-https --yes
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
-    sudo apt-get update
-    sudo apt-get install helm
+  print_in_purple "\n • Installing helm \n\n"
+  curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg >/dev/null
+  sudo apt-get install apt-transport-https --yes
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+  sudo apt-get update
+  sudo apt-get install helm -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# htop
-
 install_htop() {
-    print_in_purple "\n • Installing htop \n\n"
-    sudo apt install htop -y
-
+  print_in_purple "\n • Installing htop \n\n"
+  sudo apt install htop -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_nmap() {
-    print_in_purple "\n • Installing nmap \n\n"
-    sudo apt install nmap -y
-
+  print_in_purple "\n • Installing nmap \n\n"
+  sudo apt install nmap -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_wireshark() {
-    print_in_purple "\n • Installing wireshark \n\n"
-    sudo apt install wireshark -y
+  print_in_purple "\n • Installing wireshark \n\n"
+  sudo apt install wireshark -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_powertop() {
-    print_in_purple "\n • Installing powertop \n\n"
-    sudo apt install powertop -y
+  print_in_purple "\n • Installing powertop \n\n"
+  sudo apt install powertop -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_tor() {
-    print_in_purple "\n • Installing tor \n\n"
-    sudo apt install tor -y
-
+  print_in_purple "\n • Installing tor \n\n"
+  sudo apt install tor -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-
-# Kubectl
-
 install_kubectl() {
-
   print_in_purple "\n • Installing kubectl \n\n"
-
   sudo apt-get install -y ca-certificates curl
   sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
   echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
@@ -170,22 +134,16 @@ install_kubectl() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-install_mizu() {
-
-    print_in_purple "\n • Installing mizu \n\n"
-
-    print_in_purple "\n • Installing mizu \n\n"
-    curl -Lo ~/bin/mizu https://github.com/up9inc/mizu/releases/latest/download/mizu_linux_amd64
-    sudo chmod 755 ~/bin/mizu
+install_kubeshark() {
+  print_in_purple "\n • Installing kubeshark \n\n"
+  sh <(curl -Ls https://kubeshark.co/install)
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_random() {
-
-    print_in_purple "\n • Installing everything else... \n\n"
-
-    sudo apt install -y \
+  print_in_purple "\n • Installing everything else... \n\n"
+  sudo apt install -y \
     apt-transport-https \
     bash-completion \
     build-essential \
@@ -215,29 +173,26 @@ install_random() {
 
 install_terraform() {
 
-    print_in_purple "\n • Installing terraform... \n\n"
-
-    sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
-    wget -O- https://apt.releases.hashicorp.com/gpg | \
-        gpg --dearmor | \
-        sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
-        https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
-        sudo tee /etc/apt/sources.list.d/hashicorp.list
-    sudo apt update
-    sudo apt-get install terraform
+  print_in_purple "\n • Installing terraform... \n\n"
+  sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+  wget -O- https://apt.releases.hashicorp.com/gpg |
+    gpg --dearmor |
+    sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+        https://apt.releases.hashicorp.com $(lsb_release -cs) main" |
+    sudo tee /etc/apt/sources.list.d/hashicorp.list
+  sudo apt update
+  sudo apt-get install terraform -y
 }
 
 install_ranger() {
-
-    print_in_purple "\n • Installing ranger... \n\n"
-    sudo apt install ranger -y
+  print_in_purple "\n • Installing ranger... \n\n"
+  sudo apt install ranger -y
 }
 
 install_neofetch() {
-
-    print_in_purple "\n • Installing neofetch... \n\n"
-    sudo apt install neofetch -y
+  print_in_purple "\n • Installing neofetch... \n\n"
+  sudo apt install neofetch -y
 }
 
 install_dhcpdump() {
@@ -245,54 +200,53 @@ install_dhcpdump() {
   sudo apt install dhcpdump -y
 }
 
-
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
 
 main() {
 
-        install_VSCode
+  install_VSCode
 
-        install_VLC
+  install_VLC
 
-        install_ulauncher
+  install_ulauncher
 
-        install_chrome
+  install_chrome
 
-        install_brave
+  install_brave
 
-        install_dhcpdump
+  install_dhcpdump
 
-        install_docker
+  install_docker
 
-        install_helm
+  install_helm
 
-        install_htop
+  install_htop
 
-        install_kubectl
+  install_kubectl
 
-        install_mizu
+  install_mizu
 
-        install_mutt
+  install_mutt
 
-        install_random
+  install_random
 
-        install_ranger
+  install_ranger
 
-        install_terminator
+  install_terminator
 
-        install_terraform
+  install_terraform
 
-        install_virtualbox
+  install_virtualbox
 
-        install_wireshark
+  install_wireshark
 
-        install_nmap
+  install_nmap
 
-        install_tor
+  install_tor
 
-        install_powertop
+  install_powertop
 }
 
 main
