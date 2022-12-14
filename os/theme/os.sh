@@ -11,7 +11,7 @@ install_pop_shell() {
 
 	print_in_purple "\n • Install pop shell \n\n"
 
-	sudo dnf install -y gnome-shell-extension-pop-shell
+	sudo apt install -y gnome-shell-extension-pop-shell
 
 }
 
@@ -31,7 +31,7 @@ install_fonts() {
 
 	print_in_purple "\n • Install Fonts\n\n"
 
-	sudo dnf install -y fira-code-fonts 'mozilla-fira*' 'google-roboto*'
+	sudo apt install -y fira-code-fonts 'mozilla-fira*' 'google-roboto*'
 
 }
 
@@ -62,7 +62,7 @@ main() {
 
 	# install_pop_shell
 
-  # install_oh_my_bash
+  install_oh_my_bash
 
 	# install_fonts
 

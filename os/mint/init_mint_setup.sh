@@ -19,28 +19,12 @@ set_hostname() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-set_dnf_configs() {
 
-    print_in_purple "\n • Setting DNF configs... \n\n"
-
-    echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
-    echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
-    echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
-
-    cat /etc/dnf/dnf.conf
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-upgrade_dnf() {
+upgrade_apt() {
 
     print_in_purple "\n • Upgrading... \n\n"
 
-    sudo dnf upgrade --refresh
-    sudo dnf check
-    sudo dnf autoremove
-
+    sudo apt upgrade -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -64,7 +48,7 @@ install_xclip() {
 
     print_in_purple "\n • Installing xclip for setup process... \n\n"
 
-    sudo dnf install -y xclip
+    sudo apt install -y xclip
 
 }
 
@@ -78,9 +62,7 @@ main() {
 
     set_hostname
 
-    set_dnf_configs
-
-    upgrade_dnf
+    upgrade_apt
 
     #update_device_firmware
 

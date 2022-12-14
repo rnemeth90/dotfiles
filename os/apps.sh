@@ -5,44 +5,22 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "$DOT/setup/utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-install_tlp_battery_management() {
-
-        print_in_purple "\n • Installing tlp battery management \n\n"
-
-        sudo dnf install -y tlp tlp-rdw
-
-}
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-install_multimedia_codecs() {
+install_VSCode() {
 
-        print_in_purple "\n • Installing multimedia codecs... \n\n"
+    print_in_purple "\n • Installing VSCode \n\n"
 
-        sudo dnf groupupdate sound-and-video
-        sudo dnf install -y libdvdcss
-        sudo dnf install -y gstreamer1-plugins-{bad-\*,good-\*,ugly-\*,base} gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel ffmpeg gstreamer-ffmpeg
-        sudo dnf install -y lame\* --exclude=lame-devel
-        sudo dnf group upgrade --with-optional Multimedia
+    sudo apt-get install wget gpg
+    wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+    sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+    sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+    rm -f packages.microsoft.gpg
 
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-install_VSCode_and_set_inotify_max_user_watches() {
-
-        print_in_purple "\n • Installing VSCode \n\n"
-
-        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-        sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
-        sudo dnf check-update
-        sudo dnf install -y code
-
-        echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
-        sudo sysctl -p
-
+    sudo apt install apt-transport-https
+    sudo apt update
+    sudo apt install code # or code-insiders
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -51,7 +29,7 @@ install_VLC() {
 
         print_in_purple "\n • Installing VLC \n\n"
 
-        sudo dnf install -y vlc
+        sudo apt install -y vlc
 
 }
 
@@ -61,7 +39,7 @@ install_terminator() {
 
         print_in_purple "\n • Installing terminator \n\n"
 
-        sudo dnf install -y terminator
+        sudo apt install -y terminator
 
 }
 
@@ -71,7 +49,7 @@ install_docker() {
 
         print_in_purple "\n • Installing docker \n\n"
 
-        sudo dnf install -y docker
+        sudo apt install -y docker
 
 }
 
@@ -81,7 +59,7 @@ install_mutt() {
 
         print_in_purple "\n • Installing mutt \n\n"
 
-        sudo dnf install -y mutt
+        sudo apt install -y mutt
 
 }
 
@@ -91,35 +69,19 @@ install_virtualbox() {
 
         print_in_purple "\n • Installing Virtual Box \n\n"
 
-        sudo dnf install -y virtualbox
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-install_ulauncher() {
-
-        print_in_purple "\n • Installing Ulauncher \n\n"
-
-        sudo dnf install -y ulauncher
-
-        # https://github.com/Ulauncher/Ulauncher/wiki/Hotkey-In-Wayland
-        sudo dnf install -y wmctrl
+        sudo apt install -y virtualbox
 
 }
 
 # - - - - - - - - - - - - - - - - - - - - -   - - - - - - - - - - - - - -
 
-# Google Chrome
-
 install_chrome() {
+  print_in_purple "\n • Installing Chrome \n\n"
 
-        print_in_purple "\n • Installing Chrome \n\n"
-
-        sudo dnf config-manager --set-enabled google-chrome
-
-        sudo dnf install -y google-chrome-stable
-
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  sudo add-apt-repository "deb http://dl.google.com/linux/chrome/deb/ stable main"
+  sudo apt update
+  sudo apt install google-chrome-stable
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -130,13 +92,11 @@ install_brave() {
 
     print_in_purple "\n • Installing Brave \n\n"
 
-    sudo dnf install dnf-plugins-core
-
-    sudo dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/
-
-    sudo rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
-
-    sudo dnf install brave-browser
+    sudo apt install curl
+    sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg arch=amd64] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
+    sudo apt update
+    sudo apt install brave-browser
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -145,7 +105,11 @@ install_brave() {
 
 install_helm() {
     print_in_purple "\n • Installing helm \n\n"
-    sudo dnf install helm -y
+    curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg > /dev/null
+    sudo apt-get install apt-transport-https --yes
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/helm.gpg] https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+    sudo apt-get update
+    sudo apt-get install helm
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -154,7 +118,7 @@ install_helm() {
 
 install_htop() {
     print_in_purple "\n • Installing htop \n\n"
-    sudo dnf install htop -y
+    sudo apt install htop -y
 
 }
 
@@ -162,7 +126,7 @@ install_htop() {
 
 install_nmap() {
     print_in_purple "\n • Installing nmap \n\n"
-    sudo dnf install nmap -y
+    sudo apt install nmap -y
 
 }
 
@@ -170,21 +134,21 @@ install_nmap() {
 
 install_wireshark() {
     print_in_purple "\n • Installing wireshark \n\n"
-    sudo dnf install wireshark -y
+    sudo apt install wireshark -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_powertop() {
     print_in_purple "\n • Installing powertop \n\n"
-    sudo dnf install powertop -y
+    sudo apt install powertop -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_tor() {
     print_in_purple "\n • Installing tor \n\n"
-    sudo dnf install tor -y
+    sudo apt install tor -y
 
 }
 
@@ -195,18 +159,13 @@ install_tor() {
 
 install_kubectl() {
 
-print_in_purple "\n • Installing kubectl \n\n"
+  print_in_purple "\n • Installing kubectl \n\n"
 
-cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
-[kubernetes]
-name=Kubernetes
-baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
-enabled=1
-gpgcheck=1
-gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
-EOF
-sudo yum install -y kubectl
-}
+  sudo apt-get install -y ca-certificates curl
+  sudo curl -fsSLo /etc/apt/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+  echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+  sudo apt-get update
+  sudo apt-get install -y kubectl
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -225,7 +184,7 @@ install_random() {
 
     print_in_purple "\n • Installing everything else... \n\n"
 
-    sudo dnf install -y \
+    sudo apt install -y \
     apt-transport-https \
     bash-completion \
     build-essential \
@@ -257,26 +216,32 @@ install_terraform() {
 
     print_in_purple "\n • Installing terraform... \n\n"
 
-    sudo dnf install -y dnf-plugins-core -y
-    sudo dnf config-manager --add-repo https://rpm.releases.hashicorp.com/$release/hashicorp.repo
-    sudo dnf install terraform -y
+    sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
+    wget -O- https://apt.releases.hashicorp.com/gpg | \
+        gpg --dearmor | \
+        sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
+    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] \
+        https://apt.releases.hashicorp.com $(lsb_release -cs) main" | \
+        sudo tee /etc/apt/sources.list.d/hashicorp.list
+    sudo apt update
+    sudo apt-get install terraform
 }
 
 install_ranger() {
 
     print_in_purple "\n • Installing ranger... \n\n"
-    sudo dnf install ranger -y
+    sudo apt install ranger -y
 }
 
 install_neofetch() {
 
     print_in_purple "\n • Installing neofetch... \n\n"
-    sudo dnf install neofetch -y
+    sudo apt install neofetch -y
 }
 
 install_dhcpdump() {
   print_in_purple "\n • Installing dhcpdump... \n\n"
-  sudo dnf install dhcpdump -y
+  sudo apt install dhcpdump -y
 }
 
 
@@ -286,11 +251,7 @@ install_dhcpdump() {
 
 main() {
 
-        install_tlp_battery_management
-
-        install_multimedia_codecs
-
-        install_VSCode_and_set_inotify_max_user_watches
+        install_VSCode
 
         install_VLC
 

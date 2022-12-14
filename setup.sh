@@ -11,11 +11,11 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # BASIC DNF SETTINGS + UPGRADES AND DEVICE FIRMWARE UPDATES
 
-init_fedora_setup() {
+init_mint_setup() {
 
     print_in_purple "\n • Starting initial Fedora setup \n\n"
 
-    ./os/fedora/init_fedora_setup.sh
+    ./os/mint/init_mint_setup.sh
 
     print_in_green "\n • Initial setup done! \n\n"
 
@@ -65,7 +65,7 @@ install_extensions_and_pkg_managers() {
 
     print_in_purple "\n • Installing basic extensions and pkg managers \n\n"
 
-    ./os/fedora/extensions_and_pkg_managers.sh
+    ./os/mint/extensions_and_pkg_managers.sh
 
     print_in_green "\n • Finished installing basic extensions and pkg managers! \n\n"
 
@@ -123,7 +123,7 @@ install_apps() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-fedora_setup_final() {
+mint_setup_final() {
 
     # cleanup
 
@@ -162,7 +162,7 @@ fedora_setup_final() {
 
 main() {
 
-    init_fedora_setup
+    init_mint_setup
 
     bash_and_git_configs
 
@@ -176,7 +176,7 @@ main() {
 
     install_dev_packages
 
-    fedora_setup_final
+    mint_setup_final
 
 }
 

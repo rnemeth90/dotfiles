@@ -7,32 +7,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# DEV TOOLS
-
-dev_tools_group() {
-
-    print_in_purple "\n • Installing the Homebrew recommended dev tools with yum\n\n"
-
-    sudo yum groupinstall 'Development Tools'
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# CRONIE
-
-install_cronie() {
-
-    print_in_purple "\n • Installing cronie for cronjobs\n\n"
-
-    sudo dnf install -y cronie
-
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# BREWFILE
-
 install_brewfile() {
 
     print_in_purple "\n • Installing Brewfile from brew/Brewfile\n\n"
@@ -53,7 +27,7 @@ install_and_setup_postgres() {
     print_in_purple "\n • Installing and setting up postgres\n\n"
 
     # Install, init db, enable and start service
-    sudo dnf install -y postgresql-server postgresql-contrib
+    sudo apt install -y postgresql-server postgresql-contrib
     sudo /usr/bin/postgresql-setup --initdb
     sudo systemctl enable postgresql
     sudo systemctl start postgresql
@@ -98,33 +72,39 @@ install_typescript() {
 
     print_in_purple "\n • Installing typescript globally\n\n"
 
-    npm install -g typescript
-
+    sudo apt install -y node-typescript
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# AzCli
 
 install_az_cli() {
 
     print_in_purple "\n • Installing Azure Cli \n\n"
 
-    sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
-    sudo dnf install -y https://packages.microsoft.com/config/rhel/8/packages-microsoft-prod.rpm
-    sudo dnf install azure-cli -y
+    sudo apt-get update
+    sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+    curl -sL https://packages.microsoft.com/keys/microsoft.asc |
+      gpg --dearmor |
+      sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+    AZ_REPO=$(lsb_release -cs)
+    echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
+    sudo tee /etc/apt/sources.list.d/azure-cli.list
+    sudo apt-get update
+    sudo apt-get install azure-cli
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# dotnet
-
 install_dotnet() {
-    print_in_purple "\n • Installing dotnet \n\n"
+  print_in_purple "\n • Installing dotnet \n\n"
 
-    sudo dnf install dotnet-sdk-6.0 -y
-    sudo dnf install aspnetcore-runtime-6.0 -y
-    sudo dnf install dotnet-runtime-6.0 -y
+  wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  sudo dpkg -i packages-microsoft-prod.deb
+  rm packages-microsoft-prod.deb
+  sudo apt-get update && \
+    sudo apt-get install -y dotnet-sdk-7.0
+  sudo apt-get update && \
+    sudo apt-get install -y aspnetcore-runtime-7.0
 }
 
 
@@ -133,10 +113,6 @@ install_dotnet() {
 # ----------------------------------------------------------------------
 
 main() {
-
-	dev_tools_group
-
-    install_cronie
 
     install_brewfile
 

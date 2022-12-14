@@ -11,8 +11,8 @@ install_gnome_ext_tweaks_appind() {
 
 	print_in_purple "\n • Installing gnome extensions, tweaks and shell-extension-appindicator\n\n"
 
-	sudo dnf install -y gnome-extensions-app gnome-tweaks
-	sudo dnf install -y gnome-shell-extension-appindicator
+	sudo apt install -y gnome-extensions-app gnome-tweaks
+	sudo apt install -y gnome-shell-extension-appindicator
 
 }
 
@@ -33,7 +33,7 @@ install_snap() {
 
 	print_in_purple "\n • Installing snap\n\n"
 
-	sudo dnf install -y snapd
+	sudo apt install -y snapd
 	sudo ln -s /var/lib/snapd/snap /snap
 
 }
@@ -45,9 +45,9 @@ enable_extra_rpm_pkgs_and_non_free() {
 	print_in_purple "\n • Enable extra rpm pkgs / non-free options / 3rd party options\n\n"
 
 	sudo rpm -Uvh https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-	sudo dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+	sudo mint install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-	sudo dnf upgrade --refresh
+	sudo mint upgrade --refresh
 	sudo dnf groupupdate core
 	sudo dnf install -y rpmfusion-free-release-tainted
 	sudo dnf install -y dnf-plugins-core
@@ -73,13 +73,13 @@ install_homebrew() {
 
 main() {
 
-	install_gnome_ext_tweaks_appind
+	# install_gnome_ext_tweaks_appind
 
 	add_flatpak_store_and_update
 
 	install_snap
 
-	enable_extra_rpm_pkgs_and_non_free
+	# enable_extra_rpm_pkgs_and_non_free
 
 	install_homebrew
 
