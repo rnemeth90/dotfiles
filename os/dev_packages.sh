@@ -27,7 +27,7 @@ install_and_setup_postgres() {
     print_in_purple "\n • Installing and setting up postgres\n\n"
 
     # Install, init db, enable and start service
-    sudo apt install -y postgresql-server postgresql-contrib
+    sudo apt install -y postgresql postgresql-contrib
     sudo /usr/bin/postgresql-setup --initdb
     sudo systemctl enable postgresql
     sudo systemctl start postgresql
