@@ -36,7 +36,7 @@ bash_and_git_configs() {
   ./setup/create_symbolic_links.sh
   ./shell/create_local_shellconfig.sh
   ./git/create_local_gitconfig.sh
-  ./os/theme/main.sh
+  #./os/theme/main.sh
 
   print_in_green "\n • Bash and git configs done! \n\n"
 
