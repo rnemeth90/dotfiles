@@ -1,3 +1,5 @@
+# This can be improved but I am lazy
+
 #!/bin/bash
 
 declare DOT=$HOME/dotfiles
@@ -65,15 +67,64 @@ create_symlinks() {
 
 }
 
+create_config_symlinks() {
+
+  # DO NOT INCLUDE THE LAST '/' IN THE PATHS BELOW!!
+  declare -a FILES_TO_SYMLINK=(
+    ".config/autostart"
+    ".config/terminator"
+  )
+
+  local i=""
+  local sourceFile=""
+  local targetFile=""
+
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  for i in "${FILES_TO_SYMLINK[@]}"; do
+
+    sourceFile="$(cd .. && pwd)/$i"
+    targetFile="$HOME/.config/$(printf "%s" "$i" | sed 's:.*/::')"
+
+    if [ ! -e "$targetFile" ]; then
+
+      execute \
+        "ln -fs $sourceFile $targetFile" \
+        "$targetFile → $sourceFile"
+
+    elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+      print_success "$targetFile → $sourceFile"
+    else
+
+      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+      if answer_is_yes; then
+
+        rm -rf "$targetFile"
+
+        execute \
+          "ln -fs $sourceFile $targetFile" \
+          "$targetFile → $sourceFile"
+
+      else
+        print_error "$targetFile → $sourceFile"
+      fi
+
+    fi
+
+  done
+
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
-  print_in_purple "\n • Create symbolic links\n\n"
-  create_symlinks "$@"
+  # print_in_purple "\n • Create symbolic links\n\n"
+  # create_symlinks "$@"
 
   print_in_purple "\n • Linking config dirs\n\n"
-  ln -s ~/dotfiles/.config/autostart/ ~/.config/autostart
-  ln -s ~/dotfiles/.config/terminator/ ~/.config/terminator
+  create_config_symlinks "$@"
+  # ln -s ~/dotfiles/.config/autostart/ ~/.config/autostart
+  # ln -s ~/dotfiles/.config/terminator/ ~/.config/terminator
 }
 
 main "$@"
