@@ -9,9 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 # | Functions for fresh Fedora OS setup for development                |
 # ----------------------------------------------------------------------
 
-# BASIC DNF SETTINGS + UPGRADES AND DEVICE FIRMWARE UPDATES
-
-init_mint_setup() {
+init_setup() {
 
   print_in_purple "\n • Starting initial Fedora setup \n\n"
 
@@ -36,7 +34,6 @@ bash_and_git_configs() {
   ./setup/create_symbolic_links.sh
   ./shell/create_local_shellconfig.sh
   ./git/create_local_gitconfig.sh
-  #./os/theme/main.sh
 
   print_in_green "\n • Bash and git configs done! \n\n"
 
@@ -148,7 +145,7 @@ mint_setup_final() {
 
 main() {
 
-  init_mint_setup
+  init_setup
 
   bash_and_git_configs
 
@@ -156,7 +153,7 @@ main() {
 
   install_extensions_and_pkg_managers
 
-  # setup_os_theme_and_terminal_style
+  setup_os_theme_and_terminal_style
 
   install_apps
 

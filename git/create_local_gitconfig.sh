@@ -23,8 +23,8 @@ create_gitconfig_local() {
 [init]
   defaultBranch = main
 [user]
-    name =
-    email =
+    name = ryan nemeth
+    email = ryannemeth@live.com
     # signingkey =" \
       >>"$FILE_PATH"
   fi

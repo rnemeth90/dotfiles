@@ -136,6 +136,16 @@ install_tor() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+install_powershell() {
+  print_in_purple "\n • Installing tor \n\n"
+  sudo apt update  && sudo apt install -y curl gnupg apt-transport-https
+  curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
+  sudo apt update && sudo apt install -y powershell
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_kubectl() {
   print_in_purple "\n • Installing kubectl \n\n"
   sudo apt-get install -y ca-certificates curl
@@ -213,6 +223,11 @@ install_dhcpdump() {
   sudo apt install dhcpdump -y
 }
 
+install_plank() {
+  print_in_purple "\n • Installing plank... \n\n"
+  sudo apt install plank -y
+}
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
@@ -249,7 +264,7 @@ main() {
 
   install_terminator
 
-  install_terraform
+  # install_terraform
 
   install_virtualbox
 
@@ -260,6 +275,12 @@ main() {
   install_tor
 
   install_powertop
+
+  install_1password
+
+  install_powershell
+
+  install_plank
 }
 
 main

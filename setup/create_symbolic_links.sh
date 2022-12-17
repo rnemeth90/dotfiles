@@ -23,9 +23,6 @@ create_symlinks() {
 
     "git/gitconfig"
     "git/gitignore"
-
-    ".config/terminator/config"
-    ".config/terminator/plugins"
   )
 
   local i=""
@@ -73,6 +70,10 @@ create_symlinks() {
 main() {
   print_in_purple "\n • Create symbolic links\n\n"
   create_symlinks "$@"
+
+  print_in_purple "\n • Linking config dirs\n\n"
+  ln -s ~/dotfiles/.config/autostart/ ~/.config/autostart
+  ln -s ~/dotfiles/.config/terminator/ ~/.config/terminator
 }
 
 main "$@"
