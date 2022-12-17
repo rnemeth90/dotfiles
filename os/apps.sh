@@ -44,6 +44,10 @@ install_VLC() {
 install_terminator() {
   print_in_purple "\n • Installing terminator \n\n"
   sudo apt install -y terminator
+  pip install requests
+  mkdir -p $HOME/.config/terminator/plugins
+  wget https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py"
+
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
