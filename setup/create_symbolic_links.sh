@@ -13,6 +13,7 @@ create_symlinks() {
 
   declare -a FILES_TO_SYMLINK=(
 
+    "shell/bash_aliases.d"
     "shell/bash_aliases"
     "shell/bash_autocompletion"
     "shell/bash_exports"
@@ -73,6 +74,7 @@ create_config_symlinks() {
   declare -a FILES_TO_SYMLINK=(
     ".config/autostart"
     ".config/terminator"
+    ".config/plank"
   )
 
   local i=""
@@ -84,7 +86,9 @@ create_config_symlinks() {
   for i in "${FILES_TO_SYMLINK[@]}"; do
 
     sourceFile="$(cd .. && pwd)/$i"
-    targetFile="$HOME/.config/$(printf "%s" "$i" | sed 's:.*/::')"
+    # targetFile="$HOME/.config/$(printf "%s" "$i" | sed 's:.*/::')/"
+    targetFile="$HOME/.config/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+
 
     if [ ! -e "$targetFile" ]; then
 
@@ -118,13 +122,16 @@ create_config_symlinks() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
-  # print_in_purple "\n • Create symbolic links\n\n"
-  # create_symlinks "$@"
+  print_in_purple "\n • Create symbolic links\n\n"
+  create_symlinks "$@"
 
   print_in_purple "\n • Linking config dirs\n\n"
   create_config_symlinks "$@"
-  # ln -s ~/dotfiles/.config/autostart/ ~/.config/autostart
-  # ln -s ~/dotfiles/.config/terminator/ ~/.config/terminator
+
+  print_in_purple "\n • Linking bin dir\n\n"
+  sudo ln -s ~/dotfiles/bin ~/bin
+  print_success "~/dotfiles/bin → ~/bin"
+
 }
 
 main "$@"

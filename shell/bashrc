@@ -110,15 +110,22 @@ source "$OSH"/oh-my-bash.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias bashconfig="mate ~/.bashrc"
-# alias ohmybash="mate ~/.oh-my-bash"
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Source files from my aliases directory
+aliases_dir=~/.bash_aliases.d
+if [[ -d $aliases_dir && -r $aliases_dir && -x $aliases_dir ]]; then
+    for i in "$aliases_dir"/*; do
+        [[ -f $i && -r $i ]] && . "$i"
+    done
+fi
 
 # (more) EXPORTS
 export GOPATH="/repos/golang/"
 export GOBIN="/repos/golang/bin"
-export PATH="$GOBIN:$PATH"
+export PATH="/home/ryan/bin:$GOBIN:$PATH"
 
 #PATH=/repos:$GOPATH:$GOBIN:$PATH
 # random colorscript when opening terminal
@@ -126,3 +133,27 @@ export PATH="$GOBIN:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Sets title to new terminals (windows/tabs)
+# https://askubuntu.com/a/886695
+set-title() {
+    if [[ -z "$ORIG" ]]; then
+        ORIG="$PS1"
+    fi
+    TITLE="\[\e]2;$*\a\]"
+    PS1="${ORIG}${TITLE}"
+}
+# Title I want: '(FirstFolderInPath) LastFolderInPath'
+set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Correct commands using thefuck (https://github.com/nvbn/thefuck)
+# aliased as 'fk' since I can't spell 'fuck' correctly to save my life...
+command thefuck &> /dev/null && eval "$(thefuck --alias fk)"
+
+# link scripts/tools
+if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
+  ln -s /repos/shell-scripts ~/bin/scripts
+  chmod -R +x ~/bin/scripts
+fi

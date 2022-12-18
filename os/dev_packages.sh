@@ -78,24 +78,67 @@ install_dotnet() {
   sudo apt-get install -y dotnet-runtime-7.0
 }
 
+install_golang() {
+  print_in_purple "\n • Installing golang \n\n"
+  sudo apt update -y && sudo apt upgrade -y
+  sudo apt install golang-go
+  sudo apt install gccgo-go
+}
+
+install_vim() {
+  print_in_purple "\n • Installing vim \n\n"
+  sudo apt update -y && sudo apt upgrade -y
+  sudo apt install vim -y
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_powershell() {
+  print_in_purple "\n • Installing tor \n\n"
+  sudo apt update  && sudo apt install -y curl gnupg apt-transport-https
+  curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
+  sudo apt update && sudo apt install -y powershell
+}
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_docker() {
+  print_in_purple "\n • Installing docker \n\n"
+  sudo apt install -y docker
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_VSCode() {
+  print_in_purple "\n • Installing VSCode \n\n"
+  sudo apt-get install wget gpg
+  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
+  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
+  rm -f packages.microsoft.gpg
+  sudo apt install apt-transport-https
+  sudo apt update
+  sudo apt install code -y
+}
+
+
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
 
 main() {
-
   install_brewfile
-
   install_and_setup_postgres
-
   nvm_node_yarn
-
   install_typescript
-
   # install_az_cli
-
   install_dotnet
-
+  install_powershell
+  install_docker
+  install_VSCode
 }
 
 main
