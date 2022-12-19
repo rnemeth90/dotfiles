@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias gstatus='git status'
 alias g=git

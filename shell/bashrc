@@ -21,7 +21,7 @@ OSH_THEME="clean"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_OSH_DAYS=13
@@ -30,7 +30,7 @@ OSH_THEME="clean"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -46,7 +46,7 @@ OSH_THEME="clean"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $OSH/custom?
 # OSH_CUSTOM=/path/to/new-custom-folder
@@ -150,10 +150,12 @@ set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 
 # Correct commands using thefuck (https://github.com/nvbn/thefuck)
 # aliased as 'fk' since I can't spell 'fuck' correctly to save my life...
-command thefuck &> /dev/null && eval "$(thefuck --alias fk)"
+# command thefuck &> /dev/null && eval "$(thefuck --alias fk)"
+eval "$(thefuck --alias fk)"
 
 # link scripts/tools
 if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
   ln -s /repos/shell-scripts ~/bin/scripts
   chmod -R +x ~/bin/scripts
 fi
+

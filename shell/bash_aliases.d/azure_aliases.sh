@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 alias azsubs='az account list -o table'
 alias azprod='az account set -s production'
 alias aznonprod='az account set -s non-production'

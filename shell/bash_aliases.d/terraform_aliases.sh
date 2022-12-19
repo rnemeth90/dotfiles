@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias tf='terraform'
 alias tfi='terraform init'

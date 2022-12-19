@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 alias k=kubecolor
 alias kgp='k get pods -o wide'

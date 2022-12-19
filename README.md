@@ -8,7 +8,7 @@ cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find
 
 ## ❔ What does this do?
 
-These are the base "dotfiles" that I use for setting up a new freshly installed [**Fedora OS**](https://getfedora.org/) (35) to my tastes. The goal of the setup.sh script is to basically setup everything the way I like. Broadly said it covers:
+These are the base "dotfiles" that I use for setting up a new freshly installed [**Linux Mint OS**] to my tastes. The goal of the setup.sh script is to basically setup everything the way I like. Broadly said it covers:
 
 - initial updates
 - installing some basic gnome extensions, linux package managers (snap+flatpak) and development related package managers (homebrew, nvm+node)
