@@ -205,16 +205,29 @@ install_dhcpdump() {
 
 install_plank() {
   print_in_purple "\n • Installing plank... \n\n"
+  sudo apt update -y
   sudo apt install plank -y
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_thefuck() {
-  sudo apt update
+  print_in_purple "\n • Installing theFuck... \n\n"
+  sudo apt update -y
   sudo apt install python3-dev python3-pip python3-setuptools
   sudo pip3 install thefuck
 }
+
+install_stacer() {
+  print_in_purple "\n • Installing stacer... \n\n"
+  sudo apt update -y
+  sudo apt install stacer -y
+}
+
+install_circumflex() {
+  brew install circumflex
+}
+
 
 # ----------------------------------------------------------------------
 # | Main                                                               |
@@ -242,6 +255,7 @@ main() {
   install_1password
   install_plank
   install_thefuck
+  install_circumflex
 }
 
 main

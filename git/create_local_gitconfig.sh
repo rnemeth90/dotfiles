@@ -110,6 +110,9 @@ clone_golang_repos() {
     "git@github.com:rnemeth90/hasher.git"
     "git@github.com:rnemeth90/httpstat.git"
     "git@github.com:rnemeth90/learngo.git"
+    "git@github.com:rnemeth90/devopsforgo.git"
+    "git@github.com:rnemeth90/go-practice.git"
+    "git@github.com:rnemeth90/learngowithtests.git"
   )
 
   local i=""
