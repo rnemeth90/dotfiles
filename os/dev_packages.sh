@@ -81,8 +81,7 @@ install_dotnet() {
 install_golang() {
   print_in_purple "\n • Installing golang \n\n"
   sudo apt update -y && sudo apt upgrade -y
-  sudo apt install golang-go
-  sudo apt install gccgo-go
+  sudo apt install golang-go gccgo-go golang-golang-x-tools -y
 }
 
 install_vim() {
@@ -106,7 +105,13 @@ install_powershell() {
 
 install_docker() {
   print_in_purple "\n • Installing docker \n\n"
-  sudo apt install -y docker
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
+  sudo apt update -y
+  sudo apt -y install docker-ce
+  sudo usermod -aG docker $(whoami)
+  newgrp docker
+  docker --version
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -124,12 +129,19 @@ install_VSCode() {
 }
 
 install_ghcli() {
+  print_in_purple "\n • Installing github cli \n\n"
   type -p curl >/dev/null || sudo apt install curl -y
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
   && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
   && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
   && sudo apt update \
   && sudo apt install gh -y
+}
+
+install_sqlite() {
+  print_in_purple "\n • Installing VSCode \n\n"
+  sudo apt update -y && \
+  sudo apt install sqlite sqlitebrowser -y
 }
 
 # ----------------------------------------------------------------------
@@ -149,6 +161,7 @@ main() {
   install_vim
   install_golang
   install_ghcli
+  install_sqlite
 }
 
 main
