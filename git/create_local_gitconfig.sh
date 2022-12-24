@@ -50,6 +50,7 @@ clone_repos() {
     "git@github.com:rnemeth90/DungeonMaster_v2.git"
     "git@github.com:rnemeth90/azure-code.git"
     "git@github.com:rnemeth90/pod-inspector.git"
+    "git@github.com:rnemeth90/pure-sh-bible.git"
   )
 
   local i=""
