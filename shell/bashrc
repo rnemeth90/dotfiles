@@ -125,6 +125,7 @@ fi
 # (more) EXPORTS
 export GOPATH="/repos/golang/"
 export GOBIN="/repos/golang/bin"
+export GOMODCACHE="/var/cache/go"
 export PATH="/home/ryan/bin:$GOBIN:$PATH"
 
 #PATH=/repos:$GOPATH:$GOBIN:$PATH

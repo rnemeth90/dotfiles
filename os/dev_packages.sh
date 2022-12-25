@@ -82,6 +82,7 @@ install_golang() {
   print_in_purple "\n • Installing golang \n\n"
   sudo apt update -y && sudo apt upgrade -y
   sudo apt install golang-go gccgo-go golang-golang-x-tools -y
+  sudo mkdir -p /var/cache/go
 }
 
 install_vim() {

@@ -51,6 +51,7 @@ clone_repos() {
     "git@github.com:rnemeth90/azure-code.git"
     "git@github.com:rnemeth90/pod-inspector.git"
     "git@github.com:rnemeth90/pure-sh-bible.git"
+    "git@github.com:rnemeth90/notes.git"
   )
 
   local i=""
