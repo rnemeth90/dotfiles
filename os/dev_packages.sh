@@ -78,10 +78,12 @@ install_dotnet() {
   sudo apt-get install -y dotnet-runtime-7.0
 }
 
-install_golang() {
+install_golang_and_friends() {
   print_in_purple "\n • Installing golang \n\n"
   sudo apt update -y && sudo apt upgrade -y
   sudo apt install golang-go gccgo-go golang-golang-x-tools -y
+  sudo apt install hugo -y
+  go install github.com/spf13/cobra-cli@latest
   sudo mkdir -p /var/cache/go
 }
 
@@ -160,7 +162,7 @@ main() {
   install_docker
   install_VSCode
   install_vim
-  install_golang
+  install_golang_and_friends
   install_ghcli
   install_sqlite
 }
