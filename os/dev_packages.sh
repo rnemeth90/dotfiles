@@ -159,7 +159,7 @@ main() {
   # install_az_cli
   install_dotnet
   install_powershell
-  install_docker
+  #install_docker
   install_VSCode
   install_vim
   install_golang_and_friends

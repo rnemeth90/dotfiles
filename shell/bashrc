@@ -160,3 +160,5 @@ if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
   chmod -R +x ~/bin/scripts
 fi
 
+
+eval "$(thefuck --alias)"

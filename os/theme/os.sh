@@ -27,7 +27,7 @@ install_fonts() {
 main() {
   print_in_purple "\n • Start setting up OS theme...\n\n"
   install_fonts
-  install_oh_my_bash
+  #install_oh_my_bash
 }
 
 main

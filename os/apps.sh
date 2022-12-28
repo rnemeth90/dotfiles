@@ -218,14 +218,26 @@ install_thefuck() {
   sudo pip3 install thefuck
 }
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_stacer() {
   print_in_purple "\n • Installing stacer... \n\n"
   sudo apt update -y
   sudo apt install stacer -y
 }
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 install_circumflex() {
+  print_in_purple "\n • Installing circumflex... \n\n"
   brew install circumflex
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_alpine() {
+  print_in_purple "\n • Installing alpine... \n\n"
+  sudo apt install alpine -y
 }
 
 
@@ -256,6 +268,7 @@ main() {
   install_plank
   install_thefuck
   install_circumflex
+  install_alpine
 }
 
 main
