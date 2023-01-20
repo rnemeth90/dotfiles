@@ -240,6 +240,10 @@ install_alpine() {
   sudo apt install alpine -y
 }
 
+install_tldr() {
+  print_in_purple "\n • Installing tldr... \n\n"
+  sudo npm install -g tldr
+}
 
 # ----------------------------------------------------------------------
 # | Main                                                               |
@@ -269,6 +273,7 @@ main() {
   install_thefuck
   install_circumflex
   install_alpine
+  install_tldr
 }
 
 main
