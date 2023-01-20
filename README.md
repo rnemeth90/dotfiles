@@ -34,4 +34,4 @@ https://github.com/ruohola/dotfiles (for MacOS)
 ## TO DO:
 - [ ] edit settings in `/etc/default/grub`
 - [ ] thefuck install is not currently working
-- [ ] install tldr https://tldr.sh/
+- [x] install tldr https://tldr.sh/
