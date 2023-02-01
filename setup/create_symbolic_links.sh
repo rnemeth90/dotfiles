@@ -26,6 +26,8 @@ create_symlinks() {
 
     "git/gitconfig"
     "git/gitignore"
+
+    "golang/cobra.yaml"
   )
 
   local i=""
