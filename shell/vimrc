@@ -56,6 +56,8 @@ Plug 'vim-syntastic/syntastic'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'towolf/vim-helm'
 Plug 'yatli/coc-powershell'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
