@@ -23,6 +23,7 @@ create_symlinks() {
     "shell/bashrc"
     "shell/curlrc"
     "shell/inputrc"
+    "shell/vimrc"
 
     "git/gitconfig"
     "git/gitignore"
