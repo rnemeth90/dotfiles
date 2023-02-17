@@ -79,6 +79,12 @@ Plug 'towolf/vim-helm'
 Plug 'yatli/coc-powershell'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
