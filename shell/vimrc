@@ -76,12 +76,14 @@ Plug 'hashivim/vim-terraform'
 Plug 'vim-syntastic/syntastic'
 Plug 'juliosueiras/vim-terraform-completion'
 Plug 'towolf/vim-helm'
-Plug 'yatli/coc-powershell'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
+
+" https://github.com/coc-extensions/coc-powershell
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
