@@ -85,6 +85,8 @@ Plug 'roxma/vim-hug-neovim-rpc'
 " https://github.com/coc-extensions/coc-powershell
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+let g:coc_global_extensions=[ 'coc-powershell', 'coc-snippets' ]
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
 
@@ -690,3 +692,11 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 
 " games
 Plug 'ThePrimeagen/vim-be-good'
+
+" c#
+Plug 'OmniSharp/omnisharp-vim'
+Plug 'neovim/nvim-lspconfig'
+" lua require'nvim_lsp'.omnisharp.setup{on_attach=require'completion'.on_attach}
+nnoremap <leader>vd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>vi <cmd>lua vim.lsp.buf.implementation()<CR>
+let g:OmniSharp_server_use_mono = 1
