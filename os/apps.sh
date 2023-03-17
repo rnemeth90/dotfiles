@@ -36,6 +36,12 @@ install_terminator() {
 
 }
 
+install_yq(){
+  print_in_purple "\n • Installing yq \n\n"
+  wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+  sudo chmod +x /usr/bin/yq
+}
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_mutt() {
@@ -274,6 +280,7 @@ main() {
   install_circumflex
   install_alpine
   install_tldr
+  install_yq
 }
 
 main
