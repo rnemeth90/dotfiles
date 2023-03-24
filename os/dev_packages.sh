@@ -147,6 +147,12 @@ install_sqlite() {
   sudo apt install sqlite sqlitebrowser -y
 }
 
+install_mono() {
+  print_in_purple "\n • Installing Mono \n\n"
+  sudo apt update -y && \
+  sudo apt install mono-complete -y
+}
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
@@ -165,6 +171,7 @@ main() {
   install_golang_and_friends
   install_ghcli
   install_sqlite
+  install_mon
 }
 
 main
