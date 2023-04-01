@@ -23,7 +23,7 @@ create_symlinks() {
     "shell/bashrc"
     "shell/curlrc"
     "shell/inputrc"
-    "shell/vimrc"
+    #"shell/vimrc"
 
     "git/gitconfig"
     "git/gitignore"
@@ -78,6 +78,7 @@ create_config_symlinks() {
     ".config/autostart"
     ".config/terminator"
     ".config/plank"
+    ".config/nvim"
   )
 
   local i=""
