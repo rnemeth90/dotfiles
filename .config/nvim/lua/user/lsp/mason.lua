@@ -2,12 +2,14 @@ local servers = {
 	"sumneko_lua",
 	"cssls",
 	"html",
+  --"golines",
 	"gopls",
   "tsserver",
 	"pyright",
 	"bashls",
 	"jsonls",
   "yamlls",
+  "omnisharp",
 }
 
 local settings = {
