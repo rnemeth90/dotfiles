@@ -126,7 +126,7 @@ fi
 export GOPATH="/repos/golang"
 export GOBIN="/repos/golang/bin"
 export GOMODCACHE="/var/cache/go"
-export PATH="/home/ryan/bin:$GOPATH/bin:$PATH"
+export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:$PATH"
 
 #PATH=/repos:$GOPATH:$GOBIN:$PATH
 # random colorscript when opening terminal
