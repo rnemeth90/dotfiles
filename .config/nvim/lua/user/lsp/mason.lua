@@ -15,11 +15,11 @@ local servers = {
 local settings = {
 	ui = {
 		border = "none",
-		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
-		},
+    icons = {
+        package_installed = "✓",
+        package_pending = "➜",
+        package_uninstalled = "✗"
+    },
 	},
 	log_level = vim.log.levels.INFO,
 	max_concurrent_installers = 4,
@@ -46,6 +46,7 @@ for _, server in pairs(servers) do
 
 	server = vim.split(server, "@")[1]
 
+  -- import all handler files in ./settings
 	local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
 	if require_ok then
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
