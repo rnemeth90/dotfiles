@@ -166,6 +166,11 @@ local schemas = {
     fileMatch = { "resume.json" },
     url = "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
   },
+  {
+    description = "Azure Pipeline",
+    fileMatch = { "azpipe.json"},
+    url = "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"
+  }
 }
 
 local function extend(tab1, tab2)

@@ -39,6 +39,7 @@ local options = {
   whichwrap = "bs<>[]hl",                  -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
+-- loop through the local options table above and set vim options
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
