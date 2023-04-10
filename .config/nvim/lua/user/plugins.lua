@@ -84,6 +84,8 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  use { "nvim-lua/popup.nvim" }
+	use { "nvim-telescope/telescope-media-files.nvim" }
 
 	-- Treesitter
 	use {
@@ -102,7 +104,7 @@ return packer.startup(function(use)
       "iamcco/markdown-preview.nvim",
       run = function() vim.fn["mkdp#util#install"]() end,
   })
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   -- scrolling
   use 'karb94/neoscroll.nvim'
