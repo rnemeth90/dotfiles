@@ -153,11 +153,18 @@ install_mono() {
   sudo apt install mono-complete -y
 }
 
+install_az_pipline_lsp() {
+  print_in_purple "\n Installing Az Pipeline LSP \n\n"
+  sudo npm install -g azure-pipelines-language-server
+
+}
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
 
 main() {
+  install_az_pipline_lsp
   install_brewfile
   install_and_setup_postgres
   nvm_node_yarn
