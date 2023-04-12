@@ -10,6 +10,7 @@ local servers = {
 	"jsonls",
   "yamlls",
   "omnisharp",
+  "terraform-ls"
 }
 
 local settings = {
