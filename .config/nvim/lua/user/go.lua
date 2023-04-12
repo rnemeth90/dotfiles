@@ -1,8 +1,8 @@
-local status_ok, goplugin = pcall(require, "go.nvim")
-if not status_ok then
-  print("unable to load golang config")
-  return
-end
+--local status_ok, goplugin = pcall(require, "go.nvim")
+--if not status_ok then
+ -- print("unable to load golang config")
+--  return
+--end
 
 local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 vim.api.nvim_create_autocmd("BufWritePre", {
