@@ -109,6 +109,9 @@ return packer.startup(function(use)
   -- scrolling
   use 'karb94/neoscroll.nvim'
 
+  -- openai stuff
+  use 'MunifTanjim/nui.nvim'
+  use 'Bryley/neoai.nvim'
 
 
 	-- Automatically set up your configuration after cloning packer.nvim
