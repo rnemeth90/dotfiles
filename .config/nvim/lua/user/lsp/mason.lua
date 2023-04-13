@@ -10,7 +10,8 @@ local servers = {
 	"jsonls",
   "yamlls",
   "omnisharp",
-  "terraform-ls"
+  --"terraform-ls",
+  --"powershell-editor-services"
 }
 
 local settings = {
