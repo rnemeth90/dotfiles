@@ -110,9 +110,12 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim'
 
   -- openai stuff
-  use 'MunifTanjim/nui.nvim'
-  use 'Bryley/neoai.nvim'
+  -- use 'MunifTanjim/nui.nvim'
+  -- use 'Bryley/neoai.nvim'
+  use 'aduros/ai.vim'
 
+  -- helm
+  use 'towolf/vim-helm'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
