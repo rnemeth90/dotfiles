@@ -67,3 +67,6 @@ alias grep='grep --color=auto --exclude-dir=\.svn'
 
 # Shortcut for using the Kdiff3 tool for svn diffs.
 alias svnkdiff3='svn diff --diff-cmd kdiff3'
+
+# nvim
+alias n='nvim .'
