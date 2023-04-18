@@ -161,3 +161,4 @@ if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
 fi
 
 eval "$(thefuck --alias)"
+. "$HOME/.cargo/env"
