@@ -153,10 +153,42 @@ install_mono() {
   sudo apt install mono-complete -y
 }
 
-install_az_pipline_lsp() {
+install_az_pipeline_lsp() {
   print_in_purple "\n Installing Az Pipeline LSP \n\n"
   sudo npm install -g azure-pipelines-language-server
 
+}
+
+install_golangci-lint() {
+  # binary will be $(go env GOPATH)/bin/golangci-lint
+  print_in_purple "\n Installing golangci-lint  \n\n"
+  curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.52.2
+}
+
+install_cargo() {
+  print_in_purple "\n Installing cargo  \n\n"
+  curl https://sh.rustup.rs -sSf | sh -s -- --help
+}
+
+install_luarocks() {
+  print_in_purple "\n Installing luarocks \n\n"
+  sudo apt update -y
+  sudo apt install luarocks -y
+}
+
+install_ruby() {
+  print_in_purple "\n Installing ruby \n\n"
+  sudo apt install rubygems -y
+}
+
+install_ripgrep() {
+  print_in_purple "\n Installing ripgrep \n\n"
+  sudo apt install ripgrep -y 
+}
+
+install_fd() {
+  print_in_purple "\n Installing fd \n\n"
+  sudo apt install fd-find
 }
 
 # ----------------------------------------------------------------------
@@ -164,7 +196,12 @@ install_az_pipline_lsp() {
 # ----------------------------------------------------------------------
 
 main() {
-  install_az_pipline_lsp
+  install_fd
+  install_ripgrep
+  install_ruby
+  install_cargo
+  install_golangci-lint
+  install_az_pipeline_lsp
   install_brewfile
   install_and_setup_postgres
   nvm_node_yarn
