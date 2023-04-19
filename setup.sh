@@ -43,15 +43,6 @@ install_extensions_and_pkg_managers() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-install_dev_packages() {
-  print_in_purple "\n • Installing dev packages \n\n"
-  ./os/dev_packages.sh
-  print_in_green "\n Dev packages installed! \n\n"
-  sleep 5
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 setup_os_theme_and_terminal_style() {
   print_in_purple "\n • Setting up OS theme and terminal tweaks \n\n"
   ./os/theme/main.sh
@@ -65,6 +56,15 @@ install_apps() {
   print_in_purple "\n • Installing applications \n\n"
   ./os/apps.sh
   print_in_green "\n Apps installed! \n\n"
+  sleep 5
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_dev_packages() {
+  print_in_purple "\n • Installing dev packages \n\n"
+  ./os/dev_packages.sh
+  print_in_green "\n Dev packages installed! \n\n"
   sleep 5
 }
 
