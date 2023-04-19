@@ -49,10 +49,11 @@ alias empty-trash="rm -rf ~/.local/share/Trash/files/*"
 alias o="xdg-open"
 
 # Make some possibly destructive commands more interactive.
-alias rm='rm -i'
+#alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
-
+alias rm='~/bin/new-rm.sh'
+alias unrm='~/bin/unrm.sh'
 alias python=python3
 alias nano='nano -ET2'
 

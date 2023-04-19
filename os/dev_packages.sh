@@ -32,7 +32,7 @@ install_and_setup_postgres() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-nvm_node_yarn() {
+install_nvm_node_yarn() {
   print_in_purple "\n • Installing nvm, node and yarn. Use node LTS as default.\n\n"
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
   source ~/.bashrc
@@ -191,21 +191,64 @@ install_fd() {
   sudo apt install fd-find
 }
 
+install_php() {
+  print_in_purple "\n Installing php \n\n"
+  sudo apt install php -y
+}
+
+install_java() {
+  print_in_purple "\n Installing java \n\n"
+  sudo apt install openjdk-7-jdk -y
+}
+
+install_julia() {
+  print_in_purple "\n Installing julia \n\n"
+  wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.5-linux-x86_64.tar.gz -P /tmp
+  sudo mkdir /opt/julia/
+  sudo tar -xvf /tmp/julia-1.8.5-linux-x86_64.tar.gz -C /opt/julia/
+}
+
+install_prettier() {
+  print_in_purple "\n Installing prettier \n\n"
+  npm install --save-dev --save-exact prettier
+}
+
+install_black() {
+  print_in_purple "\n Installing black \n\n"
+  pip install black
+}
+
+install_stylua() {
+  print_in_purple "\n Installing stylua \n\n"
+  cargo install stylua
+}
+
+install_treesitter() {
+  print_in_purple "\n Installing tree-sitter \n\n"
+  cargo install tree-sitter-cli
+}
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
 
 main() {
+  install_julia
+  install_java
+  install_php
   install_fd
   install_ripgrep
   install_ruby
   install_cargo
+  install_treesitter
+  install_stylua
   install_golangci-lint
   install_az_pipeline_lsp
   install_brewfile
   install_and_setup_postgres
-  nvm_node_yarn
+  install_nvm_node_yarn
   install_typescript
+  install_prettier
   # install_az_cli
   install_dotnet
   install_powershell
