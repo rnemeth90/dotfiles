@@ -258,7 +258,7 @@ main() {
   install_golang_and_friends
   install_ghcli
   install_sqlite
-  install_mon
+  install_mono
 }
 
 main
