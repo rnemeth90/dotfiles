@@ -33,12 +33,13 @@ install_terminator() {
   pip install requests
   mkdir -p $HOME/.config/terminator/plugins
   wget https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py"
-
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_yq(){
   print_in_purple "\n • Installing yq \n\n"
-  wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
+  sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
   sudo chmod +x /usr/bin/yq
 }
 
@@ -173,7 +174,6 @@ install_random() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_terraform() {
-
   print_in_purple "\n • Installing terraform... \n\n"
   sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
   wget -O- https://apt.releases.hashicorp.com/gpg |
@@ -242,9 +242,11 @@ install_circumflex() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_alpine() {
-  print_in_purple "\n • Installing alpine... \n\n"
+  print_in_purple "\n • Installing alpine mail client... \n\n"
   sudo apt install alpine -y
 }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_tldr() {
   print_in_purple "\n • Installing tldr... \n\n"
