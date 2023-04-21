@@ -80,6 +80,7 @@ create_config_symlinks() {
     ".config/plank"
     ".config/nvim"
     ".config/ranger"
+    ".config/i3"
     ".config/neofetch"
   )
 
@@ -134,9 +135,9 @@ main() {
   print_in_purple "\n • Linking config dirs\n\n"
   create_config_symlinks "$@"
 
-  print_in_purple "\n • Linking bin dir\n\n"
-  sudo ln -s ~/dotfiles/bin ~/bin
-  print_success "~/dotfiles/bin → ~/bin"
+  #print_in_purple "\n • Linking bin dir\n\n"
+  #sudo ln -s ~/dotfiles/bin ~/bin
+  #print_success "~/dotfiles/bin → ~/bin"
 
 }
 
