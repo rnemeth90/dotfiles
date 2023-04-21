@@ -253,11 +253,23 @@ install_tldr() {
   sudo npm install -g tldr
 }
 
+install_i3() {
+  print_in_purple "\n • Installing i3... \n\n"
+  # i3 4.22 is not yet in the debian/mint repos
+  curl https://baltocdn.com/i3-window-manager/signing.asc | sudo apt-key add -
+  sudo apt install apt-transport-https --yes
+  echo "deb https://baltocdn.com/i3-window-manager/i3/i3-autobuild-ubuntu/ all main" | sudo tee /etc/apt/sources.list.d/i3-autobuild.list
+  sudo apt update
+  sudo apt install i3
+}
+
+
 # ----------------------------------------------------------------------
 # | Main                                                               |
 # ----------------------------------------------------------------------
 
 main() {
+  install_i3
   install_VLC
   install_chrome
   install_brave
@@ -276,7 +288,7 @@ main() {
   install_nmap
   install_tor
   install_powertop
-  install_1password
+  #install_1password
   install_plank
   install_thefuck
   install_circumflex
