@@ -5,8 +5,6 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
   . "$DOT/setup/utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_brewfile() {
   print_in_purple "\n • Installing Brewfile from brew/Brewfile\n\n"
   # Making sure that brew is found
@@ -14,11 +12,8 @@ install_brewfile() {
   brew bundle --file ~/dotfiles/brew/Brewfile
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_and_setup_postgres() {
   print_in_purple "\n • Installing and setting up postgres\n\n"
-  # Install, init db, enable and start service
   sudo apt install -y postgresql postgresql-contrib
   sudo /usr/bin/postgresql-setup --initdb
   sudo systemctl enable postgresql
@@ -30,26 +25,10 @@ install_and_setup_postgres() {
   sudo su - postgres bash -c "psql -c \"CREATE DATABASE $USER;\""
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-install_nvm_node_yarn() {
-  print_in_purple "\n • Installing nvm, node and yarn. Use node LTS as default.\n\n"
-  curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-  source ~/.bashrc
-  nvm install --lts
-  nvm use --lts
-  source ~/.bashrc
-  npm install --global yarn
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_typescript() {
   print_in_purple "\n • Installing typescript globally\n\n"
   sudo apt install -y node-typescript
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_az_cli() {
   print_in_purple "\n • Installing Azure Cli \n\n"
@@ -65,8 +44,6 @@ install_az_cli() {
   sudo rm -rf /etc/apt/sources.list.d/focal-security.list
 
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_dotnet() {
   print_in_purple "\n • Installing dotnet \n\n"
@@ -90,10 +67,8 @@ install_golang_and_friends() {
 install_vim() {
   print_in_purple "\n • Installing vim \n\n"
   sudo apt update -y && sudo apt upgrade -y
-  sudo apt install vim -y
+  sudo apt install neovim -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_powershell() {
   print_in_purple "\n • Installing tor \n\n"
@@ -102,9 +77,6 @@ install_powershell() {
   sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
   sudo apt update && sudo apt install -y powershell
 }
-
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_docker() {
   print_in_purple "\n • Installing docker \n\n"
@@ -116,8 +88,6 @@ install_docker() {
   newgrp docker
   docker --version
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_VSCode() {
   print_in_purple "\n • Installing VSCode \n\n"
@@ -165,11 +135,6 @@ install_golangci-lint() {
   curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.52.2
 }
 
-install_cargo() {
-  print_in_purple "\n Installing cargo  \n\n"
-  curl https://sh.rustup.rs -sSf | sh -s -- --help
-}
-
 install_luarocks() {
   print_in_purple "\n Installing luarocks \n\n"
   sudo apt update -y
@@ -198,7 +163,7 @@ install_php() {
 
 install_java() {
   print_in_purple "\n Installing java \n\n"
-  sudo apt install openjdk-7-jdk -y
+  sudo apt install openjdk-11-jdk -y
 }
 
 install_julia() {
@@ -227,10 +192,6 @@ install_treesitter() {
   print_in_purple "\n Installing tree-sitter \n\n"
   cargo install tree-sitter-cli
 }
-
-# ----------------------------------------------------------------------
-# | Main                                                               |
-# ----------------------------------------------------------------------
 
 main() {
   install_julia

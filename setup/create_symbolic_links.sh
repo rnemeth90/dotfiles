@@ -79,6 +79,8 @@ create_config_symlinks() {
     ".config/terminator"
     ".config/plank"
     ".config/nvim"
+    ".config/ranger"
+    ".config/neofetch"
   )
 
   local i=""

@@ -28,16 +28,33 @@ install_homebrew() {
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+install_nvm_node_yarn() {
+  print_in_purple "\n • Installing nvm, node and yarn. Use node LTS as default.\n\n"
+  curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+  source ~/.bashrc
+  nvm install --lts
+  nvm use --lts
+  source ~/.bashrc
+  npm install --global yarn
+}
 
-# ----------------------------------------------------------------------
-# | Main                                                               |
-# ----------------------------------------------------------------------
+install_npm() {
+  print_in_purple "\n • Installing npm \n\n"
+  sudo apt install npm -y 
+}
+
+install_cargo() {
+  print_in_purple "\n Installing cargo  \n\n"
+  curl https://sh.rustup.rs -sSf | sh -s -- --help
+}
 
 main() {
   add_flatpak_store_and_update
   install_snap
   install_homebrew
+  install_nvm_node_yarn
+  install_npm
+  install_cargo
 }
 
 main

@@ -15,7 +15,6 @@ install_oh_my_bash() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_fonts() {
-
   print_in_purple "\n • Install Fonts\n\n"
   sudo mkdir -p /home/ryan/.local/share/fonts/
   sudo unzip ../nerdfonts.zip -d ~/.local/share/fonts/

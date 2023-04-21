@@ -46,15 +46,10 @@ install_xclip() {
 # ----------------------------------------------------------------------
 
 main() {
-
   set_hostname
-
   upgrade_apt
-
   #update_device_firmware
-
   install_xclip
-
 }
 
 main
