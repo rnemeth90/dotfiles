@@ -14,7 +14,7 @@ nvim_tree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   open_on_tab = false,
-  update_cwd = true,
+  -- update_cwd = true,
   update_focused_file = {
     enable = true,
     update_cwd = true,
