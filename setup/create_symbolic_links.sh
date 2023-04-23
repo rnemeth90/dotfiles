@@ -82,6 +82,7 @@ create_config_symlinks() {
     ".config/ranger"
     ".config/i3"
     ".config/neofetch"
+    ".config/polybar"
   )
 
   local i=""

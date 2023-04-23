@@ -259,10 +259,14 @@ install_i3() {
   curl https://baltocdn.com/i3-window-manager/signing.asc | sudo apt-key add -
   sudo apt install apt-transport-https --yes
   echo "deb https://baltocdn.com/i3-window-manager/i3/i3-autobuild-ubuntu/ all main" | sudo tee /etc/apt/sources.list.d/i3-autobuild.list
-  sudo apt update
-  sudo apt install i3
+  sudo apt update -y
+  sudo apt install i3 -y
 }
 
+install_polybar() {
+  print_in_purple "\n • Installing polybar... \n\n"
+  sudo apt install polybar -y
+}
 
 # ----------------------------------------------------------------------
 # | Main                                                               |
