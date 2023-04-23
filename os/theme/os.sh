@@ -18,6 +18,7 @@ install_fonts() {
   print_in_purple "\n • Install Fonts\n\n"
   sudo mkdir -p /home/ryan/.local/share/fonts/
   sudo unzip ../nerdfonts.zip -d ~/.local/share/fonts/
+  sudo unzip ../Fira_Code_v6.2.zip -d ~/.local/share/fonts/
   fc-cache -fv
 }
 
@@ -26,7 +27,7 @@ install_fonts() {
 main() {
   print_in_purple "\n • Start setting up OS theme...\n\n"
   install_fonts
-  #install_oh_my_bash
+  # install_oh_my_bash
 }
 
 main

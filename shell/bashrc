@@ -162,3 +162,5 @@ fi
 
 eval "$(thefuck --alias)"
 . "$HOME/.cargo/env"
+
+# export GDK_SCALE=2
