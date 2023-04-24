@@ -219,7 +219,13 @@ install_feh() {
   sudo apt install feh -y
 }
 
+install mpd() {
+  print_in_purple "\n • Installing mpd... \n\n"
+  sudo apt install mpd -y
+}
+
 main() {
+  install_mpd
   install_i3
   install_VLC
   install_chrome

@@ -84,11 +84,6 @@ _G.packer_plugins = {
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["ai.vim"] = {
-    loaded = true,
-    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/ai.vim",
-    url = "https://github.com/aduros/ai.vim"
-  },
   ["alpha-nvim"] = {
     loaded = true,
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/alpha-nvim",
@@ -184,6 +179,11 @@ _G.packer_plugins = {
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neoai.nvim"] = {
+    loaded = true,
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/neoai.nvim",
+    url = "https://github.com/Bryley/neoai.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/neodev.nvim",
@@ -193,6 +193,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ryan/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
     url = "https://github.com/karb94/neoscroll.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "/home/ryan/.local/share/nvim/site/pack/packer/start/nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
