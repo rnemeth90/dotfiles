@@ -98,7 +98,8 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		commit = "8e763332b7bf7b3a426fd8707b7f5aa85823a5ac",
 	}
--- Git
+
+  -- Git
 	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
 
   -- Go
@@ -116,9 +117,9 @@ return packer.startup(function(use)
   use 'karb94/neoscroll.nvim'
 
   -- openai stuff
-  -- use 'MunifTanjim/nui.nvim'
-  -- use 'Bryley/neoai.nvim'
-  use 'aduros/ai.vim'
+  use 'MunifTanjim/nui.nvim'
+  use 'Bryley/neoai.nvim'
+  -- use 'aduros/ai.vim'
 
   -- helm
   use 'towolf/vim-helm'
