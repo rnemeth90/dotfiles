@@ -5,8 +5,6 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
   . "$DOT/setup/utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_1password() {
   print_in_purple "\n • Installing 1password \n\n"
   curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
@@ -18,14 +16,10 @@ install_1password() {
   sudo apt update && sudo apt install 1password
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_VLC() {
   print_in_purple "\n • Installing VLC \n\n"
   sudo apt install -y vlc
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_terminator() {
   print_in_purple "\n • Installing terminator \n\n"
@@ -35,29 +29,21 @@ install_terminator() {
   wget https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py"
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_yq(){
   print_in_purple "\n • Installing yq \n\n"
   sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq
   sudo chmod +x /usr/bin/yq
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_mutt() {
   print_in_purple "\n • Installing mutt \n\n"
   sudo apt install -y mutt
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_virtualbox() {
   print_in_purple "\n • Installing Virtual Box \n\n"
   sudo apt install -y virtualbox
 }
-
-# - - - - - - - - - - - - - - - - - - - - -   - - - - - - - - - - - - - -
 
 install_chrome() {
   print_in_purple "\n • Installing Chrome \n\n"
@@ -66,8 +52,6 @@ install_chrome() {
   sudo apt update
   sudo apt install google-chrome-stable -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_brave() {
   print_in_purple "\n • Installing Brave \n\n"
@@ -78,8 +62,6 @@ install_brave() {
   sudo apt install brave-browser -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_helm() {
   print_in_purple "\n • Installing helm \n\n"
   curl https://baltocdn.com/helm/signing.asc | gpg --dearmor | sudo tee /usr/share/keyrings/helm.gpg >/dev/null
@@ -89,42 +71,30 @@ install_helm() {
   sudo apt-get install helm -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_htop() {
   print_in_purple "\n • Installing htop \n\n"
   sudo apt install htop -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_nmap() {
   print_in_purple "\n • Installing nmap \n\n"
   sudo apt install nmap -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_wireshark() {
   print_in_purple "\n • Installing wireshark \n\n"
   sudo apt install wireshark -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_powertop() {
   print_in_purple "\n • Installing powertop \n\n"
   sudo apt install powertop -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_tor() {
   print_in_purple "\n • Installing tor \n\n"
   sudo apt install tor -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_kubectl() {
   print_in_purple "\n • Installing kubectl \n\n"
@@ -135,14 +105,10 @@ install_kubectl() {
   sudo apt-get install -y kubectl
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_kubeshark() {
   print_in_purple "\n • Installing kubeshark \n\n"
   sh <(curl -Ls https://kubeshark.co/install)
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_random() {
   print_in_purple "\n • Installing everything else... \n\n"
@@ -171,8 +137,6 @@ install_random() {
     wapiti
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_terraform() {
   print_in_purple "\n • Installing terraform... \n\n"
   sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -186,36 +150,26 @@ install_terraform() {
   sudo apt-get install terraform -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_ranger() {
   print_in_purple "\n • Installing ranger... \n\n"
   sudo apt install ranger -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_neofetch() {
   print_in_purple "\n • Installing neofetch... \n\n"
   sudo apt install neofetch -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_dhcpdump() {
   print_in_purple "\n • Installing dhcpdump... \n\n"
   sudo apt install dhcpdump -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_plank() {
   print_in_purple "\n • Installing plank... \n\n"
   sudo apt update -y
   sudo apt install plank -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_thefuck() {
   print_in_purple "\n • Installing theFuck... \n\n"
@@ -224,29 +178,21 @@ install_thefuck() {
   sudo pip3 install thefuck
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_stacer() {
   print_in_purple "\n • Installing stacer... \n\n"
   sudo apt update -y
   sudo apt install stacer -y
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_circumflex() {
   print_in_purple "\n • Installing circumflex... \n\n"
   brew install circumflex
 }
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 install_alpine() {
   print_in_purple "\n • Installing alpine mail client... \n\n"
   sudo apt install alpine -y
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_tldr() {
   print_in_purple "\n • Installing tldr... \n\n"
@@ -268,9 +214,10 @@ install_polybar() {
   sudo apt install polybar -y
 }
 
-# ----------------------------------------------------------------------
-# | Main                                                               |
-# ----------------------------------------------------------------------
+install_feh() {
+  print_in_purple "\n • Installing feh... \n\n"
+  sudo apt install feh -y
+}
 
 main() {
   install_i3
