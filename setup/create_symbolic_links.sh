@@ -83,6 +83,7 @@ create_config_symlinks() {
     ".config/i3"
     ".config/neofetch"
     ".config/polybar"
+    ".config/picom"
   )
 
   local i=""
