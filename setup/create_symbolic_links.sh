@@ -84,6 +84,7 @@ create_config_symlinks() {
     ".config/neofetch"
     ".config/polybar"
     ".config/picom"
+    ".config/omb"
   )
 
   local i=""
