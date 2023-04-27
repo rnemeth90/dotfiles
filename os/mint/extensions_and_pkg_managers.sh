@@ -45,7 +45,7 @@ install_npm() {
 
 install_cargo() {
   print_in_purple "\n Installing cargo  \n\n"
-  curl https://sh.rustup.rs -sSf | sh -s -- --help
+  curl https://sh.rustup.rs -sSf | sh -s -- -y
 }
 
 main() {

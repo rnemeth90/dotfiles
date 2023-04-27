@@ -219,7 +219,7 @@ install_feh() {
   sudo apt install feh -y
 }
 
-install mpd() {
+install_mpd() {
   print_in_purple "\n • Installing mpd... \n\n"
   sudo apt install mpd -y
 }
