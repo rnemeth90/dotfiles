@@ -1,6 +1,4 @@
 #!/bin/bash
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 enable_color_support() {
 
     if [[ $COLORTERM == gnome-* && $TERM == xterm ]] \
@@ -10,35 +8,19 @@ enable_color_support() {
         export TERM="xterm-256color"
     fi
 
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    # Color support.
-
-    . "bash_colors"
-
+    source ./bash_colors
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 function set_win_title(){
     echo -ne "\033]0; $(basename "$PWD") \007"
 }
 
-main() {
-    enable_color_support
-
-    PS2="⚡ "
-    export PS2
-
-    # set_prompts
+function parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
+main() {
+  export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+}
 main
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Cleanup.
-
-unset -f enable_color_support
-unset -f main
-# unset -f set_prompts

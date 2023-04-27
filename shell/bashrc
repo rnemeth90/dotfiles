@@ -110,9 +110,11 @@ plugins=(
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-if [ -f ~/.bash_aliases ]; then
+if [ -L ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+. ~/.bash_prompt
 
 # Source files from my aliases directory
 aliases_dir=~/.bash_aliases.d
@@ -122,15 +124,12 @@ if [[ -d $aliases_dir && -r $aliases_dir && -x $aliases_dir ]]; then
     done
 fi
 
-# (more) EXPORTS
-export GOPATH="/repos/golang"
-export GOBIN="/repos/golang/bin"
-export GOMODCACHE="/var/cache/go"
-export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
-for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
-
-#PATH=/repos:$GOPATH:$GOBIN:$PATH
-# random colorscript when opening terminal
+# setup PATHs
+# export GOPATH="/repos/golang"
+# export GOBIN="/repos/golang/bin"
+# export GOMODCACHE="/var/cache/go"
+# export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
+# for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -155,12 +154,12 @@ set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 # command thefuck &> /dev/null && eval "$(thefuck --alias fk)"
 eval "$(thefuck --alias fk)"
 
-# link scripts/tools
-if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
-  ln -s /repos/shell-scripts ~/bin/scripts
-  chmod -R +x ~/bin/scripts
-fi
-
+# # link scripts/tools
+# if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
+#   ln -s /repos/shell-scripts ~/bin/scripts
+#   chmod -R +x ~/bin/scripts
+# fi
+#
 eval "$(thefuck --alias)"
 . "$HOME/.cargo/env"
 
