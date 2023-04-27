@@ -15,7 +15,9 @@ install_fonts() {
   sudo mkdir -p /home/ryan/.local/share/fonts/
   sudo unzip ../nerdfonts.zip -d ~/.local/share/fonts/
   sudo unzip ../Fira_Code_v6.2.zip -d ~/.local/share/fonts/
-  fc-cache -fv
+  sudo unzip ../font-awesome-6.zip -d ~/.local/share/fonts/
+  sudo chmod -R 775 /home/ryan/.local/share/fonts
+  sudo fc-cache -f -v
 }
 
 main() {
