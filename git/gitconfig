@@ -81,3 +81,6 @@
 
 [include]
     path = ~/.gitconfig.local
+[safe]
+	directory = /mnt/c/repos/
+	directory = /mnt/c/repos/Aprimo/nginx
