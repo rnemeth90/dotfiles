@@ -200,7 +200,6 @@ main() {
   install_fd
   install_ripgrep
   install_ruby
-  install_cargo
   install_treesitter
   install_stylua
   install_golangci-lint

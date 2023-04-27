@@ -213,3 +213,7 @@ exec --no-startup-id picom -CGb
 #         height 25
 #         status_command i3status
 # }
+
+# remove title bars
+new_window 1pixel
+
