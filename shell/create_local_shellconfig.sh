@@ -5,13 +5,9 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
   . "$DOT/setup/utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 create_bash_local() {
 
   declare -r FILE_PATH="$HOME/.bash.local"
-
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   if [ ! -e "$FILE_PATH" ] || [ -z "$FILE_PATH" ]; then
 
@@ -20,7 +16,8 @@ create_bash_local() {
     printf "%s\n" \
       "#!/bin/bash
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Set PATH additions.
+
+# Set PATH additions and anything else you don't want source controlled
 PATH=\"$DOTFILES_BIN_DIR:\$PATH\"
 export PATH
 

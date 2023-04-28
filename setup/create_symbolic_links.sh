@@ -18,6 +18,7 @@ create_symlinks() {
     "shell/bash_autocompletion"
     "shell/bash_exports"
     "shell/bash_options"
+    "shell/bash_colors"
     "shell/bash_profile"
     "shell/bash_prompt"
     "shell/bashrc"
