@@ -58,7 +58,8 @@ install_dotnet() {
 install_golang_and_friends() {
   print_in_purple "\n • Installing golang \n\n"
   sudo apt update -y && sudo apt upgrade -y
-  sudo apt install golang-go gccgo-go golang-golang-x-tools -y
+  sudo wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz -P /tmp
+  sudo tar -xvf /tmp/go1.20.3.linux-amd64.tar.gz -C /usr/local/
   sudo apt install hugo -y
   go install github.com/spf13/cobra-cli@latest
   sudo mkdir -p /var/cache/go
