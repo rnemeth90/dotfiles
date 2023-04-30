@@ -207,8 +207,8 @@ exec --no-startup-id picom -CGb
 new_window 1pixel
 
 # keybinding to lock screen
-bindsym Control+Mod1+l exec "i3lock -c 000000"
+bindsym $mod+shift+p exec "i3lock -c 000000"
 
 # auto lock the screen
-exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
+exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 

@@ -134,7 +134,8 @@ install_random() {
     ranger \
     software-properties-common \
     speedtest-cli \
-    wapiti
+    wapiti \
+    font-manager
 }
 
 install_terraform() {
