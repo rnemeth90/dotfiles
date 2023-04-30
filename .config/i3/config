@@ -13,11 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango: FiraCode Nerd Font
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -207,13 +203,12 @@ exec_always --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-01.webp
 # exec_always --no-startup-id picom -CGb --config ~/.config/picom/config
 exec --no-startup-id picom -CGb
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#         height 25
-#         status_command i3status
-# }
-
 # remove title bars
 new_window 1pixel
+
+# keybinding to lock screen
+bindsym Control+Mod1+l exec "i3lock -c 000000"
+
+# auto lock the screen
+exec "xautolock -detectsleep -time 3 -locker \"i3lock -c 000000\""
 
