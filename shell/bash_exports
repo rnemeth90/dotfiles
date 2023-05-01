@@ -61,7 +61,6 @@ export NODE_REPL_HISTORY_SIZE=10000
 # shells instead of the default "last window closed" history.
 export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
-
 # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 export PYTHONIOENCODING="UTF-8"
 
@@ -105,5 +104,12 @@ export GOMODCACHE="/var/cache/go"
 # setup PATHs
 export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
 for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
+
+# Kubernetes
+export KUBE_EDITOR=nvim
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# ssh
+export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 

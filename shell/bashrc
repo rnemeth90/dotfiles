@@ -15,12 +15,7 @@ HIST_STAMPS="mm/dd/yyyy"
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
-# fi
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-bash libs,
+# # Set personal aliases, overriding those provided by oh-my-bash libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
@@ -51,20 +46,4 @@ set-title() {
 }
 # Title I want: '(FirstFolderInPath) LastFolderInPath'
 set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
-# Correct commands using thefuck (https://github.com/nvbn/thefuck)
-# aliased as 'fk' since I can't spell 'fuck' correctly to save my life...
-# command thefuck &> /dev/null && eval "$(thefuck --alias fk)"
-eval "$(thefuck --alias fk)"
-
-# # link scripts/tools
-# if [ ! -e /home/ryan/bin/scripts ] && [ ! -d /home/ryan/bin/scripts ]; then
-#   ln -s /repos/shell-scripts ~/bin/scripts
-#   chmod -R +x ~/bin/scripts
-# fi
-#
-eval "$(thefuck --alias)"
-. "$HOME/.cargo/env"
 
