@@ -85,3 +85,5 @@
 	directory = /mnt/c/repos/
 	directory = /mnt/c/repos/Aprimo/nginx
 	directory = /mnt/c/repos/notes
+	directory = /mnt/c/repos/Aprimo/kubernetes-workspace
+	directory = /mnt/c/repos/Aprimo/change-requests
