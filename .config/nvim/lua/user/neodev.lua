@@ -1,5 +1,11 @@
+local status_ok, neodev = pcall(require, "neodev")
+print "neodev loaded"
+if not status_ok then
+  return
+end
+
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
-require("neodev").setup({
+neodev.setup {
   -- add any options here, or leave empty to use the default settings
   library = {
     enabled = true, -- when not enabled, neodev will not change any settings to the LSP server
@@ -22,7 +28,7 @@ require("neodev").setup({
   -- much faster, but needs a recent built of lua-language-server
   -- needs lua-language-server >= 3.6.0
   pathStrict = true,
-})
+}
 
 -- then setup your lsp server as usual
 local lspconfig = require('lspconfig')

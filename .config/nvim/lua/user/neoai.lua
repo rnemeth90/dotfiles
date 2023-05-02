@@ -1,5 +1,10 @@
-require('neoai').setup{
-    -- Below are the default options, feel free to override what you would like changed
+local status_ok, neoai = pcall(require, "neoai")
+print "neoai loaded"
+if not status_ok then
+  return
+end
+
+neoai.setup {
     ui = {
         output_popup_text = "NeoAI",
         input_popup_text = "Prompt",
