@@ -135,7 +135,8 @@ install_random() {
     software-properties-common \
     speedtest-cli \
     wapiti \
-    font-manager
+    font-manager \
+    playerctl
 }
 
 install_terraform() {
