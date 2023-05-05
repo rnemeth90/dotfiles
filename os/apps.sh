@@ -136,7 +136,8 @@ install_random() {
     speedtest-cli \
     wapiti \
     font-manager \
-    playerctl
+    playerctl \
+    lxappearance
 }
 
 install_terraform() {
@@ -208,7 +209,7 @@ install_i3() {
   sudo apt install apt-transport-https --yes
   echo "deb https://baltocdn.com/i3-window-manager/i3/i3-autobuild-ubuntu/ all main" | sudo tee /etc/apt/sources.list.d/i3-autobuild.list
   sudo apt update -y
-  sudo apt install i3 i3lock xautolock -y
+  sudo apt install i3 i3lock xautolock rofi -y
 }
 
 install_polybar() {
