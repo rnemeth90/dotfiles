@@ -74,7 +74,7 @@ mint_setup_final() {
   sudo apt autoremove
   source ~/.bashrc
   # final tweaks
-  print_in_green "\n • All done! Install the suggested extensions and restart. \n"
+  print_in_green "\n • All done! Remember to set your fonts with lxappearance! \n"
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
