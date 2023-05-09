@@ -227,4 +227,5 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # rofi
-bindsym $mod+d exec rofi --no-startup-id -monitor -1 -show drun -width 50 -font "FiraCode Nerd Font 8"
+bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
+# bindsym $mod+d exec rofi --no-startup-id -monitor -1 -show drun -width 50 -font "FiraCode Nerd Font 8"

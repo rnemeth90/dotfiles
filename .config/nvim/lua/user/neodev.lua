@@ -1,5 +1,4 @@
 local status_ok, neodev = pcall(require, "neodev")
-print "neodev loaded"
 if not status_ok then
   return
 end

@@ -9,7 +9,7 @@ require("nvim-dap-virtual-text").setup {
     all_references = false,                -- show virtual text on all all references of the variable (not only definitions)
     --- A callback that determines how a variable is displayed or whether it should be omitted
     --- @param variable Variable https://microsoft.github.io/debug-adapter-protocol/specification#Types_Variable
-    --- @param buf number
+    --- @param  number
     --- @param stackframe dap.StackFrame https://microsoft.github.io/debug-adapter-protocol/specification#Types_StackFrame
     --- @param node userdata tree-sitter node identified as variable definition of reference (see `:h tsnode`)
     --- @return string|nil A text how the virtual text should be displayed or nil, if this variable shouldn't be displayed
