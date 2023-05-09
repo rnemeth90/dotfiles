@@ -1,5 +1,4 @@
 local status_ok, neoai = pcall(require, "neoai")
-print "neoai loaded"
 if not status_ok then
   return
 end
