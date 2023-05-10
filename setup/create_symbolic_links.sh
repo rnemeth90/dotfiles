@@ -25,11 +25,10 @@ create_symlinks() {
     "shell/curlrc"
     "shell/inputrc"
     #"shell/vimrc"
-
     "git/gitconfig"
     "git/gitignore"
-
     "golang/cobra.yaml"
+    ".config/mutt"
   )
 
   local i=""
