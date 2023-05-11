@@ -129,7 +129,6 @@ install_random() {
     neofetch \
     net-tools \
     nfs-common \
-    nodejs \
     python3-pip \
     ranger \
     software-properties-common \
