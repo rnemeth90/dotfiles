@@ -1,4 +1,6 @@
 source ~/.mutt/passwords
+source ~/.mutt/themes/dracula
+
 set ssl_starttls=yes
 set ssl_force_tls=yes
 set from= $imap_user
