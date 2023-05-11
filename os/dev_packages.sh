@@ -197,7 +197,15 @@ install_treesitter() {
   cargo install tree-sitter-cli
 }
 
+install_nodejs() {
+  print_in_purple "\n Installing nodejs \n\n"
+  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - &&\
+    apt-get install -y nodej
+}
+
+
 main() {
+  install_nodejs
   install_julia
   install_java
   install_php
