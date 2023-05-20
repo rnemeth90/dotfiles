@@ -226,6 +226,11 @@ install_mpd() {
   sudo apt install mpd -y
 }
 
+install_vivid() {
+  print_in_purple "\n • Installing vivid... \n\n"
+  cargo install vivid
+}
+
 main() {
   install_mpd
   install_i3
