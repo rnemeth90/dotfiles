@@ -91,3 +91,8 @@
 	directory = /mnt/c/repos/Aprimo/API
 	directory = /mnt/c/repos/Aprimo/helm
 	directory = /mnt/c/repos/Aprimo/PushNotification
+	directory = /mnt/c/repos/Aprimo/UnifiedLoginService
+	directory = /mnt/c/repos/rnemeth90.github.io
+	directory = /mnt/c/repos/Aprimo/CloudManager
+[pull]
+	rebase = false
