@@ -24,7 +24,6 @@
 # LS_COLORS+="or=31;01"   # Symbolic link pointing to a non-existent file
 #
 export LS_COLORS="$(vivid generate molokai)"
->>>>>>> 3079bf10519a525560b1136f1574a6485274a9a1
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

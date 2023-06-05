@@ -231,6 +231,11 @@ install_vivid() {
   cargo install vivid
 }
 
+install_man2html(} {
+  print_in_purple "\n • Installing man2html... \n\n"
+  sudo apt install man2html -y
+}
+
 main() {
   install_mpd
   install_i3
@@ -244,6 +249,7 @@ main() {
   install_mizu
   install_mutt
   install_random
+  install_man2html
   install_ranger
   install_terminator
   # install_terraform
