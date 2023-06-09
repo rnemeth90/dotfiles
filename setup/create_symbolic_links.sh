@@ -29,6 +29,7 @@ create_symlinks() {
     "git/gitignore"
     "golang/cobra.yaml"
     ".config/mutt"
+    "conf"
   )
 
   local i=""
