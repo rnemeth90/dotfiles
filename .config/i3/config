@@ -187,7 +187,7 @@ new_window 1pixel
 bindsym $mod+x exec "i3lock -c 000000"
 
 # auto lock the screen
-exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
+#exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
