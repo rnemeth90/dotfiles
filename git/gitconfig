@@ -57,6 +57,7 @@
 
 [core]
     excludesFile = ~/.gitignore
+	editor = nvim
 
 [diff]
     # Show blocks of moved text of at least 20
