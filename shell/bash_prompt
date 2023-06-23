@@ -20,7 +20,8 @@ function parse_git_branch() {
 }
 
 main() {
-  export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+  export PS1=" \[\e[00;34m\]λ \W \[\e[0m\]$ "
+  # export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 }
 main
 
