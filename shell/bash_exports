@@ -7,7 +7,7 @@
 
 # Ignore commands that start with spaces and duplicates.
 
-export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth,ignoredups
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
