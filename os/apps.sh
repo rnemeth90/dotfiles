@@ -231,7 +231,7 @@ install_vivid() {
   cargo install vivid
 }
 
-install_man2html(} {
+install_man2html() {
   print_in_purple "\n • Installing man2html... \n\n"
   sudo apt install man2html -y
 }

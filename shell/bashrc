@@ -47,3 +47,4 @@ set-title() {
 # Title I want: '(FirstFolderInPath) LastFolderInPath'
 set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 
+. "$HOME/.cargo/env"
