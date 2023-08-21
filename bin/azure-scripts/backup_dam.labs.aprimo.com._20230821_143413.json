@@ -1,0 +1,30 @@
+[
+    {
+        "name": "us1-u960.dam", 
+        "fqdn": "us1-u960.dam.labs.aprimo.com.", 
+        "targetResource": {
+            "resourceGroup": "lab17us1-cu960-rg", 
+            "id": "/subscriptions/f3e2e7c5-21a3-4691-b121-da22a42359ad/resourceGroups/lab17us1-cu960-rg/providers/Microsoft.Network/publicIPAddresses/lab-17us1-u960-pip"
+        }, 
+        "resourceGroup": "network-dns-prod-rg", 
+        "etag": "ac3ea863-c714-40d1-926d-7d7fc4f33e47", 
+        "TTL": 3600, 
+        "type": "Microsoft.Network/dnszones/A", 
+        "id": "/subscriptions/3a0b2801-2ab5-4b2d-8ce7-426aa48f826f/resourceGroups/network-dns-prod-rg/providers/Microsoft.Network/dnszones/labs.aprimo.com/A/us1-u960.dam", 
+        "provisioningState": "Succeeded"
+    }, 
+    {
+        "name": "us1-u960-brandportal.dam", 
+        "fqdn": "us1-u960-brandportal.dam.labs.aprimo.com.", 
+        "targetResource": {
+            "resourceGroup": "lab17us1-cu960-rg", 
+            "id": "/subscriptions/f3e2e7c5-21a3-4691-b121-da22a42359ad/resourceGroups/lab17us1-cu960-rg/providers/Microsoft.Network/publicIPAddresses/lab-17us1-u960-pip"
+        }, 
+        "resourceGroup": "network-dns-prod-rg", 
+        "etag": "844029ae-65a5-4814-867e-12dcec6c0e03", 
+        "TTL": 3600, 
+        "type": "Microsoft.Network/dnszones/A", 
+        "id": "/subscriptions/3a0b2801-2ab5-4b2d-8ce7-426aa48f826f/resourceGroups/network-dns-prod-rg/providers/Microsoft.Network/dnszones/labs.aprimo.com/A/us1-u960-brandportal.dam", 
+        "provisioningState": "Succeeded"
+    }
+]
