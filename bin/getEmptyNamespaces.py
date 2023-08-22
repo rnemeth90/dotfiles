@@ -5,16 +5,50 @@ import sys
 
 def get_output(cmd):
     try:
-        return subprocess.check_output(cmd, shell=True).decode('utf-8').strip()
-    except:
+        output = subprocess.check_output(cmd, shell=True).decode('utf-8').strip()
+        return output
+    except subprocess.CalledProcessError:
         return ""
+
+def remove_namespace_finalizers(namespace):
+    cmd = (
+        'kubectl get namespace {} -o json '
+        '| tr -d "\\n" '
+        '| sed "s/\"finalizers\": \[[^]]\+\]/\"finalizers\": []/" '
+        '| kubectl replace --raw /api/v1/namespaces/{}/finalize -f - > /dev/null 2>&1'
+    ).format(namespace, namespace)
+    subprocess.call(cmd, shell=True)
+
+def remove_namespace(namespace):
+    cmd = (
+        'kubectl delete namespace {} --force &'.format(namespace)
+    )
+    subprocess.call(cmd, shell=True)
+
+def get_namespace_status(namespace):
+    cmd = "kubectl get namespace {} -o=jsonpath='{{.status.phase}}'".format(namespace)
+    print("Namespace: {}".format(namespace))
+    print("Executing cmd: {}".format(cmd))
+    try:
+        status = subprocess.check_output(cmd, shell=True).decode('utf-8').strip()
+        return status
+    except Exception as e:  # Explicitly catch the exception as 'e'
+        print("Error: {}".format(str(e)))
+        return None
 
 def prompt_delete(namespace):
     if DELETE_FLAG:
-        decision = input("Do you want to delete namespace {}? [y/N]: ".format(namespace))
+        decision = raw_input("Do you want to remove finalizers and delete namespace {}? [y/N]: ".format(namespace))
         if decision.lower() == "y":
-            subprocess.check_output(["kubectl", "delete", "namespace", namespace])
-            print("Namespace {} deleted.".format(namespace))
+            namespace_status = get_namespace_status(namespace)
+            print("Status: {}".format(namespace_status))
+            print(namespace_status)
+            if namespace_status == "Terminating":
+                remove_namespace_finalizers(namespace)
+                print("Finalizers for namespace {} removed.".format(namespace))
+            else:
+                remove_namespace(namespace)
+                print("Namespace {} removed.".format(namespace))
         else:
             print("Skipped deletion for namespace {}.".format(namespace))
 
@@ -32,12 +66,9 @@ for namespace in namespaces:
     pending_output = get_output("kubectl get pods --namespace={} --no-headers 2>/dev/null | grep -c Pending".format(namespace))
     pending_pod_count = int(pending_output) if pending_output else 0
 
-    # If no pods in the namespace, display and prompt for deletion if --delete flag is set
-    if total_pod_count == 0:
-        print("{} is empty.".format(namespace))
-        prompt_delete(namespace)
-    # If all pods in the namespace are pending, display and prompt for deletion if --delete flag is set
-    elif total_pod_count == pending_pod_count:
-        print("{} only has pods in a Pending state.".format(namespace))
-        prompt_delete(namespace)
+    # If no pods in the namespace or all pods in the namespace are pending
+    if total_pod_count == 0 or pending_pod_count > 0:
+        print("Namespace {} is empty or only has pending pods".format(namespace))
+        if DELETE_FLAG:
+            prompt_delete(namespace)
 
