@@ -3,16 +3,9 @@
 from kubernetes import client, config
 import argparse
 
-def check_best_practices(namespace):
-    try:
-        config.load_kube_config()
-    except:
-        print("[ERR] Cannot load kube config. Ensure the file exists and is in your $PATH")
-
+def check_pods(namespace):
     v1 = client.CoreV1Api()
-
     pod_list = v1.list_namespaced_pod(namespace)
-
     for pod in pod_list.items:
         print("\nChecking pod {}...".format(pod.metadata.name))
 
@@ -39,10 +32,82 @@ def check_best_practices(namespace):
             if ':latest' in container.image:
                 print("- [WARNING] Container '{}' uses the latest tag for its image.".format(container.name))
 
+from kubernetes import client, config
+import argparse
+
+def check_services(namespace):
+    v1 = client.CoreV1Api()
+    services = v1.list_namespaced_service(namespace)
+    for svc in services.items:
+        if not svc.spec.selector:
+            print("- [WARNING] Service '{}' does not use a selector.".format(svc.metadata.name))
+
+def check_ingresses(namespace):
+    ext_v1 = client.ExtensionsV1beta1Api()
+    ingresses = ext_v1.list_namespaced_ingress(namespace)
+    for ing in ingresses.items:
+        for rule in ing.spec.rules:
+            if not rule.host:
+                print("- [WARNING] Ingress rule in '{}' does not specify a host.".format(ing.metadata.name))
+            for tls in ing.spec.tls:
+                if not tls.hosts:
+                    print("- [WARNING] Ingress '{}' TLS configuration does not specify hosts.".format(ing.metadata.name))
+
+def check_roles(namespace):
+    rbac_v1 = client.RbacAuthorizationV1Api()
+    roles = rbac_v1.list_namespaced_role(namespace)
+    for role in roles.items:
+        for rule in role.rules:
+            if '*' in rule.resources or '*' in rule.verbs:
+                print("- [WARNING] Role '{}' has overly broad permissions.".format(role.metadata.name))
+
+def check_cluster_roles():
+    rbac_v1 = client.RbacAuthorizationV1Api()
+    cluster_roles = rbac_v1.list_cluster_role()
+    for role in cluster_roles.items:
+        for rule in role.rules:
+            if '*' in rule.resources or '*' in rule.verbs:
+                print("- [WARNING] ClusterRole '{}' has overly broad permissions.".format(role.metadata.name))
+
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Check Kubernetes best practices for a given namespace.')
+    parser = argparse.ArgumentParser(description='Check Kubernetes best practices.')
     parser.add_argument('namespace', type=str, help='The namespace to check')
+    parser.add_argument('--services', action='store_true', help='Check best practices for services')
+    parser.add_argument('--ingresses', action='store_true', help='Check best practices for ingresses')
+    parser.add_argument('--roles', action='store_true', help='Check best practices for roles in the namespace')
+    parser.add_argument('--cluster-roles', action='store_true', help='Check best practices for cluster roles')
+    
     args = parser.parse_args()
 
-    check_best_practices(args.namespace)
+    if args.services:
+        check_services(args.namespace)
+    if args.ingresses:
+        check_ingresses(args.namespace)
+    if args.roles:
+        check_roles(args.namespace)
+    if args.cluster_roles:
+        check_cluster_roles()
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description='Check Kubernetes best practices.')
+    parser.add_argument('namespace', type=str, help='The namespace to check')
+    parser.add_argument('--pods', action='store_true', help='Check best practices for pods')
+    parser.add_argument('--services', action='store_true', help='Check best practices for services')
+    parser.add_argument('--ingresses', action='store_true', help='Check best practices for ingresses')
+    parser.add_argument('--roles', action='store_true', help='Check best practices for roles in the namespace')
+    parser.add_argument('--cluster-roles', action='store_true', help='Check best practices for cluster roles')
+    
+    args = parser.parse_args()
+
+    if args.pods:
+        check_pods(args.namespace)
+    if args.services:
+        check_services(args.namespace)
+    if args.ingresses:
+        check_ingresses(args.namespace)
+    if args.roles:
+        check_roles(args.namespace)
+    if args.cluster_roles:
+        check_cluster_roles()
 
