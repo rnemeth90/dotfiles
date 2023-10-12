@@ -3,234 +3,156 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-  . "$DOT/setup/utils.sh"
+    . "$DOT/setup/utils.sh"
 
 install_brewfile() {
-  print_in_purple "\n • Installing Brewfile from brew/Brewfile\n\n"
-  # Making sure that brew is found
-  eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-  brew bundle --file ~/dotfiles/brew/Brewfile
-}
-
-install_and_setup_postgres() {
-  print_in_purple "\n • Installing and setting up postgres\n\n"
-  sudo apt install -y postgresql postgresql-contrib
-  sudo /usr/bin/postgresql-setup --initdb
-  sudo systemctl enable postgresql
-  sudo systemctl start postgresql
-  print_in_yellow "\n Creating postgres superuser with name: $USER\n\n"
-  print_in_yellow "\nType in your postgres superuser password:\n"
-  read POSTGRESPWD
-  sudo su - postgres bash -c "psql -c \"CREATE ROLE $USER LOGIN SUPERUSER PASSWORD '$POSTGRESPWD';\""
-  sudo su - postgres bash -c "psql -c \"CREATE DATABASE $USER;\""
+    print_in_purple "\n • Installing Brewfile from brew/Brewfile\n\n"
+    # Making sure that brew is found
+    brew bundle --file ~/dotfiles/brew/Brewfile
 }
 
 install_typescript() {
-  print_in_purple "\n • Installing typescript globally\n\n"
-  sudo apt install -y node-typescript
+    print_in_purple "\n • Installing typescript globally\n\n"
+    brew install typescript
 }
 
 install_az_cli() {
-  print_in_purple "\n • Installing Azure Cli \n\n"
-
-  sudo apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
-
-  sudo mkdir -p /etc/apt/keyrings
-  curl -sLS https://packages.microsoft.com/keys/microsoft.asc |
-  gpg --dearmor |
-  sudo tee /etc/apt/keyrings/microsoft.gpg > /dev/null
-  sudo chmod go+r /etc/apt/keyrings/microsoft.gpg
-
-  AZ_REPO=$(lsb_release -cs)
-  echo "deb [arch=`dpkg --print-architecture` signed-by=/etc/apt/keyrings/microsoft.gpg] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" |
-  sudo tee /etc/apt/sources.list.d/azure-cli.list
-
-  sudo apt-get update
-  sudo apt-get install azure-cli
+    print_in_purple "\n • Installing Azure Cli \n\n"
+    brew install azure-cli
 }
+
 install_dotnet() {
-  print_in_purple "\n • Installing dotnet \n\n"
-  wget https://packages.microsoft.com/config/ubuntu/22.10/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-  sudo dpkg -i packages-microsoft-prod.deb
-  sudo rm -rf packages-microsoft-prod.deb
-  sudo apt-get update && sudo apt-get install -y dotnet-sdk-7.0
-  sudo apt-get update && sudo apt-get install -y aspnetcore-runtime-7.0
-  sudo apt-get install -y dotnet-runtime-7.0
+    print_in_purple "\n • Installing dotnet \n\n"
+    brew install dotnet-sdk
 }
 
 install_golang_and_friends() {
-  print_in_purple "\n • Installing golang \n\n"
-  sudo apt update -y && sudo apt upgrade -y
-  sudo wget https://go.dev/dl/go1.20.3.linux-amd64.tar.gz -P /tmp
-  sudo tar -xvf /tmp/go1.20.3.linux-amd64.tar.gz -C /usr/local/
-  sudo apt install hugo -y
-  go install github.com/spf13/cobra-cli@latest
-  sudo mkdir -p /var/cache/go
+    print_in_purple "\n • Installing golang \n\n"
+    brew install golang
+    brew install hugo
+    go install github.com/spf13/cobra-cli@latest
+    sudo mkdir -p /var/cache/go
 }
 
 install_vim() {
-  print_in_purple "\n • Installing vim \n\n"
-  sudo apt update -y && sudo apt upgrade -y
-  sudo apt install neovim -y
+    print_in_purple "\n • Installing vim \n\n"
+    brew install neovim
 }
 
 install_powershell() {
-  print_in_purple "\n • Installing tor \n\n"
-  sudo apt update  && sudo apt install -y curl gnupg apt-transport-https
-  curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-debian-bullseye-prod bullseye main" > /etc/apt/sources.list.d/microsoft.list'
-  sudo apt update && sudo apt install -y powershell
+    print_in_purple "\n • Installing tor \n\n"
+    brew install powershell
 }
 
 install_docker() {
-  print_in_purple "\n • Installing docker \n\n"
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-archive-keyring.gpg
-  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(. /etc/os-release; echo "$UBUNTU_CODENAME") stable"
-  sudo apt update -y
-  sudo apt -y install docker-ce
-  sudo usermod -aG docker $(whoami)
-  newgrp docker
-  docker --version
+    print_in_purple "\n • Installing docker \n\n"
+    brew install docker
 }
 
 install_VSCode() {
-  print_in_purple "\n • Installing VSCode \n\n"
-  sudo apt-get install wget gpg
-  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor >packages.microsoft.gpg
-  sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" > /etc/apt/sources.list.d/vscode.list'
-  rm -f packages.microsoft.gpg
-  sudo apt install apt-transport-https
-  sudo apt update
-  sudo apt install code -y
+    print_in_purple "\n • Installing VSCode \n\n"
+    brew install visual-studio-code
 }
 
 install_ghcli() {
-  print_in_purple "\n • Installing github cli \n\n"
-  type -p curl >/dev/null || sudo apt install curl -y
-  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
-  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
-  && sudo apt update \
-  && sudo apt install gh -y
-}
-
-install_sqlite() {
-  print_in_purple "\n • Installing VSCode \n\n"
-  sudo apt update -y && \
-  sudo apt install sqlite sqlitebrowser -y
-}
-
-install_mono() {
-  print_in_purple "\n • Installing Mono \n\n"
-  sudo apt update -y && \
-  sudo apt install mono-complete -y
+    print_in_purple "\n • Installing github cli \n\n"
+    brew install gh
 }
 
 install_az_pipeline_lsp() {
-  print_in_purple "\n Installing Az Pipeline LSP \n\n"
-  sudo npm install -g azure-pipelines-language-server
+    print_in_purple "\n Installing Az Pipeline LSP \n\n"
+    sudo npm install -g azure-pipelines-language-server
 
 }
 
 install_golangci-lint() {
-  # binary will be $(go env GOPATH)/bin/golangci-lint
-  print_in_purple "\n Installing golangci-lint  \n\n"
-  curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.52.2
+    # binary will be $(go env GOPATH)/bin/golangci-lint
+    print_in_purple "\n Installing golangci-lint  \n\n"
+    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.52.2
 }
 
 install_luarocks() {
-  print_in_purple "\n Installing luarocks \n\n"
-  sudo apt update -y
-  sudo apt install luarocks -y
+    print_in_purple "\n Installing luarocks \n\n"
+    brew install luarocks
 }
 
 install_ruby() {
-  print_in_purple "\n Installing ruby \n\n"
-  sudo apt install rubygems -y
+    print_in_purple "\n Installing ruby \n\n"
+    brew install rubygems
 }
 
 install_ripgrep() {
-  print_in_purple "\n Installing ripgrep \n\n"
-  sudo apt install ripgrep -y 
+    print_in_purple "\n Installing ripgrep \n\n"
+    brew install ripgrep
 }
 
 install_fd() {
-  print_in_purple "\n Installing fd \n\n"
-  sudo apt install fd-find
+    print_in_purple "\n Installing fd \n\n"
+    brew install fd-find
 }
 
 install_php() {
-  print_in_purple "\n Installing php \n\n"
-  sudo apt install php -y
+    print_in_purple "\n Installing php \n\n"
+    brew install php
 }
 
 install_java() {
-  print_in_purple "\n Installing java \n\n"
-  sudo apt install openjdk-11-jdk -y
+    print_in_purple "\n Installing java \n\n"
+    brew install openjdk-11-jdk
 }
 
 install_julia() {
-  print_in_purple "\n Installing julia \n\n"
-  wget https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.5-linux-x86_64.tar.gz -P /tmp
-  sudo mkdir /opt/julia/
-  sudo tar -xvf /tmp/julia-1.8.5-linux-x86_64.tar.gz -C /opt/julia/
+    print_in_purple "\n Installing julia \n\n"
+    brew install julia
 }
 
 install_prettier() {
-  print_in_purple "\n Installing prettier \n\n"
-  npm install --save-dev --save-exact prettier
+    print_in_purple "\n Installing prettier \n\n"
+    npm install --save-dev --save-exact prettier
 }
 
 install_black() {
-  print_in_purple "\n Installing black \n\n"
-  pip install black
+    print_in_purple "\n Installing black \n\n"
+    pip install black
 }
 
 install_stylua() {
-  print_in_purple "\n Installing stylua \n\n"
-  cargo install stylua
+    print_in_purple "\n Installing stylua \n\n"
+    cargo install stylua
 }
 
 install_treesitter() {
-  print_in_purple "\n Installing tree-sitter \n\n"
-  cargo install tree-sitter-cli
+    print_in_purple "\n Installing tree-sitter \n\n"
+    cargo install tree-sitter-cli
 }
 
 install_nodejs() {
-  print_in_purple "\n Installing nodejs \n\n"
-  curl -fsSL https://deb.nodesource.com/setup_20.x | bash - &&\
-    apt-get install -y nodej
+    print_in_purple "\n Installing nodejs \n\n"
+    brew install node
 }
 
-
 main() {
-  install_nodejs
-  install_julia
-  install_java
-  install_php
-  install_fd
-  install_ripgrep
-  install_ruby
-  install_treesitter
-  install_stylua
-  install_golangci-lint
-  install_az_pipeline_lsp
-  install_brewfile
-  install_and_setup_postgres
-  install_nvm_node_yarn
-  install_typescript
-  install_prettier
-  # install_az_cli
-  install_dotnet
-  install_powershell
-  #install_docker
-  install_VSCode
-  install_vim
-  install_golang_and_friends
-  install_ghcli
-  install_sqlite
-  install_mono
+    install_nodejs
+    install_julia
+    install_java
+    install_php
+    install_fd
+    install_ripgrep
+    install_ruby
+    install_treesitter
+    install_stylua
+    install_golangci-lint
+    install_az_pipeline_lsp
+    install_brewfile
+    install_nvm_node_yarn
+    install_typescript
+    install_prettier
+    install_dotnet
+    install_powershell
+    install_VSCode
+    install_vim
+    install_golang_and_friends
+    install_ghcli
 }
 
 main
