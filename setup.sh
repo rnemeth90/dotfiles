@@ -71,7 +71,7 @@ install_dev_packages() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 mac_setup_final() {
-    sudo brew cleanup
+    brew cleanup
     source ~/.bashrc
     # final tweaks
     print_in_green "\n • All done! Remember to set your fonts with lxappearance! \n"
