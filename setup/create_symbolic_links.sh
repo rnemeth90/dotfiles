@@ -5,144 +5,138 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-  . "$DOT/setup/utils.sh"
+    . "$DOT/setup/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 create_symlinks() {
 
-  declare -a FILES_TO_SYMLINK=(
+    declare -a FILES_TO_SYMLINK=(
 
-    "shell/bash_aliases.d"
-    "shell/bash_aliases"
-    "shell/bash_autocompletion"
-    "shell/bash_exports"
-    "shell/bash_options"
-    "shell/bash_colors"
-    "shell/bash_profile"
-    "shell/bash_prompt"
-    "shell/bashrc"
-    "shell/curlrc"
-    "shell/inputrc"
-    #"shell/vimrc"
-    "git/gitconfig"
-    "git/gitignore"
-    "golang/cobra.yaml"
-    ".config/mutt"
-    "conf"
-  )
+        "shell/bash_aliases.d"
+        "shell/bash_aliases"
+        "shell/bash_autocompletion"
+        "shell/bash_exports"
+        "shell/bash_options"
+        "shell/bash_colors"
+        "shell/bash_profile"
+        "shell/bash_prompt"
+        "shell/bashrc"
+        "shell/curlrc"
+        "shell/inputrc"
+        #"shell/vimrc"
+        "git/gitconfig"
+        "git/gitignore"
+        "golang/cobra.yaml"
+        ".config/mutt"
+        "conf"
+    )
 
-  local i=""
-  local sourceFile=""
-  local targetFile=""
+    local i=""
+    local sourceFile=""
+    local targetFile=""
 
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  for i in "${FILES_TO_SYMLINK[@]}"; do
+    for i in "${FILES_TO_SYMLINK[@]}"; do
 
-    sourceFile="$(cd .. && pwd)/$i"
-    targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        sourceFile="$(cd .. && pwd)/$i"
+        targetFile="$HOME/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
-    if [ ! -e "$targetFile" ]; then
+        if [ ! -e "$targetFile" ]; then
 
-      execute \
-        "ln -fs $sourceFile $targetFile" \
-        "$targetFile → $sourceFile"
+            execute \
+                "ln -fs $sourceFile $targetFile" \
+                "$targetFile → $sourceFile"
 
-    elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
-      print_success "$targetFile → $sourceFile"
-    else
+        elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+            print_success "$targetFile → $sourceFile"
+        else
 
-      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-      if answer_is_yes; then
+            ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+            if answer_is_yes; then
 
-        rm -rf "$targetFile"
+                rm -rf "$targetFile"
 
-        execute \
-          "ln -fs $sourceFile $targetFile" \
-          "$targetFile → $sourceFile"
+                execute \
+                    "ln -fs $sourceFile $targetFile" \
+                    "$targetFile → $sourceFile"
 
-      else
-        print_error "$targetFile → $sourceFile"
-      fi
+            else
+                print_error "$targetFile → $sourceFile"
+            fi
 
-    fi
+        fi
 
-  done
+    done
 
 }
 
 create_config_symlinks() {
 
-  # DO NOT INCLUDE THE LAST '/' IN THE PATHS BELOW!!
-  declare -a FILES_TO_SYMLINK=(
-    ".config/autostart"
-    ".config/terminator"
-    ".config/plank"
-    ".config/nvim"
-    ".config/ranger"
-    ".config/i3"
-    ".config/neofetch"
-    ".config/polybar"
-    ".config/picom"
-    ".config/omb"
-  )
+    # DO NOT INCLUDE THE LAST '/' IN THE PATHS BELOW!!
+    declare -a FILES_TO_SYMLINK=(
+        ".config/autostart"
+        ".config/terminator"
+        ".config/plank"
+        ".config/nvim"
+        ".config/ranger"
+        ".config/i3"
+        ".config/neofetch"
+        ".config/polybar"
+        ".config/picom"
+        ".config/omb"
+    )
 
-  local i=""
-  local sourceFile=""
-  local targetFile=""
+    local i=""
+    local sourceFile=""
+    local targetFile=""
 
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  for i in "${FILES_TO_SYMLINK[@]}"; do
+    for i in "${FILES_TO_SYMLINK[@]}"; do
 
-    sourceFile="$(cd .. && pwd)/$i"
-    # targetFile="$HOME/.config/$(printf "%s" "$i" | sed 's:.*/::')/"
-    targetFile="$HOME/.config/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+        sourceFile="$(cd .. && pwd)/$i"
+        # targetFile="$HOME/.config/$(printf "%s" "$i" | sed 's:.*/::')/"
+        targetFile="$HOME/.config/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
+        if [ ! -e "$targetFile" ]; then
 
-    if [ ! -e "$targetFile" ]; then
+            execute \
+                "ln -fs $sourceFile $targetFile" \
+                "$targetFile → $sourceFile"
 
-      execute \
-        "ln -fs $sourceFile $targetFile" \
-        "$targetFile → $sourceFile"
+        elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
+            print_success "$targetFile → $sourceFile"
+        else
 
-    elif [ "$(readlink "$targetFile")" == "$sourceFile" ]; then
-      print_success "$targetFile → $sourceFile"
-    else
+            ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
+            if answer_is_yes; then
 
-      ask_for_confirmation "'$targetFile' already exists, do you want to overwrite it?"
-      if answer_is_yes; then
+                rm -rf "$targetFile"
 
-        rm -rf "$targetFile"
+                execute \
+                    "ln -fs $sourceFile $targetFile" \
+                    "$targetFile → $sourceFile"
 
-        execute \
-          "ln -fs $sourceFile $targetFile" \
-          "$targetFile → $sourceFile"
+            else
+                print_error "$targetFile → $sourceFile"
+            fi
 
-      else
-        print_error "$targetFile → $sourceFile"
-      fi
+        fi
 
-    fi
-
-  done
+    done
 
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
-  print_in_purple "\n • Create symbolic links\n\n"
-  create_symlinks "$@"
+    print_in_purple "\n • Create symbolic links\n\n"
+    create_symlinks "$@"
 
-  print_in_purple "\n • Linking config dirs\n\n"
-  create_config_symlinks "$@"
-
-  #print_in_purple "\n • Linking bin dir\n\n"
-  #sudo ln -s ~/dotfiles/bin ~/bin
-  #print_success "~/dotfiles/bin → ~/bin"
-
+    print_in_purple "\n • Linking config dirs\n\n"
+    create_config_symlinks "$@"
 }
 
 main "$@"
