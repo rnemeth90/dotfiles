@@ -23,8 +23,6 @@
 # LS_COLORS+="ln=target:" # Symbolic link
 # LS_COLORS+="or=31;01"   # Symbolic link pointing to a non-existent file
 #
-export LS_COLORS="$(vivid generate molokai)"
-
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Enable color support.
