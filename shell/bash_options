@@ -7,7 +7,7 @@
 
 # Automatically prepend `cd` to directory names.
 
-shopt -s autocd
+#shopt -s autocd
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
