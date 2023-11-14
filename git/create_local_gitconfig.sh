@@ -61,7 +61,7 @@ clone_repos() {
 
   if [ ! -e "$HOME/repos" ]; then
     echo "Creating $HOME/repos ..."
-    sudo mkdir $HOME/repos && sudo chown $(whoami):$(whoami) $HOME/repos
+    sudo mkdir $HOME/repos && sudo chown -R $(whoami): $HOME/repos
   fi
 
   for i in "${reposToClone[@]}"; do
@@ -84,7 +84,7 @@ setup_golang_workdir() {
       sudo mkdir -p $HOME/repos/golang/src/github.com/rnemeth90 && \
       sudo mkdir $HOME/repos/golang/pkg && \
       sudo mkdir $HOME/repos/golang/bin && \
-      sudo chown -R $(whoami):$(whoami) $HOME/repos/golang/
+      sudo chown -R $(whoami): $HOME/repos/golang/
   else
     print_in_yellow "\n • golang workspace already exists \n\n"
   fi
