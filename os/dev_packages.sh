@@ -30,6 +30,7 @@ install_golang_and_friends() {
     print_in_purple "\n • Installing golang \n\n"
     brew install golang
     brew install hugo
+    brew install gopls
     go install github.com/spf13/cobra-cli@latest
 }
 

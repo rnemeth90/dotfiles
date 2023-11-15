@@ -7,70 +7,67 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 install_VLC() {
     print_in_purple "\n • Installing VLC \n\n"
-     brew install vlc
+    brew install vlc
 }
 
 install_python() {
     print_in_purple "\n • Installing python \n\n"
-     brew install python
+    brew install python
 }
 
 install_wget() {
     print_in_purple "\n • Installing wget \n\n"
-     brew install wget
+    brew install wget
 }
 
-install_terminator() {
-    print_in_purple "\n • Installing terminator \n\n"
-     brew install terminator
-    pip install requests
-    mkdir -p $HOME/.config/terminator/plugins
-    wget https://git.io/v5Zww -O $HOME"/.config/terminator/plugins/terminator-themes.py"
+install_iterm() {
+    print_in_purple "\n • Installing iterm2 \n\n"
+    brew install iterm2
 }
 
 install_yq() {
     print_in_purple "\n • Installing yq \n\n"
-     brew install yq
+    brew install yq
 }
 
 install_virtualbox() {
     print_in_purple "\n • Installing Virtual Box \n\n"
-     brew install virtualbox
+    brew install virtualbox
 }
 
 install_chrome() {
     print_in_purple "\n • Installing Chrome \n\n"
-     brew install google-chrome-stable
+    brew install google-chrome-stable
 }
 
 install_helm() {
     print_in_purple "\n • Installing helm \n\n"
-     brew install helm
+    brew install helm
 }
 
 install_htop() {
     print_in_purple "\n • Installing htop \n\n"
-     brew install htop
+    brew install htop
 }
 
 install_nmap() {
     print_in_purple "\n • Installing nmap \n\n"
-     brew install nmap
+    brew install nmap
 }
 
 install_wireshark() {
     print_in_purple "\n • Installing wireshark \n\n"
-     brew install wireshark
+    brew install wireshark
 }
 
 install_tor() {
     print_in_purple "\n • Installing tor \n\n"
-     brew install tor
+    brew install tor
 }
 
 install_kubectl() {
     print_in_purple "\n • Installing kubectl \n\n"
-     brew install kubectl
+    brew install kubectl
 }
 
 install_kubeshark() {
@@ -80,9 +77,8 @@ install_kubeshark() {
 
 install_random() {
     print_in_purple "\n • Installing everything else... \n\n"
-     brew install \
+    brew install \
         bash-completion \
-        dnsenum \
         figlet \
         gnupg \
         jq \
@@ -96,27 +92,27 @@ install_random() {
 
 install_terraform() {
     print_in_purple "\n • Installing terraform... \n\n"
-     brew install terraform
+    brew install terraform
 }
 
 install_ranger() {
     print_in_purple "\n • Installing ranger... \n\n"
-     brew install ranger
+    brew install ranger
 }
 
 install_neofetch() {
     print_in_purple "\n • Installing neofetch... \n\n"
-     brew install neofetch
+    brew install neofetch
 }
 
 install_dhcpdump() {
     print_in_purple "\n • Installing dhcpdump... \n\n"
-     brew install dhcpdump
+    brew install dhcpdump
 }
 
 install_thefuck() {
     print_in_purple "\n • Installing theFuck... \n\n"
-     brew install thefuck
+    brew install thefuck
 }
 
 install_circumflex() {
@@ -126,7 +122,7 @@ install_circumflex() {
 
 install_tldr() {
     print_in_purple "\n • Installing tldr... \n\n"
-     npm install -g tldr
+    npm install -g tldr
 }
 
 install_vivid() {
@@ -136,7 +132,7 @@ install_vivid() {
 
 install_man2html() {
     print_in_purple "\n • Installing man2html... \n\n"
-     brew install man2html
+    brew install man2html
 }
 
 main() {
@@ -152,7 +148,7 @@ main() {
     install_random
     install_man2html
     install_ranger
-    install_terminator
+    install_iterm
     install_virtualbox
     install_wireshark
     install_nmap

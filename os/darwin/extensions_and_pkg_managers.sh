@@ -9,7 +9,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 install_snap() {
     print_in_purple "\n • Installing snap\n\n"
-    sudo brew install snapd
+    brew install snapd
     sudo ln -s /var/lib/snapd/snap /snap
 }
 
@@ -32,7 +32,7 @@ install_nvm_node_yarn() {
 
 install_npm() {
     print_in_purple "\n • Installing npm \n\n"
-    sudo brew install npm
+    brew install npm
 }
 
 install_cargo() {
