@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 install_extensions_and_pkg_managers() {
     print_in_purple "\n • Installing basic extensions and pkg managers \n\n"
-    ./os/mint/extensions_and_pkg_managers.sh
+    ./os/darwin/extensions_and_pkg_managers.sh
     print_in_green "\n • Finished installing basic extensions and pkg managers! \n\n"
     sleep 5
 }
@@ -16,7 +16,7 @@ install_extensions_and_pkg_managers() {
 
 init_setup() {
     print_in_purple "\n • Starting initial Mac setup \n\n"
-    ./os/mint/init_mint_setup.sh
+    ./os/darwin/init.sh
     print_in_green "\n • Initial setup done! \n\n"
     sleep 5
 }
