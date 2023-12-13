@@ -9,21 +9,15 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 upgrade_brew() {
     print_in_purple "\n • Upgrading... \n\n"
-    sudo apt upgrade -y
+    brew upgrade
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_xclip() {
     print_in_purple "\n • Installing xclip for setup process... \n\n"
-    sudo brew install xclip
+    brew install xclip
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# ----------------------------------------------------------------------
-# | Main                                                               |
-# ----------------------------------------------------------------------
 
 main() {
     upgrade_brew

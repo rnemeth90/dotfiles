@@ -46,7 +46,7 @@ install_fonts() {
     done
 
     find "$fonts_dir" -name '*Windows Compatible*' -delete
-    sudo chmod -R 775 /home/ryan/.local/share/fonts
+    sudo chmod -R 775 $HOME/.local/share/fonts
 }
 
 main() {

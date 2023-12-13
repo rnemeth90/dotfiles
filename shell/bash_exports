@@ -89,9 +89,8 @@ export DENO_INSTALL="/home/$USER/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # go
-export GOPATH="/repos/golang"
-export GOBIN="/repos/golang/bin"
-export GOMODCACHE="/var/cache/go"
+export GOPATH="$HOME/repos/golang"
+export GOBIN="$HOME/repos/golang/bin"
 
 # setup PATHs
 export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
@@ -104,4 +103,5 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
+# suppress annoying zsh messages
+export BASH_SILENCE_DEPRECATION_WARNING=1# suppress annoying zsh messages
