@@ -1,3 +1,4 @@
+-- using mason-lspconfig, so lsp server names are 'easier'
 local servers = {
 	"sumneko_lua",
 	"cssls",
@@ -10,8 +11,14 @@ local servers = {
 	"jsonls",
   "yamlls",
   "omnisharp",
+  "dockerls",
+  "bicep",
+  "awk_ls",
+  "csharp_ls",
+  "golangci_lint_ls",
+  "powershell_es",
+  "tsserver"
   --"terraform-ls",
-  --"powershell-editor-services"
 }
 
 local settings = {
