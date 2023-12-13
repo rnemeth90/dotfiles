@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 telescope.load_extension('media_files')
+telescope.load_extension('file_browser')
 
 local actions = require "telescope.actions"
 
@@ -100,6 +101,19 @@ telescope.setup {
       filetypes = {"png", "webp", "jpg", "jpeg"},
       -- find command (defaults to `fd`)
       find_cmd = "rg"
-    }
+    },
+    file_browser = {
+      theme = "ivy",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
   },
 }
