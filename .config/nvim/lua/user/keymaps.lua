@@ -41,7 +41,7 @@ keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
 
 -- Insert --
--- Press jk fast to exit insert mode 
+-- Press jk fast to exit insert mode
 keymap("i", "jk", "<ESC>", opts)
 keymap("i", "kj", "<ESC>", opts)
 keymap("v", "kj", "<ESC>", opts)
@@ -64,19 +64,18 @@ keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
--- nvimtree -- 
+-- nvimtree --
 keymap("n", "<leader>r", ":NvimTreeRefresh<CR>", opts) -- refresh
 
--- telescope -- 
+-- telescope --
 keymap("n", "<leader>g", ":Telescope file_browser<CR>", opts) -- open telescope file browser
 
--- formatting -- 
-keymap("n", "<leader>gf", "vim.lsp.buf.format", opts)
+-- formatting --
+-- keymap("n", "<leader>y", "vim.lsp.buf.format", opts)
+vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
 
 -- Terminal --
 -- Better terminal navigation
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
--- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
-
