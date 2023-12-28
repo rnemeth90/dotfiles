@@ -29,5 +29,3 @@ neodev.setup {
   pathStrict = true,
 }
 
--- then setup your lsp server as usual
-local lspconfig = require('lspconfig')
