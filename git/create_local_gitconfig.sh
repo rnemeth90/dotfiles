@@ -59,18 +59,17 @@ clone_repos() {
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  if [ ! -e "/repos" ]; then
-    echo "Creating /repos ..."
-    sudo mkdir /repos && sudo chown $(whoami):$(whoami) /repos
+  if [ ! -e "$HOME/repos" ]; then
+    echo "Creating $HOME/repos ..."
+    sudo mkdir $HOME/repos && sudo chown -R $(whoami): $HOME/repos
   fi
 
   for i in "${reposToClone[@]}"; do
-    target="/repos/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
-    # target="/repos/$(printf "%s" "$i" | sed "s:.*/::")"
+    target="$HOME/repos/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ ! -e "$target" ]; then
       print_in_purple "\n • cloning $i \n\n"
-      cd /repos && git clone $i > /dev/null 2>&1
+      cd $HOME/repos && git clone $i > /dev/null 2>&1
     else
       print_in_yellow "\n • $i already exists \n\n"
     fi
@@ -79,13 +78,13 @@ clone_repos() {
 
 setup_golang_workdir() {
   print_in_purple "\n • Configuring golang \n\n"
-  if [ ! -e /repos/golang ]; then
-    sudo mkdir -p /repos/golang && \
+  if [ ! -e $HOME/repos/golang ]; then
+    sudo mkdir -p $HOME/repos/golang && \
       # Change value after last '/' to your github username
-      sudo mkdir -p /repos/golang/src/github.com/rnemeth90 && \
-      sudo mkdir /repos/golang/pkg && \
-      sudo mkdir /repos/golang/bin && \
-      sudo chown -R $(whoami):$(whoami) /repos/golang/
+      sudo mkdir -p $HOME/repos/golang/src/github.com/rnemeth90 && \
+      sudo mkdir $HOME/repos/golang/pkg && \
+      sudo mkdir $HOME/repos/golang/bin && \
+      sudo chown -R $(whoami): $HOME/repos/golang/
   else
     print_in_yellow "\n • golang workspace already exists \n\n"
   fi
@@ -111,6 +110,9 @@ clone_golang_repos() {
     "git@github.com:rnemeth90/crawley.git"
     "git@github.com:rnemeth90/hasher.git"
     "git@github.com:rnemeth90/httpstat.git"
+    "git@github.com:rnemeth90/httping.git"
+    "git@github.com:rnemeth90/httpbench.git"
+    "git@github.com:rnemeth90/dnscache.git"
     "git@github.com:rnemeth90/learngo.git"
     "git@github.com:rnemeth90/devopsforgo.git"
     "git@github.com:rnemeth90/go-practice.git"
@@ -123,12 +125,11 @@ clone_golang_repos() {
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   for i in "${reposToClone[@]}"; do
-    target="/repos/golang/src/github.com/rnemeth90/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
-    # target="/repos/$(printf "%s" "$i" | sed "s:.*/::")"
+    target="$HOME/repos/golang/src/github.com/rnemeth90/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ ! -e "$target" ]; then
       print_in_purple "\n • cloning $i \n\n"
-      cd /repos/golang/src/github.com/rnemeth90 && git clone $i > /dev/null 2>&1
+      cd $HOME/repos/golang/src/github.com/rnemeth90 && git clone $i > /dev/null 2>&1
     else
       print_in_yellow "\n • $i already exists \n\n"
     fi

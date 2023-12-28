@@ -43,10 +43,11 @@ source_bash_files() {
 source_bash_files
 unset -f source_bash_files
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Clear system messages (system copyright notice, the date
 # and time of the last login, the message of the day, etc.).
 
 # clear
 # . "$HOME/.cargo/env"
+
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+

@@ -64,14 +64,6 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 export PYTHONIOENCODING="UTF-8"
 
-# Homebrew paths
-export HOMEBREW_PREFIX="/home/linuxbrew/.linuxbrew";
-export HOMEBREW_CELLAR="/home/linuxbrew/.linuxbrew/Cellar";
-export HOMEBREW_REPOSITORY="/home/linuxbrew/.linuxbrew/Homebrew";
-export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin${PATH+:$PATH}";
-export MANPATH="/home/linuxbrew/.linuxbrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:${INFOPATH:-}";
-
 # fzf configs
 export FZF_IGNORES=Applications,Library,Movies,Music,Pictures,Qt,node_modules,venv,.DS_Store,.Trash,.cache,.git,.mypy_cache,.npm,.pyenv,.pytest_cache,.stack,.temp,__pycache__
 export FZF_DEFAULT_COMMAND='command fd --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
@@ -97,9 +89,8 @@ export DENO_INSTALL="/home/$USER/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # go
-export GOPATH="/repos/golang"
-export GOBIN="/repos/golang/bin"
-export GOMODCACHE="/var/cache/go"
+export GOPATH="$HOME/repos/golang"
+export GOBIN="$HOME/repos/golang/bin"
 
 # setup PATHs
 export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
@@ -112,4 +103,5 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
-
+# suppress annoying zsh messages
+export BASH_SILENCE_DEPRECATION_WARNING=1# suppress annoying zsh messages
