@@ -87,6 +87,7 @@ return packer.startup(function(use)
   use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
 	-- use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
   use { "nvimtools/none-ls.nvim" } -- for formatters and linters, replaces null-ls
+  use { "jay-babu/mason-null-ls.nvim" } -- 'glue package' for mason and null-ls
 
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
 	-- Telescope
