@@ -25,7 +25,7 @@ If you want to use this or parts of it, you should naturally go through the file
 
 ### 💰 Credits
 
-I took a lot of my initial inspiration from these two repos:
+I took a lot of my initial inspiration from these two repos. However, over time, my dotfiles have strayed from these significantly.
 
 https://github.com/alrra/dotfiles (for MacOS or Ubuntu)
 
