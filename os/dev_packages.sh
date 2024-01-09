@@ -2,58 +2,55 @@
 
 declare DOT=$HOME/dotfiles
 
-
-
-
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     . "$DOT/setup/utils.sh"
 
 install_typescript() {
     print_in_purple "\n • Installing typescript globally\n\n"
-    sudo apt -y install typescript
+    install_package typescript
 }
 
 install_az_cli() {
     print_in_purple "\n • Installing Azure Cli \n\n"
-    sudo apt -y install azure-cli
+    install_package azure-cli
 }
 
 install_dotnet() {
     print_in_purple "\n • Installing dotnet \n\n"
-    sudo apt -y install dotnet-sdk
+    install_package dotnet-sdk
 }
 
 install_golang_and_friends() {
     print_in_purple "\n • Installing golang \n\n"
-    sudo apt -y install golang
-    sudo apt -y install hugo
-    sudo apt -y install gopls
+    install_package golang
+    install_package hugo
+    install_package gopls
     go install github.com/spf13/cobra-cli@latest
 }
 
 install_vim() {
     print_in_purple "\n • Installing vim \n\n"
-    sudo apt -y install neovim
+    install_package neovim
 }
 
 install_powershell() {
     print_in_purple "\n • Installing tor \n\n"
-    sudo apt -y install powershell
+    install_package powershell
 }
 
 install_docker() {
     print_in_purple "\n • Installing docker \n\n"
-    sudo apt -y install docker
+    install_package docker
 }
 
 install_VSCode() {
     print_in_purple "\n • Installing VSCode \n\n"
-    sudo apt -y install visual-studio-code
+    install_package visual-studio-code
 }
 
 install_ghcli() {
     print_in_purple "\n • Installing github cli \n\n"
-    sudo apt -y install gh
+    install_package gh
 }
 
 install_az_pipeline_lsp() {
@@ -70,37 +67,37 @@ install_golangci-lint() {
 
 install_luarocks() {
     print_in_purple "\n Installing luarocks \n\n"
-    sudo apt -y install luarocks
+    install_package luarocks
 }
 
 install_ruby() {
     print_in_purple "\n Installing ruby \n\n"
-    sudo apt -y install rubygems
+    install_package rubygems
 }
 
 install_ripgrep() {
     print_in_purple "\n Installing ripgrep \n\n"
-    sudo apt -y install ripgrep
+    install_package ripgrep
 }
 
 install_fd() {
     print_in_purple "\n Installing fd \n\n"
-    sudo apt -y install fd-find
+    install_package fd-find
 }
 
 install_php() {
     print_in_purple "\n Installing php \n\n"
-    sudo apt -y install php
+    install_package php
 }
 
 install_java() {
     print_in_purple "\n Installing java \n\n"
-    sudo apt -y install openjdk@11
+    install_package openjdk@11
 }
 
 install_julia() {
     print_in_purple "\n Installing julia \n\n"
-    sudo apt -y install julia
+    install_package julia
 }
 
 install_prettier() {
@@ -125,7 +122,7 @@ install_treesitter() {
 
 install_nodejs() {
     print_in_purple "\n Installing nodejs \n\n"
-    sudo apt -y install node
+    install_package node
 }
 
 main() {

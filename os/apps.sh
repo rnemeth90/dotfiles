@@ -7,67 +7,67 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 install_VLC() {
     print_in_purple "\n • Installing VLC \n\n"
-    sudo apt -y install vlc
+    install_package vlc
 }
 
 install_python() {
     print_in_purple "\n • Installing python \n\n"
-    sudo apt -y install python
+    install_package python
 }
 
 install_wget() {
     print_in_purple "\n • Installing wget \n\n"
-    sudo apt -y install wget
+    install_package wget
 }
 
 install_iterm() {
     print_in_purple "\n • Installing iterm2 \n\n"
-    sudo apt -y install iterm2
+    install_package iterm2
 }
 
 install_yq() {
     print_in_purple "\n • Installing yq \n\n"
-    sudo apt -y install yq
+    install_package yq
 }
 
 install_virtualbox() {
     print_in_purple "\n • Installing Virtual Box \n\n"
-    sudo apt -y install virtualbox
+    install_package virtualbox
 }
 
 install_chrome() {
     print_in_purple "\n • Installing Chrome \n\n"
-    sudo apt -y install google-chrome-stable
+    install_package google-chrome-stable
 }
 
 install_helm() {
     print_in_purple "\n • Installing helm \n\n"
-    sudo apt -y install helm
+    install_package helm
 }
 
 install_htop() {
     print_in_purple "\n • Installing htop \n\n"
-    sudo apt -y install htop
+    install_package htop
 }
 
 install_nmap() {
     print_in_purple "\n • Installing nmap \n\n"
-    sudo apt -y install nmap
+    install_package nmap
 }
 
 install_wireshark() {
     print_in_purple "\n • Installing wireshark \n\n"
-    sudo apt -y install wireshark
+    install_package wireshark
 }
 
 install_tor() {
     print_in_purple "\n • Installing tor \n\n"
-    sudo apt -y install tor
+    install_package tor
 }
 
 install_kubectl() {
     print_in_purple "\n • Installing kubectl \n\n"
-    sudo apt -y install kubectl
+    install_package kubectl
 }
 
 install_kubeshark() {
@@ -77,7 +77,7 @@ install_kubeshark() {
 
 install_random() {
     print_in_purple "\n • Installing everything else... \n\n"
-    sudo apt -y install \
+    install_package \
         bash-completion \
         figlet \
         gnupg \
@@ -92,32 +92,32 @@ install_random() {
 
 install_terraform() {
     print_in_purple "\n • Installing terraform... \n\n"
-    sudo apt -y install terraform
+    install_package terraform
 }
 
 install_ranger() {
     print_in_purple "\n • Installing ranger... \n\n"
-    sudo apt -y install ranger
+    install_package ranger
 }
 
 install_neofetch() {
     print_in_purple "\n • Installing neofetch... \n\n"
-    sudo apt -y install neofetch
+    install_package neofetch
 }
 
 install_dhcpdump() {
     print_in_purple "\n • Installing dhcpdump... \n\n"
-    sudo apt -y install dhcpdump
+    install_package dhcpdump
 }
 
 install_thefuck() {
     print_in_purple "\n • Installing theFuck... \n\n"
-    sudo apt -y install thefuck
+    install_package thefuck
 }
 
 install_circumflex() {
     print_in_purple "\n • Installing circumflex... \n\n"
-    sudo apt -y install circumflex
+    install_package circumflex
 }
 
 install_tldr() {
@@ -132,7 +132,7 @@ install_vivid() {
 
 install_man2html() {
     print_in_purple "\n • Installing man2html... \n\n"
-    sudo apt -y install man2html
+    install_package man2html
 }
 
 main() {
