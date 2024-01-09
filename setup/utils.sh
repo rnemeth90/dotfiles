@@ -1,5 +1,21 @@
 #!/bin/bash
 
+# Function to install a package using pacman or from AUR
+install_package() {
+    package=$1
+    if pacman -Si $package > /dev/null 2>&1; then
+        pacman -S --noconfirm $package
+    else
+        print_in_yellow "$package not found in official repositories. Attempting to install from AUR..."
+        # You can use an AUR helper like yay or trizen here
+        
+        if pacman -Si $package > /dev/null 2>&1; then
+          pacman -S --noconfirm yay
+        fi
+        yay -S --noconfirm $package
+    fi
+}
+
 ask() {
   print_question "$1"
   read -r
@@ -238,3 +254,5 @@ show_spinner() {
   done
 
 }
+
+

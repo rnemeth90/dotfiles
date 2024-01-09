@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 install_extensions_and_pkg_managers() {
     print_in_purple "\n • Installing basic extensions and pkg managers \n\n"
-    ./os/debian/extensions_and_pkg_managers.sh
+    ./os/arch/extensions_and_pkg_managers.sh
     print_in_green "\n • Finished installing basic extensions and pkg managers! \n\n"
     sleep 5
 }
@@ -16,7 +16,7 @@ install_extensions_and_pkg_managers() {
 
 init_setup() {
     print_in_purple "\n • Starting initial Linux setup \n\n"
-    ./os/debian/init.sh
+    ./os/arch/init.sh
     print_in_green "\n • Initial setup done! \n\n"
     sleep 5
 }
