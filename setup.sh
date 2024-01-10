@@ -79,9 +79,9 @@ linux_setup_final() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main() {
+    install_extensions_and_pkg_managers
     init_setup
     bash_and_git_configs
-    install_extensions_and_pkg_managers
     setup_os_theme_and_terminal_style
     install_apps
     install_dev_packages
