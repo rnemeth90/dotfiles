@@ -1,4 +1,4 @@
-local cmp_status_ok, cmp = pcall(require, "cmp")
+;ocal cmp_status_ok, cmp = pcall(require, "cmp")
 if not cmp_status_ok then
   return
 end
@@ -120,9 +120,8 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   experimental = {
     ghost_text = true,
