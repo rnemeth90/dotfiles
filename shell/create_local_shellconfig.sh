@@ -6,7 +6,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
   . "$DOT/setup/utils.sh"
 
 create_bash_local() {
-
   declare -r FILE_PATH="$HOME/.bash.local"
 
   if [ ! -e "$FILE_PATH" ] || [ -z "$FILE_PATH" ]; then
@@ -27,9 +26,7 @@ export PATH
   fi
 
   print_result $? "$FILE_PATH"
-
 }
 
 print_in_purple "\n • Create local bash config\n\n"
-
 create_bash_local

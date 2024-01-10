@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 upgrade_brew() {
-    print_in_purple "\n • Upgrading... \n\n"
+    print_in_purple "\n • Upgrading brew... \n\n"
     brew upgrade
 }
 

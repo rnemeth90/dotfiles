@@ -1,6 +1,5 @@
-# This can be improved but I am lazy
-
 #!/bin/bash
+# This can be improved but I am lazy
 
 declare DOT=$HOME/dotfiles
 
