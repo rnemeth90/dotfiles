@@ -24,3 +24,4 @@ require "user.autocommands"
 require "user.neoscroll"
 require "user.go"
 require "user.nvim-dap-virtual-text"
+
