@@ -33,8 +33,8 @@ export HISTSIZE=10000
 
 # Prefer US English and use UTF-8 encoding.
 
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+#export LANG="en_US"
+#export LC_ALL="en_US.UTF-8"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
