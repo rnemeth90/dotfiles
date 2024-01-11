@@ -73,6 +73,7 @@ create_symlinks() {
 
 create_config_symlinks() {
 
+    # TODO: verify ~/.config exists before attempting to create symlinks below 
     # DO NOT INCLUDE THE LAST '/' IN THE PATHS BELOW!!
     declare -a FILES_TO_SYMLINK=(
         ".config/autostart"

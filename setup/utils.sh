@@ -10,9 +10,9 @@ install_package() {
         # You can use an AUR helper like yay or trizen here
         
         if pacman -Si $package > /dev/null 2>&1; then
-          pacman -S --noconfirm yay
+          sudo pacman -S --noconfirm yay
         fi
-        yay -S --noconfirm $package
+        sudo yay -S --noconfirm $package
     fi
 }
 
@@ -138,9 +138,12 @@ print_error() {
 }
 
 print_in_color() {
-  printf "%b" \
+  local line=$(printf '%*s' "${#1}")
+  printf "%b\n" \
     "$(tput setaf "$2" 2>/dev/null)" \
+    "${line// /'*'}" \
     "$1" \
+    "${line// /'*'}" \
     "$(tput sgr0 2>/dev/null)"
 }
 
@@ -165,7 +168,6 @@ print_question() {
 }
 
 print_result() {
-
   if [ "$1" -eq 0 ]; then
     print_success "$2"
   else
@@ -173,7 +175,6 @@ print_result() {
   fi
 
   return "$1"
-
 }
 
 print_success() {
