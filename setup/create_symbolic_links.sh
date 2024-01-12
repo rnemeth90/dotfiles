@@ -137,6 +137,9 @@ main() {
 
     print_in_purple "\n • Linking config dirs\n\n"
     create_config_symlinks "$@"
+
+    print_in_purple "\n • Linking my bin dir\n\n"
+    ln -sf "/home/$(whoami)/dotfiles/bin" "/home/$(whoami)/bin"
 }
 
 main "$@"

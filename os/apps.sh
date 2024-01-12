@@ -135,7 +135,33 @@ install_man2html() {
     install_package man2html
 }
 
+install_which() {
+    print_in_purple "\n • Installing which... \n\n"
+    install_package which
+}
+
+install_openssh() {
+    print_in_purple "\n • Installing openssh... \n\n"
+    install_package openssh
+}
+
+install_rofi() {
+    print_in_purple "\n • Installing rofi... \n\n"
+    install_package rofi
+}
+
+install_i3wm() {
+    print_in_purple "\n • Installing i3wm... \n\n"
+    install_package i3-gaps
+}
+
+install_polybar() {
+    print_in_purple "\n • Installing polybar... \n\n"
+    install_package polybar
+}
+
 main() {
+    install_which
     install_python
     install_wget
     install_VLC
@@ -157,6 +183,10 @@ main() {
     install_circumflex
     install_tldr
     install_yq
+    install_openssh
+    install_rofi
+    install_i3wm
+    install_polybar
 }
 
 main

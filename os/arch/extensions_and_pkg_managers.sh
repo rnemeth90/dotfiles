@@ -45,6 +45,7 @@ install_cargo() {
 }
 
 main() {
+    install_yay
     install_homebrew
     install_npm
     install_snap
