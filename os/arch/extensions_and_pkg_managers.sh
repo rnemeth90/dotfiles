@@ -11,9 +11,6 @@ install_yay() {
     sudo pacman -S --needed base-devel git wget
     wget https://github.com/Jguer/yay/releases/download/v12.2.0/yay_12.2.0_x86_84.tar.gz -P /tmp
     tar -xvf /tmp/yay_12.2.0_x86_64.tar.gz -C /opt/
-
-
-    yay --version
 }
 
 install_snap() {
