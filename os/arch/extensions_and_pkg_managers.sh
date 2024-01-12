@@ -5,15 +5,22 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     . "$DOT/setup/utils.sh"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+install_yay() {
+    print_in_purple "\n • Installing yay... \n\n"
+    sudo pacman -S --needed base-devel git wget
+    wget https://github.com/Jguer/yay/releases/download/v12.2.0/yay_12.2.0_x86_84.tar.gz -P /tmp
+    tar -xvf /tmp/yay_12.2.0_x86_64.tar.gz -C /opt/
+
+
+    yay --version
+}
 
 install_snap() {
     print_in_purple "\n • Installing snap\n\n"
     brew install snapd
     sudo ln -s /var/lib/snapd/snap /snap
 }
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 install_homebrew() {
     print_in_purple "\n • Installing Homebrew \n\n"
