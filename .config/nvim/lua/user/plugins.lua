@@ -59,9 +59,9 @@ return packer.startup(function(use)
 	use { "folke/which-key.nvim" }
 
   -- Debugger
-  use { "mfussenegger/nvim-dap" }
+  use { "mfussenegger/nvim-dap" } -- debug adapter interface client thingy
+  use { "rcarriga/nvim-dap-ui" } -- ui for dap
   use { "theHamsta/nvim-dap-virtual-text" }
-  use { "rcarriga/nvim-dap-ui" }
   use { "folke/neodev.nvim" }
 
 	-- Colorschemes
