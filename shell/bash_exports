@@ -1,61 +1,35 @@
 #!/bin/bash
 
-# Bash Variables.
-# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Ignore commands that start with spaces and duplicates.
-
 export HISTCONTROL=ignoreboth,ignoredups
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Increase the maximum number of lines of history
 # persisted in the history file (default value is 500).
-
 export HISTFILESIZE=10000
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Don't add certain commands to the history file.
-
 export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Increase the maximum number of commands recorded
 # in the command history (default value is 500).
-
 export HISTSIZE=10000
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Prefer US English and use UTF-8 encoding.
-
 #export LANG="en_US"
 #export LC_ALL="en_US.UTF-8"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Use custom `less` colors for `man` pages.
 export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
 export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Don't clear the screen after quitting a `man` page.
 export MANPAGER="less -X"
 
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Increase the maximum number of lines of history persisted
 # in the `Node` REPL history file (default value is 1000).
-#
 # https://github.com/nodejs/node/blob/c948877688ff2b6a37f2c88724b656aae495c7b2/doc/api/repl.md#persistent-history
 export NODE_REPL_HISTORY_SIZE=10000
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history.
@@ -72,6 +46,14 @@ export FZF_ALT_C_COMMAND='command fd --type d --type l --hidden --no-ignore --ex
 export FZF_CTRL_T_COMMAND='$FZF_DEFAULT_COMMAND'
 export FZF_COMPLETION_TRIGGER='**'
 
+# Function to append to PATH if the directory exists and is not already in PATH
+append_to_path() {
+    local dir=$1
+    if [ -d "$dir" ] && [[ ":$PATH:" != *":$dir:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$dir"
+    fi
+}
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -79,29 +61,52 @@ export NVM_DIR="$HOME/.nvm"
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+append_to_path "$PYENV_ROOT/bin"
 
 # poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+append_to_path "$HOME/.poetry/bin"
 
 # deno
 export DENO_INSTALL="/home/$USER/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+append_to_path "$DENO_INSTALL/bin"
 
 # go
 export GOPATH="$HOME/repos/golang"
 export GOBIN="$HOME/repos/golang/bin"
+append_to_path "$GOPATH/bin"
+append_to_path "/usr/local/go/bin"
 
-# setup PATHs
-export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
-for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
+# Custom bin
+append_to_path "/home/ryan/bin"
+
+# Node modules
+append_to_path "/home/ryan/node_modules/.bin"
+
+# Julia
+append_to_path "/opt/julia/julia-1.8.5/bin"
+
+# Local bin
+append_to_path "/home/ryan/.local/bin"
+
+# Dynamically add directories under /usr/bin that contain a bin directory
+for d in /usr/bin/*/bin; do
+    append_to_path "$d"
+done
+
+# Dynamically add directories under /opt that contain a bin directory
+for d in /opt/*/bin; do
+    append_to_path "$d"
+done
 
 # Kubernetes
 export KUBE_EDITOR=nvim
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export KREW_ROOT="${KREW_ROOT:-$HOME/.krew}"
+append_to_path "${KREW_ROOT}/bin"
 
 # ssh
 export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # suppress annoying zsh messages
-export BASH_SILENCE_DEPRECATION_WARNING=1# suppress annoying zsh messages
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# Export PAT
