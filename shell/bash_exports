@@ -104,9 +104,8 @@ export KREW_ROOT="${KREW_ROOT:-$HOME/.krew}"
 append_to_path "${KREW_ROOT}/bin"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/rsa_id"
+export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # suppress annoying zsh messages
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Export PAT
