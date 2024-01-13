@@ -41,7 +41,7 @@ install_fonts() {
         download_url="https://github.com/ryanoasis/nerd-fonts/releases/download/v${version}/${zip_file}"
         echo "Downloading $download_url"
         curl -O "$download_url"
-        unzip "$zip_file" -d "$fonts_dir"
+        unzip -uo "$zip_file" -d "$fonts_dir"
         rm "$zip_file"
     done
 

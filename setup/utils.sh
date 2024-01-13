@@ -7,7 +7,7 @@ install_package() {
         sudo pacman -S --needed --noconfirm $package
     else
         print_in_yellow "$package not found in official repositories. Attempting to install from AUR..."
-        sudo yay -S --noconfirm $package
+        yay -S --noconfirm $package
     fi
 }
 
