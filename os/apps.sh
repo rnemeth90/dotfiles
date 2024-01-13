@@ -5,6 +5,11 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     . "$DOT/setup/utils.sh"
 
+install_terminator() {
+    print_in_purple "\n • Installing terminator \n\n"
+    install_package terminator
+}
+
 install_VLC() {
     print_in_purple "\n • Installing VLC \n\n"
     install_package vlc
@@ -152,7 +157,7 @@ install_rofi() {
 
 install_i3wm() {
     print_in_purple "\n • Installing i3wm... \n\n"
-    install_package i3-gaps
+    install_package i3-gaps i3status i3blocks
 }
 
 install_polybar() {
@@ -187,6 +192,7 @@ main() {
     install_rofi
     install_i3wm
     install_polybar
+    install_terminator
 }
 
 main

@@ -5,6 +5,11 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     . "$DOT/setup/utils.sh"
 
+install_xorg() {
+    print_in_purple "\n • Installing x... \n\n"
+    install_package xorg xorg_xinit
+}
+
 install_sudo() {
     print_in_purple "\n • Installing sudo... \n\n"
     install_package sudo
@@ -30,6 +35,7 @@ main() {
     upgrade_arch
     upgrade_brew
     install_xclip
+    install_xorg
 }
 
 main
