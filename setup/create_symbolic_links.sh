@@ -140,6 +140,9 @@ main() {
 
     print_in_purple "\n • Linking my bin dir\n\n"
     ln -sf "/home/$(whoami)/dotfiles/bin" "/home/$(whoami)/bin"
+
+    print_in_purple "\n • Linking .xinitrc\n\n"
+    ln -sf "/home/$(whoami)/dotfiles/.xinitrc" "/home/$(whoami)/.xinitrc"
 }
 
 main "$@"
