@@ -49,5 +49,6 @@ unset -f source_bash_files
 # clear
 # . "$HOME/.cargo/env"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-
+if [[ $(tty) = /dev/tty1 ]] ; then
+  startx
+fi

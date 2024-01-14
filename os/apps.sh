@@ -147,6 +147,7 @@ install_which() {
 
 install_openssh() {
     print_in_purple "\n • Installing openssh... \n\n"
+
     install_package openssh
 }
 
@@ -156,8 +157,8 @@ install_rofi() {
 }
 
 install_i3wm() {
-    print_in_purple "\n • Installing i3wm... \n\n"
-    install_package i3-gaps i3status i3blocks
+    print_in_purple "\n • Installing i3wm and compton... \n\n"
+    install_package i3-gaps picom feh
 }
 
 install_polybar() {
