@@ -35,3 +35,6 @@ https://github.com/ruohola/dotfiles (for MacOS)
 - [ ] edit settings in `/etc/default/grub`
 - [ ] thefuck install is not currently working
 - [x] install tldr https://tldr.sh/
+- [ ] arch branch needs pip installed
+- [ ] arch branch needs gdb installed
+

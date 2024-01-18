@@ -2,3 +2,4 @@ pycache
 *.pyc
 *.ignore.sh
 passwords
+google-chrome
