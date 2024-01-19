@@ -8,6 +8,8 @@ if not status_ok then
   return
 end
 
+require("dap-go").setup()
+
 nvim_dap.adapters.python = {
   type = 'executable';
   command = os.getenv('HOME') .. '/.virtualenvs/tools/bin/python';

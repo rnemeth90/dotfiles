@@ -37,4 +37,5 @@ https://github.com/ruohola/dotfiles (for MacOS)
 - [x] install tldr https://tldr.sh/
 - [ ] arch branch needs pip installed
 - [ ] arch branch needs gdb installed
+- [ ] install delve for debugging golang
 
