@@ -111,6 +111,7 @@ clone_golang_repos() {
     "git@github.com:rnemeth90/hasher.git"
     "git@github.com:rnemeth90/httpstat.git"
     "git@github.com:rnemeth90/httping.git"
+    "git@github.com:rnemeth90/httpedia.git"
     "git@github.com:rnemeth90/httpbench.git"
     "git@github.com:rnemeth90/dnscache.git"
     "git@github.com:rnemeth90/learngo.git"

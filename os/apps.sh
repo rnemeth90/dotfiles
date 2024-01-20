@@ -166,6 +166,11 @@ install_polybar() {
     install_package polybar
 }
 
+install_brightnessctl() {
+    print_in_purple "\n • Installing brightnessctl... \n\n"
+    install_package brightnessctl
+}
+
 main() {
     install_which
     install_python
@@ -193,6 +198,7 @@ main() {
     install_rofi
     install_i3wm
     install_polybar
+    install_brightnessctl
     install_terminator
 }
 
