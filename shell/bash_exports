@@ -38,6 +38,9 @@ export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # Make Python use UTF-8 encoding for output to stdin/stdout/stderr.
 export PYTHONIOENCODING="UTF-8"
 
+# set python init file
+export PYTHONSTARTUP=~/dotfiles/python/py_profile.py
+
 # fzf configs
 export FZF_IGNORES=Applications,Library,Movies,Music,Pictures,Qt,node_modules,venv,.DS_Store,.Trash,.cache,.git,.mypy_cache,.npm,.pyenv,.pytest_cache,.stack,.temp,__pycache__
 export FZF_DEFAULT_COMMAND='command fd --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
