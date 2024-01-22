@@ -51,8 +51,10 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='~/bin/new-rm.sh'
 alias unrm='~/bin/unrm.sh'
-alias python=python3
 alias nano='nano -ET2'
+
+# python
+alias python=python3
 
 # Add some easy shortcuts for formatted directory listings and add a touch of color.
 alias ll='ls -lisa --color'
