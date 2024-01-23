@@ -271,8 +271,15 @@ jobs:
         fi
         go mod tidy
         go build -o ${PROJECT} -ldflags "-X main.Version=\${GITHUB_REF_NAME} -X main.BuiltBy=github-actions" main.go
-        mv ${PROJECT} builds/
-        ls -lisa builds/
+
+        if [ ! -d "/tmp/builds" ]; then
+          mkdir -p "/tmp/builds"
+        fi
+
+        ls -lisa /tmp/builds/
+
+        mv ${PROJECT} /tmp/builds/
+        ls -lisa /tmp/builds/
 
     - run: git version
     - run: git branch
@@ -310,7 +317,7 @@ jobs:
       with:
         name: \${{ env.GITHUB_REF_NAME }}
         tag: \${{ env.GITHUB_REF_NAME }}
-        artifacts: ${PROJECT}
+        artifacts: /tmp/builds/${PROJECT}
         bodyFile: "body.log"
         token: \${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true
