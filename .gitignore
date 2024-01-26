@@ -3,3 +3,5 @@ pycache
 *.ignore.sh
 passwords
 google-chrome
+.config/go
+.config/pulse
