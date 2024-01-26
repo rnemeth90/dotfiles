@@ -60,7 +60,7 @@ return packer.startup(function(use)
 
   -- Debugger
   use { "mfussenegger/nvim-dap" } -- debug adapter interface client thingy
-  use { "rcarriga/nvim-dap-ui" } -- ui for dap
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } -- ui for dap
   use { "leoluz/nvim-dap-go" } -- go debugging
   use { "theHamsta/nvim-dap-virtual-text" }
   use { "folke/neodev.nvim" }
