@@ -16,19 +16,18 @@ These are the base "dotfiles" that I use for setting up a new freshly installed 
 - installing applications
 - install Oh My Bash
 - edits some settings and keyboard shortcuts
-- creates bash and git config files + sets up an SSH key for Github
+- creates bash and git config files + sets up an SSH key for github
 
 More specific local needs/overrides for bash + git can be configured by using the
 .bash.local and .gitconfig.local files (created during setup).
 
-If you want to use this or parts of it, you should naturally go through the files and see if it makes any sense for you. Personally I worked on this using virtual machines so that's always an option if you want to test it out or try modifying it.
+If you want to use this or parts of it, you should naturally go through the files and see if it makes any sense for you. Personally I worked on this using virtual machines so that's always an option if you want to github it out or try modifying it.
 
 ### 💰 Credits
 
 I took a lot of my initial inspiration from these two repos. However, over time, my dotfiles have strayed from these significantly.
 
 https://github.com/alrra/dotfiles (for MacOS or Ubuntu)
-
 https://github.com/ruohola/dotfiles (for MacOS)
 
 ## TO DO:
