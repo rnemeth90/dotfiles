@@ -171,6 +171,11 @@ install_brightnessctl() {
     install_package brightnessctl
 }
 
+install_playerctl() {
+    print_in_purple "\n • Installing playerctl... \n\n"
+    install_package playerctl
+}
+
 main() {
     install_which
     install_python
@@ -200,6 +205,7 @@ main() {
     install_polybar
     install_brightnessctl
     install_terminator
+    install_playerctl
 }
 
 main

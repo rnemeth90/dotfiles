@@ -17,11 +17,11 @@ font pango:FiraCode Nerd Font 8
 # exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
-#set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +1% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -1% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -176,23 +176,23 @@ exec --no-startup-id "xrandr --output eDP-1 --mode 16384x16384"
 exec_always --no-startup-id "feh --bg-scale ~/dotfiles/os/wallpapers/wall-01.webp"
 
 # picom (transparency, etc.)
-# exec_always --no-startup-id picom -CGb --config ~/.config/picom/config
+# exec --no-startup-id picom -CGb --config ~/.config/picom/config
 exec --no-startup-id "picom -CGb"
 
- # remove title bars
-#new_window 1pixel
+#remove title bars
+# new_window 1pixel
 
 # keybinding to lock screen
-bindsym $mod+x exec "i3lock -c 000000"
+# bindsym $mod+x exec "i3lock -c 000000"
 
 # auto lock the screen
 #exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 
 # Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play
+bindsym XF86AudioPause exec --no-startup-id playerctl pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 
 # Screen backlight brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s 5%-
@@ -200,6 +200,3 @@ bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s +5%
 
 # rofi
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-3/launcher.sh
-
-#exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
-
