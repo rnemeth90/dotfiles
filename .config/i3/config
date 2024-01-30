@@ -4,17 +4,11 @@ set $mod Mod4
 # Font for window titles
 font pango:FiraCode Nerd Font 8
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
-# exec --no-startup-id dex --autostart --environment i3
+# keybinding for screen lock
+bindsym $mod+x exec "i3lock -c 011111"
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-# exec --no-startup-id nm-applet
+# auto lock the screen
+exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 011111\""
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -181,12 +175,6 @@ exec --no-startup-id "picom -CGb"
 
 #remove title bars
 # new_window 1pixel
-
-# keybinding to lock screen
-# bindsym $mod+x exec "i3lock -c 000000"
-
-# auto lock the screen
-#exec "xautolock -detectsleep -time 10 -locker \"i3lock -c 000000\""
 
 # Media player controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play

@@ -158,7 +158,7 @@ install_rofi() {
 
 install_i3wm() {
     print_in_purple "\n • Installing i3wm and compton... \n\n"
-    install_package i3-gaps picom feh
+    install_package i3-gaps i3lock xautolock picom feh
 }
 
 install_polybar() {
