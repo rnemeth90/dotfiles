@@ -1,0 +1,379 @@
+Received: from SJ2PR20MB5778.namprd20.prod.outlook.com (2603:10b6:a03:4c4::11)
+ by DM4PR20MB4821.namprd20.prod.outlook.com with HTTPS; Mon, 22 Jan 2024
+ 23:16:59 +0000
+Received: from BN9PR03CA0381.namprd03.prod.outlook.com (2603:10b6:408:f7::26)
+ by SJ2PR20MB5778.namprd20.prod.outlook.com (2603:10b6:a03:4c4::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.36; Mon, 22 Jan
+ 2024 23:16:56 +0000
+Received: from BN8NAM12FT079.eop-nam12.prod.protection.outlook.com
+ (2603:10b6:408:f7:cafe::f0) by BN9PR03CA0381.outlook.office365.com
+ (2603:10b6:408:f7::26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7202.30 via Frontend
+ Transport; Mon, 22 Jan 2024 23:16:56 +0000
+Authentication-Results: spf=pass (sender IP is 54.240.13.42)
+ smtp.mailfrom=bounces.amazon.com; dkim=pass (signature was verified)
+ header.d=amazon.com;dmarc=pass action=none
+ header.from=amazon.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of bounces.amazon.com
+ designates 54.240.13.42 as permitted sender) receiver=protection.outlook.com;
+ client-ip=54.240.13.42; helo=a13-42.smtp-out.amazonses.com; pr=C
+Received: from a13-42.smtp-out.amazonses.com (54.240.13.42) by
+ BN8NAM12FT079.mail.protection.outlook.com (10.13.182.121) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7228.19 via Frontend Transport; Mon, 22 Jan 2024 23:16:56 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:20835CF85D5DF12D1486F6CC1CE1C5FB915C5C1F53068082AD10A13F188A4F8A;UpperCasedChecksum:B4E47768C96033090DADD5DCB7FE15A74CBB3BC44CC26BE406B5AE5A4DF4E807;SizeAsReceived:1664;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=yg4mwqurec7fkhzutopddd3ytuaqrvuz; d=amazon.com; t=1705965415;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type;
+	bh=w4eZvvwonso1En+bQ6EMIWY1U1eL+XTRf26QQflR/fU=;
+	b=GWIfWo8CQaX0nUdOceloNyEwsu6K1sYcS8PCe8084QcyMonLsKGkkYQY/vbI734B
+	6RDNvd9jv087K7DGrN89g3bnsGfCgzRFmiv7Mc0d19bFF4zlVZuGUnpw9zd6uiNJiiW
+	gwnLUdcKhwr1Y7auw0EbaucyvM0EXaJ1VxCOHVTg=
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=224i4yxa5dv7c2xz3womw6peuasteono; d=amazonses.com; t=1705965415;
+	h=Date:From:To:Message-ID:Subject:MIME-Version:Content-Type:Feedback-ID;
+	bh=w4eZvvwonso1En+bQ6EMIWY1U1eL+XTRf26QQflR/fU=;
+	b=FaefROkTE+nkyKIGIhb+VNKEw//MJ+0JYNksBS8hMRgOne8ZJ5fVDcbpBtSea4Qr
+	HxBhpjREzENZOh7Qyf081A1xCNA01r+NENiIz1N3Mc+z9c3DYgIvy8ZUraoLy/L1xb0
+	9AdZyNjO/B+145YPB4Cvghp8bgR+pfgM/0Biz6YI=
+Date: Mon, 22 Jan 2024 23:16:55 +0000
+From: "return@amazon.com" <return@amazon.com>
+To: ryannemeth@live.com
+Message-ID: <0100018d33766d19-3a72258f-5f92-470a-8703-fe9e28ce2c10-000000@email.amazonses.com>
+Subject: Your return of Carhartt Men's Yukon Extremes...
+Content-Type: multipart/alternative; 
+	boundary="----=_Part_6502060_1454549834.1705965415700"
+X-AMAZON-MAIL-RELAY-TYPE: notification
+Bounces-to: 20240122231654ac464e691642444cb53c7bbaaa10p0na-C3KA2AC5ZI29D6@bounces.amazon.com
+X-AMAZON-METADATA: CA=C3KA2AC5ZI29D6-CU=A29CAYU1E8TV3S
+X-Original-MessageID: <urn.rtn.msg.20240122231654ac464e691642444cb53c7bbaaa10p0na@1705965415701.>
+Feedback-ID: 1.us-east-1.ZHcGJK6s+x+i9lRHKog4RW3tECwWIf1xzTYCZyUaiec=:AmazonSES
+X-SES-Outgoing: 2024.01.22-54.240.13.42
+X-IncomingHeaderCount: 15
+Return-Path:
+ 20240122231654ac464e691642444cb53c7bbaaa10p0na-C3KA2AC5ZI29D6@bounces.amazon.com
+X-MS-Exchange-Organization-ExpirationStartTime: 22 Jan 2024 23:16:56.0877
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ bbef332f-5a90-4fc7-8710-08dc1ba039f5
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BN8NAM12FT079:EE_|SJ2PR20MB5778:EE_|DM4PR20MB4821:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN8NAM12FT079.eop-nam12.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 1/22/2024 10:57:54 PM
+X-MS-Office365-Filtering-Correlation-Id: bbef332f-5a90-4fc7-8710-08dc1ba039f5
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 54.240.13.42
+X-SID-PRA: RETURN@AMAZON.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 2
+X-Microsoft-Antispam: BCL:3;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 22 Jan 2024 23:16:56.0408
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bbef332f-5a90-4fc7-8710-08dc1ba039f5
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN8NAM12FT079.eop-nam12.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR20MB5778
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.0938108
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7202.028
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9910022)(9545005)(10170022)(9320005)(120001)(1110100);
+X-Message-Info:
+	qZelhIiYnPkx84CNH6AeQjx1jf2H9Hg0hHVQTuBlsC1WRtJt4mJJJ/Obr2Rk6aQa5C3Xxqtz+RNjF+dlJiCgwx7b44paTwcZSfaBVA6nBHIKn7yCZiNStpAdtnaPJKMyMhLAShli2g1hwcKq75u0Ew4m8MkrQKdpai3yjAmWD10aj39fqKg6ZPMaR1R1auSz+2EH6tiQdo9/ZoXm8tRT9Q==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTE7YT0xO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?G1kZmaJsGWIdnAx8jz38jfOAhAIPz8RklL3U1Xi91endIpE3FnGEiD+6G8Yj?=
+ =?us-ascii?Q?JGNpQ5jwSGjaM4N2JOmewpUqtofrG4ANoAk/GVpTfQGx4m0TFNpSkQTECY7Z?=
+ =?us-ascii?Q?shGb2HzOwhfuY7I9LKEDYic3gbMl87edh1WTupnlsEriiNqphumnDjcpo2cw?=
+ =?us-ascii?Q?4qRy7xXqkzDLSf2UVNfzl1lViLGMLjq6VghDdrYvNOKXf7K8Co2NROSch/ko?=
+ =?us-ascii?Q?YCbXleGVO0pBcM44iHDRnhyv3R6anMOiZr2CrxBsXrQ/tRKLS1rvD6NaONm1?=
+ =?us-ascii?Q?8bsiR694jrxDzaCaH/9hppDsnY6sz0NFJ4pbvfDhdDd5Lbqra1XWpVxjBtDZ?=
+ =?us-ascii?Q?oyRFXwmp1fcENn09pjfq/4oAjkQdUTA3+jU5UYinVKvy0nvqNBGjAHqpuiQg?=
+ =?us-ascii?Q?kyxw1bI6iBdnvUZAockUAitt6Wou4nbE9pBe8XgHJxifAmnXZMggV4gZDsUu?=
+ =?us-ascii?Q?ZHnVq/MroQWfETSGOGst3X14VL2f4gASLl4KpWon9Up55e/Kt05U9/2btNwz?=
+ =?us-ascii?Q?IsnQsVcunmHQosPC0V1gdRrnroddXfZJx1M/TEiLs/yUrD/e78UzKoRA4Fuh?=
+ =?us-ascii?Q?/s2oKTnomfqmhgOEs/BTCO4ukQfCVI8Gylvxi8KIKb9VfU3LgmFOA4YZWcdo?=
+ =?us-ascii?Q?93L3gejvttA8abaTMWZy+SBV/qFEjQwo7dGYPwLxPKv980hOsN5jRlde/3Em?=
+ =?us-ascii?Q?hlBT28ejhd25WlMx1GcAwocJyBGl0GQ5murUk19iPDdgHkb/bCOVTC9KxgMa?=
+ =?us-ascii?Q?X08m3jUNulhsNJz5Q7d7IiaQ5T3G7BF51Dh35vJPxk0oj6PGUeJDqbxavbTO?=
+ =?us-ascii?Q?nYO3wvqvF8wKBIZhc46BbXiWu/dNiqmx+HNjnh7T8MewFHCABoPfONjicbVQ?=
+ =?us-ascii?Q?8wpkIcCdiLvCceFGrqgGmTF/E9T7v9yrt5Ruci77my3eEU3cOWjCJJaAzgGP?=
+ =?us-ascii?Q?1bSXOks5h91Q2Ju4xVn8zPQRFxP40/X/aJ3G1QS4/i07cIEHuIGXIv7xoOWO?=
+ =?us-ascii?Q?gFY1QLqQd88QXMgaYVBFq3XhsveuxLKyl+6uO3vNmI3I4QAbhK+FkYuaPE8y?=
+ =?us-ascii?Q?DF+dLXPNys3YWk8WWfVtwg9dnF+qeLXHPkOh990gAmkuCHtkwMHc6kYUi7k9?=
+ =?us-ascii?Q?rsQGn6PFv98uEC/CPtflF6Yb1q0ofg68kEzejpcLBlKgEmVu4qTiuiuYqdQc?=
+ =?us-ascii?Q?zV0BkrqXnzuQldtxgYaS4LXNjoha7oyFKg4XdUwH/NaXh+KqRA0ke/tYQJCG?=
+ =?us-ascii?Q?fxN5e58FVXMeBmtywPi0sq1TnAxg9BCFK8AGhMAZi95jNEzoSijGH5YC3gNL?=
+ =?us-ascii?Q?q8D9h3IzUdwkU0FfnFkARPjbzcQSZpLhyDq47EhUvimeJ9qjKzY9cBvyV1sP?=
+ =?us-ascii?Q?iNN1xJ7QkAHzks1QxJftwu10QDnTMfXalcSdC8d/4cjyGmOzlL4+lv6nOOg5?=
+ =?us-ascii?Q?vvvfkeSCdFe/45h3uv0QqD2yhaGHHGuh0M6mJFunGJkKzvGSabMOS6wRq8Ap?=
+ =?us-ascii?Q?ZPjSUSLjILqHJZhk2eLTY5lfULVdDom1OGziG1yi0mGFZOItsyErvjaY7xI3?=
+ =?us-ascii?Q?JE2dDFWhWcnM7SRSlDCp1J3SDs2Dj7h2Dx6GC9sGt18/vcAQr7S9dSLygsdl?=
+ =?us-ascii?Q?io7Bym+j8W6MxZCRpILQKsDJA8/fhgRkdTpFXBBuvDt5A1PVwS8kwGymBmVx?=
+ =?us-ascii?Q?xkMrABcwq4jGVWYrV+1s3jQI2h9oTneF2gAX/kVHiCMUQnxzm7YG6s0kGVus?=
+ =?us-ascii?Q?fxQvU6vegvrKKUVL+eA+DFk6qbJEc0LSTUuvijCdELMcGeQdehUEr4qWU3/v?=
+ =?us-ascii?Q?9BrMUUI57LMgXRo+lfkwVqwrtMH5If551qIPEZ9NzLKccMrqVh8lKBS9bSR5?=
+ =?us-ascii?Q?Fh8IncaSNqjmntKbUB4r5glXZhNPjfM5OadKBUISxN7lmWqqP5UFMF9+boyb?=
+ =?us-ascii?Q?gB+q5wfAGqmOjZKDDePEQzyRlneGIbTEjR9laVBUIw+LixiPu+zajuCIG0+S?=
+ =?us-ascii?Q?UxedHFFufb7Sv3wnYgvgyqHRsG/dcZgKxSs+0f4dDNN4wRazExF1Hi0Z+0mu?=
+ =?us-ascii?Q?g8t2m+Y09vcouLW8Ome5jyNHP0JUlcFua9oicAwMSBs/skfhnDnbO7Pu0Fvo?=
+ =?us-ascii?Q?4fvd0k7GpSIj7DqEdgbGYkcMXxDlqKfskA=3D=3D?=
+MIME-Version: 1.0
+
+------=_Part_6502060_1454549834.1705965415700
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+Hello Ryan,
+
+We've accepted your return request. Once DUNGAREES receives the item below, we'll issue a refund to your original payment method.
+If you placed this order, print your shipping label using the link below or from Your Orders in the Amazon app or website.
+
+Print return label & instructions:
+https://www.amazon.com/spr/returns/label/915e7a8a-f42c-4b0d-b879-0abc3d67664a?rmaId=Dj7FyZsTRRMA&ref_=E_Label_Page
+
+Check return & refund status:
+https://www.amazon.com/spr/returns/cart?orderId=112-5025483-4782651&ref_=E_RRT_status
+
+Return ship method:
+  UPS _ Drop Off
+
+Item details:
+- Carhartt Men's Yukon Extremes...
+
+
+This email was sent from a notification-only address that can't accept incoming email. Please don't reply to this message.
+------=_Part_6502060_1454549834.1705965415700
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 7bit
+
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><style type="text/css">
+  
+  #container {
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px 8px 10px 8px;
+  }
+  
+  .link {
+    color: #0066C0;
+    text-decoration: none;
+  }
+
+  /* content tables */  
+  #main,
+  #header,
+  #summary,
+  #buttons,
+  #criticalInfo,
+  #itemDetails,
+  #refundDetails {
+    width: 100%;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111111;
+  }
+  
+  p {
+    margin: 1px 0px 8px 0px;
+    font-size: 14px;
+    line-height: 18px;
+    font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #111111;
+  }
+  
+   #title {
+    text-align: right;
+    color: #333333;
+    font-weight: bold;
+    text-align: right;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    line-height: 27px;
+    font-size: 21px;
+  }
+  
+  h3 {
+    text-align: right;
+    color: #333333;
+    font-weight: bold;
+    text-align: right;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    line-height: 27px;
+    font-size: 21px;
+  }
+  
+  #legalCopy {
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13px;
+    color: #AAAAAA;
+    line-height: 16px;
+  }
+  
+  #legalCopy p {
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-size: 13px;
+    color: #666;
+    line-height: 16px;
+    margin: 0 0 10px 0;
+  }
+
+  #b2bLinks {
+    width : 484px;
+    font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", "sans-serif";
+    font-style: normal;
+    font-size: 13px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .b2bLink {
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .b2bLinkText {
+    color: #0066C0;
+  }
+
+  .subTitle {
+    color: #999;
+    margin: 0px 0px 0px;
+    font-size: 12px;
+  }
+</style> 
+  <title></title> 
+ </head> 
+ <body><img width="1" height="1" src="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=3F63M01QBAY9M&amp;T=O&amp;U=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&amp;H=8CACAKJNKUZPYEGNCRMGNSFJDK4A&amp;ref_=pe_1811570_136791410_opens"> 
+  <table id="container" style="border: 1px solid rgb(221, 221, 221); align: center; width: 484px; margin: 0 auto; padding: 20px 8px 10px 8px" dir="ltr"> 
+   <tbody>
+    <tr> 
+     <td class="frame"> 
+      <table id="main" style="width: 484px; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+       <!-- Header section starts --> 
+       <tbody>
+        <tr> 
+         <td> 
+          <table id="header" style="border-bottom: 1px solid rgb(221, 221, 221); padding: 0px 0px 3px 0px; width: 100%; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+           <tbody>
+            <tr> 
+             <td width="150px" id="logo"> <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fr.html%3FC%3D1J5XCI1YHU425%26K%3D5TDCRW3K628J%26M%3Durn%3Artn%3Amsg%3A20240122231654ac464e691642444cb53c7bbaaa10p0na%26R%3DLFAII9IYMX4A%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.com%253Fref_%253Dpe_1811570_136791410_E_Amazon_Logo%26H%3DHV1TXAWPJ2AUDJHZOQZ2EUEE3XKA%26ref_%3Dpe_1811570_136791410_E_Amazon_Logo&amp;data=05%7C02%7C%7Cbbef332f5a904fc7871008dc1ba039f5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638415622194270489%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=ZWpCiCag544u3J6sgcNpi%2B4iFis3N3kiAW9eKXz0%2FEA%3D&amp;reserved=0" originalsrc="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=LFAII9IYMX4A&amp;T=C&amp;U=https%3A%2F%2Fwww.amazon.com%3Fref_%3Dpe_1811570_136791410_E_Amazon_Logo&amp;H=HV1TXAWPJ2AUDJHZOQZ2EUEE3XKA&amp;ref_=pe_1811570_136791410_E_Amazon_Logo" shash="lMZ3W8P8XIFn1iHeUk9kWox8atEXNIz/wOqYK6j2CCaIgOHGsD4A5bVs7ihv4f0BIGpVd3U7gjLhvpzfnpb2gWFSNoEMyXP43oCokF9nvI/I9sHHWQBRKS9XnA91QHN4/yVOgtkXQ8zSJGJDgaJEZqZlwyaf0UvCq7uZWRjD9m4=" title="Visit Amazon.com"> <img id="amazonLogo" alt="Amazon" src="http://g-ecx.images-amazon.com/images/G/01/x-locale/cs/te/logo.png"> </a> </td> 
+             <td width="350px" id="title" padding-left="10" style="text-align: right; color: rgb(51, 51, 51); font-weight: bold; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; line-height: 27px; font-size: 21px"> <h3 style="text-align: right; color: rgb(51, 51, 51); font-weight: bold; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; line-height: 27px; font-size: 21px"> Return Summary </h3> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+        <!-- Header section ends--> 
+        <!-- Body_section  starts--> 
+        <tr> 
+         <td> 
+          <table id="summary" style="padding: 12px 0px 0px 0px; width: 100%; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+           <tbody>
+            <tr> 
+             <td> <b> <span style="font-size:16px; line-height: 21px;"> Hello Ryan, </span> </b> <p style="margin: 1px 0px 8px 0px; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> We've accepted your return request. Once DUNGAREES receives the item below, we'll issue a refund to your original payment method. If you placed this order, print your shipping label using the link below or from Your Orders in the Amazon app or website.</p> </td> 
+            </tr> 
+           </tbody>
+          </table> </td>
+        </tr> 
+        <tr> 
+         <td> 
+          <table id="buttons" style="margin-bottom: 10px; width: 100%; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+           <tbody>
+            <tr> 
+             <td style=" margin: 0 0 40px 0;"> 
+              <table align="left" cellspacing="0" cellpadding="0" style="margin-right:32px; padding-top: 2px;"> 
+               <tbody>
+                <tr> 
+                 <td align="center" vertical-align="bottom" width="220" height="44" style=" background: linear-gradient(#F7DFA5 , #F0C14B);  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; 
+background-color: #F0C14B; 
+ line-height:18px; font-size:14px; border-bottom-color: #ff0000;"> <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fr.html%3FC%3D1J5XCI1YHU425%26K%3D5TDCRW3K628J%26M%3Durn%3Artn%3Amsg%3A20240122231654ac464e691642444cb53c7bbaaa10p0na%26R%3DDOMZERPCZ3SQ%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.com%252Fspr%252Freturns%252Flabel%252F915e7a8a-f42c-4b0d-b879-0abc3d67664a%253FrmaId%253DDj7FyZsTRRMA%2526ref_%253Dpe_1811570_136791410_E_Label_Page%26H%3D9VEZT36SJPQXIZSJBWEN1TELAWYA%26ref_%3Dpe_1811570_136791410_E_Label_Page&amp;data=05%7C02%7C%7Cbbef332f5a904fc7871008dc1ba039f5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638415622194286043%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=jeDTVpEINC%2FCWpm00O0%2BGIRnz5o6OPYYIdESAqGXQQg%3D&amp;reserved=0" originalsrc="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=DOMZERPCZ3SQ&amp;T=C&amp;U=https%3A%2F%2Fwww.amazon.com%2Fspr%2Freturns%2Flabel%2F915e7a8a-f42c-4b0d-b879-0abc3d67664a%3FrmaId%3DDj7FyZsTRRMA%26ref_%3Dpe_1811570_136791410_E_Label_Page&amp;H=9VEZT36SJPQXIZSJBWEN1TELAWYA&amp;ref_=pe_1811570_136791410_E_Label_Page" shash="l8DRXM7P/A4pg7YLrZvTNJ4NhN2mKbTYkEbTdIMNsuVl19kI4KglMRcEuM5L3MtfTV3VaPs44ubNIo8FeNkxlT/VDfAK6Fd5/t4UjnTmEqepPJK1KDotUrY4QWzu9nkFwOwfODN/VKVZve3zUoG8YFoJm+Bjv1olws6GvahlU3o=" style="padding: 13px 0px;  font-family: Helvetica, Arial, sans-serif; text-decoration: none;  width:100%; display:inline-block    "> <span style="color: #111">Print return label &amp; instructions</span> </a> </td> 
+                </tr> 
+               </tbody>
+              </table> 
+              <table cellspacing="0" cellpadding="0" style="padding-top: 2px;"> 
+               <tbody>
+                <tr> 
+                 <td align="center" nowrap="" vertical-align="bottom" width="220" height="44" style="background: linear-gradient(#F7F8FA  , #E7E9EC);  -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;
+background-color: #E7E9EC; line-height:18px; font-size:14px; border-bottom-color: #ff0000;"> <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fr.html%3FC%3D1J5XCI1YHU425%26K%3D5TDCRW3K628J%26M%3Durn%3Artn%3Amsg%3A20240122231654ac464e691642444cb53c7bbaaa10p0na%26R%3D18YHX6FILNWFF%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.com%252Fspr%252Freturns%252Fcart%253ForderId%253D112-5025483-4782651%2526ref_%253Dpe_1811570_136791410_E_RRT_status%26H%3DQ3YOUKHPHXAQ1ECCR82EHVOYA2QA%26ref_%3Dpe_1811570_136791410_E_RRT_status&amp;data=05%7C02%7C%7Cbbef332f5a904fc7871008dc1ba039f5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638415622194300073%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=Yd0pYGwSHVK3Gnm4ch6gcG5QPNg%2FUYexQ%2FDt96PAShU%3D&amp;reserved=0" originalsrc="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=18YHX6FILNWFF&amp;T=C&amp;U=https%3A%2F%2Fwww.amazon.com%2Fspr%2Freturns%2Fcart%3ForderId%3D112-5025483-4782651%26ref_%3Dpe_1811570_136791410_E_RRT_status&amp;H=Q3YOUKHPHXAQ1ECCR82EHVOYA2QA&amp;ref_=pe_1811570_136791410_E_RRT_status" shash="LaEVY5er93tBAWLPrsQMy2oI7DB7LLLgUr9YSB8Sg12sx10/7vYYG5madYeR447dBgxaLWRdb3rmZh36A0fsmegGJOMaPClWgivABKuL3fM0MA40Kxndyix+KBUDZPwjslxk26i8XIe5jTehIDlbUi1hcLz27a47H+6wPc2jtd0=" style="padding: 13px 0px; font-family: Helvetica, Arial, sans-serif; text-decoration: none;  width:100%; display:inline-block    "> <span style="color: #111">Check return &amp; refund status</span> </a> </td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+        <tr> 
+         <td> 
+          <table style="border: 1px solid #DDDDDD; padding: 14px 14px 5px 14px; width:484px; margin-bottom:8px;"> 
+           <tbody>
+            <tr> 
+             <td> 
+              <table id="criticalInfo" style="background-color: rgb(239, 239, 239); width: 100%; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+               <tbody>
+                <tr> 
+                 <td width="242px" style="padding: 14px 14px 14px 14px; text-align: left !important;"> <span style="color:#767676"> Return ship method: </span> <b> UPS _ Drop Off </b> </td> 
+                 <td width="242px" align="left" style="padding: 14px 14px 14px 14px; vertical-align: top;"></td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> 
+              <table id="itemDetails" style="padding: 10px 0px 4px 0px; width: 100%; font-size: 14px; line-height: 18px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif; color: rgb(17, 17, 17)"> 
+               <tbody>
+                <tr> 
+                 <td width="30%" height="74" vertical-align="middle" align="center"> <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fr.html%3FC%3D1J5XCI1YHU425%26K%3D5TDCRW3K628J%26M%3Durn%3Artn%3Amsg%3A20240122231654ac464e691642444cb53c7bbaaa10p0na%26R%3D1595L1YTRL9WP%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.com%252Fgp%252Fproduct%252FB08KFH3XXF%253Fref_%253Dpe_1811570_136791410_E_Asin_Img%26H%3DNUEMZGLM1PYQAAMPXYJ1BLWTJIKA%26ref_%3Dpe_1811570_136791410_E_Asin_Img&amp;data=05%7C02%7C%7Cbbef332f5a904fc7871008dc1ba039f5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638415622194313854%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=EJl3kcwpsuK0VHWSr%2FjSss9Hl%2BeBZt%2FnhJQAPPPAne4%3D&amp;reserved=0" originalsrc="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=1595L1YTRL9WP&amp;T=C&amp;U=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB08KFH3XXF%3Fref_%3Dpe_1811570_136791410_E_Asin_Img&amp;H=NUEMZGLM1PYQAAMPXYJ1BLWTJIKA&amp;ref_=pe_1811570_136791410_E_Asin_Img" shash="BJdh0198FNvni97liWl7Hj9ci/wAmUbymfdEc/CqPSLKhxwNuVGcViw4+q5cibwoiobup3O9fk/2Laj1tRI+yi9jF+GonPFqRW2ByckTuYfOBckjHY+Zi8XAdE45cXnSc5pLcYSuYXYuhGfJeLnnGlxQWjloa/ZXeq0lwfm9IkU=" style="text-decoration:none;"><img src="https://m.media-amazon.com/images/I/31rT7KDDDxL._SY74_SX74_.jpg" style="margin-bottom: 10px; max-width=74px; max-height: 74px;"></a> </td> 
+                 <td width="70%" style="text-decoration: none !important;"> <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fr.html%3FC%3D1J5XCI1YHU425%26K%3D5TDCRW3K628J%26M%3Durn%3Artn%3Amsg%3A20240122231654ac464e691642444cb53c7bbaaa10p0na%26R%3D2WBKBVS2Q6NMU%26T%3DC%26U%3Dhttps%253A%252F%252Fwww.amazon.com%252Fgp%252Fproduct%252FB08KFH3XXF%253Fref_%253Dpe_1811570_136791410_E_Asin_Title%26H%3D76MR9MNXA61KVQKDTENLQBKOLLAA%26ref_%3Dpe_1811570_136791410_E_Asin_Title&amp;data=05%7C02%7C%7Cbbef332f5a904fc7871008dc1ba039f5%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638415622194326219%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=SufUhZtdTtXx9B9GpDgqzHoMramLHzZz%2BeLftNzRVw0%3D&amp;reserved=0" originalsrc="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=2WBKBVS2Q6NMU&amp;T=C&amp;U=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB08KFH3XXF%3Fref_%3Dpe_1811570_136791410_E_Asin_Title&amp;H=76MR9MNXA61KVQKDTENLQBKOLLAA&amp;ref_=pe_1811570_136791410_E_Asin_Title" shash="nlKEZ9YXiomIRX8fQSObzgnUB2DeDy51Xvg4NHNBEAQsYbXxRqtD6HCOKrd3O73TsG6KNEqLl/DH+at8BstCaS1Lc7VeKh6CKLbG0yR0bz65CImVTrPDxKp3C/+vBiuKgg3dOAEQ59omTNjeliE9MpTe0b4sjsQm4XJ5t8yrYjc=" style="text-decoration: none;  display:inline-block;"> <span style="color: #0066C0">Carhartt Men's Yukon Extremes...</span> </a> </td> 
+                </tr> 
+               </tbody>
+              </table> </td> 
+            </tr> 
+            <tr> 
+             <td> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+        <!-- body_section  ends--> 
+        <!-- bottom section  starts--> 
+        <tr> 
+         <td> 
+          <table id="legalCopy" style="margin: 0px 0px 0px 0px; font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-weight: 400; font-style: normal; font-size: 13px; color: rgb(170, 170, 170); line-height: 16px"> 
+           <tbody>
+            <tr> 
+             <td> <p style="font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-size: 13px; color: rgb(102, 102, 102); line-height: 16px; margin: 0 0 10px 0"> </p> </td> 
+            </tr> 
+            <tr> 
+             <td> <p style="font-family: &quot;Roboto&quot;, &quot;Helvetica Neue&quot;, &quot;Helvetica&quot;, &quot;Arial&quot;, &quot;sans-serif&quot;; font-size: 13px; color: rgb(102, 102, 102); line-height: 16px; margin: 0 0 10px 0">This email was sent from a notification-only address that can't accept incoming email. Please don't reply to this message.</p> </td> 
+            </tr> 
+           </tbody>
+          </table> </td> 
+        </tr> 
+        <!-- bottom section  ends--> 
+       </tbody>
+      </table> </td> 
+    </tr> 
+   </tbody>
+  </table>  
+ <img width="1" height="1" src="https://www.amazon.com/gp/r.html?C=1J5XCI1YHU425&amp;K=5TDCRW3K628J&amp;M=urn:rtn:msg:20240122231654ac464e691642444cb53c7bbaaa10p0na&amp;R=210N1R2I6HC9H&amp;T=E&amp;U=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FG%2F01%2Fnav%2Ftransp.gif&amp;H=GUYLBPT2AUG3IATXDIAE1MS3V4EA&amp;ref_=pe_1811570_136791410_open"></body>
+</html>
+------=_Part_6502060_1454549834.1705965415700--

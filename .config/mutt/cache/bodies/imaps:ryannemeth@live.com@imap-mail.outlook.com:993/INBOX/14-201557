@@ -1,0 +1,2016 @@
+Received: from CH3PR20MB7115.namprd20.prod.outlook.com (2603:10b6:610:1b5::5)
+ by DM4PR20MB4821.namprd20.prod.outlook.com with HTTPS; Wed, 15 Nov 2023
+ 20:14:44 +0000
+Received: from BN8PR04CA0027.namprd04.prod.outlook.com (2603:10b6:408:70::40)
+ by CH3PR20MB7115.namprd20.prod.outlook.com (2603:10b6:610:1b5::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.20; Wed, 15 Nov
+ 2023 20:14:41 +0000
+Received: from BN1NAM02FT018.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:408:70:cafe::b0) by BN8PR04CA0027.outlook.office365.com
+ (2603:10b6:408:70::40) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.20 via Frontend
+ Transport; Wed, 15 Nov 2023 20:14:41 +0000
+Authentication-Results: spf=pass (sender IP is 167.89.80.39)
+ smtp.mailfrom=ckespa.calhoun.io; dkim=pass (signature was verified)
+ header.d=calhoun.io;dmarc=pass action=none
+ header.from=calhoun.io;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of ckespa.calhoun.io
+ designates 167.89.80.39 as permitted sender) receiver=protection.outlook.com;
+ client-ip=167.89.80.39; helo=o9.ck.n.convertkit.com; pr=C
+Received: from o9.ck.n.convertkit.com (167.89.80.39) by
+ BN1NAM02FT018.mail.protection.outlook.com (10.13.3.159) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7002.20 via Frontend Transport; Wed, 15 Nov 2023 20:14:41 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:6F674F7CDE960760A79B55BD53C51DB958ADBDE05E96D73750BB9FA76E42DB11;UpperCasedChecksum:88651BB4AD458F563FDA41E3AC0C1D0C12F7B2BF5586C3CA808661639907B29E;SizeAsReceived:2374;Count:18
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=calhoun.io;
+	h=content-type:from:mime-version:subject:list-unsubscribe:to:cc:
+	content-type:from:subject:to;
+	s=cka; bh=cJWzFNs7mdX9vfx0sGEI124rbR0dDJ9vf42HR+K+/6c=;
+	b=grkelhN+OJ1u7n/MdapuFmP1uOqidKFuqiZ6Chv6xBqkQEtl/6q+EVhnGaWAYpFDiva2
+	Q3Wlkza8aHNsq/wvUUXw/JXbdePXaIIpT5OkgHJeaME097PPfpq3G8ZUYJQVB6dmDPzWRM
+	w8cw1DbPm37XDjOUj2YggNgJnfiKV0s44=
+Received: by filterdrecv-bcd576c5f-wnhqx with SMTP id filterdrecv-bcd576c5f-wnhqx-1-655526B0-27
+        2023-11-15 20:14:40.239704807 +0000 UTC m=+2511168.214910045
+Received: from MTY4Njk4Nzg (unknown)
+	by geopod-ismtpd-25 (SG) with HTTP
+	id HaHZfChBSL-WL5WXLqpuDA
+	Wed, 15 Nov 2023 20:14:40.101 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=962baa9ba5c44ca4feffed0ebb4b1faca3679d5c91ad1ed0f2af4c762eb5
+Date: Wed, 15 Nov 2023 20:14:41 +0000 (UTC)
+From: Jon Calhoun <jon@calhoun.io>
+Message-ID: <r8uqwz0l39coh2k977kt2hx2x0m66@convertkit-mail.com>
+Subject: Are slices copied when using the range keyword in Go?
+List-Unsubscribe:
+ <https://unsubscribe.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66>
+X-Report-Spam: <abuse@convertkit.com>
+X-Report-Abuse: <abuse@convertkit.com>
+Precedence: bulk
+Feedback-ID: 12277525:354049:broadcast:CK
+X-SG-EID:
+ =?us-ascii?Q?Oh9PP09AnY=2FpummUEy+vsXAf+WDt3SpNY045CwQYYEeibcchU5QjG6R8VIBGy9?=
+ =?us-ascii?Q?CdW9g=2FrhijDnc=2FCvLAAPgx14thDfHbgcLvEqMWh?=
+ =?us-ascii?Q?jHJvkp1wk+fKt7w47pXdyrhq1SGTK59O7N8H7Q2?=
+ =?us-ascii?Q?qRkqscpX8gGD5XuR82+8VisMKesnKAnHi5K2gm7?=
+ =?us-ascii?Q?CJAkRFqQFQrBtjCMT+XhpLRKpW20ozuVjEpUBmg?=
+ =?us-ascii?Q?S5eNdZdc366uCCEcNL4UCUW30Gxh7UX5xBFKuy?=
+X-SG-ID:
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FJHjDFAea1uZocvZojyqe?=
+ =?us-ascii?Q?ADhW42asXyPP2K6B1etO7JV95guEVK8Vb5ts613?=
+ =?us-ascii?Q?+Qv3EwwKd=2F3UCeI5j+X0dUvNGspysmOa=2F=2FXppdI?=
+ =?us-ascii?Q?K7WYBsB85HL=2FPwbRGYOojNdbHzb7f5c6AOflhWx?=
+ =?us-ascii?Q?xBkl9C215Bh+gJXZN4N1boCBTetVODM6twM1MYd?=
+ =?us-ascii?Q?s+avyggC4TiWv9B8CjJNPLVuw29xs=2FgsuOP5MxP?=
+ =?us-ascii?Q?vWBfU4k=2FbMogqX0t4UthjAx=2FN=2FSJFeIVIyRJdyl?=
+ =?us-ascii?Q?aRmNnRPEERAUa=2F2iThacJgEnxeAa4KmrFyciirz?=
+ =?us-ascii?Q?IddtkQRjdLz5wF+30d1RlXU5unW6dA9aFNFC7aP?=
+ =?us-ascii?Q?u0=2F1m39ZVHsM2e8k6YxV7BrsLbbKwDmA=3D=3D?=
+To: Ryan <ryannemeth@live.com>
+X-Entity-ID: aoZKzRtOro1VlillzCnfqg==
+X-IncomingHeaderCount: 18
+Return-Path: bounces+16869878-dc92-ryannemeth=live.com@ckespa.calhoun.io
+X-MS-Exchange-Organization-ExpirationStartTime: 15 Nov 2023 20:14:41.4009
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ be83c33f-ee50-4e55-bc4c-08dbe6178049
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BN1NAM02FT018:EE_|CH3PR20MB7115:EE_|DM4PR20MB4821:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN1NAM02FT018.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/15/2023 8:08:07 PM
+X-MS-Office365-Filtering-Correlation-Id: be83c33f-ee50-4e55-bc4c-08dbe6178049
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 167.89.80.39
+X-SID-PRA: JON@CALHOUN.IO
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2023 20:14:41.2759
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: be83c33f-ee50-4e55-bc4c-08dbe6178049
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN1NAM02FT018.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR20MB7115
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.7403181
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7002.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(2008001134)(4810010)(4910033)(9575002)(10195002)(9320005)(120001)(1110079);
+X-Message-Info:
+	qZelhIiYnPkKxtWm+cjsa8SvqrHQXMhun6vYNdGldXDRS9Ll563kD8b4tz6btHOyrqI0gn6zUZt76kjXypZ5EpYUrCEd7g4RQO38pUQyKV7kZcOfrQ9rPI2ueIffnusstcflgQtvtbOwJT7FCDCOg3Ht790ESR0mbKsyt+Dfqw+yZN/Az//MRDH0knEmMHVwgYulx0ELW33qQxDZlYRnIw==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MTtHRD0xO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?ZjZSeThJNWN5RUpHZjUySEVMZDExZlpBOVhhUXpNNC9sZlZOeUkxV1VGM29C?=
+ =?utf-8?B?bURUZlZ3MVhURTJWTWV5NUhWZ0hzTkNkMnMvQmxQY1FOTE1waHBqRUlvZUxz?=
+ =?utf-8?B?TS9yeDcvOUZ0aFNFM1dra0hoY0VRR05PYkRYV1F1V2ZZclh4TGhQZDNkQmhU?=
+ =?utf-8?B?Z01jT1N0NWxtRlRyNzUrNGphbjhNVmVVMGgzZzBQcVd1em5qazdDd1dxWWw4?=
+ =?utf-8?B?WXlpYkpZc0ROcHMzWGJ5MUoyNjJwVnVXY2hRUE1pT05NMk9SSHZyZDNlaVcr?=
+ =?utf-8?B?eWZXcmMvZkg1U3hlZ2tSaVhrbmJFcGl6QWYxNjN2eUIrdVJHM0ZMbmdnM0Qv?=
+ =?utf-8?B?ZXJRRVhLaTlQdHQvZUVCUjBvK09GUkdMUlNIenkwUWcvZTIzUUszYXk3dmY4?=
+ =?utf-8?B?bWdUeVJxZ3VtdFdkVmp1SWd2eVZjZm5GRzY1Z05jRXVNTnFmVDlIbklicndY?=
+ =?utf-8?B?Lzhwdm9GM2JBU1JkSTEwZjN4aFFvcmpYdHlSb0JLVW1INGdRSkNEblJ3OXZl?=
+ =?utf-8?B?bmZhdDZWUnRrNVp0RVVRUEJFY0hxTkwvQWlFZ2pIdnkwL2kybE5PdE8vdjlC?=
+ =?utf-8?B?Z01VVG1acGVGNnBnb2Rzc1BldDNlT2NHdDV5N1FDdnhBOHZuWm05cVRLaTRi?=
+ =?utf-8?B?QXdWOS9VUGxTbm9jaGRSZE9kdzFyVEhPeExOb1AxazA0eHZTZXBUbUcwQ21a?=
+ =?utf-8?B?czZKUzlpaEhzV3p2TTN3Sk5HajFrMy9Bai80RVlnNWZldHFTWGdrRm4wcDJR?=
+ =?utf-8?B?dWtTNlpuSEZVV2tpWTNmTWVvQWtMRmhvZW5EUDRhK1RXSWlpRzlRbDhiM2J5?=
+ =?utf-8?B?UWhXcW05S1gvTXlFSldoa1NlOWQvc0R2eFdwb1hUNk1QVzB1ZzhCQWtwd0Y4?=
+ =?utf-8?B?ZC8zaHRuRlNZdzY1QVBxWmMzTXY1d3JXWjR3K01Va3R6YjVmT0g0Rkx3d091?=
+ =?utf-8?B?dkdCNitVSmpUYjg2L3RLcFpnTDZad3ZQTnl6VElQRnNESlZLR1kxWWNXZDNU?=
+ =?utf-8?B?MmkyMUFqbnRWaDEzN09rM2V5QjQ5aGlPeW5GVkEwN1BRLzNuV2dQaDc1SUNU?=
+ =?utf-8?B?cXJjbk9LalJ5VXZRdm45Qnl2ZmRvdy9BMFJuMURib2d2U2EzMW1aY3NBOGxO?=
+ =?utf-8?B?N2ZmemdPclFpMlBHNzBCckdiYU1JY1B0dW44dkhsSFBnK3M1ZVk1VEJuY1Ja?=
+ =?utf-8?B?Y0dGbTVGbkg0Rmg2U2dKaE5Gc1VrOG0ybzY1MmlvMEY0ZzVhWEhsdm1SU3g3?=
+ =?utf-8?B?cHdTbWtTZmRaTkxzalJDYURzTHEwejV2Yy9vcGFvQXRtYnhKaVF2QjlpMWZu?=
+ =?utf-8?B?UHZROFRSeEJPV08rZVh2cjVYam9VTStPb2RUNGpMc3d1YnNJUGowU0RuMkVF?=
+ =?utf-8?B?TStQQVphcFN0MEVLVDNScFNsKzlXNXc0U2FweHFQWHdOVXFZa3pGbko1bkZF?=
+ =?utf-8?B?N1pJUEtaZDdkd3VKQ0lqTWdZOXh3blVNajVvWHJOSmFXNWZiL2RmdzF2NElN?=
+ =?utf-8?B?UTFRbzJjUHVYTkpHaDlBRCsyNzZsd000cDVHOXJWK3Jmc1pjK1UwSURYOCtr?=
+ =?utf-8?B?LzQ4ZlVBUDA2T3hBSDdIaStpQk5lRGlOTktHd3k5QzJnUDFRWVlUR2g3aWho?=
+ =?utf-8?B?SkFGV1RtQVdRbUprQkxhb3djK2RxcWFVRU03SS9Kd2hja2I3b0ZFWml6YmNp?=
+ =?utf-8?B?YnltZHh6bUxpbHpvSVMwd2JCdjgydjY3UDVGdndpZlFJbFhZa05UR240bVRz?=
+ =?utf-8?B?SEZrOWJQVTBuVzRMdkoyRzZ6RWduTHRhdDBWQ1hVR25HYWszRWJpeGQrclI4?=
+ =?utf-8?B?MDQ4SlFjdXJVTTFzYi94WTlmMTd6eFY5dGdMTm1INDlPZE01UW1xcENvM3ZV?=
+ =?utf-8?B?ejAwNjJIcFB3QVVTYUJiVkVKWS9WeTR1Q1E4eENjbEhHdHZlbTFOaUFrb3Rp?=
+ =?utf-8?B?ZUZUSERiaTZLOXp6d2dzR2xqS05aZHE2eEdRQktaVjFTay9RWlYzZ1pXYjRm?=
+ =?utf-8?B?T3N2b1hDaWZaUDVpcGpsMmZhSU1lbVFKU3JtL0pvYzhKUVNIaFRYbERkV0NL?=
+ =?utf-8?B?Wk5ZeFMwd0xuOUlEenNrcjllMzE1cGZLWlJkelN3TFJwTzlaYjFsdklmaDAw?=
+ =?utf-8?B?MFFCdGhlUUFjQVQrMURtK1k1cnNkVXZlWVVoV21sRVFSWmpGTFplQms3YU02?=
+ =?utf-8?Q?FvirV6s4ut93HEHp/Kj0Dx70kzoZtiSBxwI9Ya9m+LHi?=
+MIME-Version: 1.0
+
+--962baa9ba5c44ca4feffed0ebb4b1faca3679d5c91ad1ed0f2af4c762eb5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+
+Hi Ryan,
+
+This week someone in my Go courses Slack (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/48hvhehr06w=
+gzqtx/aHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8jYWRkaXRpb25hbC1yZXNvdXJjZXM=3D
+) asked why their for loop wasn=E2=80=99t working the way they expected.
+More specifically, they were wondering if Go=E2=80=99s range keyword was
+copying their slice before iterating over it. It was an
+interesting question, because the answer isn't as straightforward
+as it seems.
+
+Upcoming Black Friday Sale: My Go courses are going to be on sale
+from Nov 21 - Nov 29 for Black Friday! Check out Web Development
+with Go (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/wnh2hghwrxm=
+g93c7/aHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8=3D
+) and Test with
+Go (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/reh8hoh0qwk=
+x95s2/aHR0cHM6Ly90ZXN0d2l0aGdvLmNvbQ=3D=3D
+) during that time to save 50% on either course.
+
+I won=E2=80=99t use the exact same code here, but we can look at a
+similar example by trying to generate the Fibonacci sequence (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/08hwh9hdmgn=
+z0mal/aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRmlib25hY2NpX3NlcXVlbmNl
+). If you don=E2=80=99t know what the Fibonacci sequence is, don=E2=80=99t =
+worry.
+It isn=E2=80=99t vital to understanding the code. All you really need to
+know is that we are appending new values to our slice as we
+iterate over it.
+
+fib :=3D []int{0, 1}
+for i, f1 :=3D range fib {
+f2 :=3D fib[i+1]
+fib =3D append(fib, f1+f2)
+if f1+f2 > 100 {
+break
+}
+}
+fmt.Println(fib)
+
+Run it on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/8ghqhohlgqw=
+9elik/aHR0cHM6Ly9nby5kZXYvcGxheS9wL0daT3VrZUl4NXh3
+).
+
+At first glance we might expect this code to continue adding new
+values until it adds a value greater than 100, at which point the
+for loop would exit with the break keyword. In reality, this code
+produces the following output:
+
+[0 1 1 2]
+
+On the other hand, if we were to rewrite this code with a more
+traditional for loop it would work as expected.
+
+fib :=3D []int{0, 1}
+for i :=3D 0; i len(fib); i++ {
+// Note: I'm trying to keep this code as similar as possible to
+the previous // code, so I'm using f1 and f2 instead of just
+adding the numbers together // here.
+f1, f2 :=3D fib[i], fib[i+1]
+fib =3D append(fib, f1+f2)
+if f1+f2 > 100 {
+break
+}
+}
+fmt.Println(fib)
+
+Run it on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/vqh3hrhpnem=
+g2otg/aHR0cHM6Ly9nby5kZXYvcGxheS9wL1VCLXVVTVhMeXMz
+).
+
+When we run this code we get the output we would expect - a list
+of numbers that keeps growing until one reaches a value greater
+than 100.
+
+[0 1 1 2 3 5 8 13 21 34 55 89 144]
+
+All of this confusion leads to the question, =E2=80=9CDoes Go copy a
+slice when using the range keyword?=E2=80=9D
+
+The answer here is yes, but probably not how you think.
+
+According to the Go spec (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/m2h7h5h8om2=
+ekeim/aHR0cHM6Ly9nby5kZXYvcmVmL3NwZWMjRm9yX3N0YXRlbWVudHM=3D
+), range expressions are only evaluated onces.
+
+The range expression x is evaluated once before beginning the
+loop, with one exception: if at most one iteration variable is
+present and len(x) is constant, the range expression is not
+evaluated.
+Go only reads the slice once, so when we use the range keyword it
+is like taking the following code:
+
+for i, f1 :=3D range fib {
+// ...
+}
+
+And translating it into code that is roughly equivalent to the
+following code:
+
+var f1 int
+temp :=3D fib
+for i =3D 0; i len(temp); i++ {
+f1 =3D temp[i]
+// ...
+}
+
+If we take this knowledge and apply it to our for loop that
+didn=E2=80=99t work, it becomes a bit more clear why it wasn=E2=80=99t work=
+ing.
+
+fib :=3D []int{0, 1}
+// This is roughly what range results in var f1 int
+temp :=3D fib
+for i :=3D 0; i len(temp); i++ {
+f1 =3D temp[i]
+// back to our code
+f2 :=3D fib[i+1]
+fib =3D append(fib, f1+f2)
+if f1+f2 > 100 {
+break
+}
+}
+fmt.Println(fib)
+
+Our code is updating the fib slice, but this isn=E2=80=99t the same slice
+that our for loop is using to evaluate when to stop running.
+
+Ideally this would be the end of the discussion, but slices can
+be a little confusing. Behind the scenes, a slice isn=E2=80=99t quite the
+same as an array. Instead, it has an underlying array and the
+slice itself stores a pointer to that array. You can read more
+about this here (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/dpheh0h0q8d=
+5zrfm/aHR0cHM6Ly93d3cuY2FsaG91bi5pby93aHktYXJlLXNsaWNlcy1zb21ldGltZXMtYWx0Z=
+XJlZC13aGVuLXBhc3NlZC1ieS12YWx1ZS1pbi1nby8=3D
+), and the code for a slice is shown below.
+
+type slice struct {
+array unsafe.Pointer
+len int
+cap int
+}
+
+This is important because it means that we can alter items in our
+slice, even when using the range keyword, and we might see those
+changes as we iterate over the slice. Take the following bubble
+sort where we swap numbers while we iterate over the slice:
+
+numbers :=3D []int{5, 4, 3, 2, 1}
+for x :=3D 0; x len(numbers); x++ {
+for i, num :=3D range numbers {
+if i+1 >=3D len(numbers) {
+break
+}
+if num > numbers[i+1] {
+// Swap numbers if the current one is greater than the next
+numbers[i], numbers[i+1] =3D numbers[i+1], num
+}
+}
+}
+fmt.Println(numbers)
+
+Run it on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/e0hph7h0kqm=
+49mt8/aHR0cHM6Ly9nby5kZXYvcGxheS9wL3g0SVdCazFxT0k4
+).
+
+In this code we are swapping numbers in our slice when the number
+at a lower index is greater than the next number. When we do
+this, the next iteration of the for loop reads the number we
+swapped to the higher index. If we translate this code like we
+did before, we get the following:
+
+numbers :=3D []int{5, 4, 3, 2, 1}
+for x :=3D 0; x len(numbers); x++ {
+var num int
+temp :=3D numbers
+for i :=3D 0; i len(temp); i++ {
+num =3D temp[i]
+if i+1 >=3D len(numbers) {
+break
+}
+if num > numbers[i+1] {
+// Swap numbers if the current one is greater than the next
+numbers[i], numbers[i+1] =3D numbers[i+1], num
+}
+}
+}
+fmt.Println(numbers)
+
+Running this code also produces the same result - a sorted list.
+This occurs because the slices temp and numbers both point to the
+same underlying array. Where this becomes confusing is when we
+start adding new values to our slice and the capacity of our
+slice starts to matter.
+
+In a slice, the length is the number of values stored in the
+underlying array, but in reality that array might have space for
+additional values. That is, our slice might have a length of 5,
+but the underlying array might have a length of 7. Let=E2=80=99s look at
+a visual representation of this:
+
+// Our slice might have the following fields:
+array: *pointer to X below*
+len: 5
+cap: 7 // X is an array, not a slice. It has a fixed length of 7
+X =3D [5,4,3,2,1,0,0]
+
+In this case the capacity of our slice is 7, which means if we
+were to add a value to our slice, the underlying array could
+still be used. We would just need to update our slice=E2=80=99s len
+field.
+
+// If we ran this code:
+numbers =3D append(numbers, 8)
+
+// Our slice would then have the following fields:
+array: *pointer to X below*
+len: 6
+cap: 7 // X is an array, not a slice. It has a fixed length of 7
+X =3D [5,4,3,2,1,8,0]
+
+As long as we do not exceed the capacity of our slice, or do
+anything else to cause the underlying array pointer to change,
+both the slice read by the range keyword and the one we reference
+inside the for loop will point to the same underlying array, so
+those changes could potentially be read in the for loop.
+
+Here is a somewhat confusing piece of code to help illustrate
+this further. It utilizes Go=E2=80=99s make keyword to create slices with
+a specific initial capacity.
+
+sLen, sCap :=3D 0, 3
+slice :=3D make([]int, sLen, sCap)
+slice =3D append(slice, 12, 1, 4)
+
+for i, num :=3D range slice {
+fmt.Println("Current Number:", num)
+if num%2 =3D=3D 0 {
+slice =3D append(slice, num/2)
+swap(i+1, len(slice)-1, slice)
+}
+}
+fmt.Println(slice)
+
+// This is the swap function being used. It just swaps two values
+in a slice func swap(i, j int, slice []int) {
+slice[i], slice[j] =3D slice[j], slice[i]
+}
+
+Run this on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/7qh7h8ho0wd=
+zvqiz/aHR0cHM6Ly9nby5kZXYvcGxheS9wL1g0LW9MYk1fYkJa
+) and try using different values for the slice capacity (sCap).
+Try 0, 3, 4, and 5. Notice how different capacity values can
+alter the results of the code. This occurs because different
+capacities will affect when our append changes the array that our
+slice points to.
+
+When we call append and the underlying array has enough space for
+the new values the underlying array won=E2=80=99t change. This occurs
+when the number of items being appended to a slice is less than
+the slice capacity minus the slice length.
+
+slice :=3D make([]int, 0, 5)
+x :=3D []int{1,2,3}
+
+// The underlying array changes if we add more values than can
+fit in it. if len(x) > (cap(slice) - len(slice)) {
+fmt.Println("underlying array will change")
+}
+
+// When doing this
+x :=3D []int{1,2,3}
+append(slice, x...)
+
+=E2=80=8B
+
+--------------------------------
+Tips for iterating over slices=E2=80=8B=E2=80=8B
+--------------------------------
+
+To avoid issues like this, I tend to alter the type of loop I am
+using depending on what I need to do. If I plan to change the
+slice as I iterate over it, I=E2=80=99ll typically prefer to use a
+traditional for loop with only an index, and I=E2=80=99ll manually check
+the length of the slice.
+
+for i :=3D 0; i len(slice); i++ { ... }
+
+Using this approach, we can rewrite the confusing code above to
+always have same output regardless of the capacity of the slice.
+We can also ensure that it runs on all of the numbers we add to
+the slice.
+
+// sCap can be any value and we get the same results
+sLen, sCap :=3D 0, 0
+slice :=3D make([]int, sLen, sCap)
+slice =3D append(slice, 12, 1, 4)
+
+for i :=3D 0; i len(slice); i++ {
+num :=3D slice[i]
+fmt.Println("Current Number:", num)
+if num%2 =3D=3D 0 {
+slice =3D append(slice, num/2)
+swap(i+1, len(slice)-1, slice)
+}
+}
+fmt.Println(slice)
+
+Run it on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/owhkhqhr4gx=
+o39sv/aHR0cHM6Ly9nby5kZXYvcGxheS9wLzFqVF9KazJvTTlz
+).
+
+I=E2=80=99ll still use the range keyword, but I find it works best when
+we don=E2=80=99t alter the slice as we iterate over it. For example, we
+might write the following code to get the same result as the
+previous example, but without altering the slice we are iterating
+over.
+
+sLen, sCap :=3D 0, 0
+slice :=3D make([]int, sLen, sCap)
+slice =3D append(slice, 12, 1, 4)
+
+res :=3D make([]int, 0, cap(slice))
+for _, num :=3D range slice {
+fmt.Println("Current Number:", num)
+res =3D append(res, num)
+for num%2 =3D=3D 0 {
+num /=3D 2
+fmt.Println("Current Number:", num)
+res =3D append(res, num)
+}
+}
+fmt.Println(res)
+
+Run it on the Go Playground (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/z2hghnh3op5=
+w9xap/aHR0cHM6Ly9nby5kZXYvcGxheS9wL1FncWZ4N3NUSGdu
+).
+
+I would also argue that this last version of the code is easier
+to understand when reading it. It is much clearer to me how many
+times the for loop might iterate, whereas adding values to a
+slice as we iterate over them might unintentionally lead to an
+infinite loop. The =E2=80=9Cdownside=E2=80=9D is that we need to create an
+additional slice to store values in. For most apps the
+performance difference will be negligible, but in a few special
+cases it could matter.
+
+----------------------
+Join a Go community!=E2=80=8B=E2=80=8B
+----------------------
+
+This entire discussion and deep-dive stemmed from someone joining
+a community and asking a question. The end result was a much
+deeper understanding of how slices work in Go for the person
+asking, and chances are several others were able to benefit from
+the discussion.
+
+When learning something new, I highly recommend finding and
+joining a community of peers to learn with. It doesn=E2=80=99t need to be
+my Slack (though if you purchase one of my Go courses, I highly
+recommend joining to connect with others taking the course), but
+simply finding one where you can ask questions, help others, and
+grow is incredibly valuable. I learn new stuff all the time
+helping others out, and it is a great way to give back to the
+community regardless of whether you are a beginner or an expert.
+
+If you need a place to start, here are a couple options:
+
+* Gophers Slack - https://invite.slack.golangbridge.org/ (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/p8heh9hz9gr=
+xk0uq/aHR0cHM6Ly9pbnZpdGUuc2xhY2suZ29sYW5nYnJpZGdlLm9yZy8=3D
+)=E2=80=8B
+* Gophers Discord - https://discord.com/invite/golang (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/x0hph6hwn9k=
+38vh5/aHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvZ29sYW5n
+)=E2=80=8B
+
+You can also find some great communities that aren=E2=80=99t specific to
+Go. An example of this is the #100DaysOfCode Slack (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/6qheh8h7pnx=
+ovmuo/aHR0cHM6Ly93d3cuMTAwZGF5c29mY29kZS5jb20vc2xhY2sv
+). There you can find others who are taking the challenge of
+coding every day for 100 days, and this might be a better fit
+depending on your goals.
+
+Want to share this email with a friend? You can find it on my
+website (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/kkhmh6hl86z=
+mgxcl/aHR0cHM6Ly93d3cuY2FsaG91bi5pby9kb2VzLXJhbmdlLWNvcHktdGhlLXNsaWNlLWluL=
+WdvLw=3D=3D
+) as a written article.
+
+Happy coding,
+Jon Calhoun
+Calhoun.io (
+https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/58hvh7hm5k3=
+7p4t6/aHR0cHM6Ly93d3cuY2FsaG91bi5pby8=3D
+)
+
+Unsubscribe (
+https://unsubscribe.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66
+) and never hear from me again. Seriously! I don't want to bug
+you if you aren't getting any value out of these emails.
+Update your preferences (
+https://preferences.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66
+)
+Mail me: 651 E Pitt St #13, Bedford, PA 15522
+--962baa9ba5c44ca4feffed0ebb4b1faca3679d5c91ad1ed0f2af4c762eb5
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html><html style=3D"font-family:Helvetica, Arial, sans-serif"><he=
+ad style=3D"font-family:Helvetica, Arial, sans-serif"><!--[if mso]>
+<center>
+<table><tr><td width=3D"580">
+<![endif]-->
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><s=
+tyle style=3D"font-family:Helvetica, Arial, sans-serif">@media only screen =
+and (max-width:600px) {
+        .ck-mobile-font-size {
+          font-size: 50px !important;
+        }
+     }
+@media only screen and (max-width:600px) {
+        .ck-mobile-font-size {
+          font-size: 50px !important;
+        }
+     }</style>
+
+<style>a:hover{color:#1b8ede;border-bottom-color:#1b8ede}
+.button:hover{color:#fff;background:#666}</style>
+</head>
+<body style=3D"font-family:Helvetica, Arial, sans-serif">
+<div class=3D"message-content" style=3D"font-size:14px;line-height:1.5em;co=
+lor:#333333;font-family:Helvetica, Arial, sans-serif">
+<p style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial, =
+sans-serif;color:#333333;margin-bottom:2em">
+
+Hi Ryan,
+
+</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px">
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">This week someone in=
+ my <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3=
+A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2F48hvhehr=
+06wgzqtx%2FaHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8jYWRkaXRpb25hbC1yZXNvdXJjZXM%=
+3D&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f64=
+0afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842349712%7CUnknown%7CTWFpbGZsb3d8ey=
+JWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%=
+7C%7C&amp;sdata=3DjOEH4bZQn0pqSnsA1wOFrqD5ccvqQhPkDuHuekszGvw%3D&amp;reserv=
+ed=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39coh2k977=
+kt2hx2x0m66/48hvhehr06wgzqtx/aHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8jYWRkaXRpb2=
+5hbC1yZXNvdXJjZXM=3D" shash=3D"dGqmCqg8oAgPXb0AUvWVE7gTNpjizgj+dWr7OgK97P5Q=
+LZtxpUpQ+FTYFkwZLH8BbKP6DiKF5sjDmc+au1xh4sgrOMsLKWXnlVFvJTpiwVOMfXoTKbM3gOs=
+TRptpoICx1mYKeXpy8JJxb28JXoVIU3vLqbsJKqnVXlQwPkmAubw=3D" target=3D"_blank" =
+rel=3D"noopener noreferrer" style=3D"font-family:Helvetica, Arial, sans-ser=
+if;color:inherit;font-family:inherit;font-size:inherit;text-decoration:none=
+;border-bottom:1px dotted #0875c1;color:#0875c1" url-id=3D"1588065988">Go c=
+ourses Slack</a> asked why their for loop wasn=E2=80=99t working the way th=
+ey expected. More specifically, they were wondering if Go=E2=80=99s <code s=
+tyle=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:=
+inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;=
+font-family:Menlo, Monaco, monospace, sans-serif !important">range</code> k=
+eyword was copying their slice before iterating over it. It was an interest=
+ing question, because the answer isn't as straightforward as it seems. </p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><div style=3D"font-size:14p=
+x;line-height:1.5em;font-family:Helvetica, Arial, sans-serif;color:#333333;=
+padding-bottom:10px;background: #fffff5; overflow:auto;width:auto;border:no=
+ne;padding:1em;">
+<span style=3D"font-family:Helvetica, Arial, sans-serif;color: #005522;">
+<strong style=3D"font-family:Helvetica, Arial, sans-serif">Upcoming Black F=
+riday Sale:</strong> My Go courses are going to be on sale from Nov 21 - No=
+v 29 for Black Friday! Check out <a href=3D"https://na01.safelinks.protecti=
+on.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39c=
+oh2k977kt2hx2x0m66%2Fwnh2hghwrxmg93c7%2FaHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8=
+%3D&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f6=
+40afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbGZsb3d8e=
+yJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C=
+%7C%7C&amp;sdata=3DxrPvn8RmK6gI%2B80q0mLA0e1q7ppBUB7Y8YEC4hipMPU%3D&amp;res=
+erved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39coh2k=
+977kt2hx2x0m66/wnh2hghwrxmg93c7/aHR0cHM6Ly93d3cudXNlZ29sYW5nLmNvbS8=3D" sha=
+sh=3D"n1l2KkfHXC4REM7Ytgi7wiU530EfKf1Q36wrIpe/Yl8/E+KuRHRXIDsVYzRx2Tb7VwdIH=
+2mnhC4zRiknWDlGTWiUs5cwz5e/4g5xYb+gePdGCFiYWYsQ+YBscnrW/ulzuP+XYF6JCiIX1Pzv=
+oEZE6PCjT31rDqeZBceFj2oQWCw=3D" style=3D"font-family:Helvetica, Arial, sans=
+-serif;text-decoration:none;border-bottom:1px dotted #0875c1;color:#0875c1"=
+ url-id=3D"1588065989">Web Development with Go</a> and <a href=3D"https://n=
+a01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-=
+mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2Freh8hoh0qwkx95s2%2FaHR0cHM6Ly90Z=
+XN0d2l0aGdvLmNvbQ%3D%3D&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe61=
+78049%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnk=
+nown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJX=
+VCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3D75EKK%2BnZQqmDdI%2FitAhYYDMsMlnm09gT=
+CmgPTshvydU%3D&amp;reserved=3D0" originalsrc=3D"https://click.convertkit-ma=
+il.com/r8uqwz0l39coh2k977kt2hx2x0m66/reh8hoh0qwkx95s2/aHR0cHM6Ly90ZXN0d2l0a=
+GdvLmNvbQ=3D=3D" shash=3D"QryCSAvf8y6Qsv7j3NGJ8bTxBwrJtWOtGqaT7yI/Pp2OEpzMF=
+bEhYkw7M0xQVKHGU3AkqrM0YOpGqQmJR0ciDcbBLGtZkxVFtbZEc9weXCGX9Sb+WZ/IkE9P8z/8=
+wOU2QxMiR/EYmTq1Ogbub+e9lWID7QwbvdeOfC9DXEbwMBs=3D" style=3D"font-family:He=
+lvetica, Arial, sans-serif;text-decoration:none;border-bottom:1px dotted #0=
+875c1;color:#0875c1" url-id=3D"1588065990">Test with
+Go</a> during that time to <strong style=3D"font-family:Helvetica, Arial, s=
+ans-serif">save 50%</strong> on either course.
+</span>
+</div></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">I won=E2=80=99t use =
+the exact same code here, but we can look at a similar example by trying to=
+ generate the <a href=3D"https://na01.safelinks.protection.outlook.com/?url=
+=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%=
+2F08hwh9hdmgnz0mal%2FaHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRmlib25hY2NpX3=
+NlcXVlbmNl&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9=
+e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbG=
+Zsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C=
+3000%7C%7C%7C&amp;sdata=3D5WwPcoExvlCnh5JqL7f8AX9acpyIgvhUQ9oAmvm3hPI%3D&am=
+p;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39=
+coh2k977kt2hx2x0m66/08hwh9hdmgnz0mal/aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2=
+kvRmlib25hY2NpX3NlcXVlbmNl" shash=3D"l3Etgw51/WBZxJnv7SY7imoH128J55Nq2nDLY/=
+iKUSjc9/3tLRey2HVHsYSfMA1o51cBNYIHXOp5b4cPetTYLTUWSsp0ecQpy6xFYeHA8xbACG7Ku=
+J5JaR4WL7hawLFELnv8BPEU+TtNbA2AhuSEVDxWzVvW4b3x+ucBZieSOYQ=3D" target=3D"_b=
+lank" rel=3D"noopener noreferrer" style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;color:inherit;font-family:inherit;font-size:inherit;text-decoratio=
+n:none;border-bottom:1px dotted #0875c1;color:#0875c1" url-id=3D"1588065991=
+">Fibonacci sequence</a>. <em style=3D"font-family:Helvetica, Arial, sans-s=
+erif;color:inherit;font-family:inherit;font-size:inherit">If you don=E2=80=
+=99t know what the Fibonacci sequence is, don=E2=80=99t worry. It isn=E2=80=
+=99t vital to understanding the code. All you really need to know is that w=
+e are appending new values to our slice as we iterate over it.</em></p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px">
+<pre style=3D"font-family:Helvetica, Arial, sans-serif;background:#f5f5f5;b=
+order:1px dotted #eee;padding:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;margin:=
+ 0; line-height: 125%">fib <span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">:=3D</span> []<span style=3D"font-family:Helvetica, Ari=
+al, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif =
+!important;color: #B00040">int</span>{<span style=3D"font-family:Helvetica,=
+ Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-se=
+rif !important;color: #666666">0</span>, <span style=3D"font-family:Helveti=
+ca, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans=
+-serif !important;color: #666666">1</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i, f1 <span style=3D"font-family:Helvetica, Arial, s=
+ans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impo=
+rtant;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Ari=
+al, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif =
+!important;color: #008000; font-weight: bold">range</span> fib {
+  f2 <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> fib[i<span style=3D"font-family:Helvetica, Arial, sans-serif;tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: =
+#666666">+1</span>]
+  fib =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(fib, f1<span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">+</span>f2)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">if</span> f1<span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">+</span>f2 &gt; <span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #666666">100</span> {
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">break</span>
+  }
+}
+fmt.Println(fib)
+</pre>
+</div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Run it on the </em><a href=3D"https://na01.safelinks.protection=
+.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh=
+2k977kt2hx2x0m66%2F8ghqhohlgqw9elik%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wL0daT3VrZ=
+Ul4NXh3&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7f=
+e9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C300=
+0%7C%7C%7C&amp;sdata=3Dhszo5zRx8%2B8XGJYiO2z%2FI1NmXAMTBXURRqyH6HWrYC4%3D&a=
+mp;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l3=
+9coh2k977kt2hx2x0m66/8ghqhohlgqw9elik/aHR0cHM6Ly9nby5kZXYvcGxheS9wL0daT3VrZ=
+Ul4NXh3" shash=3D"rrpLzmrNfhix6xrwW1dT4lIxaoQkWb0E6h5DXPa5ye18gjGy/VQCjTais=
+HlKsmiCZzBZmds/t2AQ6n5wOLLnLkTmSwKNIHZlmAAnwBQOVK1fXCR/dd5D3WujlOVF8uBdgeJH=
+N/sMseoLw1R8tBr1llq2CJ7g5Kc16JzlFK/RQ1s=3D" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inhe=
+rit;font-family:inherit;font-size:inherit;text-decoration:none;border-botto=
+m:1px dotted #0875c1;color:#0875c1" url-id=3D"1588065992">Go Playground</a>=
+<em style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fa=
+mily:inherit;font-size:inherit">.</em></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">At first glance we m=
+ight expect this code to continue adding new values until it adds a value g=
+reater than 100, at which point the for loop would exit with the <code styl=
+e=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inh=
+erit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important">break</code> keyw=
+ord. In reality, this code produces the following output:</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><code style=3D"font-=
+family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-=
+size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;font-family:M=
+enlo, Monaco, monospace, sans-serif !important">[0 1 1 2]</code></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">On the other hand, i=
+f we were to rewrite this code with a more traditional for loop it would wo=
+rk as expected.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px">
+<pre style=3D"font-family:Helvetica, Arial, sans-serif;background:#f5f5f5;b=
+order:1px dotted #eee;padding:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;margin:=
+ 0; line-height: 125%">fib <span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">:=3D</span> []<span style=3D"font-family:Helvetica, Ari=
+al, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif =
+!important;color: #B00040">int</span>{<span style=3D"font-family:Helvetica,=
+ Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-se=
+rif !important;color: #666666">0</span>, <span style=3D"font-family:Helveti=
+ca, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans=
+-serif !important;color: #666666">1</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvetic=
+a, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-=
+serif !important;color: #008000">len</span>(fib); i<span style=3D"font-fami=
+ly:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monos=
+pace, sans-serif !important;color: #666666">++</span> {
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// Note: I'm trying to keep this code as similar as possible=
+ to the previous</span>
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// code, so I'm using f1 and f2 instead of just adding the n=
+umbers together</span>
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// here.</span>
+  f1, f2 <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2=
+;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666=
+">:=3D</span> fib[i], fib[i<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">+1</span>]
+  fib =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(fib, f1<span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">+</span>f2)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">if</span> f1<span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">+</span>f2 &gt; <span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #666666">100</span> {
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">break</span>
+  }
+}
+fmt.Println(fib)
+</pre>
+</div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Run it on the </em><a href=3D"https://na01.safelinks.protection=
+.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh=
+2k977kt2hx2x0m66%2Fvqh3hrhpnemg2otg%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wL1VCLXVVT=
+VhMeXMz&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7f=
+e9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C300=
+0%7C%7C%7C&amp;sdata=3DkGjTJh2GHmjpwIQBZLiRrl1efvIh0C8n%2Fy9OFbR4Nss%3D&amp=
+;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39c=
+oh2k977kt2hx2x0m66/vqh3hrhpnemg2otg/aHR0cHM6Ly9nby5kZXYvcGxheS9wL1VCLXVVTVh=
+MeXMz" shash=3D"i3l2TzQ4iW2zz5qskYrnrZ7eF6XlRwqbzWewCZuYvsLJeTAN55BXGutqj93=
+54tNAAlryAwy9Yijfnk/uvPJI2D6ZzMNxyvgMoJSfcSWGzA7nLG0k/iVvwYvniqJnEvaIeiid99=
+r7fLK9uWk2+8nWXMba4WIS1mRcRNI7I0xJMfo=3D" target=3D"_blank" rel=3D"noopener=
+ noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inheri=
+t;font-family:inherit;font-size:inherit;text-decoration:none;border-bottom:=
+1px dotted #0875c1;color:#0875c1" url-id=3D"1588065993">Go Playground</a><e=
+m style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fami=
+ly:inherit;font-size:inherit">.</em></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">When we run this cod=
+e we get the output we would expect - a list of numbers that keeps growing =
+until one reaches a value greater than 100.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><code style=3D"font-=
+family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-=
+size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;font-family:M=
+enlo, Monaco, monospace, sans-serif !important">[0 1 1 2 3 5 8 13 21 34 55 =
+89 144]</code></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">All of this confusio=
+n leads to the question, =E2=80=9CDoes Go copy a slice when using the range=
+ keyword?=E2=80=9D</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><strong style=3D"fon=
+t-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;fon=
+t-size:inherit">The answer here is yes, but probably not how you think.</st=
+rong></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">According to the <a =
+href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F=
+click.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2Fm2h7h5h8om2ekei=
+m%2FaHR0cHM6Ly9nby5kZXYvcmVmL3NwZWMjRm9yX3N0YXRlbWVudHM%3D&amp;data=3D05%7C=
+01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaaaaaaaaaa=
+%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiL=
+CJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DO=
+cCEi7mpY12AjL%2FkJAr%2F088kl4cZf0Jyuwv8yvK0ucs%3D&amp;reserved=3D0" origina=
+lsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/m2h=
+7h5h8om2ekeim/aHR0cHM6Ly9nby5kZXYvcmVmL3NwZWMjRm9yX3N0YXRlbWVudHM=3D" shash=
+=3D"QwljVQ2U6dqcBA7xrXt2d7PqLAtsWAicHUMgP9o0fUYxMaXLaZRU9cGntH2Mnr8B+/m7ddE=
+/MufJZXDEv9zO4pdtr3IgCDGGIEHNWByK233zfzV3uxp+E0ESx3G0U7FolC3/lT8xD0Mf0S2g5Z=
+pS2/Xj9PGAk0Jmfa618ESZ6dk=3D" target=3D"_blank" rel=3D"noopener noreferrer"=
+ style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-famil=
+y:inherit;font-size:inherit;text-decoration:none;border-bottom:1px dotted #=
+0875c1;color:#0875c1" url-id=3D"1588065995">Go spec</a>, range expressions =
+are only evaluated onces.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px;padding:10px 20px;margin:0 0=
+ 20px;border-left-style:solid;border-left-width:5px;border-left-color:#e1e1=
+e1" class=3D"blockquotes"><div class=3D"blockquotes-line" style=3D"font-siz=
+e:14px;line-height:1.5em;font-family:Helvetica, Arial, sans-serif;color:#33=
+3333;padding-bottom:10px">The range expression x is evaluated once before b=
+eginning the loop, with one exception: if at most one iteration variable is=
+ present and len(x) is constant, the range expression is not evaluated.</di=
+v></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Go only reads the sl=
+ice once, so when we use the <code style=3D"font-family:Helvetica, Arial, s=
+ans-serif;color:inherit;font-family:inherit;font-size:inherit;padding:1px 2=
+px;background:#f5f5f5;color:#004400;font-family:Menlo, Monaco, monospace, s=
+ans-serif !important">range</code> keyword it is like taking the following =
+code:</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-weight=
+: bold">for</span> i, f1 <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #008000; font-weight: bold">range</span> fib {
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// ...</span>
+}
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">And translating it i=
+nto code that is roughly equivalent to the following code:</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-weight=
+: bold">var</span> f1 <span style=3D"font-family:Helvetica, Arial, sans-ser=
+if;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;c=
+olor: #B00040">int</span>
+temp <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> fib
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i =3D <span style=3D"font-family:Helvetica, Arial, s=
+ans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impo=
+rtant;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvetica=
+, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-s=
+erif !important;color: #008000">len</span>(temp); i<span style=3D"font-fami=
+ly:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monos=
+pace, sans-serif !important;color: #666666">++</span> {
+  f1 =3D temp[i]
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// ...</span>
+}
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">If we take this know=
+ledge and apply it to our for loop that didn=E2=80=99t work, it becomes a b=
+it more clear why it wasn=E2=80=99t working.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">fib =
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=3D</s=
+pan> []<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #B00040">=
+int</span>{<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #6666=
+66">0</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #6=
+66666">1</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// This is roughly what range results in</span>
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">var</span> f1 <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #B00040">int</span>
+temp <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> fib
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvetic=
+a, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-=
+serif !important;color: #008000">len</span>(temp); i<span style=3D"font-fam=
+ily:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, mono=
+space, sans-serif !important;color: #666666">++</span> {
+  f1 =3D temp[i]
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-=
+style: italic">// back to our code</span>
+  f2 <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> fib[i<span style=3D"font-family:Helvetica, Arial, sans-serif;tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: =
+#666666">+1</span>]
+  fib =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(fib, f1<span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">+</span>f2)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">if</span> f1<span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">+</span>f2 &gt; <span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #666666">100</span> {
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">break</span>
+  }
+}
+fmt.Println(fib)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Our code is updating=
+ the <code style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;=
+font-family:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;co=
+lor:#004400;font-family:Menlo, Monaco, monospace, sans-serif !important">fi=
+b</code> slice, but this isn=E2=80=99t the same slice that our for loop is =
+using to evaluate when to stop running.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Ideally this would b=
+e the end of the discussion, but slices can be a little confusing. Behind t=
+he scenes, a slice isn=E2=80=99t quite the same as an array. Instead, it ha=
+s an underlying array and the slice itself stores a pointer to that array. =
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2Fdpheh0h0q8d5=
+zrfm%2FaHR0cHM6Ly93d3cuY2FsaG91bi5pby93aHktYXJlLXNsaWNlcy1zb21ldGltZXMtYWx0=
+ZXJlZC13aGVuLXBhc3NlZC1ieS12YWx1ZS1pbi1nby8%3D&amp;data=3D05%7C01%7C%7Cbe83=
+c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6=
+38356760842505914%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luM=
+zIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DOcOObrfasKM2p=
+ye7QlCy%2Bz8c3%2FAqAidmzU4Vqr7ISm8%3D&amp;reserved=3D0" originalsrc=3D"http=
+s://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/dpheh0h0q8d5zrf=
+m/aHR0cHM6Ly93d3cuY2FsaG91bi5pby93aHktYXJlLXNsaWNlcy1zb21ldGltZXMtYWx0ZXJlZ=
+C13aGVuLXBhc3NlZC1ieS12YWx1ZS1pbi1nby8=3D" shash=3D"POm/H3sUSoXyeenJHjnIpvR=
+tACJ63TvVlF4ZHo3qLtMPXNnmYMX9PX2t+1jV3sK/j1oKDHbbazVXVfZDvTcAPj0M0n6iABaF+1=
+AGAeowaQbEbRvjEbo/qiaVrT7h4++4LwYcWIZZhKrTaw4pqmfxY6GCa5GUQ9iUI/skZnHtS4A=
+=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"font-family:Hel=
+vetica, Arial, sans-serif;color:inherit;font-family:inherit;font-size:inher=
+it;text-decoration:none;border-bottom:1px dotted #0875c1;color:#0875c1" url=
+-id=3D"1588065996">You can read more about this here</a>, and the code for =
+a slice is shown below.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-weight=
+: bold">type</span> slice <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #008000; font-weight: bold">struct</span> {
+  array unsafe.Pointer
+  len   <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;=
+font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B00040"=
+>int</span>
+  cap   <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;=
+font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B00040"=
+>int</span>
+}
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">This is important be=
+cause it means that we can alter items in our slice, even when using the <c=
+ode style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fa=
+mily:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#00=
+4400;font-family:Menlo, Monaco, monospace, sans-serif !important">range</co=
+de> keyword, and we might see those changes as we iterate over the slice. T=
+ake the following bubble sort where we swap numbers while we iterate over t=
+he slice:</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">numb=
+ers <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> []<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B0=
+0040">int</span>{<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">5</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif=
+;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;col=
+or: #666666">4</span>, <span style=3D"font-family:Helvetica, Arial, sans-se=
+rif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;=
+color: #666666">3</span>, <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">2</span>, <span style=3D"font-family:Helvetica, Arial, s=
+ans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impo=
+rtant;color: #666666">1</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> x <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">0</span>; x &lt; <span style=3D"font-family:Helvetic=
+a, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-=
+serif !important;color: #008000">len</span>(numbers); x<span style=3D"font-=
+family:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, m=
+onospace, sans-serif !important;color: #666666">++</span> {
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">for</span> i, num <span style=3D"font-family:Helvetica, Arial=
+, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !i=
+mportant;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, =
+Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-ser=
+if !important;color: #008000; font-weight: bold">range</span> numbers {
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">if</span> i<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">+1</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">&gt;=3D</span> <span style=3D"font-family:Helvetica,=
+ Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-se=
+rif !important;color: #008000">len</span>(numbers) {
+      <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; f=
+ont-weight: bold">break</span>
+    }
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">if</span> num &gt; numbers[i<span style=3D"font-family:Helv=
+etica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, s=
+ans-serif !important;color: #666666">+1</span>] {
+      <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #408080; f=
+ont-style: italic">// Swap numbers if the current one is greater than the n=
+ext</span>
+      numbers[i], numbers[i<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">+1</span>] =3D numbers[i<span style=3D"font-family:Helv=
+etica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, s=
+ans-serif !important;color: #666666">+1</span>], num
+    }
+  }
+}
+fmt.Println(numbers)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Run it on the </em><a href=3D"https://na01.safelinks.protection=
+.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh=
+2k977kt2hx2x0m66%2Fe0hph7h0kqm49mt8%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wL3g0SVdCa=
+zFxT0k4&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7f=
+e9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842505914%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C300=
+0%7C%7C%7C&amp;sdata=3D8SESZ3AHde9zRN5L%2FcekPI6RuKmbGEbUZ6WSv3kSeRc%3D&amp=
+;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39c=
+oh2k977kt2hx2x0m66/e0hph7h0kqm49mt8/aHR0cHM6Ly9nby5kZXYvcGxheS9wL3g0SVdCazF=
+xT0k4" shash=3D"JXgvFIZQfzOQ0Ms61GCe0r2HH2kjCNCGfd9BxofxITYyx31NL+QhaOSbG2v=
+YZyATG5oLUqD9H6bsCOi/dyRRctSHefS7yYJgLMqGtWPiilk5g/HTpN3ZsCknFrFkDWBgj0O6LV=
+D+ntivnFL/8N6jo8w2KeZF444l6/dh14O6Sng=3D" target=3D"_blank" rel=3D"noopener=
+ noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inheri=
+t;font-family:inherit;font-size:inherit;text-decoration:none;border-bottom:=
+1px dotted #0875c1;color:#0875c1" url-id=3D"1588065997">Go Playground</a><e=
+m style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fami=
+ly:inherit;font-size:inherit">.</em></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">In this code we are =
+swapping numbers in our slice when the number at a lower index is greater t=
+han the next number. When we do this, the next iteration of the for loop re=
+ads the number we swapped to the higher index. If we translate this code li=
+ke we did before, we get the following:</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">numb=
+ers <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> []<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B0=
+0040">int</span>{<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">5</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif=
+;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;col=
+or: #666666">4</span>, <span style=3D"font-family:Helvetica, Arial, sans-se=
+rif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;=
+color: #666666">3</span>, <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">2</span>, <span style=3D"font-family:Helvetica, Arial, s=
+ans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impo=
+rtant;color: #666666">1</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> x <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">0</span>; x &lt; <span style=3D"font-family:Helvetic=
+a, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-=
+serif !important;color: #008000">len</span>(numbers); x<span style=3D"font-=
+family:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, m=
+onospace, sans-serif !important;color: #666666">++</span> {
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">var</span> num <span style=3D"font-family:Helvetica, Arial, s=
+ans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impo=
+rtant;color: #B00040">int</span>
+  temp <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+:=3D</span> numbers
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">for</span> i <span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial=
+, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !i=
+mportant;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvet=
+ica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, san=
+s-serif !important;color: #008000">len</span>(temp); i<span style=3D"font-f=
+amily:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, mo=
+nospace, sans-serif !important;color: #666666">++</span> {
+    num =3D temp[i]
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">if</span> i<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">+1</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">&gt;=3D</span> <span style=3D"font-family:Helvetica,=
+ Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-se=
+rif !important;color: #008000">len</span>(numbers) {
+      <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; f=
+ont-weight: bold">break</span>
+    }
+    <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000; fon=
+t-weight: bold">if</span> num &gt; numbers[i<span style=3D"font-family:Helv=
+etica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, s=
+ans-serif !important;color: #666666">+1</span>] {
+      <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #408080; f=
+ont-style: italic">// Swap numbers if the current one is greater than the n=
+ext</span>
+      numbers[i], numbers[i<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">+1</span>] =3D numbers[i<span style=3D"font-family:Helv=
+etica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, s=
+ans-serif !important;color: #666666">+1</span>], num
+    }
+  }
+}
+fmt.Println(numbers)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Running this code al=
+so produces the same result - a sorted list. This occurs because the slices=
+ <code style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font=
+-family:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:=
+#004400;font-family:Menlo, Monaco, monospace, sans-serif !important">temp</=
+code> and <code style=3D"font-family:Helvetica, Arial, sans-serif;color:inh=
+erit;font-family:inherit;font-size:inherit;padding:1px 2px;background:#f5f5=
+f5;color:#004400;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t">numbers</code> both point to the same underlying array. Where this becom=
+es confusing is when we start adding new values to our slice and the capaci=
+ty of our slice starts to matter.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">In a slice, the leng=
+th is the number of values stored in the underlying array, but in reality t=
+hat array might have space for additional values. That is, our slice might =
+have a length of <code style=3D"font-family:Helvetica, Arial, sans-serif;co=
+lor:inherit;font-family:inherit;font-size:inherit;padding:1px 2px;backgroun=
+d:#f5f5f5;color:#004400;font-family:Menlo, Monaco, monospace, sans-serif !i=
+mportant">5</code>, but the underlying array might have a length of <code s=
+tyle=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:=
+inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;=
+font-family:Menlo, Monaco, monospace, sans-serif !important">7</code>. Let=
+=E2=80=99s look at a visual representation of this:</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-style:=
+ italic">// Our slice might have the following fields:</span>
+array: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+*</span>pointer to X below<span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">*</span>
+len: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">5<=
+/span>
+cap: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">7<=
+/span>
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// X is an array, not a slice. It has a fixed length of 7</spa=
+n>
+X =3D [<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+5</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2=
+;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666=
+">4</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #6666=
+66">3</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66=
+6666">2</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">1</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">0</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;=
+tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;colo=
+r: #666666">0</span>]
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">In this case the <st=
+rong style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-f=
+amily:inherit;font-size:inherit">capacity</strong> of our slice is <code st=
+yle=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:i=
+nherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important">7</code>, which=
+ means if we were to add a value to our slice, the underlying array could s=
+till be used. We would just need to update our slice=E2=80=99s <code style=
+=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inhe=
+rit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;font=
+-family:Menlo, Monaco, monospace, sans-serif !important">len</code> field.<=
+/p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-style:=
+ italic">// If we ran this code:</span>
+numbers =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-siz=
+e:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #008=
+000">append</span>(numbers, <span style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impor=
+tant;color: #666666">8</span>)
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// Our slice would then have the following fields:</span>
+array: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+*</span>pointer to X below<span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">*</span>
+len: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">6<=
+/span>
+cap: <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fon=
+t-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">7<=
+/span>
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// X is an array, not a slice. It has a fixed length of 7</spa=
+n>
+X =3D [<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+5</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2=
+;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666=
+">4</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #6666=
+66">3</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66=
+6666">2</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">1</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">8</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;=
+tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;colo=
+r: #666666">0</span>]
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">As long as we do not=
+ exceed the capacity of our slice, or do anything else to cause the underly=
+ing array pointer to change, both the slice read by the <code style=3D"font=
+-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font=
+-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;font-family:=
+Menlo, Monaco, monospace, sans-serif !important">range</code> keyword and t=
+he one we reference inside the for loop will point to the same underlying a=
+rray, so those changes could potentially be read in the for loop.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Here is a somewhat c=
+onfusing piece of code to help illustrate this further. It utilizes Go=E2=
+=80=99s <code style=3D"font-family:Helvetica, Arial, sans-serif;color:inher=
+it;font-family:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5=
+;color:#004400;font-family:Menlo, Monaco, monospace, sans-serif !important"=
+>make</code> keyword to create slices with a specific initial capacity.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">sLen=
+, sCap <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+:=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-siz=
+e:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666=
+666">0</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">3</span>
+slice <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0080=
+00">make</span>([]<span style=3D"font-family:Helvetica, Arial, sans-serif;t=
+ab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color=
+: #B00040">int</span>, sLen, sCap)
+slice =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(slice, <span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">12</span>, <span style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impor=
+tant;color: #666666">1</span>, <span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">4</span>)
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i, num <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #008000; font-weight: bold">range</span> slice {
+  fmt.Println(<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B=
+A2121">&quot;Current Number:&quot;</span>, num)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">if</span> num<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">%2</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">=3D=3D</span> <span style=3D"font-family:Helvetica, =
+Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-ser=
+if !important;color: #666666">0</span> {
+    slice =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0=
+08000">append</span>(slice, num<span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">/2</span>)
+    swap(i<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66666=
+6">+1</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0=
+08000">len</span>(slice)<span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">-1</span>, slice)
+  }
+}
+fmt.Println(slice)
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// This is the swap function being used. It just swaps two val=
+ues in a slice</span>
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">func</span> swap(i, j <span style=3D"font-family:Helvetica, Ari=
+al, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif =
+!important;color: #B00040">int</span>, slice []<span style=3D"font-family:H=
+elvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace=
+, sans-serif !important;color: #B00040">int</span>) {
+	slice[i], slice[j] =3D slice[j], slice[i]
+}
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Run this on the <a h=
+ref=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fc=
+lick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2F7qh7h8ho0wdzvqiz=
+%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wL1g0LW9MYk1fYkJa&amp;data=3D05%7C01%7C%7Cbe8=
+3c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C=
+638356760842662185%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2lu=
+MzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DJChrAmCuWGGT=
+I1OnvtkmqPX6XOBIN47zzVn8kt9IC4I%3D&amp;reserved=3D0" originalsrc=3D"https:/=
+/click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/7qh7h8ho0wdzvqiz/a=
+HR0cHM6Ly9nby5kZXYvcGxheS9wL1g0LW9MYk1fYkJa" shash=3D"UYR6IcX2/gsPJvQs19BTc=
+GTgU5DW4VJr495FNxrDIQ0ixEH00dMnl4IPZiv9x8HsmeIIDDeaYtCFT9fcHUwkEFebElNKolbW=
+R7rHks3OP7rVzlkmTDb3BchdYYD+zytT6x7EUoL2o471MfGPFC3T0+MTf9Pu/zxOwVRVN/FUPtE=
+=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"font-family:Hel=
+vetica, Arial, sans-serif;color:inherit;font-family:inherit;font-size:inher=
+it;text-decoration:none;border-bottom:1px dotted #0875c1;color:#0875c1" url=
+-id=3D"1588065998">Go Playground</a> and try using different values for the=
+ slice capacity (<code style=3D"font-family:Helvetica, Arial, sans-serif;co=
+lor:inherit;font-family:inherit;font-size:inherit;padding:1px 2px;backgroun=
+d:#f5f5f5;color:#004400;font-family:Menlo, Monaco, monospace, sans-serif !i=
+mportant">sCap</code>). <strong style=3D"font-family:Helvetica, Arial, sans=
+-serif;color:inherit;font-family:inherit;font-size:inherit">Try 0, 3, 4, an=
+d 5</strong>. Notice how different capacity values can alter the results of=
+ the code. This occurs because different capacities will affect when our <c=
+ode style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fa=
+mily:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#00=
+4400;font-family:Menlo, Monaco, monospace, sans-serif !important">append</c=
+ode> changes the array that our slice points to.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">When we call <code s=
+tyle=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:=
+inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;color:#004400;=
+font-family:Menlo, Monaco, monospace, sans-serif !important">append</code> =
+and the underlying array has enough space for the new values the underlying=
+ array won=E2=80=99t change. This occurs when the number of items being app=
+ended to a slice is less than the slice capacity minus the slice length.</p=
+>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">slic=
+e <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=3D<=
+/span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #008000">=
+make</span>([]<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B=
+00040">int</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;=
+tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;colo=
+r: #666666">0</span>, <span style=3D"font-family:Helvetica, Arial, sans-ser=
+if;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;c=
+olor: #666666">5</span>)
+x <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=3D<=
+/span> []<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2=
+;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B00040=
+">int</span>{<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66=
+6666">1</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">2</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">3</span>}
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// The underlying array changes if we add more values than can=
+ fit in it.</span>
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">if</span> <span style=3D"font-family:Helvetica, Arial, sans-ser=
+if;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;c=
+olor: #008000">len</span>(x) &gt; (<span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #008000">cap</span>(slice) <span style=3D"font-family:He=
+lvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace,=
+ sans-serif !important;color: #666666">-</span> <span style=3D"font-family:=
+Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospac=
+e, sans-serif !important;color: #008000">len</span>(slice)) {
+  fmt.Println(<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B=
+A2121">&quot;underlying array will change&quot;</span>)
+}
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-st=
+yle: italic">// When doing this</span>
+x <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=3D<=
+/span> []<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2=
+;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B00040=
+">int</span>{<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66=
+6666">1</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">2</span>,<span style=3D"font-family:Helvetica, Arial, sans-serif;ta=
+b-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color:=
+ #666666">3</span>}
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000">append<=
+/span>(slice, x<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">...</span>)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">=E2=80=8B</p>
+<h2 class=3D"" style=3D"font-family:Helvetica, Arial, sans-serif;color:#333=
+;font-size:16px">
+<strong style=3D"font-family:Helvetica, Arial, sans-serif">Tips for iterati=
+ng over slices</strong>=E2=80=8B<br style=3D"font-family:Helvetica, Arial, =
+sans-serif">=E2=80=8B</h2>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">To avoid issues like=
+ this, I tend to alter the type of loop I am using depending on what I need=
+ to do. If I plan to change the slice as I iterate over it, I=E2=80=99ll ty=
+pically prefer to use a traditional for loop with only an index, and I=E2=
+=80=99ll manually check the length of the slice.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-weight=
+: bold">for</span> i <span style=3D"font-family:Helvetica, Arial, sans-seri=
+f;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;co=
+lor: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvetica, A=
+rial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-seri=
+f !important;color: #008000">len</span>(slice); i<span style=3D"font-family=
+:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospa=
+ce, sans-serif !important;color: #666666">++</span> { <span style=3D"font-f=
+amily:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, mo=
+nospace, sans-serif !important;color: #666666">...</span> }
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">Using this approach,=
+ we can rewrite the confusing code above to always have same output regardl=
+ess of the capacity of the slice. We can also ensure that it runs on all of=
+ the numbers we add to the slice.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%"><spa=
+n style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-family:=
+Menlo, Monaco, monospace, sans-serif !important;color: #408080; font-style:=
+ italic">// sCap can be any value and we get the same results</span>
+sLen, sCap <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #6666=
+66">:=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: =
+#666666">0</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;=
+tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;colo=
+r: #666666">0</span>
+slice <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0080=
+00">make</span>([]<span style=3D"font-family:Helvetica, Arial, sans-serif;t=
+ab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color=
+: #B00040">int</span>, sLen, sCap)
+slice =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(slice, <span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">12</span>, <span style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impor=
+tant;color: #666666">1</span>, <span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">4</span>)
+
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> i <span style=3D"font-family:Helvetica, Arial, sans-=
+serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importan=
+t;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">0</span>; i &lt; <span style=3D"font-family:Helvetic=
+a, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-=
+serif !important;color: #008000">len</span>(slice); i<span style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, mon=
+ospace, sans-serif !important;color: #666666">++</span> {
+  num <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> slice[i]
+  fmt.Println(<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B=
+A2121">&quot;Current Number:&quot;</span>, num)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">if</span> num<span style=3D"font-family:Helvetica, Arial, san=
+s-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !import=
+ant;color: #666666">%2</span> <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">=3D=3D</span> <span style=3D"font-family:Helvetica, =
+Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-ser=
+if !important;color: #666666">0</span> {
+    slice =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0=
+08000">append</span>(slice, num<span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">/2</span>)
+    swap(i<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66666=
+6">+1</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0=
+08000">len</span>(slice)<span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">-1</span>, slice)
+  }
+}
+fmt.Println(slice)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Run it on the </em><a href=3D"https://na01.safelinks.protection=
+.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh=
+2k977kt2hx2x0m66%2Fowhkhqhr4gxo39sv%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wLzFqVF9Ka=
+zJvTTlz&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7f=
+e9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C300=
+0%7C%7C%7C&amp;sdata=3DFPpmO063DK2bU3Y2LzGuXIGVixxXMLB%2FZ3i%2B3svWju8%3D&a=
+mp;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l3=
+9coh2k977kt2hx2x0m66/owhkhqhr4gxo39sv/aHR0cHM6Ly9nby5kZXYvcGxheS9wLzFqVF9Ka=
+zJvTTlz" shash=3D"MrE+Svaz3Ln9OdRNpQl3N9mrI+a0tfXrAcqH3GnICwb6KmmhJQWvGcd4j=
+XOqepn5BDo4D+a0oTT2oLMVZzYXc93Fy7CUlN6Qjq9n7yEik0knSCJ96qPfw6vSzatUW5+d4j6N=
+i29+h5v7cKETA3zaFLf3SZVsnoARRq4fulYEAvg=3D" target=3D"_blank" rel=3D"noopen=
+er noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inhe=
+rit;font-family:inherit;font-size:inherit;text-decoration:none;border-botto=
+m:1px dotted #0875c1;color:#0875c1" url-id=3D"1588065999">Go Playground</a>=
+<em style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fa=
+mily:inherit;font-size:inherit">.</em></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">I=E2=80=99ll still u=
+se the <code style=3D"font-family:Helvetica, Arial, sans-serif;color:inheri=
+t;font-family:inherit;font-size:inherit;padding:1px 2px;background:#f5f5f5;=
+color:#004400;font-family:Menlo, Monaco, monospace, sans-serif !important">=
+range</code> keyword, but I find it works best when we don=E2=80=99t alter =
+the slice as we iterate over it. For example, we might write the following =
+code to get the same result as the previous example, but without altering t=
+he slice we are iterating over.</p>
+<div style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial=
+, sans-serif;color:#333333;padding-bottom:10px"><pre style=3D"font-family:H=
+elvetica, Arial, sans-serif;background:#f5f5f5;border:1px dotted #eee;paddi=
+ng:4px 8px;margin-bottom:2em;tab-size:2;-moz-tab-size:2;font-family:Menlo, =
+Monaco, monospace, sans-serif !important;margin: 0; line-height: 125%">sLen=
+, sCap <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;f=
+ont-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">=
+:=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-siz=
+e:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666=
+666">0</span>, <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-=
+size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #=
+666666">0</span>
+slice <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;fo=
+nt-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0080=
+00">make</span>([]<span style=3D"font-family:Helvetica, Arial, sans-serif;t=
+ab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color=
+: #B00040">int</span>, sLen, sCap)
+slice =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(slice, <span style=3D"font-family:Helvetica, Arial, sans-s=
+erif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important=
+;color: #666666">12</span>, <span style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impor=
+tant;color: #666666">1</span>, <span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">4</span>)
+
+res <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font=
+-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666">:=
+=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size=
+:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #0080=
+00">make</span>([]<span style=3D"font-family:Helvetica, Arial, sans-serif;t=
+ab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color=
+: #B00040">int</span>, <span style=3D"font-family:Helvetica, Arial, sans-se=
+rif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;=
+color: #666666">0</span>, <span style=3D"font-family:Helvetica, Arial, sans=
+-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !importa=
+nt;color: #008000">cap</span>(slice))
+<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-fam=
+ily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-we=
+ight: bold">for</span> _, num <span style=3D"font-family:Helvetica, Arial, =
+sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !imp=
+ortant;color: #666666">:=3D</span> <span style=3D"font-family:Helvetica, Ar=
+ial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif=
+ !important;color: #008000; font-weight: bold">range</span> slice {
+  fmt.Println(<span style=3D"font-family:Helvetica, Arial, sans-serif;tab-s=
+ize:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #B=
+A2121">&quot;Current Number:&quot;</span>, num)
+  res =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:=
+2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #00800=
+0">append</span>(res, num)
+  <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;font-f=
+amily:Menlo, Monaco, monospace, sans-serif !important;color: #008000; font-=
+weight: bold">for</span> num<span style=3D"font-family:Helvetica, Arial, sa=
+ns-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !impor=
+tant;color: #666666">%2</span> <span style=3D"font-family:Helvetica, Arial,=
+ sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-serif !im=
+portant;color: #666666">=3D=3D</span> <span style=3D"font-family:Helvetica,=
+ Arial, sans-serif;tab-size:2;font-family:Menlo, Monaco, monospace, sans-se=
+rif !important;color: #666666">0</span> {
+    num <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-size:2;=
+font-family:Menlo, Monaco, monospace, sans-serif !important;color: #666666"=
+>/=3D</span> <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-si=
+ze:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #66=
+6666">2</span>
+    fmt.Println(<span style=3D"font-family:Helvetica, Arial, sans-serif;tab=
+-size:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: =
+#BA2121">&quot;Current Number:&quot;</span>, num)
+    res =3D <span style=3D"font-family:Helvetica, Arial, sans-serif;tab-siz=
+e:2;font-family:Menlo, Monaco, monospace, sans-serif !important;color: #008=
+000">append</span>(res, num)
+  }
+}
+fmt.Println(res)
+</pre></div>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Run it on the </em><a href=3D"https://na01.safelinks.protection=
+.outlook.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh=
+2k977kt2hx2x0m66%2Fz2hghnh3op5w9xap%2FaHR0cHM6Ly9nby5kZXYvcGxheS9wL1FncWZ4N=
+3NUSGdu&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7f=
+e9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb=
+3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C300=
+0%7C%7C%7C&amp;sdata=3DM6Ry%2FHCzmR1wiG2dmgMqQ4PDgHDPw612nlCvRHDGdW0%3D&amp=
+;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39c=
+oh2k977kt2hx2x0m66/z2hghnh3op5w9xap/aHR0cHM6Ly9nby5kZXYvcGxheS9wL1FncWZ4N3N=
+USGdu" shash=3D"cP+yQoDoI8u0jhltty1LOd7DTJtk1MfM5URf/WmPFtrgfl1I0Tk/EpK8kvp=
+0ZZh381QCb3Bji1e/tR/kYICHY1Rv6Dh0uKmM7YiERiy56v0ZwQtTV3q81l8cMTsCWqNc1nsYZi=
+hsQb7JM4qpPKYbou6QCtWuW0F1NxH3CRb6WSI=3D" target=3D"_blank" rel=3D"noopener=
+ noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inheri=
+t;font-family:inherit;font-size:inherit;text-decoration:none;border-bottom:=
+1px dotted #0875c1;color:#0875c1" url-id=3D"1588066000">Go Playground</a><e=
+m style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-fami=
+ly:inherit;font-size:inherit">.</em></p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">I would also argue t=
+hat this last version of the code is easier to understand when reading it. =
+It is much clearer to me how many times the for loop might iterate, whereas=
+ adding values to a slice as we iterate over them might unintentionally lea=
+d to an infinite loop. The =E2=80=9Cdownside=E2=80=9D is that we need to cr=
+eate an additional slice to store values in. For most apps the performance =
+difference will be negligible, but in a few special cases it could matter.<=
+/p>
+<h2 class=3D"" style=3D"font-family:Helvetica, Arial, sans-serif;color:#333=
+;font-size:16px">
+<strong style=3D"font-family:Helvetica, Arial, sans-serif">Join a Go commun=
+ity!</strong>=E2=80=8B<br style=3D"font-family:Helvetica, Arial, sans-serif=
+">=E2=80=8B</h2>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">This entire discussi=
+on and deep-dive stemmed from someone joining a community and asking a ques=
+tion. The end result was a much deeper understanding of how slices work in =
+Go for the person asking, and chances are several others were able to benef=
+it from the discussion.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">When learning someth=
+ing new, I highly recommend finding and joining a community of peers to lea=
+rn with. It doesn=E2=80=99t need to be my Slack (though if you purchase one=
+ of my Go courses, I highly recommend joining to connect with others taking=
+ the course), but simply finding one where you can ask questions, help othe=
+rs, and grow is incredibly valuable. I learn new stuff all the time helping=
+ others out, and it is a great way to give back to the community regardless=
+ of whether you are a beginner or an expert.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">If you need a place =
+to start, here are a couple options:</p>
+<ul class=3D"unordered_list" style=3D"font-size:14px;line-height:1.5em;font=
+-family:Helvetica, Arial, sans-serif;color:#333333;margin-bottom:2em;list-s=
+tyle-position:inside">
+<li class=3D"list_item" style=3D"font-size:14px;line-height:1.5em;font-fami=
+ly:Helvetica, Arial, sans-serif;color:#333333"><span style=3D"font-family:H=
+elvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-size:inh=
+erit">Gophers Slack - <a href=3D"https://na01.safelinks.protection.outlook.=
+com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2h=
+x2x0m66%2Fp8heh9hz9grxk0uq%2FaHR0cHM6Ly9pbnZpdGUuc2xhY2suZ29sYW5nYnJpZGdlLm=
+9yZy8%3D&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7=
+fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZs=
+b3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C30=
+00%7C%7C%7C&amp;sdata=3DbDC896GFx0kL8CIAZOpNpBWpEd51Uiy11AYnLejiCHM%3D&amp;=
+reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39co=
+h2k977kt2hx2x0m66/p8heh9hz9grxk0uq/aHR0cHM6Ly9pbnZpdGUuc2xhY2suZ29sYW5nYnJp=
+ZGdlLm9yZy8=3D" shash=3D"tDeKzVxP6gGLfTVPNbRcoCTMAFgGHic9MIT8CHZK4wETjCnEMT=
+inV+g2Y32oReSukL57MR1+6YjGjahAkyUsmY7UQCZAjZBuBwZSg293+WyPzRbemHuQKvHqDOdIl=
+USwaGsOFbVlFU/77ylViVJy5kwrCH2/fd4n9G9ngneDoIc=3D" target=3D"_blank" rel=3D=
+"noopener noreferrer" style=3D"font-family:Helvetica, Arial, sans-serif;col=
+or:inherit;font-family:inherit;font-size:inherit;text-decoration:none;borde=
+r-bottom:1px dotted #0875c1;color:#0875c1" url-id=3D"1588066001">https://in=
+vite.slack.golangbridge.org/</a>=E2=80=8B</span></li>
+<li class=3D"list_item" style=3D"font-size:14px;line-height:1.5em;font-fami=
+ly:Helvetica, Arial, sans-serif;color:#333333"><span style=3D"font-family:H=
+elvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-size:inh=
+erit">Gophers Discord - <a href=3D"https://na01.safelinks.protection.outloo=
+k.com/?url=3Dhttps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt=
+2hx2x0m66%2Fx0hph6hwn9k38vh5%2FaHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvZ29sYW5n=
+&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640a=
+fb435aaaaaaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb3d8eyJW=
+IjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C=
+%7C&amp;sdata=3DAl0iaePztMpi%2BORaDo4tToB2fqGVxEvMtcPcxYpVIT8%3D&amp;reserv=
+ed=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39coh2k977=
+kt2hx2x0m66/x0hph6hwn9k38vh5/aHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvZ29sYW5n" =
+shash=3D"mZiKg5AqMlmj2OF8VnEyFX8Zv30frsK9UE93rBvQ1OKrNvMqGya7vZwMk45f9N8QOC=
+jN8Is8zHNu4B3E1cNWwDOntQXb9t4aexGQYeVQFu3l1viDCX3TMoSTq8XzfdUm7RN+4UQgL6+Z5=
+YcsnNVeM1W290V+MZ8C+u1WVgCHqsI=3D" target=3D"_blank" rel=3D"noopener norefe=
+rrer" style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-=
+family:inherit;font-size:inherit;text-decoration:none;border-bottom:1px dot=
+ted #0875c1;color:#0875c1" url-id=3D"1588066002">https://discord.com/invite=
+/golang</a>=E2=80=8B</span></li>
+</ul>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em">You can also find so=
+me great communities that aren=E2=80=99t specific to Go. An example of this=
+ is the <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhtt=
+ps%3A%2F%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2F6qhe=
+h8h7pnxovmuo%2FaHR0cHM6Ly93d3cuMTAwZGF5c29mY29kZS5jb20vc2xhY2sv&amp;data=3D=
+05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaaaaa=
+aaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAw=
+MDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdat=
+a=3DGKkCtLAhLwswDC5uSkqckX3J9tCeuzlbcl6kdhoev28%3D&amp;reserved=3D0" origin=
+alsrc=3D"https://click.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/6q=
+heh8h7pnxovmuo/aHR0cHM6Ly93d3cuMTAwZGF5c29mY29kZS5jb20vc2xhY2sv" shash=3D"S=
+owTEF1DF4YLngHX76DoGDdXEDfNQyrDdOxcYDS5kYl45WzOFTF9AzK/HXrZYAf1tJRj53Ol8yuf=
+qgy2VXtMY2duPpBmVAfF6KBSLT3BSdL9M6sAwje53gyW/sY79KfQpqZWQTVA53fgCdGs0oWZ4rF=
+zgm3ZCN7V7fj1bHQeGgk=3D" target=3D"_blank" rel=3D"noopener noreferrer" styl=
+e=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inh=
+erit;font-size:inherit;text-decoration:none;border-bottom:1px dotted #0875c=
+1;color:#0875c1" url-id=3D"1588066003">#100DaysOfCode Slack</a>. There you =
+can find others who are taking the challenge of coding every day for 100 da=
+ys, and this might be a better fit depending on your goals.</p>
+<p class=3D"" style=3D"font-size:14px;line-height:1.5em;font-family:Helveti=
+ca, Arial, sans-serif;color:#333333;margin-bottom:2em"><em style=3D"font-fa=
+mily:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-si=
+ze:inherit">Want to share this email with a friend? You can find it </em><a=
+ href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2=
+Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2Fkkhmh6hl86zmgx=
+cl%2FaHR0cHM6Ly93d3cuY2FsaG91bi5pby9kb2VzLXJhbmdlLWNvcHktdGhlLXNsaWNlLWluLW=
+dvLw%3D%3D&amp;data=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9=
+e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbG=
+Zsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C=
+3000%7C%7C%7C&amp;sdata=3Dknblr3aRZ9U8bRE4lb2yhMH%2FE%2BBzORezrl3DJoZ47Lk%3=
+D&amp;reserved=3D0" originalsrc=3D"https://click.convertkit-mail.com/r8uqwz=
+0l39coh2k977kt2hx2x0m66/kkhmh6hl86zmgxcl/aHR0cHM6Ly93d3cuY2FsaG91bi5pby9kb2=
+VzLXJhbmdlLWNvcHktdGhlLXNsaWNlLWluLWdvLw=3D=3D" shash=3D"AlzxpUUdtTP1XIq1sb=
+XqxmnqZFHTLfWix1ZN2jRlEYn8N/B9J1C5D2katmO7h1sXVp1Fx3F+haIQIlzXQs3YMb9iDc17H=
+sNszD8kiTokWKi+LGlyMmYkloOQ5BMvkKan9Iav0Fe56IK88qWGhxlG5Qp7a2Gk4M7ZluyC6FRN=
+xQE=3D" target=3D"_blank" rel=3D"noopener noreferrer" style=3D"font-family:=
+Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-size:in=
+herit;text-decoration:none;border-bottom:1px dotted #0875c1;color:#0875c1" =
+url-id=3D"1588066004"><em style=3D"font-family:Helvetica, Arial, sans-serif=
+;color:inherit;font-family:inherit;font-size:inherit">on my website</em></a=
+><em style=3D"font-family:Helvetica, Arial, sans-serif;color:inherit;font-f=
+amily:inherit;font-size:inherit"> as a written article.</em></p>
+</div>
+
+<p style=3D"font-size:14px;line-height:1.5em;font-family:Helvetica, Arial, =
+sans-serif;color:#333333;margin-bottom:2em">Happy coding,<br style=3D"font-=
+family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;font-=
+size:inherit">
+Jon Calhoun <br style=3D"font-family:Helvetica, Arial, sans-serif;color:inh=
+erit;font-family:inherit;font-size:inherit">
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fclick.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66%2F58hvh7hm5k37=
+p4t6%2FaHR0cHM6Ly93d3cuY2FsaG91bi5pby8%3D&amp;data=3D05%7C01%7C%7Cbe83c33fe=
+e504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638356=
+760842662185%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLC=
+JBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3DCEQdOYRDLSA2Qm1i%2=
+FobxbPikKgYZ8gf2WsQlYX0uCVg%3D&amp;reserved=3D0" originalsrc=3D"https://cli=
+ck.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66/58hvh7hm5k37p4t6/aHR0c=
+HM6Ly93d3cuY2FsaG91bi5pby8=3D" shash=3D"D4aB2mDfVrc/YAPbgIeva6GOrdhgIwJFB5K=
+phHI22Iiuyy+8dSAkwHNv6X3VCKgEO7HPqNg/fLfVYx4RdmC3aUvK6i9zb7LYVX5mRJuOg8heuT=
+eiLhQPOhDhuj2QaY1SSP3iafURJTATcXr+zn86aqes0Evy98en4ViY8X8piZ8=3D" style=3D"=
+font-family:Helvetica, Arial, sans-serif;color:inherit;font-family:inherit;=
+font-size:inherit;text-decoration:none;border-bottom:1px dotted #0875c1;col=
+or:#0875c1" url-id=3D"1588066005">Calhoun.io</a></p>
+<div class=3D"footer" style=3D"font-size:14px;line-height:1.5em;color:#3333=
+33;border-top:1px dotted #888;padding:20px 0px;font-family:Helvetica, Arial=
+, sans-serif;color:#aaa;font-size:12px;padding-bottom:10px">
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Funsubscribe.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66&amp;data=
+=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaa=
+aaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wL=
+jAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;s=
+data=3Doy%2FSfRPQoYCQhmf3C7eWjfYLEM4PD8Kto9W4xbHtQFM%3D&amp;reserved=3D0" o=
+riginalsrc=3D"https://unsubscribe.convertkit-mail.com/r8uqwz0l39coh2k977kt2=
+hx2x0m66" shash=3D"kR5t2YUn9eCurRKs44Fxszbn09bvG/+1SM27AMOAwlfqqVfFu5f5IOCM=
+QPv7gbqmCoovEZf3Lt9Wg0Y4M2IUbye7EaSEdB0X3e3bco/FjciAVRtpPoDkJkyzAQnrlOoK6ZY=
+hCcQC+6kNzl4PvGH7dnH/3yOjDnJwCeT8aAxsyf0=3D" style=3D"font-family:Helvetica=
+, Arial, sans-serif;text-decoration:none;border-bottom:1px dotted #0875c1;c=
+olor:#0875c1">Unsubscribe</a> and never hear from me again. Seriously! I do=
+n't want to bug you if you aren't getting any value out of these emails.<br=
+ style=3D"font-family:Helvetica, Arial, sans-serif"><br style=3D"font-famil=
+y:Helvetica, Arial, sans-serif">
+<a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F=
+%2Fpreferences.convertkit-mail.com%2Fr8uqwz0l39coh2k977kt2hx2x0m66&amp;data=
+=3D05%7C01%7C%7Cbe83c33fee504e55bc4c08dbe6178049%7C84df9e7fe9f640afb435aaaa=
+aaaaaaaa%7C1%7C0%7C638356760842662185%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wL=
+jAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;s=
+data=3DkBJQ%2F6KCknFMm7rgpacOc3LJv9hSS4GpFnSLD%2BqvDUY%3D&amp;reserved=3D0"=
+ originalsrc=3D"https://preferences.convertkit-mail.com/r8uqwz0l39coh2k977k=
+t2hx2x0m66" shash=3D"M/QYnUVhfPOAUlQnSp2TZOZXLkpYOEjXmD6QlT+JjiK2DhF4uUI95p=
+1qu79yJeiioeIwwLrW5p23Q760UHSSnUjuSMYNSTFaCtpttXCWk6KeJOknYtaRztA3QKyIXToeu=
+ylHErMMVFUR9AmnvLm3hICX7PIMRRg7RtKG8xzi8vc=3D" style=3D"font-family:Helveti=
+ca, Arial, sans-serif;text-decoration:none;border-bottom:1px dotted #0875c1=
+;color:#0875c1">Update your preferences</a><br style=3D"font-family:Helveti=
+ca, Arial, sans-serif"><br style=3D"font-family:Helvetica, Arial, sans-seri=
+f">
+Mail me: 651 E Pitt St #13, Bedford, PA 15522
+</div>
+</div>
+<!--[if mso]>
+</td></tr></table>
+</center>
+<![endif]-->
+<!-- -->
+<img src=3D"https://open.convertkit-mail.com/r8uqwz0l39coh2k977kt2hx2x0m66"=
+ alt=3D"" style=3D"font-family:Helvetica, Arial, sans-serif">
+</body>
+</html>
+
+--962baa9ba5c44ca4feffed0ebb4b1faca3679d5c91ad1ed0f2af4c762eb5--

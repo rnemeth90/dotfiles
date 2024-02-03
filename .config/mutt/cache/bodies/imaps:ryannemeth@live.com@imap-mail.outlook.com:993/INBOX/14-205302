@@ -1,0 +1,1133 @@
+Received: from DS7PR20MB3837.namprd20.prod.outlook.com (2603:10b6:5:3a8::16)
+ by DM4PR20MB4821.namprd20.prod.outlook.com with HTTPS; Tue, 26 Dec 2023
+ 22:04:15 +0000
+Received: from BN8PR04CA0043.namprd04.prod.outlook.com (2603:10b6:408:d4::17)
+ by DS7PR20MB3837.namprd20.prod.outlook.com (2603:10b6:5:3a8::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7113.27; Tue, 26 Dec
+ 2023 22:04:12 +0000
+Received: from BN1NAM02FT063.eop-nam02.prod.protection.outlook.com
+ (2603:10b6:408:d4:cafe::14) by BN8PR04CA0043.outlook.office365.com
+ (2603:10b6:408:d4::17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7113.27 via Frontend
+ Transport; Tue, 26 Dec 2023 22:04:12 +0000
+Authentication-Results: spf=pass (sender IP is 149.72.174.128)
+ smtp.mailfrom=abmail.o.sofi.org; dkim=pass (signature was verified)
+ header.d=o.sofi.org;dmarc=pass action=none
+ header.from=o.sofi.org;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of abmail.o.sofi.org
+ designates 149.72.174.128 as permitted sender)
+ receiver=protection.outlook.com; client-ip=149.72.174.128;
+ helo=o1935.abmail.o.sofi.org; pr=C
+Received: from o1935.abmail.o.sofi.org (149.72.174.128) by
+ BN1NAM02FT063.mail.protection.outlook.com (10.13.2.169) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7135.16 via Frontend Transport; Tue, 26 Dec 2023 22:04:11 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:205667320CD0CB0BCD6FE9719F20AA071E086FB347F65EEAC8819DD7C8C900BF;UpperCasedChecksum:5C0FB533E3E18ECDA1751BE8642766DBDF4D2CF6E93443407B45D242196D5FCE;SizeAsReceived:2741;Count:17
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=o.sofi.org;
+	h=content-type:from:mime-version:subject:reply-to:to:cc:content-type:
+	from:subject:to;
+	s=s1; bh=MuOckpsJ5QdYe9gsw8Dr7H8qsiyK0+kAHVST/SdE5B0=;
+	b=Fph3w5b2be8yhZdCluuxnq1TFCNr88xLMa3LekX8LAoBTTYrUxtNeSyF5kVA6vaEf4Ya
+	SU7/TZqwqEUq9tNPgKQH3nIPHr3R4VEORAXYAEmHF+j0oPUrN1vS3fJAgXJ+cAvdv4iq1l
+	AGuhxfZLDmdyQqKQeS9E0lVRwWgVGAfKOQ3NrGAtVL50OJHe7CkgNKdjZCGK0uw9ZPPH3E
+	Undn6ZtJWDRo1EcJNnfAuYVlo37aUqJf752MWlXEV0Nb6Bt+iXMl184gEkbnIY34+ODLM+
+	IIcQVWV1gvss9E+ZI3JQxVGXq+JMJfr2QIB61ykDJgn9Jx9W2ORDCeVgW3baD1EQ==
+Received: by filterdrecv-59b97c8fcd-hwmsc with SMTP id filterdrecv-59b97c8fcd-hwmsc-1-658B4DDA-EE
+        2023-12-26 22:04:10.810988514 +0000 UTC m=+6060153.274150787
+Received: from MTAyOTgxOTg (unknown)
+	by geopod-ismtpd-30 (SG) with HTTP
+	id iMHxWlp2QtyHfng9AjBIiQ
+	Tue, 26 Dec 2023 22:04:10.762 +0000 (UTC)
+Content-Type: multipart/alternative; boundary=2b0cb5356b3152c667a0a773a6d07a9a6f0bfd74a49af1003129db597d5d
+Date: Tue, 26 Dec 2023 22:04:10 +0000 (UTC)
+From: SoFi Invest <SoFi@o.sofi.org>
+Message-ID: <iMHxWlp2QtyHfng9AjBIiQ@geopod-ismtpd-30>
+Subject: Your account transfer request could not be completed.
+ =?UTF-8?B?SGVyZeKAmXM=?= why.
+Reply-To: investsupport@sofi.com
+Dispatch-Id: 658b4db2222525f2726deccd7a336549
+Customer-Id: 20076969
+OriginalRecipient: ryannemeth@live.com
+X-SG-EID:
+ =?us-ascii?Q?LwAkr0eY2gzA2TVolPKKHmKWauJ+3JNplj3VL9rr0jfYwD2I7Ca1De53hehlY2?=
+ =?us-ascii?Q?YzJ5BIGT+yIxfVBsDWRByFT5WWEZHoU6HM+kz68?=
+ =?us-ascii?Q?d7a+K52FIAiHLRT4pkmRPM0MbOpgwQX1HR2UnBe?=
+ =?us-ascii?Q?xGfs95N5scvKNn6L9HqVmR1QtpSxm0ciEN5OBGA?=
+ =?us-ascii?Q?NK3I3Tq4bEEmmorgENhe84OTLwxpMmQwQcHl7gH?=
+ =?us-ascii?Q?IixLPuodGCTgQXE0OxTBpxFtKM=2FcXYmmhm6dac?=
+X-SG-ID:
+ =?us-ascii?Q?N2C25iY2uzGMFz6rgvQsb8raWjw0ZPf1VmjsCkspi=2FKvUYPFb2vwyNNeBc9bJi?=
+ =?us-ascii?Q?Ch4Fh9p9kImNqOSrew73McQ6h+XTnzDlFjDY=2Fwa?=
+ =?us-ascii?Q?7MXA3Sm3W9yDufovZWpWWhXLsEGSPZtSxGAfO30?=
+ =?us-ascii?Q?kqTLZAtGa5s19xWQ37MYEzrmQ2mDo39Wcjm++6E?=
+ =?us-ascii?Q?chKcom1G7V2SbbiKe87H8vdIo31ykKJkJav=2FRRg?=
+ =?us-ascii?Q?eIPocKMdAImEt1jLCquQCQ2QHR4H58rfm8lQZ19?=
+ =?us-ascii?Q?0tQbclYXXics+DV9mPe2lOhUD72TUjLXrw3G6n+?=
+ =?us-ascii?Q?jtkThMsQLjgxARO0gjdt=2FCAKrz7AHhMIlPvwALv?=
+ =?us-ascii?Q?URImnGZ4H4hhtVv533zL0nr1zx3M+DO+wNqF5vc?=
+ =?us-ascii?Q?Ll4RnMFlLdqOH1ZUGp3nK5meMzpzBj7bfpFMt4=2F?=
+ =?us-ascii?Q?Hah9sHbQNcCtohq+5aQd2WEC28LVabdytzNhoNp?=
+ =?us-ascii?Q?mEHk19ea5KoxfW9AC5aui=2FJiEhfFyoNx9FddEfl?=
+ =?us-ascii?Q?zHhbuazew1Gsf9zMqXYUAJHSb4NDnyk4uWQ9vXu?=
+ =?us-ascii?Q?66v6sUlHiNFPMTc=2FsXPScVXpSyXu8mXVfa93bAd?=
+ =?us-ascii?Q?hTNoQspvgo0ygd2ocEbZjgmFO5cOA=3D=3D?=
+To: ryannemeth@live.com
+X-Entity-ID: 1kl2naygsIx1wIlJH+cV9Q==
+X-IncomingHeaderCount: 17
+Return-Path: bounces+10298198-c9fe-ryannemeth=live.com@abmail.o.sofi.org
+X-MS-Exchange-Organization-ExpirationStartTime: 26 Dec 2023 22:04:12.2875
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ bcf3fbb8-099a-4674-35ce-08dc065e97c7
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BN1NAM02FT063:EE_|DS7PR20MB3837:EE_|DM4PR20MB4821:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN1NAM02FT063.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 12/26/2023 10:03:36 PM
+X-MS-Office365-Filtering-Correlation-Id: bcf3fbb8-099a-4674-35ce-08dc065e97c7
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 149.72.174.128
+X-SID-PRA: SOFI@O.SOFI.ORG
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 2
+X-Microsoft-Antispam: BCL:3;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Dec 2023 22:04:11.8656
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: bcf3fbb8-099a-4674-35ce-08dc065e97c7
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN1NAM02FT063.eop-nam02.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR20MB3837
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.7367654
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7113.022
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9910022)(9545005)(10170022)(9320005)(120001)(1110099);
+X-Message-Info:
+	qZelhIiYnPmVTGpQXLLoyyMgOSjunl7cSgXBcc7jD/XbefCXH5Nuv2HOAOIumsVzHAC0CisEsm0gyg+YR1AIRHJa2Dx0Rbrb5/IqevUsY9wGmE7TV0UMWfrRma2sw3WnwAwQr1FyoAtmO0+zgxvh83Q2K8Nqw899hkG1316zD+iyNzWVuoIYUDJKO2k8nHInj49dMTHxUwk9aFtXzOIKCA==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?utf-8?B?bTdvVWJYc2Q3ZkYwM2FoUWxRamVkZWtSalNOblVYc01XMDJGYk11bmtTUUF1?=
+ =?utf-8?B?OFJFSkVjUDkreGxDN0s2VjY0bmczTHhyUDhRT0R6TVl5T0VEY0VGVmFxQURV?=
+ =?utf-8?B?U3VwVFZIYzBidS9jVk5NcEUrSmRoZlpRNEFqV1FvYVorVk5zRlpQbzNycXY1?=
+ =?utf-8?B?Q2lqbW0yYlFubTdlY2llelloOHZxTHJwejZLK0FraDA4d2w3Y3dZT3VhUFJG?=
+ =?utf-8?B?bHBqT054TVNkeTZoUEU1TU0rQ2JGY25FcllkNktwREpia1ZOTzNvQTRMU0hI?=
+ =?utf-8?B?bFN1N1Z5Y1ZsaTcvZTFUOHNxR3FuZmR1KzhLa21VNU5ibFVxNXJBc2d0QjJs?=
+ =?utf-8?B?SVZGTlErUnhqblhsTVlQNVhyU2dCVHRrR2hoMG16SDVqWEE2cUMyMDN3ZG9X?=
+ =?utf-8?B?bmg3TEFrR3p6aldzQmhhdURBM2JOdjcrYmd4NGl4TVpNQ0FydlpmTGd6cGJR?=
+ =?utf-8?B?bHlORUowRmJodis1QWdhaGFIVENjVUFqckwybGZmaDJKS2U5U2dsTHNnNXdL?=
+ =?utf-8?B?cHhHb2dkcnRHSTdUd0VvOW5WeE1nRit3VGhKYVQvai9DNnBUY3I4NFdtU3dZ?=
+ =?utf-8?B?MUtwcitqK1FjTmQ0OFRjK1JFMVRJRCttMVhteGdwaHI4dnZJUHZpN0RlaWt0?=
+ =?utf-8?B?RE9pYURHTndyMk5UOXJBVkMwc1NlZDEvQkxqbGI5cWpMdkJYMDVWTHRDOXFZ?=
+ =?utf-8?B?SkJuY3poS2h6TlBYdldSbVBDTlZkZFFhd3JwTVc5cDliaU5tUW9BTHRGZEpH?=
+ =?utf-8?B?RlI4UGVqeWRxSDRSMXJUUmYvRndFaTNERkFDWWRyV1FYcC8xSXZzbFVHaVZy?=
+ =?utf-8?B?UFJ3VkJ4a3VKV0tldDdRTWxpR0pyNmdUQWlyQ3pKc3cwOTZQb09xSTJQbjYz?=
+ =?utf-8?B?clBtREtmV3RkQmlEQnE4ZVNhQ0xFaVVpcEUrVnZ6THhXQnNWVHZ6MmdTOTlY?=
+ =?utf-8?B?QldOcXBYOGRvOEgybWFmempib3dCejdQR2xKdTBpc08rMm9RSHd5N204RDZ2?=
+ =?utf-8?B?aDIvd292bHlvZm1EYkJzbTlubU9Bc1pFdUg4TkRLK29EWExiK0lMU1ZPSzRT?=
+ =?utf-8?B?N1lRQ01TdWJlRzFoY3ZjV3R6Z1ltUjkwUDZRN3F0QWxsSzluWmc2eG9xWXZO?=
+ =?utf-8?B?bjJaeWxzK3NHYWJOMEFSdFdLaEVVUU52YXlRQ2ErcDJNUkdLOXR1M1h1Qisz?=
+ =?utf-8?B?b2hvZWRNb0kyZ1R4Rmk5aXUwdUc0YUxVQWlSOGFybFVIZFVTK0xpZEFRbStZ?=
+ =?utf-8?B?dmVRNVM4c1B6d1pSeXVVZWZsUHprZVg4N3FHR21MTDZQQWJJeG5pd2dxaDRQ?=
+ =?utf-8?B?SGFaSkRtTVhwYjBzVWFHcmNjb0VaYlZHQUZVZmdnNFN1OHZwYVR1MTljK2g2?=
+ =?utf-8?B?SCtuVGd5TUFxRWUvTzdWSW0vNnhnbGNxcVpqdjNWTjA2a0FaaU0vUDB2dUtK?=
+ =?utf-8?B?aWNQdmpHVVN3bi9Cd2hVVjV0YVVFdGJXVnV6TVI2T2JZcjFBeVg5YzVqY3BQ?=
+ =?utf-8?B?bXMxdE9ZTFY5ZG9mUEUrMzg2Z0NWcEN3UU9xb290L2ttK0JuNXNsNW9ZK0xO?=
+ =?utf-8?B?b0Q4OHUvQmR2cGdBdnBCOTdQeWIvMlhPNVZlRnBzbkxPaVd3cndiYUI3MWI0?=
+ =?utf-8?B?L0t4WUhRK3l5Rk9yVDZuZnIxNFlVTWF0Vk9SVVF1M0F4aXlXajhoeUZ1ckxm?=
+ =?utf-8?B?eGNBMm1MV3NLVmxiMmNwK2FjWEEwc083aWh6OEFIalUvN2VDdnhtMjdWVG1z?=
+ =?utf-8?B?ajgwcEVkenRmTUx0OUZqbTBkeFFndCtQT3ArblhJdVlVNlJEWUFKenRsMHlr?=
+ =?utf-8?B?MzB4T0VneTFYL3d0WWk1ZzZZWFhqdGljdk50Q1R1SzhtNFVhdHpnSzNEamtx?=
+ =?utf-8?B?Qkpyb2xmRUZPVk1OZkZoWHFyb1pJejBTaWtQT1pjRTh4aDVOSVpQUXZYR2ZQ?=
+ =?utf-8?B?c2RsOTRWYlROWTE0RURGN05RWHZVTTNlZllzUnBWcVZ6THdyc2Nhd0lUbWxU?=
+ =?utf-8?B?TVhFazJBRStzaVlBSVVFK01iTVpUeVMzR041U3BVaGhRY0F4MGZ4emxCZHVP?=
+ =?utf-8?B?SEY4UHc5UjJXaUI2SkFMUUsyTU1kRFhHSXExS0dDTEgzdkMxTmJhdG1XOHFl?=
+ =?utf-8?B?cHJPQVgzZTNmTFNIWDRhN0hOVjdvdkJvTEJnNmVhaDVPNkY5MmNyeDF2Mksx?=
+ =?utf-8?B?U3p6S3dOMnVOMTRvZi8xMjluOGZSdWpaaXVYbnZ5QWthemRLb0lGdlpTYXNY?=
+ =?utf-8?B?LzBUTVpiMEZWQmwzY05KU21QeGNtY1VIaHdVVHJ4S1hwaWJWR3ZraUtYdnlJ?=
+ =?utf-8?B?UWhNeEM4REc3Mzg1UUY5ZnhZbmp4VnVWcFZ4QzVJSWNCNVRCU09jSDhlUlNx?=
+ =?utf-8?B?NWovUXlqUGVuRE53Q0xzYVh4MUh4MEVFaVJJdFFKMkNrQS9LNnZMRTF3cXlH?=
+ =?utf-8?B?QmJ5ZUkrR0M4S09WcDdNZVBwUXNsc1ZIWk9IY0xFM0RrbTBBK0lNa1g4SXdX?=
+ =?utf-8?B?RU00eVRYbkI0SVRnaTRwVk5iOFpsMnlidlBRbFhkM0ZlTCtUazErOXYwY3hp?=
+ =?utf-8?B?SE9WenpTRzQxdkREWGZwN1Vjc21GWVk2NC8zN0ZBTXJIa0lhQ0ZXOHlFaEc5?=
+ =?utf-8?B?bEIyTFBnaXJxQkJjUWJyVWR6THo2OFBYdEMxc0NQQVdhTGczVnBnRVNSNk1u?=
+ =?utf-8?B?UGRhMFh3aUxyclFPZU85SUVWR3cyUnMvR3J2b0FxakRwenJBdFRkU0pWT3pK?=
+ =?utf-8?B?NkpnK3FNb21sRVBKc0JFWml0VkNVeUNBQW9uNzVWWTV6VzJLeTUzMzFFQjRi?=
+ =?utf-8?Q?JnbHLzw5tbwmabnzmFiys=3D?=
+MIME-Version: 1.0
+
+--2b0cb5356b3152c667a0a773a6d07a9a6f0bfd74a49af1003129db597d5d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=utf-8
+
+Need assistance or have questions? We're here to help! body,
+table, td { font-family: Arial, sans-serif !important; }  =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=
+=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=
+=80=8C =E2=80=8C =E2=80=8C =E2=80=8C
+=E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C =E2=80=8C      =
+                  SoFi            Log in =E2=80=BA=20
+( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff736xn6O23Q=
+WAsF0FXmf-2BuRDlO3RMvy7JNh-2BL-2FDP5wBoi-2FA1TQ_KCNO5JuHRlEPSuJX2HZsq13JOiK=
+tf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wm=
+mrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvT=
+iQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-=
+2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPo=
+bDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFG=
+J5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl=
+266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9F=
+jC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1=
+w8-2BVoV8BW2TQSZQHOj29L47G6pA4pypbp7igAtMHiHZMyfDH78P6pKhYCCUcrie2zRE1XLIB3=
+LbIJoYQZxtWBa1jIQrfb86N3f5CzHAF0SWFrxpvqmdJftgdrpKkdxi79pTESxvp-2ByMAuYpM8w=
+biOWKAvcSo9WiNRq-2B )                         Hi
+Ryan,
+
+Your recent account transfer request from
+[E*Trade =E2=80=A2 0544] to
+[SoFi =E2=80=A2 Automated Traditional IRA =E2=80=A2 1142] could not be comp=
+leted
+because your SoFi Invest account title and your other financial
+institution=E2=80=99s account title don=E2=80=99t match.
+
+Another reason could be that the full name on your SoFi account
+is different from the full name on your account at your other
+financial institution.
+
+This typically happens when attempting to transfer a retirement
+account into a taxable account, or a joint account into an
+individual account.
+
+Please take a moment to review each account and make sure the
+information matches. Then try submitting your transfer request
+again.
+
+If you=E2=80=99re still having trouble, or if you need help with
+something else, give us a call at (855) 525-7634 or send us a
+message via chat ( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2=
+FFRaRff738yKEFOUcsStHIfCT31nz5kfkOCkGMZujfIlvX0isET72NdR_KCNO5JuHRlEPSuJX2H=
+Zsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJ=
+anS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5=
+UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2F=
+BvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0=
+MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxi=
+dBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZN=
+ZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b1=
+2TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x2=
+8Y6hzCtC1w8-2BVoV8BW2TQSYmlebXXZSMhjGkmIg-2Fn-2BWnsWOJsYTW9ffg44hFYCI6wJ-2F=
+HfAnxH2a2HGO7t-2FQ1OTShTDEyYpX0rfd2F1OZ7-2BJyki8Yp5rYH3PEuzhcUItr4FtGHz1aky=
+9LhmFKwcm4-2FoW11ePjG6H8oqcgE7bZBNTk ).
+
+Thank you,
+The SoFi Invest Team
+chat bubble=20
+( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff735JsMDqH3=
+2bpR4jfED3qQGRCoRd6OkbH4AN87z4t62VvUJYda3Qe2eFu3XrLl-2Bi7rjfWXeo5TiipR4BmFE=
+dy6i5x7I6HuZ5dobmSjMna62mld8LMQM9ufoSuIRvtCKylUF9-2FJRH0DdYku1-2BvHEvf9Kmlf=
+p-2FQtJSZuIpz78vS9oJrUsE1aDQZd2wpyCrQJr45-2B41cKqaG5PIM-2F1U3HAO4HB4vjDSe7l=
+4FXmypOl2-2F-2F3b4sC0J3uv9nMFvBQarvt40MsZyD7-2B6PzPCBpMf76DkVJV9ILNBr3QYvfz=
+axLjSnRbyYhvy5hXQcJ0XjK7Jgh-2BYZs-2BOvr-2FRWg2LR73Q7Ttx4FQ-3DdmQs_KCNO5JuHR=
+lEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIOD=
+IPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcS=
+FuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZ=
+oszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34T=
+fFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMK=
+X2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuu=
+NTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjF=
+rfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHH=
+p1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSa2CMjMbxWjSiWPxcVKZmCTOOxIR6-2Fx6v-2F5Pb3q=
+OsfSVg63YmEDLtrS7QZaLjWkp8tEL4NDZYPV63AFNnP-2F5hysRAnSY95AR-2Fj2pd2HuD9biWS=
+1iBmS6zm022BOoLiGNnei1XG3BtJ6o92WxNI8Sl8E )
+     Have questions? Contact us=20
+( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff735JsMDqH3=
+2bpR4jfED3qQGRCoRd6OkbH4AN87z4t62VvUJYda3Qe2eFu3XrLl-2Bi7rjfWXeo5TiipR4BmFE=
+dy6i5x7I6HuZ5dobmSjMna62mld8LMQM9ufoSuIRvtCKylUF9-2FJRH0DdYku1-2BvHEvf9Kmlf=
+p-2FQtJSZuIpz78vS9oJrUsE1aDQZd2wpyCrQJr45-2B41cKqaG5PIM-2F1U3HAO4HB4vjDSe7l=
+4FXmypOl2-2F-2F3b4sC0J3uv9nMFvBQarvt40MsZyD7-2B6PzPCBpMf76DkVJV9ILNBr3QYvfz=
+axLjSnRbyYhvy5hXQcJ0XjK7Jgh-2BYZs-2BOvr-2FRWg2LR73Q7Ttx4FQ-3DXjJo_KCNO5JuHR=
+lEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIOD=
+IPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcS=
+FuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZ=
+oszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34T=
+fFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMK=
+X2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuu=
+NTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjF=
+rfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHH=
+p1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSZ7HpzJ9G9jxWMCvNzXDtHEivbdR-2Blb3JG0fFRbBW=
+HHsofnoFhqmHBGIVASRYB8IbD7SucZpsnnwkx3C33MrgZEemgjUgYNoCjgbnW4pT2detokTUKBV=
+VOOnlHSTPf-2BceLOAK2tqiFpIfC7yVjy9eSH )
+                mobile phone ( http://ablink.o.sofi.org/ls/click?upn=3D62Le=
+pVu039-2FQ-2FFRaRff73-2FWtTRhYnsiP8HEz7uFCGHwvGh1Btz1uDfMHiu8I8-2B19Z8pL_KC=
+NO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJ=
+LV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnD=
+a7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2=
+FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87Safapo=
+cFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKz=
+d08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y=
+8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj=
+4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837=
+UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSb3I0bR0Qox6lQXnbBSbh62JzKAfoXhxG-2F=
+uyNzbViPPKLmc5j5KAU0CBzzqxtHtiqM5HKdPauDfpTcuEsfWPLkr-2F4dADm-2BgJDxws-2FjO=
+dzM-2BucrOHzZlbsUAKuGfLvM2rn0WUm-2BI64uW8uTDn6Qptpx-2F )      Download the =
+SoFi app ( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff7=
+3-2FWtTRhYnsiP8HEz7uFCGHwvGh1Btz1uDfMHiu8I8-2B19AjLK_KCNO5JuHRlEPSuJX2HZsq1=
+3JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4=
+ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucY=
+qpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMj=
+YqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ=
+5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa=
+9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGH=
+evrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVU=
+PZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6h=
+zCtC1w8-2BVoV8BW2TQSZ-2BJwyv8rfPmR0FVftxz8ceiMDRbMzidex0-2B8JwfJFD-2FPhEzzV=
+XaN0Dezhtc76QsLdsOl2hey-2F40fUdHhuMC9uJxl-2BSiYTj41ydde6hrClWXKkdAK-2FreQd0=
+OU4oa7T1qPM6MINIODk2J3LLnEd9JTLl )
+SoFi Value: Embrace Diversity SoFi is
+committed to fighting racism, standing in solidarity with all of
+our communities, providing space for open dialogue, as well as
+taking action as informed allies.
+INVESTMENTS ARE NOT FDIC INSURED =E2=80=91 ARE NOT BANK GUARANTEED =E2=80=
+=91 MAY
+LOSE VALUE          SoFi Invest refers to the two investment and
+trading platforms operated by Social Finance, Inc. and its
+affiliates (described below). Individual customer accounts may be
+subject to the terms applicable to one or more of the platforms
+below.
+
+1) Automated Investing and advisory services are provided by
+SoFi Wealth LLC, an SEC-registered investment adviser (=E2=80=9CSoFi
+Wealth=E2=80=9C). Brokerage services are provided to SoFi Wealth LLC by
+SoFi Securities LLC.
+
+2) Active Investing and brokerage services are provided by SoFi
+Securities LLC, Member FINRA ( http://ablink.o.sofi.org/ls/click?upn=3DRNVA=
+u48dm2pDMCcYdFWkq7-2BMprExXJ5c4utEPnwkCd8-3D-XZs_KCNO5JuHRlEPSuJX2HZsq13JOi=
+Ktf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3w=
+mmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHv=
+TiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm=
+-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKP=
+obDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdF=
+GJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrf=
+l266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9=
+FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC=
+1w8-2BVoV8BW2TQSZrwfmZSU-2FJHH6auq2KqqNUsv8MpQAMHpEpFj7eCk-2BW0c2UFF0yJFD7S=
+XTgcrHZEtHLxQY2nbukiS5iUdIx-2FNGPjVqqF0GiHuf9jC-2BhE-2Bra5VGTIdjW10bsT5fAh3=
+WFmd75HQWMF1-2BDSZ7r6qtRYSFF )/SIPC=20
+( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff73-2FR6oV-=
+2FS-2Fhz88w-2Fckhu3bao-3DPdX1_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpB=
+PulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQ=
+Iuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD=
+3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJ=
+Jf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1=
+x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1=
+sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG9=
+2HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3Gvx=
+vafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSZI5=
+eqx0WF9wsIR7QJcyO2D3isCnTkyKiBD-2BgypJPQrWocarVjhQZCKxcduoh4ljkuN102solD0cL=
+MHkHWjTtPcbewZuOsHItj9x8Z7ulBs7iKrb09CckeIKtkFiOwL5maFn1hBfKsVZn43WFZWjrKe =
+). Clearing and custody of all securities
+are provided by APEX Clearing Corporation.
+
+For additional disclosures related to the SoFi Invest platforms
+described above, including state licensure of SoFi Digital
+Assets, LLC, please visit SoFi.com/legal=20
+( http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff738U9XURM5=
+Z2e5gvCvZ4evSrS8v2Hc9zWsTL4QtxM837xISxu_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb2=
+8b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z=
+1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-=
+2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQ=
+pHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8mi=
+H3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFv=
+KEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6i=
+SA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeE=
+rOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV=
+8BW2TQSZJbg4CldCR0UMJKN7-2F5uWBOSGnruNp0VxzbnX1oQMkBGGvpFUiJVEcQiapEvunjO-2=
+BDdrvy3nBJSdmrSaXOg-2BEDlxgT6pzTfPAJq0U3nxsrgfN92UeStf1Kg-2Bop5kH0bV0kSPn6r=
+JLW4hoXHGa6-2FtOZ ).
+
+Neither the Investment Advisor Representatives of SoFi Wealth,
+nor the Registered Representatives of SoFi Securities are
+compensated for the sale of any product or service sold through
+any SoFi Invest platform. Information related to lending products
+contained herein should not be construed as an offer or
+pre-qualification for any loan product offered by SoFi Bank, N.A.
+You have received this email because you are a customer of
+SoFi Securities LLC or SoFi Wealth LLC. It contains important
+account related information.
+
+SoFi. 234 1st Street, San Francisco, CA 94105
+
+=C2=A9 2023 Social Finance, Inc. All rights reserved.
+--2b0cb5356b3152c667a0a773a6d07a9a6f0bfd74a49af1003129db597d5d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org=
+/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns=3D"http://www.w3.org/1999/xht=
+ml" xmlns:o=3D"urn:schemas-microsoft-com:office:office" xmlns:v=3D"urn:sche=
+mas-microsoft-com:vml"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8">
+<meta name=3D"viewport" content=3D"width=3Ddevice-width, initial-scale=3D1.=
+0">
+<meta name=3D"format-detection" content=3D"telephone=3Dno">
+	<title>SoFi</title>
+	<!-- SL:  --><!-- PH:  --><!--[if mso]><xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+  </xml><![endif]-->
+	<link href=3D"https://fonts.googleapis.com/css?family=3DMontserrat" rel=3D=
+"stylesheet" type=3D"text/css">
+	<link href=3D"https://fonts.googleapis.com/css?family=3DMontserrat:400,500=
+,600,700" rel=3D"stylesheet" type=3D"text/css">
+	<link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans:400,500,=
+600,700" rel=3D"stylesheet" type=3D"text/css">
+	<link href=3D"https://fonts.googleapis.com/css?family=3DOpen+Sans" rel=3D"=
+stylesheet" type=3D"text/css">
+	<style type=3D"text/css">@font-face {
+	font-family: 'Larsseit';
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts/larsseit.woff=
+2") format("woff2"), url("https://d32ijn7u0aqfv4.cloudfront.net/assets/font=
+s/larsseit.woff") format("woff"), url("https://d32ijn7u0aqfv4.cloudfront.ne=
+t/assets/fonts/larsseit.ttf") format("truetype");
+}
+@font-face {
+	font-family: 'Larsseit';
+	font-style: bold;
+	font-weight: 700;
+	src: url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts/larsseit-bold=
+.woff2") format("woff2"), url("https://d32ijn7u0aqfv4.cloudfront.net/assets=
+/fonts/larsseit-bold.woff") format("woff"), url("https://d32ijn7u0aqfv4.clo=
+udfront.net/assets/fonts/larsseit-bold.ttf") format("truetype");
+}
+@font-face {
+	font-family: 'Larsseit';
+	font-style: bolder;
+	font-weight: 800;
+	src: url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts/larsseit_extr=
+a_bold.woff2") format('woff2'), url("https://d32ijn7u0aqfv4.cloudfront.net/=
+assets/fonts/larsseit_extra_bold.woff") format('woff'), url("https://d32ijn=
+7u0aqfv4.cloudfront.net/assets/fonts/larsseit_extra_bold.ttf") format('true=
+type');
+}
+@font-face {
+	font-family: 'TT Norms';
+	font-style: normal;
+	font-weight: 400;
+	src: url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts/TTNorms.woff2=
+") format("woff2"), url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts=
+/TTNorms.woff") format("woff"), url("https://d32ijn7u0aqfv4.cloudfront.net/=
+assets/fonts/TTNorms.ttf") format("truetype"), url('https://d32ijn7u0aqfv4.=
+cloudfront.net/assets/fonts/TTNorms.otf') format('OpenType');
+}
+@font-face {
+	font-family: 'TT Norms';
+	font-style: bold;
+	font-weight: 600;
+	src: url("https://d32ijn7u0aqfv4.cloudfront.net/assets/fonts/TTNorms-bold.=
+woff2") format("woff2"), url("https://d32ijn7u0aqfv4.cloudfront.net/assets/=
+fonts/TTNorms-bold.woff") format("woff"), url("https://d32ijn7u0aqfv4.cloud=
+front.net/assets/fonts/TTNorms-bold.ttf") format("truetype"), url('https://=
+d32ijn7u0aqfv4.cloudfront.net/assets/fonts/TTNorms-bold.otf') format('OpenT=
+ype');
+}
+td, span {
+	-webkit-text-size-adjust: none;
+}
+sup {
+	font-size: 75%;
+	-mso-font-size: 100% !important;
+	line-height: 0;
+	vertical-align: super;
+}
+a, a:visited {
+	color: #29C4F3;
+	font-weight: bold;
+	text-decoration: none;
+}
+.applelink, .applelink a, .applelinks, .applelinks a, a[x-apple-data-detect=
+ors] {
+	color: inherit !important;
+	cursor: text !important;
+	font-size: inherit !important;
+	font-family: inherit !important;
+	font-weight: inherit !important;
+	line-height: inherit !important;
+	text-decoration: none !important;
+}
+.mobshow {
+	display: none !important;
+}
+.mobpadding {
+	display: none !important;
+}
+
+@media only screen and (max-width: 480px) {
+	.fullwidth {
+		width: 100% !important;
+	}
+	.fullwidthsub {
+		width: 100% !important;
+	}
+	.mobcenter {
+		margin: 0 auto;
+		width: 100% !important;
+		text-align: center !important;
+	}
+	.ctamob {
+		padding-bottom: 50px !important;
+	}
+	.mobtopreg {
+		padding-top: 30px !important;
+	}
+
+	.sidepadding {
+		width: 30px !important;
+	}
+	.footerpadding {
+		padding-left: 15px !important;
+		padding-right: 15px !important;
+	}
+	.mobhide {
+		display: none !important;
+	}
+	.mobshow {
+		display: block !important;
+	}
+	.gfix {
+		min-width: 0 !important;
+	}
+	.mobpadbottom10 {
+		padding-bottom: 10px !important;
+	}
+	.mobpadbottom20 {
+		padding-bottom: 20px !important;
+	}
+	.mobpadbottom30 {
+		padding-bottom: 30px !important;
+	}
+	.mobpadbottom40 {
+		padding-bottom: 40px !important;
+	}
+	.mobpadbottom50 {
+		padding-bottom: 50px !important;
+	}
+	.mobpadbottom60 {
+		padding-bottom: 60px !important;
+	}
+	.mobpadtop10 {
+		padding-top: 10px !important;
+	}
+	.mobpadtop20 {
+		padding-top: 20px !important;
+	}
+	.mobpadtop30 {
+		padding-top: 30px !important;
+	}
+	.mobpadtop40 {
+		padding-top: 40px !important;
+	}
+	.mobpadtop50 {
+		padding-top: 50px !important;
+	}
+	.mobpadtop60 {
+		padding-top: 60px !important;
+	}
+	.mobfont12 {
+		font-size: 12px !important;
+		line-height: 18px !important;
+	}
+	.mobfont14 {
+		font-size: 14px !important;
+		line-height: 24px !important;
+	}
+	.mobfont16 {
+		font-size: 16px !important;
+		line-height: 28px !important;
+	}
+	.mobfont20 {
+		font-size: 20px !important;
+		line-height: 28px !important;
+	}
+	.mobfont24 {
+		font-size: 24px !important;
+		line-height: 32px !important;
+	}
+	.mobfont36 {
+		font-size: 36px !important;
+		line-height: 42px !important;
+	}
+}
+	</style>
+	<!-- Start Gmail Promo Tab annotations code --><script type=3D"application=
+/ld+json">
+      [{
+        "@context": "http://schema.org/",
+        "@type": "Organization",
+        "name": "SoFi",
+        "logo": "https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/upload=
+s/raw/SoFi_gem_turquoise_100px.png"
+      }]
+    </script><!-- End Gmail Promo Tab annotations code -->
+</head>
+<body bgcolor=3D"#EDF0F2" style=3D"background-color: #EDF0F2; margin: 0; pa=
+dding: 0;">
+<div style=3D"display:none !important;visibility:hidden;mso-hide:all;font-s=
+ize:1px;color:#ffffff;line-height:1px;max-height:0px;max-width:0px;opacity:=
+0;overflow:hidden;">Need assistance or have questions? We're here to help!<=
+/div>
+<!-- Outlook hack for fonts --><!--[if mso]><style type=3D"text/css">body, =
+table, td { font-family: Arial, sans-serif !important; }</style><![endif]--=
+><!-- Insert &zwnj;&nbsp; hack after hidden preview text -->
+<div style=3D"display: none; max-height: 0px; overflow: hidden; font-size: =
+0px; color: #EDF0F2;">&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=E2=80=8C&nbsp;=
+</div>
+
+<table bgcolor=3D"#EDF0F2" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ style=3D"background-color: #EDF0F2;" width=3D"100%">
+	<tbody>
+		<tr>
+			<td class=3D"gfix" style=3D"min-width: 600px; color: #ffffff;" valign=3D=
+"top">
+<!-- Start blades --><!-- top padding --><!-- remove if using "View in Brow=
+ser" -->
+			<table align=3D"center" bgcolor=3D"#EDF0F2" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"fullwidth mobhide" style=3D"background-color:=
+ #EDF0F2;" width=3D"600">
+				<tbody>
+					<tr>
+						<td height=3D"25" style=3D"color: #EDF0F2; font-family: 'TT Norms', '=
+Montserrat', sans-serif; font-size: 25px; line-height: 25px; padding: 0px; =
+text-align: center;"></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- // top padding --><!-- Blue on white header with log in -->
+
+			<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"fullwidth" style=3D"background-color: #ffffff=
+;" width=3D"600">
+				<tbody>
+					<tr>
+						<td class=3D"sidepadding" width=3D"50"></td>
+						<td>
+<!-- Logo -->
+						<table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacing=3D"0=
+" class=3D"mobcenter" width=3D"200">
+							<tbody>
+								<tr>
+									<td style=3D"padding-bottom: 27px; padding-top: 29px;" valign=3D"m=
+iddle" width=3D"150"><img alt=3D"SoFi" border=3D"0" hspace=3D"0" src=3D"htt=
+ps://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw/SoFi_horz_RGB_=
+Turquoise_225x60.png" style=3D"vertical-align: top;" vspace=3D"0" width=3D"=
+75"></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-- Log in link -->
+
+						<table align=3D"right" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" class=3D"mobhide" width=3D"200">
+							<tbody>
+								<tr>
+									<td style=3D"padding-bottom: 0; padding-top: 0;">
+									<table align=3D"right" border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" class=3D"mobhide" style=3D"vertical-align: baseline;" width=3D"125">
+										<tbody>
+											<tr>
+												<td bgcolor=3D"transparent" style=3D"font-family: 'TT Norms', '=
+Montserrat', sans-serif; padding-bottom: 0; padding-top: 32px; text-align: =
+right; vertical-align: middle;" valign=3D"middle"><a class=3D"mobhide" href=
+=3D"http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff736xn6O2=
+3QWAsF0FXmf-2BuRDlO3RMvy7JNh-2BL-2FDP5wBoi-2FAZq4_KCNO5JuHRlEPSuJX2HZsq13JO=
+iKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3=
+wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpH=
+vTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqG=
+m-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BK=
+PobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9Nd=
+FGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevr=
+fl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC=
+9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCt=
+C1w8-2BVoV8BW2TQSbadBjCiijOZOi2xIuew9t1VTeckiAdFH1hdiVWvaP38ua4PpaoRngLvKJP=
+DdrxRl0ug7VlT8hRP6ylKrKKRLPCpgECgB-2FeZ5TIIqlu3m-2FqJk0N0lgERA6i6gdLZgEZkmT=
+Q3jyvlNVnl1W44sLlYWGl" style=3D"background: transparent; color: #00A9CE; di=
+splay: block; font-size: 11px; font-weight: 400; line-height: 125%; vertica=
+l-align: middle;" valign=3D"middle">Log in =E2=80=BA</a></td>
+											</tr>
+										</tbody>
+									</table>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+						<td class=3D"sidepadding" width=3D"50"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"fullwidth" style=3D"background-color: #ffffff=
+;" width=3D"600">
+				<tbody>
+					<tr>
+						<td style=3D"border-bottom: 4px solid #00A9CE; font-size: 5px; line-h=
+eight: 0;"></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- // Blue on white header with log in --><!-- One-column body copy --=
+>
+
+			<table align=3D"center" bgcolor=3D"#ffffff" border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" class=3D"fullwidth" style=3D"background-color: #ffffff=
+;" width=3D"600">
+				<tbody>
+					<tr>
+						<td class=3D"sidepadding" width=3D"50"></td>
+						<td class=3D"mobtopreg" style=3D"color: #48494B; font-family: 'TT Nor=
+ms', 'Montserrat', sans-serif; font-size: 16px; line-height: 28px; padding-=
+top: 50px; text-align: left;" valign=3D"top">Hi Ryan,<br>
+						<br>
+						Your recent account transfer request from <strong>[E*Trade =E2=80=A2 =
+0544]</strong> to <strong>[SoFi =E2=80=A2 Automated Traditional IRA =E2=80=
+=A2 1142]</strong> could not be completed because your SoFi Invest account =
+title and your other financial institution=E2=80=99s account title don=E2=
+=80=99t match.<br>
+						<br>
+						Another reason could be that the full name on your SoFi account is di=
+fferent from the full name on your account at your other financial institut=
+ion.<br>
+						<br>
+						This typically happens when attempting to transfer a retirement accou=
+nt into a taxable account, or a joint account into an individual account. &=
+nbsp;<br>
+						<br>
+						Please take a moment to review each account and make sure the informa=
+tion matches. Then try submitting your transfer request again.<br>
+						<br>
+						If you=E2=80=99re still having trouble, or if you need help with some=
+thing else, give us a call at (855) 525-7634 or <a href=3D"http://ablink.o.=
+sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff738yKEFOUcsStHIfCT31nz5kfkOC=
+kGMZujfIlvX0isET7ezde_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk6=
+0O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X=
+3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP=
+7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJ=
+fdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX=
+2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGI=
+addKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwO=
+VPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amO=
+Dd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSZOoN7HnSGlF=
+AETEV-2F7Mcgdd7K1G4g7xMOp4jhQCPBC8-2F0TWSyW4OFIVc-2BVlB-2Fq2L3NELiZxiitQ6Y2=
+UelGJ1TswIGmm9ES6vR1qcFB0AzEZ7HUDLSUabzszBbXBbpy3taiiIVNnypVa-2FzANG1lcXq0"=
+>send us a message via chat</a>.<br>
+						<br>
+						Thank you,<br>
+						The SoFi Invest Team<br>
+						&nbsp;</td>
+						<td class=3D"sidepadding" width=3D"50"></td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- // One-column body copy --><!-- Customer support - Invest --><!-- C=
+ustomer support, Invest -->
+      <table bgcolor=3D"#201747" class=3D"fullwidth" width=3D"600" cellspac=
+ing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" style=3D"backgrou=
+nd-color: #201747;">
+        <tr>
+          <td class=3D"sidepadding" width=3D"50">&nbsp;</td>
+          <td valign=3D"top" style=3D"padding-bottom: 25px; padding-top: 25=
+px;">
+
+            <!-- Column 1 -->
+            <table class=3D"fullwidthsub" width=3D"250" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" align=3D"left" style=3D"float:left;">
+              <tr>
+                <td width=3D"32" style=3D"color: #49494b; font-family: 'TT =
+Norms', 'Montserrat', sans-serif; font-size: 16px; line-height: 24px; text-=
+align: center;">
+					<a href=3D"http://ablink.o.sofi.org/uni/ls/click?upn=3D62LepVu039-2FQ-=
+2FFRaRff735JsMDqH32bpR4jfED3qQGRCoRd6OkbH4AN87z4t62VvUJYda3Qe2eFu3XrLl-2Bi7=
+rjfWXeo5TiipR4BmFEdy6i5x7I6HuZ5dobmSjMna62mld8LMQM9ufoSuIRvtCKylUF9-2FJRH0D=
+dYku1-2BvHEvf9Kmlfp-2FQtJSZuIpz78vS9oJrUsE1aDQZd2wpyCrQJr45-2B41cKqaG5PIM-2=
+F1U3HAO4HB4vjDSe7l4FXmypOl2-2F-2F3b4sC0J3uv9nMFvBQarvt40MsZyD7-2B6PzPCBpMf7=
+6DkVJV9ILNBr3QYvfzaxLjSnRbyYhvy5hXQcJ0XjK7Jgh-2BYZs-2BOvr-2FRWg2LR73Q7Ttx4F=
+Q-3D6sv7_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZ=
+iQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWibl=
+mnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCr=
+YvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2B=
+m7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWA=
+LCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgL=
+sWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15=
+N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT=
+8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSb2r0xFkhhbynBjp1V7xISeHY=
+JX-2FbrtqyjHE5J39zVAJfztKlT0lJh2xYDkjJh1VFcbiC2-2BbeYiOSIg4ttx8UF6SkUpVwyaI=
+-2FIMjI0kDN-2FOU2aYvNJDvkHPM2VRJUVM0ylL3V2Fj3a440SwC4y0y3he" universal=3D"t=
+rue" style=3D"color: #ffffff; text-decoration: none; font-weight: bold;">
+						<img src=3D"https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploa=
+ds/raw/Message-outline_90px-med.gif" alt=3D"chat bubble" width=3D"27" borde=
+r=3D"0" hspace=3D"0" vspace=3D"0" style=3D"vertical-align: top;">
+					</a>
+				  </td>
+                <td width=3D"12">&nbsp;</td>
+                <td style=3D"color: #ffffff; font-family: 'TT Norms', 'Mont=
+serrat', sans-serif; font-size: 12px; line-height: 16px; vertical-align: mi=
+ddle; letter-spacing: 0.1em; text-align: left;">
+					<a href=3D"http://ablink.o.sofi.org/uni/ls/click?upn=3D62LepVu039-2FQ-=
+2FFRaRff735JsMDqH32bpR4jfED3qQGRCoRd6OkbH4AN87z4t62VvUJYda3Qe2eFu3XrLl-2Bi7=
+rjfWXeo5TiipR4BmFEdy6i5x7I6HuZ5dobmSjMna62mld8LMQM9ufoSuIRvtCKylUF9-2FJRH0D=
+dYku1-2BvHEvf9Kmlfp-2FQtJSZuIpz78vS9oJrUsE1aDQZd2wpyCrQJr45-2B41cKqaG5PIM-2=
+F1U3HAO4HB4vjDSe7l4FXmypOl2-2F-2F3b4sC0J3uv9nMFvBQarvt40MsZyD7-2B6PzPCBpMf7=
+6DkVJV9ILNBr3QYvfzaxLjSnRbyYhvy5hXQcJ0XjK7Jgh-2BYZs-2BOvr-2FRWg2LR73Q7Ttx4F=
+Q-3DH5At_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZ=
+iQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWibl=
+mnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCr=
+YvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2B=
+m7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWA=
+LCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgL=
+sWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15=
+N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT=
+8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSaufEMOhsm4PktbU2yv6LIR-2=
+BoqAq4umwdV5A9lI6gFcE0yM5s58tXtqw8sXoZZfMKCa-2BNLmIrZBowsiDcC33hRCjfXzQ94MC=
+ojaU-2BDx1DknAqxdkcGK2hkw-2BRdMpvaXwF4Jg-2FppW-2B3TaOfDus1dx1zP" universal=
+=3D"true" style=3D"color: #ffffff; text-decoration: underline; font-weight:=
+ bold;">Have questions? Contact us</a>
+				</td>
+              </tr>
+            </table>
+			 =20
+			  <table class=3D"fullwidthsub mobshow" width=3D"0" cellspacing=3D"0" ce=
+llpadding=3D"0" border=3D"0" align=3D"left" style=3D"display:none; float:le=
+ft;">
+              <tr>
+                <td style=3D"font-size: 20px; line-height: 20px;">&nbsp;</t=
+d>
+              </tr>
+            </table>
+			 =20
+            <!-- Outlook hack for multiple columns -->
+            <!--[if mso]></td><td><![endif]-->
+
+            <!-- Column 2 -->
+            <table class=3D"fullwidthsub" width=3D"250" cellspacing=3D"0" c=
+ellpadding=3D"0" border=3D"0" align=3D"right" style=3D"float:right;">
+              <tr>
+                <td width=3D"32" style=3D"color: #49494b; font-family: 'TT =
+Norms', 'Montserrat', sans-serif; font-size: 16px; line-height: 24px; text-=
+align: center;">
+					<a href=3D"http://ablink.o.sofi.org/uni/ls/click?upn=3D62LepVu039-2FQ-=
+2FFRaRff73-2FWtTRhYnsiP8HEz7uFCGHwvGh1Btz1uDfMHiu8I8-2B19cNvO_KCNO5JuHRlEPS=
+uJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjR=
+EK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTF=
+wRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszx=
+DT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsU=
+FwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ah=
+TVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm=
+2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkE=
+Ki9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eU=
+Oh6x28Y6hzCtC1w8-2BVoV8BW2TQSY8jhx-2F31j27wCFHS5sBcheH-2BjEDgg-2FAFqMf2udmS=
+B9wJKFUXtZrb0sareDzcPq18D9HIH57fXonjD2RQBJFZSuSAOSr5K1CHXU8hdukghdjo-2FsBhK=
+Kz0TiX-2BnoZVK3fDZ51hfXKQZ-2F3BbnLf9KT9a-2F" universal=3D"true" style=3D"co=
+lor: #ffffff; font-weight: 600; letter-spacing: 0.1em; text-decoration: non=
+e;">
+						<img src=3D"https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploa=
+ds/raw/appDL_icon.png" alt=3D"mobile phone" width=3D"15" height=3D"27" bord=
+er=3D"0" hspace=3D"0" vspace=3D"0" style=3D"vertical-align: top;">
+					</a>
+				  </td>
+                <td width=3D"12">&nbsp;</td>
+                <td style=3D"color: #ffffff; font-family: 'TT Norms', 'Mont=
+serrat', sans-serif; font-size: 12px; line-height: 16px; vertical-align: mi=
+ddle; text-align: left;">
+					<a href=3D"http://ablink.o.sofi.org/uni/ls/click?upn=3D62LepVu039-2FQ-=
+2FFRaRff73-2FWtTRhYnsiP8HEz7uFCGHwvGh1Btz1uDfMHiu8I8-2B19dque_KCNO5JuHRlEPS=
+uJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjR=
+EK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTF=
+wRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszx=
+DT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsU=
+FwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ah=
+TVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm=
+2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkE=
+Ki9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eU=
+Oh6x28Y6hzCtC1w8-2BVoV8BW2TQSa5M-2B8Hdayktsbf68z13OF1sw5hC3G-2FT8QNr-2FgfrI=
+-2B6oT2A-2BIpFc-2Frzvwgg3L-2BUwQfSXrbxgBZlhNhxmkvbE5t4dfgB-2FUZvJVhKnmphQ7J=
+hNnAUpUBA67WoadD07A6C9D0TS6SH8t4MFMhNyFOLu350" universal=3D"true" style=3D"=
+color: #ffffff; font-weight: 600; letter-spacing: 0.1em; text-decoration: u=
+nderline;">
+							Download the SoFi app
+						</a>
+				  </td>
+              </tr>
+            </table>
+
+          </td>
+          <td class=3D"sidepadding" width=3D"50">&nbsp;</td>
+        </tr>
+      </table>
+<!-- // Customer support, Invest -->
+     =20
+<!-- Embrace Diversity -->
+<table class=3D"fullwidth" cellspacing=3D"0" cellpadding=3D"0" border=3D"0"=
+ align=3D"center" width=3D"600">
+	<tr>
+		<td class=3D"footerpadding" style=3D"padding-top:20px;">
+			<table class=3D"fullwidthsub" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"left" width=3D"60" style=3D"float:left;">
+				<tr>
+				<td>
+<table class=3D"fullwidthsub" align=3D"left" cellspacing=3D"0" cellpadding=
+=3D"0" border=3D"0">
+					<tr>
+					  <td style=3D"text-align:center;" valign=3D"top">
+<img src=3D"https://d32ijn7u0aqfv4.cloudfront.net/wp/wp-content/uploads/raw=
+/embrace_diversity_blk1.png" border=3D"0" hspace=3D"0" vspace=3D"0" style=
+=3D"vertical-align:top;" width=3D"60" alt=3D"SoFi Value: Embrace Diversity"=
+>
+						</td>
+					</tr>
+				  </table>
+				</td>
+		  </tr>
+		  </table>
+			<!--[if mso]></td><td><![endif]-->=20
+		<table class=3D"fullwidthsub" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"left" width=3D"15">
+			<tr>
+			<td style=3D"font-size:20px; line-height:20px;" valign=3D"top">&nbsp;
+						</td>
+		  </tr>
+		  </table>
+			<!--[if mso]></td><td><![endif]-->=20
+		<table class=3D"fullwidthsub" cellspacing=3D"0" cellpadding=3D"0" border=
+=3D"0" align=3D"right" width=3D"525" style=3D"float:right;">
+			<tr>
+			<td>
+				<table align=3D"left" cellspacing=3D"0" cellpadding=3D"0" border=3D"0">
+				<tr>
+				  <td style=3D"color: #757575; font-family: 'TT Norms', 'Montserrat', s=
+ans-serif; font-size: 14px; line-height: 20px; text-align: left; vertical-a=
+lign: middle;">
+					  SoFi is committed to fighting racism, standing in solidarity with al=
+l of our communities, providing space for open dialogue, as well as taking =
+action as informed&nbsp;allies.
+					  </td>
+				</tr>
+			  </table>
+				</td>
+		  </tr>
+		  </table>
+		</td>
+	  </tr>
+  </table>
+<!-- // Embrace Diversity --> <!-- Customer support - Invest --> <!-- Inves=
+t footer - Braze marketing; All content blocks; delete what is not needed -=
+->
+
+			<table align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"0"=
+ class=3D"fullwidth" width=3D"600">
+				<tbody>
+					<tr>
+						<td class=3D"footerpadding" style=3D"padding-top:20px; padding-bottom=
+: 20px;">
+						<table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"100%=
+">
+							<tbody>
+								<tr>
+									<td style=3D"color: #757575; font-family: 'TT Norms', 'Montserrat'=
+, sans-serif; font-size: 12px; line-height: 16px; text-align: left;"><table=
+ border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%" align=3D"c=
+enter" style=3D"border: 2px solid #707070;">
+	<tr>
+		<td style=3D"color:#6D6E70; font-family: 'TT Norms', 'Montserrat', sans-s=
+erif; font-size:12px; line-height:20px; padding:6px; text-align: center; le=
+tter-spacing: -.02em; font-weight: 800;">
+			INVESTMENTS ARE NOT FDIC INSURED =E2=80=91 ARE NOT BANK GUARANTEED =E2=
+=80=91 MAY LOSE&nbsp;VALUE
+		</td>
+	</tr>
+</table></td>
+								</tr>
+								<tr>
+									<td style=3D"color: #757575; font-family: 'TT Norms', 'Montserrat'=
+, sans-serif; font-size: 12px; line-height: 16px; text-align: left;">
+<table border=3D"0" cellspacing=3D"0" cellpadding=3D"0" width=3D"100%">
+	<tr>
+		<td style=3D"padding-bottom:16px; color: #757575; font-family: 'TT Norms'=
+, 'Montserrat', sans-serif; font-size: 12px; line-height: 16px; text-align:=
+ left;">
+			SoFi Invest refers to the two investment and trading platforms operated =
+by Social Finance, Inc. and its affiliates (described below).  Individual c=
+ustomer accounts may be subject to the terms applicable to one or more of t=
+he platforms below.=20
+			<br><br>
+			1) Automated Investing and advisory services are provided by SoFi Wealth=
+ LLC, an SEC-registered investment adviser (=E2=80=9CSoFi Wealth=E2=80=9C).=
+ Brokerage services are provided to SoFi Wealth LLC by SoFi Securities LLC.=
+=20
+      <br><br>
+		2) Active Investing and brokerage services are provided by SoFi Securitie=
+s LLC, Member <a href=3D"http://ablink.o.sofi.org/ls/click?upn=3DRNVAu48dm2=
+pDMCcYdFWkq7-2BMprExXJ5c4utEPnwkCd8-3DlJDn_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xy=
+wb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody=
+80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2F=
+BW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEU=
+GQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo=
+8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0i=
+eFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fU=
+P6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZ=
+UeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2B=
+VoV8BW2TQSZDOKZgrep0NP2z7JMd1S-2BioT50gzeg3lbKFl2FHNklCdSXnBXj7oUvP2ouXUHKU=
+hAdvYojeO5yIV6eP08jS7c1uEfwCNogbZibUTK0pL-2BrP9pAdygTchp6v-2FgLE4ZqFVolgsdI=
+qyBvRvwSteOQlcto" style=3D"color:#00819D;">FINRA</a>/<a href=3D"http://abli=
+nk.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff73-2FR6oV-2FS-2Fhz88w-2=
+Fckhu3bao-3DUpnl_KCNO5JuHRlEPSuJX2HZsq13JOiKtf2xywb28b0UyD2kpBPulLdXk60O0Xe=
+TgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wmmrody80Z1KC6EkX2jQIuh6Xy8X3HGxt=
+2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvTiQ-2FBW-2FDU-2FyGD3LaPbtzP7yALb=
+sxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJ=
+z89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPobDcoo8miH3FOKxplz1x-2FdKAX2mHX5=
+BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFGJ5T0ieFvKEMdJg54P1sSa3rzGIaddKs=
+9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl266fUP6iSA3Xd23aG92HlHmUwOVPPpv=
+CxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9FjC5eZUeErOjWMy3GvxvafT7amODd4xJ=
+erZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1w8-2BVoV8BW2TQSY3nS40KPluOK1d6m=
+-2FO0HnT9svUeLmOkTE-2FHyNac51FNbQOhuW93Ot-2BoTAUq-2FJ5N8bxGMV4A7-2BmUI-2FnQ=
+7sVP0OX0FWUajlItSAkldUUwjZGOFJMXJpNxNq81u7X6zwUmTUADqRG3J3AeQ-2FG4Ko6gdRT" =
+style=3D"color:#00819D;">SIPC</a>. Clearing and custody of all securities a=
+re provided by APEX Clearing Corporation.=20
+			<br><br>
+		=09
+For additional disclosures related to the SoFi Invest platforms described a=
+bove, including state licensure of SoFi Digital Assets, LLC, please visit <=
+a href=3D"http://ablink.o.sofi.org/ls/click?upn=3D62LepVu039-2FQ-2FFRaRff73=
+8U9XURM5Z2e5gvCvZ4evSrS8v2Hc9zWsTL4QtxM837xV521_KCNO5JuHRlEPSuJX2HZsq13JOiK=
+tf2xywb28b0UyD2kpBPulLdXk60O0XeTgFzrDRZiQl7gGLikfJLV0JIODIPjREK9wJanS4ZW3wm=
+mrody80Z1KC6EkX2jQIuh6Xy8X3HGxt2qMEWiblmnJNphFBDnDa7PUgcSFuTFwRoU5UucYqpHvT=
+iQ-2FBW-2FDU-2FyGD3LaPbtzP7yALbsxIPXeCrYvRg8ouTb-2FZFc8hZoszxDT-2FBvMjYqGm-=
+2FfEUGQQpHWL-2FgzJJf1UV5yJfdKPJz89jy-2Bm7N87SafapocFJH34TfFsUFwSw0MPFJ5BKPo=
+bDcoo8miH3FOKxplz1x-2FdKAX2mHX5BFLZVzWALCBHnrc1yKzd08anMKX2ahTVsxidBZa9NdFG=
+J5T0ieFvKEMdJg54P1sSa3rzGIaddKs9a9eTqgLsWpRsS-2F4y8DHJVuuNTDm2kaZNZxGHevrfl=
+266fUP6iSA3Xd23aG92HlHmUwOVPPpvCxcyuL15N8vOXDB-2Fj4RhstjFrfkEKi9b12TVUPZC9F=
+jC5eZUeErOjWMy3GvxvafT7amODd4xJerZlhaLT8u7y10AG837UAuwZHHp1eUOh6x28Y6hzCtC1=
+w8-2BVoV8BW2TQSYbsb4v4KTxJhnEoBXIbqkHfqUYHTswka7E6Bqjvd1uH7ql31nIKPwAD2v9nP=
+v6H7bVTRE7fyMMokqT5BPstc5w27Y-2Fqrjvl07GjG4oE3Z-2F3VU0Rlj-2F1DKjHKOQrVc9UL4=
+T8aHNE-2ByGEdN1ZztZ6Ssu" style=3D"color:#00819D;" target=3D"_blank">SoFi.co=
+m/legal</a>.
+  <br><br>
+Neither the Investment Advisor Representatives of SoFi Wealth, nor the Regi=
+stered Representatives of SoFi Securities are compensated for the sale of a=
+ny product or service sold through any SoFi Invest platform. Information re=
+lated to lending products contained herein should not be construed as an of=
+fer or pre-qualification for any loan product offered by SoFi Bank, N.A.<br=
+>
+
+	=09
+		</td>
+	</tr>
+</table>
+</td>
+								</tr>
+								<tr>
+									<td style=3D"color: #757575; font-family: 'TT Norms', 'Montserrat'=
+, sans-serif; font-size: 12px; line-height: 16px;text-align: left; padding-=
+bottom: 16px; ">You have received this email because you are a customer of =
+SoFi Securities LLC or SoFi Wealth LLC. It contains important account relat=
+ed information.<br>
+									<br>
+									SoFi. 234 1st Street, San Francisco, CA 94105<br>
+									<br>
+									=C2=A9 2023 Social Finance, Inc. All rights reserved.</td>
+								</tr>
+							</tbody>
+						</table>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!-- // Invest footer - Braze marketing; All content blocks; delete what=
+ is not needed --> <!-- // End blades -->
+</td>
+		</tr>
+	</tbody>
+</table>
+<img src=3D"http://ablink.o.sofi.org/wf/open?upn=3DLUgqWOOG-2F9DkX36PkWVaaQ=
+ZZMYR-2FUlsPFY50New73hndszk51foeoMIh78RbfDTdrVHBclrOT5u5sr6fkrJn6SoWHzvPkVn=
+L-2B4o0zK3ZYaF15EkeAJae1g1wM5uhv40PxNrZ9K2AneUnJr7-2BAn6RGvhBySs-2BC7UkZYNt=
+l9rKQKXm4lOpzvPtB9RTzSsxa9L-2BSdzaPJ-2BDw9acfbcJjfV49UHeFXYE0zkqNH1z2ybJQf8=
+nE5eDL7bAXIRKIQkwSaKZB3pR4HYuIsNoJNUxDAPreVA9iFBO4De5LHTf4yn4AEnT9mICA4VDT5=
+-2F1sQSI6-2BesMFm-2Bj4ysHiMZhgw-2F6y0-2BHM-2BKr20y8hVA0XGZKtZQWJxWUZCNjHvlt=
+oHsAl4owl1UB4xOIOKRPLYJ78ph-2FTVG2m-2FYphXus-2FNUnPGjUtPysBZlhXznOa4Ctj6zAD=
+Rba4OE84vaOqYF74lRvzQi-2B-2F0gLEINPqKaXjY-2B-2BFWAOJT69ALsH9UPfFxddE5LhgKnW=
+fUyQMgPAQV7kQA-2FCKLanYHcYVIQfaRVtwTZoflbXa7AHYFEt-2FxetvrDvzJF2a6E-2FEiBel=
+mbaPN9CvNQZYI9X7LAxLiWhUYxIjwGhLsBTycOeFBgsZjGp4YOCd1byTn1S5sc6UsDTg0lU1EhS=
+fbvoEt8VYTEb6uJiczlubT13I-2FCp0Lq9dRqVjjDP8ogDLT2JEWMrqzS2KZ7Uef8Yofs0qiuQ-=
+2FvVQXn-2B6babjakXA9uVK-2FsRAZ84TUJvgwIPoneuq4tYIVxkvMJqL8SHF6rchmXnLQ-3D-3=
+D" alt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !impo=
+rtant;width:1px !important;border-width:0 !important;margin-top:0 !importan=
+t;margin-bottom:0 !important;margin-right:0 !important;margin-left:0 !impor=
+tant;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !=
+important;padding-left:0 !important;"></body>
+</html>
+
+--2b0cb5356b3152c667a0a773a6d07a9a6f0bfd74a49af1003129db597d5d--

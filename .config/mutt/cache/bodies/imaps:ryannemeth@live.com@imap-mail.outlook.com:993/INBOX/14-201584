@@ -1,0 +1,302 @@
+Received: from MN6PR20MB6546.namprd20.prod.outlook.com (2603:10b6:208:46d::6)
+ by DM4PR20MB4821.namprd20.prod.outlook.com with HTTPS; Thu, 16 Nov 2023
+ 06:27:57 +0000
+Received: from MW4PR03CA0207.namprd03.prod.outlook.com (2603:10b6:303:b8::32)
+ by MN6PR20MB6546.namprd20.prod.outlook.com (2603:10b6:208:46d::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.18; Thu, 16 Nov
+ 2023 06:27:56 +0000
+Received: from CO1NAM11FT014.eop-nam11.prod.protection.outlook.com
+ (2603:10b6:303:b8:cafe::43) by MW4PR03CA0207.outlook.office365.com
+ (2603:10b6:303:b8::32) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7002.20 via Frontend
+ Transport; Thu, 16 Nov 2023 06:27:55 +0000
+Authentication-Results: spf=pass (sender IP is 178.154.239.147)
+ smtp.mailfrom=alexedwards.net; dkim=pass (signature was verified)
+ header.d=alexedwards.net;dmarc=pass action=none
+ header.from=alexedwards.net;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of alexedwards.net
+ designates 178.154.239.147 as permitted sender)
+ receiver=protection.outlook.com; client-ip=178.154.239.147;
+ helo=forward100b.mail.yandex.net; pr=C
+Received: from forward100b.mail.yandex.net (178.154.239.147) by
+ CO1NAM11FT014.mail.protection.outlook.com (10.13.175.99) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.7002.20 via Frontend Transport; Thu, 16 Nov 2023 06:27:55 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:7BEA711CD5422C8D7525B46602CE681310CA311F40DEE4495854C9682BCC4739;UpperCasedChecksum:EBE23F2819C0F28C00227F6FC6896B6FCD3F01C1518649055FEDBB8251F15D23;SizeAsReceived:1288;Count:12
+Received: from mail-nwsmtp-smtp-production-main-46.sas.yp-c.yandex.net (mail-nwsmtp-smtp-production-main-46.sas.yp-c.yandex.net [IPv6:2a02:6b8:c08:4212:0:640:eaad:0])
+	by forward100b.mail.yandex.net (Yandex) with ESMTP id 158FE60B32;
+	Thu, 16 Nov 2023 09:27:51 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-46.sas.yp-c.yandex.net (smtp/Yandex) with ESMTPSA id mRe9TL0BYmI0-FrSQRpyi;
+	Thu, 16 Nov 2023 09:27:50 +0300
+Message-Id: <20231116092750.FrSQRpyi@mail-nwsmtp-smtp-production-main-46.sas.yp-c.yandex.net>
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=alexedwards.net;
+	s=mail; t=1700116070;
+	bh=zVLo0QaGaJz0PLpzYA6+9yLqIg/Od76wDb5N1W0bFik=;
+	h=Subject:From:To:Date;
+	b=ZT6CV7HEeX5QddCmLXBTWJaM8r00mb5MNqDoAYswRpyJ7sg2j0kXVmYUnRWlvm3c5
+	 rtQLEfziADxsORZhBNc6YhnswFPs/QKQaMwo6kChqxtxfi/zKg3VeuHoDY5nc1PH8f
+	 BFnYhID3X0oCpHmUrHGAo20ObHP9PkiJlKbzNedM=
+Authentication-Results-Original:
+ mail-nwsmtp-smtp-production-main-46.sas.yp-c.yandex.net; dkim=pass
+ header.i=@alexedwards.net
+Date: Thu, 16 Nov 2023 06:27:50 +0000
+To: ryannemeth@live.com
+From: Alex Edwards <alex@alexedwards.net>
+Subject: Let's Go Further
+Content-Type: multipart/alternative;
+ boundary=d23977cd6be4ef05d22cb3eb8f09e68e61aba81e31f79352b5b0b5007b7d
+X-IncomingHeaderCount: 12
+Return-Path: alex@alexedwards.net
+X-MS-Exchange-Organization-ExpirationStartTime: 16 Nov 2023 06:27:55.4935
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ e7ec4b50-67a5-4dc1-b76b-08dbe66d2b46
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ CO1NAM11FT014:EE_|MN6PR20MB6546:EE_|DM4PR20MB4821:EE_
+X-MS-Exchange-Organization-AuthSource:
+ CO1NAM11FT014.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 11/16/2023 6:08:31 AM
+X-MS-Office365-Filtering-Correlation-Id: e7ec4b50-67a5-4dc1-b76b-08dbe66d2b46
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 178.154.239.147
+X-SID-PRA: ALEX@ALEXEDWARDS.NET
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 1
+X-Microsoft-Antispam: BCL:0;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2023 06:27:55.2591
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e7ec4b50-67a5-4dc1-b76b-08dbe66d2b46
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CO1NAM11FT014.eop-nam11.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN6PR20MB6546
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.9581564
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7002.015
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90005022)(91005020)(91035115)(9050020)(9100341)(944500132)(2008001134)(2008121020)(4810010)(4910033)(9575002)(10195002)(9320005)(120001)(1110079);
+X-Message-Info:
+	qZelhIiYnPkj/XYnMhMbr9DmVSRSW9ncTYlWtodl42B9Hvfxn+5D0vWxOx3Fy3gBdIKxdd9l5G+iLAPVhmx6jXqSyHBBJCqFElbhs59D92S8dDPI7j8tXbNVwRF84GpMDb2lxVJs8KU9VP9bYLl19gTQBX7peF4MSOqHz+p4eVmc0gcEVYUlcNYWrNsArqi5V6gIr2CGV1yLS6LxEnjNyg==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0wO0Q9MTtHRD0yO1NDTD0z
+X-Microsoft-Antispam-Message-Info:
+	=?Windows-1252?Q?Dhi2znyv32duppYqlTDxLz3/oyXtzhZQg1DOMVVWWy3jAgx9JsK9w9D3?=
+ =?Windows-1252?Q?GEbMbwGmTvWvY/0V5hfVlzM4vzw7nhxKkO6iM2H/AXD576Z2u/l2Xk+g?=
+ =?Windows-1252?Q?Fbxp2HgfhLA8aWe33lmZczkIyaL3bA3AomCiAEBHaZ69xvvuPB5ET/7E?=
+ =?Windows-1252?Q?ulLhIbK5x324R1aplnGim8epUA7IHbWqeny6UZjRnGyTEg6DhzdWrhUL?=
+ =?Windows-1252?Q?ziTLJm38IUWZmH9TzX0rx8i04UwfQ4JXmvHxsVe3+MYS4t8LPm4EIG+8?=
+ =?Windows-1252?Q?utPe8oz05XyS3BGuB3GkElHx+LzSoFn6rmVA0p4X+8EjEBEtiJ7GW7xm?=
+ =?Windows-1252?Q?1gWR8MMi+4WiU9oWA2kSJgdL5nRkv0qak63Ki4UoVSyL7FGs9zmHpRZF?=
+ =?Windows-1252?Q?m/ixBugnXkoZAxbFGuLOpjvxljtMTwKzeQHCbFJp0KyLBC6og60+wqHH?=
+ =?Windows-1252?Q?wjDlDZoCmCZ4kKJKtgTVheEkL3Bz2YvObqyM/b0gVhDCp4qe9OXyGOCe?=
+ =?Windows-1252?Q?L9UL4PesW7MI4ezptC+eTrUVgcq4GzCAYqfAZBCsUC2gwn4WKYojjWjy?=
+ =?Windows-1252?Q?I4Lig0O8p8aiKYI2Ixi3o5hh4JYOcxHaBIdT96Ugg8g+WiKKoZW9SyWx?=
+ =?Windows-1252?Q?RUL0vG9UNFzZ9jlJA4U7EXh18Cv0wwbRXGjTuJ7T7ToYzfEiRGK3Wi3S?=
+ =?Windows-1252?Q?prxDOqJTmACbTydB7Q8fak8WrH7B5s/u0fqHwnOusKkPV2C4nkppMNT/?=
+ =?Windows-1252?Q?Y6Iw7e25eCSwfauQbgcRREvx7colyvfEzP6Ualhd8yG5EcNunpzBp1DN?=
+ =?Windows-1252?Q?Nk3O17wX0daQMXI5D+VM9HFQjXUcYHlTjTIwheAGpSzUmzpz1McaeCGl?=
+ =?Windows-1252?Q?gND1uOEctKAsHLKYfpeJHxO95nAlmrfH/VlYcePj69YWeuKroiFe17Fw?=
+ =?Windows-1252?Q?cOOlKgBre/M5GH5+LDgK/R1/uw1BIojawBkzWhN+wv/oUK2MzsmeCVAZ?=
+ =?Windows-1252?Q?LaGuXKx6eEZXpKR5KoJHKRZHmeWAKfxphes+ewf/lOlQcPxLkI+4OJKK?=
+ =?Windows-1252?Q?2+FB2/78O54GgtfC3qpgnkYVpaywbEcjhQc70St6CVGTqd4P9nCYqLtm?=
+ =?Windows-1252?Q?l9+lGIxwOJ5udNMrVjdMNAZwHr5xcutfzCnUliZKFpoxxtZpanC8+AQz?=
+ =?Windows-1252?Q?FLeucDK30qaU8u1T1unnNmXl7mTTLNvSpjYjFboX+qqzl6fd1GVZilhR?=
+ =?Windows-1252?Q?XQ0ZItjBAnMKPLgojd5/LEvVZorPjM+gOiUQi5YCm+8kPmcjQyaiiB7A?=
+ =?Windows-1252?Q?LKYe46rQqe5a5UovHthzsEfNY6e8Ck9CKANRdhBJXDPwiUqIKCBbguvX?=
+ =?Windows-1252?Q?c4le5OFY1tnzKEzCnXdl+1VKDqrUgPesMZWqq9CCYGK++evmTQ5Kf8Qf?=
+ =?Windows-1252?Q?c+7sHAInKhxmqdlXnwrQ2h8jLYydeseXYS91dCsBu7r3LRTTW+gqkobo?=
+ =?Windows-1252?Q?oC/yzdQhu5ymmcra55mmFgDvb87nzmRwgzrOc+Pmp6Eo8SSSI4c9uMc1?=
+ =?Windows-1252?Q?kKI7zd89q4ldkbTHar1NRZxFUz7bbWCpvp8vOLJGdyjaOGb6AM7khVaD?=
+ =?Windows-1252?Q?gF0KYykGgTmr3UVDNfD1GowYWgcF6W8rpnoe6XmCnWh7Kt2T+9GI14Uo?=
+ =?Windows-1252?Q?TiYzQnn81jkT1wa0ancX3tHXS2aDK5OBGFnEWxWCH7aRfUISqqbRgg?=
+ =?Windows-1252?Q?=3D=3D?=
+MIME-Version: 1.0
+
+--d23977cd6be4ef05d22cb3eb8f09e68e61aba81e31f79352b5b0b5007b7d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+
+
+Hey!
+
+A couple of weeks ago you bought a copy of Let's Go. I hope you've enjoyed =
+reading the book and learned a lot from it.
+
+If you'd like to learn more, I've also written a follow-up book Let's Go Fu=
+rther, which guides you through advanced patterns for building web applicat=
+ions and APIs.
+
+As a small gift for existing readers, you can also use the code FURTHER15 a=
+t checkout to get 15% off the regular list price.
+
+The book builds on the concepts that are introduced in Let=E2=80=99s Go, an=
+d talks through the start-to-finish build of a JSON API --- from project se=
+tup to deployment in production. It covers topics including:
+
+* Sending and receiving JSON
+* Working with SQL migrations
+* Managing background tasks
+* Performing partial updates and using optimistic locking
+* Permission-based authorization
+* Controlling CORS requests
+* Graceful shutdowns
+* Exposing application metrics
+* Automating build and deployment steps
+
+You can check out a sample, see a full chapter listing, and get more inform=
+ation and FAQ answers at https://lets-go-further.alexedwards.net.=20
+
+Happy coding!
+
+Alex
+
+---
+
+Unsubscribe: https://www.alexedwards.net/mail/unsubscribe/MTEyNDd8cnlhbm5lb=
+WV0aEBsaXZlLmNvbQ
+
+--d23977cd6be4ef05d22cb3eb8f09e68e61aba81e31f79352b5b0b5007b7d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=UTF-8
+
+<!doctype html><html lang=3D"en"><head>
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><m=
+eta name=3D"viewport" content=3D"width=3Ddevice-width">
+   =20
+    <title>Your purchase of Let's Go</title>
+</head>
+
+<body>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">Hey!</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">A couple of weeks ago =
+you bought a copy of Let's Go. I hope you've enjoyed reading the book and l=
+earned a lot from it.</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">If you'd like to learn=
+ more, I've also written a follow-up book <a href=3D"https://na01.safelinks=
+.protection.outlook.com/?url=3Dhttps%3A%2F%2Flets-go-further.alexedwards.ne=
+t%2F&amp;data=3D05%7C01%7C%7Ce7ec4b5067a54dc1b76b08dbe66d2b46%7C84df9e7fe9f=
+640afb435aaaaaaaaaaaa%7C1%7C0%7C638357128773891329%7CUnknown%7CTWFpbGZsb3d8=
+eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7=
+C%7C%7C&amp;sdata=3Dyl0myOAWXz4zGwRTB7TJGworxQTYkXnnRfxPdePqEy8%3D&amp;rese=
+rved=3D0" originalsrc=3D"https://lets-go-further.alexedwards.net/" shash=3D=
+"DhY3JiCyxbnheZEReoV6d/Yk9owu56q/HdN46Omzmm3WN+FIPUmY5BvfkGjGZbLhO2eu5S+jw2=
+XliKjPr+HNCnD3f+Kv+Znyklv0+ePsxRaBfewIgjXIGfqSpLUqIfBvHNvfF7AYNALq75nwTI88u=
+7SDujBR4qtHXOt1I/4UZzc=3D" style=3D"color: #007bb6;">Let's Go Further</a>, =
+which guides you through advanced patterns for building web applications an=
+d APIs.</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">As a small gift for ex=
+isting readers, you can also use the code <strong>FURTHER15</strong> at che=
+ckout to get 15% off the regular list price.</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">The book builds on the=
+ concepts that are introduced in Let=E2=80=99s Go, and talks through the st=
+art-to-finish build of a JSON API =E2=80=94 from project setup to deploymen=
+t in production. It covers topics including:</p>
+    <ul style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sy=
+stem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-seri=
+f; color: #111; max-width: 100%; padding-left: 1em; margin-bottom: 1em;">
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Sending and receiving JSON</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Working with SQL migrations</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Managing background tasks</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Performing partial updates and using optimi=
+stic locking</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Permission-based authorization</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Controlling CORS requests</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Graceful shutdowns</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Exposing application metrics</li>
+		<li style=3D"font-size: 16px; line-height: 24px; font-family: -apple-syst=
+em,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif;=
+ color: #111; max-width: 100%;">Automating build and deployment steps</li>
+    </ul>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">You can check out a sa=
+mple, see a full chapter listing, and get more information and FAQ answers =
+at <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A=
+%2F%2Flets-go-further.alexedwards.net%2F&amp;data=3D05%7C01%7C%7Ce7ec4b5067=
+a54dc1b76b08dbe66d2b46%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C6383571=
+28773891329%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJ=
+BTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=3Dyl0myOAWXz4zGwRTB7T=
+JGworxQTYkXnnRfxPdePqEy8%3D&amp;reserved=3D0" originalsrc=3D"https://lets-g=
+o-further.alexedwards.net/" shash=3D"DhY3JiCyxbnheZEReoV6d/Yk9owu56q/HdN46O=
+mzmm3WN+FIPUmY5BvfkGjGZbLhO2eu5S+jw2XliKjPr+HNCnD3f+Kv+Znyklv0+ePsxRaBfewIg=
+jXIGfqSpLUqIfBvHNvfF7AYNALq75nwTI88u7SDujBR4qtHXOt1I/4UZzc=3D" style=3D"col=
+or: #007bb6;">https://lets-go-further.alexedwards.net</a>.</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">Happy coding!</p>
+    <p style=3D"font-size: 16px; line-height: 24px; font-family: -apple-sys=
+tem,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif=
+; color: #111; max-width: 100%; margin-bottom: 1em;">Alex<br><a href=3D"htt=
+ps://na01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2Fwww.alexedw=
+ards.net%2F&amp;data=3D05%7C01%7C%7Ce7ec4b5067a54dc1b76b08dbe66d2b46%7C84df=
+9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638357128773891329%7CUnknown%7CTWFpb=
+GZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7=
+C3000%7C%7C%7C&amp;sdata=3DDQnjcmUsEVgr7AddM%2BwhQUk%2FEERXM65iDoufGj%2BILB=
+0%3D&amp;reserved=3D0" originalsrc=3D"https://www.alexedwards.net/" shash=
+=3D"zXBb7HQIw+kb3cOg4ZdJtJDy21fs170X/o/QbGX5nu7clJxkHGrFx0z6fVGwVjMUd0II9vk=
+dMDoQmnL2SUtCDYSj65xXDES5CHpfLH6aYLUKfg9LHZgYmX95ELp7uH+YYPxJW1gClEkQgLBvq0=
+A1JRP8gESl4wIjMSDKdkl3jK8=3D" style=3D"color: #007bb6;">www.alexedwards.net=
+</a> <span style=3D"color: #999999">|</span> <a href=3D"mailto:alex@alexedw=
+ards.net" style=3D"color: #007bb6;">alex@alexedwards.net</a></p>
+    <hr style=3D"height: 0; border: none; border-top: solid 1px #dddddd;">
+    <p style=3D"line-height: 24px; font-family: -apple-system,BlinkMacSyste=
+mFont,'Segoe UI',Roboto,'Helvetica Neue',Ubuntu,sans-serif; max-width: 100%=
+; margin-bottom: 1em; color: #999999; font-size: 14px;">
+      <a href=3D"https://na01.safelinks.protection.outlook.com/?url=3Dhttps=
+%3A%2F%2Fwww.alexedwards.net%2Fmail%2Funsubscribe%2FMTEyNDd8cnlhbm5lbWV0aEB=
+saXZlLmNvbQ&amp;data=3D05%7C01%7C%7Ce7ec4b5067a54dc1b76b08dbe66d2b46%7C84df=
+9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638357128773891329%7CUnknown%7CTWFpb=
+GZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7=
+C3000%7C%7C%7C&amp;sdata=3DbjmgYVFJC%2Bms%2BGg7MUfF0JFBz2oYfONz%2BddaWFuM84=
+c%3D&amp;reserved=3D0" originalsrc=3D"https://www.alexedwards.net/mail/unsu=
+bscribe/MTEyNDd8cnlhbm5lbWV0aEBsaXZlLmNvbQ" shash=3D"O0IGdfk07Z6bFeXdsqy2vL=
+cymzj1B89QHL5W1CfeVGmlTiUYkXECX+W4oN3FeY4vC2qMnfqH670ATMaGeOBcvp1wYTu+1U/Y2=
+qG9s2HO4tPgR1eWtuyCm1XrwkNPjwnSPbRnAbR9FV39BZdsaeUAN07Y75crTeSXslnXrbmxC0g=
+=3D" style=3D"color: #007bb6;">Unsubscribe</a>
+    </p>
+</body>
+
+</html>
+
+--d23977cd6be4ef05d22cb3eb8f09e68e61aba81e31f79352b5b0b5007b7d--
