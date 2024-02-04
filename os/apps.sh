@@ -5,6 +5,11 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     . "$DOT/setup/utils.sh"
 
+install_tlp() {
+    print_in_purple "\n • Installing tlp \n\n"
+    install_package tlp
+}
+
 install_terminator() {
     print_in_purple "\n • Installing terminator \n\n"
     install_package terminator
@@ -212,6 +217,7 @@ main() {
     install_terminator
     install_mutt
     install_playerctl
+    install_tlp
 }
 
 main

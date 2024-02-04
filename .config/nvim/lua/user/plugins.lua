@@ -91,6 +91,7 @@ return packer.startup(function(use)
   use { "jay-babu/mason-null-ls.nvim" } -- 'glue package' for mason and null-ls
 
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+
 	-- Telescope
 	use { "nvim-telescope/telescope.nvim", tag = '0.1.4' }
   use { "nvim-lua/popup.nvim" }
