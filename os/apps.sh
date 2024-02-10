@@ -15,9 +15,9 @@ install_terminator() {
     install_package terminator
 }
 
-install_mutt() {
-    print_in_purple "\n • Installing mutt \n\n"
-    install_package mutt
+install_neomutt() {
+    print_in_purple "\n • Installing neomutt \n\n"
+    install_package neomutt
 }
 
 install_VLC() {
@@ -215,7 +215,7 @@ main() {
     install_polybar
     install_brightnessctl
     install_terminator
-    install_mutt
+    install_neomutt
     install_playerctl
     install_tlp
 }

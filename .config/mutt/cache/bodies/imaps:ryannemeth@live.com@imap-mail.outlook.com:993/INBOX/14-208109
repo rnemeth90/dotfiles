@@ -1,0 +1,206 @@
+Received: from DS0PR20MB6439.namprd20.prod.outlook.com (2603:10b6:8:15a::18)
+ by DM4PR20MB4821.namprd20.prod.outlook.com with HTTPS; Mon, 5 Feb 2024
+ 04:47:53 +0000
+Received: from BN8PR04CA0013.namprd04.prod.outlook.com (2603:10b6:408:70::26)
+ by DS0PR20MB6439.namprd20.prod.outlook.com (2603:10b6:8:15a::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.34; Mon, 5 Feb
+ 2024 04:47:52 +0000
+Received: from BN7NAM10FT103.eop-nam10.prod.protection.outlook.com
+ (2603:10b6:408:70:cafe::7f) by BN8PR04CA0013.outlook.office365.com
+ (2603:10b6:408:70::26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.7249.34 via Frontend
+ Transport; Mon, 5 Feb 2024 04:47:52 +0000
+Authentication-Results: spf=pass (sender IP is 159.183.104.248)
+ smtp.mailfrom=mail.transparentclassroom.com; dkim=pass (signature was
+ verified) header.d=transparentclassroom.com;dmarc=pass action=none
+ header.from=transparentclassroom.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of
+ mail.transparentclassroom.com designates 159.183.104.248 as permitted sender)
+ receiver=protection.outlook.com; client-ip=159.183.104.248;
+ helo=o2.ptr5139.transparentclassroom.com; pr=C
+Received: from o2.ptr5139.transparentclassroom.com (159.183.104.248) by
+ BN7NAM10FT103.mail.protection.outlook.com (10.13.157.85) with Microsoft SMTP
+ Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.7270.17 via
+ Frontend Transport; Mon, 5 Feb 2024 04:47:52 +0000
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:881546B27BFC35EEFBA190046552BF30A53E1F6A78769B7557B1D7AC430D4EFC;UpperCasedChecksum:A8B4C83FF211072AA7E441EDC10C8245129FCAB7BC70AF44B48F3689218DC624;SizeAsReceived:2050;Count:15
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=transparentclassroom.com;
+	h=from:subject:mime-version:content-type:content-transfer-encoding:
+	reply-to:to:cc:content-type:from:subject:to;
+	s=s1; bh=bN4HgUOt0GEnyux9YfTvf95iA4nBeDvuF5+DplBeN9E=;
+	b=UqqL6IXOoiktWL1g9qyTfVqLr4L0k/o1xG2M2QXO/VOvEt6oysl6rzaIYJUeA5LYzLEu
+	ZEjP6tbxKn5DnU80nSL/90gt2v8tvJJm74t5RtPsrqQ1GOT+uUhnztxOpzuaI184WtFAne
+	CInnSdAsBh9E7509d64RYDuMgMSFXhT5dEeVPPjD2j4Z6fmQE0vF8fQ//esOMXlNAiw0d3
+	sWvTthpGEVyHIUAVsCbttE9DOeymzSzbD/Y/k6tYQAuM4ZEVdAlGmqvV2dn2vvz5n8Xj2u
+	AO2dF6asQ9qJ/rXHeRDAvOeZRRntlPt3xaDjuRxB1wlNDR/XGIBpViFDlADGUugg==
+Received: by filterdrecv-9f85cf8d9-9s2jx with SMTP id filterdrecv-9f85cf8d9-9s2jx-1-65C06877-9
+        2024-02-05 04:47:51.332783756 +0000 UTC m=+9540380.166880127
+Received: from heroku.com (unknown)
+	by geopod-ismtpd-36 (SG) with ESMTP
+	id ZhEyeQ8-TiCEY8V-EBR1og
+	for <ryannemeth@live.com>;
+	Mon, 05 Feb 2024 04:47:51.181 +0000 (UTC)
+Date: Mon, 05 Feb 2024 04:47:51 +0000 (UTC)
+From: The Montessori Academy at Edison Lakes
+	<notifications@transparentclassroom.com>
+Message-ID: <65c06877207d6_2d96c208810@3a014e95-8652-4ce8-86fe-434bf6c00577.mail>
+Subject: [The Montessori Academy at Edison Lakes] 3 photo(s) with Emma
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_65c068772039b_2d96c2088065"
+Content-Transfer-Encoding: 7bit
+layout: email
+Reply-To: The Montessori Academy at Edison Lakes <kkolata@tmael.org>
+X-SG-EID:
+ =?us-ascii?Q?IYx2IHi6dklPYXHNFKkGF4338+MVExhH=2F1iQYtSH05ZlFin7T7E2I4RF2TczNn?=
+ =?us-ascii?Q?GV7X2ndXjL7jt827mPV2bwHyRxT9sLQJoIjTn6s?=
+ =?us-ascii?Q?h611X4LhTPKI=2FF9OJGAlWngWPBLfU=2F3oxAVR4eQ?=
+ =?us-ascii?Q?Z1DYN16QI9KL0qXiEYtDJQ=2FR9Rh=2FS5OVq1heVke?=
+ =?us-ascii?Q?5ron8=2FW=2FJxygB3V0n4KDSeBezKW46+zfUR8DXb6?=
+ =?us-ascii?Q?s4XPdRLBhL2zdmxpw5pAMHIZ8OD8L3b9sSa8Jg3?=
+ =?us-ascii?Q?ujsnJEeYjS5h32D5XsJrO6W6Hqd+XlaPOY0SUxt?=
+ =?us-ascii?Q?sxL=2FjdRXQ87Ol0aKT2vPY6jT?=
+To: Ryan Nemeth <ryannemeth@live.com>
+X-Entity-ID: 2cr5IoEc76JPNCr5btwQyw==
+X-IncomingHeaderCount: 15
+Return-Path:
+ bounces+109975-fbda-ryannemeth=live.com@mail.transparentclassroom.com
+X-MS-Exchange-Organization-ExpirationStartTime: 05 Feb 2024 04:47:52.8480
+ (UTC)
+X-MS-Exchange-Organization-ExpirationStartTimeReason: OriginalSubmit
+X-MS-Exchange-Organization-ExpirationInterval: 1:00:00:00.0000000
+X-MS-Exchange-Organization-ExpirationIntervalReason: OriginalSubmit
+X-MS-Exchange-Organization-Network-Message-Id:
+ 416123ba-1c92-4601-7213-08dc26059ce1
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+ BN7NAM10FT103:EE_|DS0PR20MB6439:EE_|DM4PR20MB4821:EE_
+X-MS-Exchange-Organization-AuthSource:
+ BN7NAM10FT103.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-UserLastLogonTime: 2/5/2024 4:32:08 AM
+X-MS-Office365-Filtering-Correlation-Id: 416123ba-1c92-4601-7213-08dc26059ce1
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 159.183.104.248
+X-SID-PRA: NOTIFICATIONS@TRANSPARENTCLASSROOM.COM
+X-SID-Result: PASS
+X-MS-Exchange-Organization-PCL: 2
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-MS-Exchange-Organization-SCL: 2
+X-Microsoft-Antispam: BCL:3;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Feb 2024 04:47:52.4105
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 416123ba-1c92-4601-7213-08dc26059ce1
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ BN7NAM10FT103.eop-nam10.prod.protection.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR20MB6439
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:01.3918183
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.7249.032
+X-Microsoft-Antispam-Mailbox-Delivery:
+	ucf:0;jmr:0;ex:0;auth:1;dest:I;ENG:(5062000305)(920221119095)(90000117)(920221120095)(90012020)(91020020)(91040095)(9050020)(9100341)(944500132)(4810010)(4910033)(9910022)(9545005)(10170022)(9320005)(120001)(1110175);
+X-Message-Info:
+	qZelhIiYnPkLX+jQ5qjmnW/wM2XgygOWkRrcdWa33k3DowUApx/agDsFfjK27Vxro/ApGhVx/dknAjj93sRfpRaAnfXAswlZ381cmqQtZtNwrTYHjZv35HcbWo+pelqzwe1re8OrUiQgnWT9vuFaN9D+eqNvK7mJKQfItrhSQ+63CYDaGqQ+eB7NiRC3MfjZP5gmPGB3iTf4ryRZxO18Qw==
+X-Message-Delivery: Vj0xLjE7dXM9MDtsPTA7YT0xO0Q9MTtHRD0xO1NDTD0tMQ==
+X-Microsoft-Antispam-Message-Info:
+	=?us-ascii?Q?HJz6N3Jr2F6mC6/p/7hyFyCYGInyVs/poV4HH3UkRNX0JKElNAA0HhhlP8sv?=
+ =?us-ascii?Q?kfThHFlVBRnFSFxEZvTTJUhepok1Br//mFLs1ZE4XOKwbfa6U9G/xZ9BYB1C?=
+ =?us-ascii?Q?A7Ql9F0MFipraVQPhQtL8etP5p4YdD59SNHtqQPs1Gq9LBTtYREA6XtSs52v?=
+ =?us-ascii?Q?HjhPtHN2kYMo4TGD4UbvLsr3hA95idRXzxqpb1m9pu/vstVeRLCtKBGYT+If?=
+ =?us-ascii?Q?wqA70qZgVawol1aKMhIkPUJUXfBYrQFlcfbze1CtWlxCIR3a6OHJnpv5Qapt?=
+ =?us-ascii?Q?T4vt+EARE2lSn06q1khOrgbDIoGobPpOE5jWXaEYrG2GwjXRszDKcT7awqxa?=
+ =?us-ascii?Q?GeT+3vMz4R0mR6W8y6677oq7XfaL2p9GuQ3h/nUpO1xEpLml/DQjMtIFAPu2?=
+ =?us-ascii?Q?Yqm5ZS4AbYWkJVo6yU5qXr+uhOQZHvITbWPpB3IzFGd2DKc50tfDB9Kbp74v?=
+ =?us-ascii?Q?nb0ifsosmHLogdJH2G73u++boiKSJXSpfDDnBCBhjXsi4Q0/HVDJnOi3UZeo?=
+ =?us-ascii?Q?0KaiIonEDtNF9hmZDBcR5jIUrd/PeCB322/khV16GctI63sFdBtiZCCMUGBs?=
+ =?us-ascii?Q?jxSZYzpaCPSpArnj9WNf29uwyUtEJTBzY6Bf05ZRXvj4MxaKn2CBmIEt46GD?=
+ =?us-ascii?Q?K+L3b2zbpAy2b7TW41Ck0TB0hs2Vbbhczn7yIgKNVXF2C7grzBQWexozunxL?=
+ =?us-ascii?Q?UX7lxTNCfHMomXcyRtckySDPMYojBjS5pmAKMbEG4jrzND3NjMW4NCJ3+ard?=
+ =?us-ascii?Q?9VbzplSJm7TmF1IWJeajcQKYoY8muXSrzmCf+SsZC6aJUCLJvEryfLnrqWk5?=
+ =?us-ascii?Q?k6AFnLYosHvgF4onf1E5C/arq/Bz5/EQVQp35EyKuyqqwRHWEkKE/gQRGlKn?=
+ =?us-ascii?Q?alR17x8HJRZPnA8yb6lD4dNBNl0yXEhDnDuRMnF2jSZvlaY30K1RlyKh8gis?=
+ =?us-ascii?Q?EUqfqQqad4jUaTLtjAyw8Ymjb4Ou9ZkdObgNJhLxzJLkD1eGivWTMRQ1dzJE?=
+ =?us-ascii?Q?5wmKZRdc8OzvqperpjoEL0J2rKqTLltPv+Q3qg5Sc/pcBo6TN5fWLrrBHkBx?=
+ =?us-ascii?Q?OHfy7cOTOXU7hbxBIBZnfDxOIXy/0yW5zatwee6nKwouQAsqBi43vnWWpmG9?=
+ =?us-ascii?Q?6p7LlGZLuUW4YrdmxnpdAOzf/IJ/MutXJzuZFB8Pu87cE/eRS82JfPc+GHRf?=
+ =?us-ascii?Q?NS9bJQ/wG5SKwkhFovHC9+0UgIUjk0vq9plSJ8e2xCsHu1+py2RnoVxjxIv2?=
+ =?us-ascii?Q?VDUFpnhMdhFSmpt5vk+eeFMLncvLpm0L6bpFi4GYUGnqKGCW/sJf5GigVMI8?=
+ =?us-ascii?Q?M9AUkE+KK5k1IPo5TTuNP+DDNDzQIjfpSLtoTltJ0xbpJAD25grwb8DJk0Ql?=
+ =?us-ascii?Q?uBUfDVVLx7AaArGmoQ/NT9y47pPc7tinUt3Wx1CQIphgo1efTjewwWvmq3At?=
+ =?us-ascii?Q?h5JZ6kpVfUJMbW++QZbSrG9+42WH9vKnAyZLIjZSwuRnRJnU+sxX+47AVswh?=
+ =?us-ascii?Q?InrtsWvcaJahMrDtwwKgVy9Zd816f1y2C5f0OrTOgFyIVST7o08Cw12JgXOi?=
+ =?us-ascii?Q?NJDOEofHed5sUAphoSyZB6MnnKcE6znLJqcbMLgnVTISe2xxwVcJIU1b+gyY?=
+ =?us-ascii?Q?lukkQ7QL3FUGs5tBiwzRWhVVyuTpkD5KHnr5t/7AYYVrDYcd/uYu3iQpza6G?=
+ =?us-ascii?Q?yVqDrzvIWVFDbDfL8aifFd/852NWCUfQ2AWKBny3hcWVtufB1nxcfphND1Am?=
+ =?us-ascii?Q?86mQ5p3vfQtpnMNkgXiUYn1uZ7zw/njQpzTI3A8dRDYqGgqseKNuOq+Y/0jn?=
+ =?us-ascii?Q?3zN/hIyUu1cNa0edDZRKhqdDdFs7vkKqK3EhQMhxVQcM/bxZ76yFvpeo5aQg?=
+ =?us-ascii?Q?1LVzKg+oIQANbU2b9CGRgwnx0qWpT/F063DgxpI=3D?=
+MIME-Version: 1.0
+
+----==_mimepart_65c068772039b_2d96c2088065
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Melissa tagged a photo:
+
+Emma N 
+( https://www.transparentclassroom.com/s/4483/children/584954 )
+-----------------------------------------------------------------
+
+Melissa tagged a photo:
+
+Emma N 
+( https://www.transparentclassroom.com/s/4483/children/584954 )
+-----------------------------------------------------------------
+
+Melissa tagged a photo:
+
+Emma N 
+( https://www.transparentclassroom.com/s/4483/children/584954 )
+-----------------------------------------------------------------
+
+Read more on Transparent Classroom 
+( https://www.transparentclassroom.com/s/4483/dashboard ).
+
+Unsubscribe 
+( https://www.transparentclassroom.com/subscriptions/unsubscribe/notify_on_photos_by_email?token=-xV16hfmjvwkCi3cxaHU )
+ | Update Preferences 
+( https://www.transparentclassroom.com/subscriptions?token=-xV16hfmjvwkCi3cxaHU )
+----==_mimepart_65c068772039b_2d96c2088065
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html><html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii"><style>
+    /* Email styles need to be inline */
+  </style>
+</head>
+<body>
+<p>Melissa tagged a photo:</p>
+<h4><a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fs%2F4483%2Fchildren%2F584954&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739554383%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=a6m46v6AII%2BIzT65XQ9rmQ7G%2F7%2F3mDyHzOIOziHx7zM%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/s/4483/children/584954" shash="Cu3g9PXwFv0SuoJF3GBFE8ceizCAdP6BXsCCS2/ui79BRiSpvnnKTgfErvYOS6+l8i6bu1ruDZaXayoY9rjU81gxrCczp/+INPUBdhc+pDFk5UI+DCX4i9q8Wb74q7zDhULxtHduPCwQtK2uFePylIywyMMr+MDcR+Q8p0DhvhI=" class="child-link">Emma N</a></h4>
+<p><img src="https://s3.amazonaws.com/transparentclassroom.com/schools/4483/2024/posts/0d73ae96389bcfb15f8a462e08f6f7e0a54e352c.large.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA3YMBJBQH3KO5GO3X%2F20240205%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240205T044751Z&amp;X-Amz-Expires=604800&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=139086c0090dfab86c52e141f0f530a0fd0e4a6445b104e3a78fe6cba8a236cb" alt=""></p>
+<hr>
+<p>Melissa tagged a photo:</p>
+<h4><a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fs%2F4483%2Fchildren%2F584954&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739563205%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=0K7uvxb009eXqGXm4nEjPu5zme%2Fif1Jq9L1zGmd8ULg%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/s/4483/children/584954" shash="XHXQ5P1s9GtG73IpocnlhkfWp3HfW1mNAwa67lY9UQOsLetBeNreV1InmiMcGRbR8TjY2NfX4CZAqG/jZUBY9H0ySBYlJONjCRQlhaTyRwnnhrWvJrvEqSpYvJGkSHim3/R/OuIt9WhbUiASo/Nw+GBuszmzzUdTM16vaCsf+QI=" class="child-link">Emma N</a></h4>
+<p><img src="https://s3.amazonaws.com/transparentclassroom.com/schools/4483/2024/posts/06e4703296c6f7836236bd79be88142ff11229d3.large.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA3YMBJBQH3KO5GO3X%2F20240205%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240205T044751Z&amp;X-Amz-Expires=604800&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=36cac062c004e24751a64eb082bb59b70d4af028d5a5c247fef0d384b1e78f8a" alt=""></p>
+<hr>
+<p>Melissa tagged a photo:</p>
+<h4><a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fs%2F4483%2Fchildren%2F584954&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739574673%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=lF%2BxgCE0rJo28%2FbZwZ1Xzk5GYvIypY0BvK5PeffICMA%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/s/4483/children/584954" shash="NU3eYltCZdupyT2Z45qVTVTF7g70UooRyCqx14Kr8HLTi/mkvNW+oTDW/CJpgCGEgy0qt8ZzHlqhoJO7AJeOoGHDR5+8gfkw5HR+fdspjE4j2d4dzzWL4y0Gh2AJ1XPhC6/WaTmzKrJRyfrUzxddCAOu0SJHdsznxlhXj8CZWKo=" class="child-link">Emma N</a></h4>
+<p><img src="https://s3.amazonaws.com/transparentclassroom.com/schools/4483/2024/posts/fb61e82195cccd092a2d409f9431222eb4a3750f.large.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIA3YMBJBQH3KO5GO3X%2F20240205%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20240205T044751Z&amp;X-Amz-Expires=604800&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Signature=3aa19543ea180697e555c9c31283a1d45a03e33b514f3a6a2d7c640e8aa32bc0" alt=""></p>
+<hr>
+<div style="color: silver; font-size: 0.9em; margin-top: 16px;">
+<p>Read more on <a href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fs%2F4483%2Fdashboard&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739582095%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=2nEZV5fpKJxilgjqRf5fe8ePO0SAMFUVdgyF8HDoZfI%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/s/4483/dashboard" shash="BebYCM6jC3pdh3KJ8nioI+Tx2VuDNzpbJdJJTScq9wfh70OEPfEcaJKCzadk8//yL+hgSiWr/9piLiuH1gM6uF7TrG72tmPzl2af8WM9t6lM5VuUCdzeLePC/A6+L3EYoJ6K9sASUA0cDjmCuZTka30rX5PSXw48K1B0ieSueh0=">Transparent Classroom</a>.</p>
+<p><a style="color: silver;" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fsubscriptions%2Funsubscribe%2Fnotify_on_photos_by_email%3Ftoken%3D-xV16hfmjvwkCi3cxaHU&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739587849%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=1oJOfD37J7m%2BofnQ%2FtJcC7c59fZ2hKsmGSF0ysi119w%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/subscriptions/unsubscribe/notify_on_photos_by_email?token=-xV16hfmjvwkCi3cxaHU" shash="A9ug9YYg1o2HEB75gnL33KlatxKceERIVeI9vsJ174q++57HzbldITd6XsiJc7m0AXBc3wvdlGmKlQHAKHKLiPJlXwk0OY+93rVHl7LGUz0Xp3TLFHCNMgffIScq8rTzmx1LoHcAM3ljEaNk488M+LSnSg1+FrqdY4Cyg09iv7w=">Unsubscribe</a> | <a style="color: silver;" href="https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.transparentclassroom.com%2Fsubscriptions%3Ftoken%3D-xV16hfmjvwkCi3cxaHU&amp;data=05%7C02%7C%7C416123ba1c924601721308dc26059ce1%7C84df9e7fe9f640afb435aaaaaaaaaaaa%7C1%7C0%7C638427052739593372%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&amp;sdata=iXOxXwjES%2BFiBW3IpnppkZEoc7Yl5Deypc67G6dggh4%3D&amp;reserved=0" originalsrc="https://www.transparentclassroom.com/subscriptions?token=-xV16hfmjvwkCi3cxaHU" shash="aeetMVI/vkwIKIrTIjAfZ8uGUgwdqf1lFcO3Pm1Gbd+KrzznxaDTjfuoLz4bUnUZvK30dBKbkTwyAOc42TaXGaw5Cvjzbh7S7MGE9PVyI/KkDU8PYAQSjOGP4fGjE7UFLdLQPUkb1RWmzVAW4mf+5gZOpUXEizRMfJu32ldyukY=">Update Preferences</a></p>
+</div>
+
+</body>
+</html>
+
+----==_mimepart_65c068772039b_2d96c2088065--
