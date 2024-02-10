@@ -5,3 +5,5 @@ passwords
 google-chrome
 .config/go
 .config/pulse
+.config/gh/hosts.yml
+.config/mutt/cache
