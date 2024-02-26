@@ -136,6 +136,9 @@ return packer.startup(function(use)
   -- helm
   use 'towolf/vim-helm'
 
+  -- c
+  use 'deoplete-plugins/deoplete-clang'
+
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if PACKER_BOOTSTRAP then
