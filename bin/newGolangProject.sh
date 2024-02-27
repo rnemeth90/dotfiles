@@ -95,7 +95,7 @@ cat >$WORKING_DIRECTORY/$PROJECT_TEST.go <<EOF
 package $PROJECT_TEST
 EOF
 
-cat >$WORKING_DIRECTORY/cmd/$PROJECT/makefile <<EOF
+cat >$WORKING_DIRECTORY/cmd/cli/makefile <<EOF
 TARGETS = linux-386 linux-amd64 linux-arm linux-arm64 darwin-amd64 windows-386 windows-amd64
 COMMAND_NAME = ${PROJECT}
 PACKAGE_NAME = github.com/rnemeth90/\$(COMMAND_NAME)
@@ -264,7 +264,7 @@ jobs:
         go-version: '^1.19.2'
     - run: |
         go version
-        cd ./cmd/${PROJECT}/
+        cd ./cmd/cli/
         ls -lisa
         if [ ! -e *.mod ]; then
           go mod init \${GITHUB_REPOSITORY}
