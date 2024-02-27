@@ -28,7 +28,7 @@ fi
 PROJECT=$(echo $PROJECT_NAME | rev | cut -d '/' -f1 | rev)
 PROJECT_TEST=$PROJECT"_test"
 
-mkdir -p $WORKING_DIRECTORY/cmd/$PROJECT
+mkdir -p $WORKING_DIRECTORY/cmd/cli
 
 cat >$WORKING_DIRECTORY/LICENSE.md <<EOF
 Copyright 2022 Ryan Nemeth
@@ -40,7 +40,7 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 EOF
 
-cat >$WORKING_DIRECTORY/cmd/$PROJECT/main.go <<EOF
+cat >$WORKING_DIRECTORY/cmd/cli/main.go <<EOF
 package main
 
 func main() {
@@ -48,7 +48,7 @@ func main() {
 }
 EOF
 
-cat >$WORKING_DIRECTORY/cmd/$PROJECT/main_test.go <<EOF
+cat >$WORKING_DIRECTORY/cmd/cli/main_test.go <<EOF
 package main_test
 
 import (
@@ -176,7 +176,7 @@ echo "old version: \$semantic_version new_version: \${newtag}"
 CUR_DIR=\${PWD##*/}
 
 mkdir -p build
-cp cmd/${PROJECT}/main.go build/main.go
+cp cmd/cli/main.go build/main.go
 cd build
 [ -f go.mod ] || go mod init rnemeth90/\$CUR_DIR
 go mod tidy
