@@ -4,7 +4,7 @@ require("mason-null-ls").setup({
 	--	"jq"
   --  "goimports",
   --  "black",
-  --  "clang-format",
+   "clang-format"
   --  "gofumpt",
   --  "golines",
   --  "markdownlint",
@@ -14,6 +14,6 @@ require("mason-null-ls").setup({
   --  "spell",
   --  "yamlfmt"
 	},
-	automatic_installation = false,
+	automatic_installation = true,
 	handlers = {},
 })
