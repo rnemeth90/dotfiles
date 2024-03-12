@@ -112,3 +112,5 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 # suppress annoying zsh messages
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# setup cdpath
+export CDPATH=.:..:~:~/repos:/repos
