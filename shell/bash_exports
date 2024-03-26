@@ -78,6 +78,7 @@ export GOPATH="$HOME/repos/golang"
 export GOBIN="$HOME/repos/golang/bin"
 append_to_path "$GOPATH/bin"
 append_to_path "/usr/local/go/bin"
+append_to_path "/usr/local/bin/protobuf/"
 
 # Custom bin
 append_to_path "/home/ryan/bin"
@@ -113,4 +114,4 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # setup cdpath
-export CDPATH=.:..:~:~/repos:/repos
+HOME:$HOME/repos:/repos
