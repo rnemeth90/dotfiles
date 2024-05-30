@@ -51,3 +51,6 @@ unset -f source_bash_files
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
+
+# Created by `pipx` on 2024-05-30 19:41:22
+export PATH="$PATH:/Users/Ryan.Nemeth/.local/bin"
