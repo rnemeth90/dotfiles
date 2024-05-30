@@ -48,3 +48,6 @@ set-title() {
 set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 
 . "$HOME/.cargo/env"
+
+# Created by `pipx` on 2024-05-30 19:41:22
+export PATH="$PATH:/Users/Ryan.Nemeth/.local/bin"

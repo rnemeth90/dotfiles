@@ -70,7 +70,7 @@ execute() {
   print_result $exitCode "$MSG"
 
   if [ $exitCode -ne 0 ]; then
-    print_error_stream <"$TMP_FILE"
+    print_error <"$TMP_FILE"
   fi
 
   rm -rf "$TMP_FILE"

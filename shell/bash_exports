@@ -39,8 +39,11 @@ export LC_ALL="en_US.UTF-8"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Use custom `less` colors for `man` pages.
-export LESS_TERMCAP_md="$(tput bold 2> /dev/null; tput setaf 2 2> /dev/null)"
-export LESS_TERMCAP_me="$(tput sgr0 2> /dev/null)"
+export LESS_TERMCAP_md="$(
+    tput bold 2>/dev/null
+    tput setaf 2 2>/dev/null
+)"
+export LESS_TERMCAP_me="$(tput sgr0 2>/dev/null)"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -74,8 +77,8 @@ export FZF_COMPLETION_TRIGGER='**'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
@@ -93,7 +96,7 @@ export GOPATH="$HOME/repos/golang"
 export GOBIN="$HOME/repos/golang/bin"
 
 # setup PATHs
-export PATH="/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
+export PATH="/usr/local/share/dotnet:/opt/homebrew/bin:/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
 for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
 
 # Kubernetes

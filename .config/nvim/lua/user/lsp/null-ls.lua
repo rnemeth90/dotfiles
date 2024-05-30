@@ -18,7 +18,7 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
-    completions.spell, -- spell check
-    diagnostics.flake8
+    completions.spell -- spell check
+    -- diagnostics.flake8
 	},
 })
