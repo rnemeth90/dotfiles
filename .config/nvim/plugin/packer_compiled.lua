@@ -181,6 +181,11 @@ _G.packer_plugins = {
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
     url = "https://github.com/williamboman/mason-lspconfig.nvim"
   },
+  ["mason-tool-installer.nvim"] = {
+    loaded = true,
+    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/mason-tool-installer.nvim",
+    url = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+  },
   ["mason.nvim"] = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/mason.nvim",
@@ -320,6 +325,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
+  },
+  ["vim-mustache-handlebars"] = {
+    loaded = true,
+    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/vim-mustache-handlebars",
+    url = "https://github.com/mustache/vim-mustache-handlebars"
   },
   ["which-key.nvim"] = {
     loaded = true,
