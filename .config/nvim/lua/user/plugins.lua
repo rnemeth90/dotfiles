@@ -41,7 +41,7 @@ packer.init({
 
 -- Install your plugins here
 return packer.startup(function(use)
-  use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" } -- Have packer manage itself
+  use { "wbthomason/packer.nvim" } -- Have packer manage itself
   use { "nvim-lua/plenary.nvim", commit = "4b7e52044bbb84242158d977a50c4cbcd85070c7" } -- Useful lua functions used by lots of plugins
   use { "windwp/nvim-autopairs", commit = "4fc96c8f3df89b6d23e5092d31c866c53a346347" } -- Autopairs, integrates with both cmp and treesitter
   use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
@@ -82,13 +82,14 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
 	-- LSP
-	use { "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" } -- enable LSP
-  use { "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12"} -- simple to use language server installer
-  use { "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" }
-	-- use { "jose-elias-alvarez/null-ls.nvim", commit = "c0c19f32b614b3921e17886c541c13a72748d450" } -- for formatters and linters
+	use { "neovim/nvim-lspconfig" } -- enable LSP
+  use { "williamboman/mason.nvim"} -- simple to use language server installer
+  use { "williamboman/mason-lspconfig.nvim" }
+  use { "WhoIsSethDaniel/mason-tool-installer.nvim"}
   use { "nvimtools/none-ls.nvim" } -- for formatters and linters, replaces null-ls
 
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
+
 	-- Telescope
 	use { "nvim-telescope/telescope.nvim", tag = '0.1.4' }
   use { "nvim-lua/popup.nvim" }
@@ -104,7 +105,7 @@ return packer.startup(function(use)
 	}
 
   -- Git
-	use { "lewis6991/gitsigns.nvim", commit = "2c6f96dda47e55fa07052ce2e2141e8367cbaaf2" }
+	use { "lewis6991/gitsigns.nvim" }
 
   -- Go
   use 'ray-x/go.nvim'
@@ -123,13 +124,15 @@ return packer.startup(function(use)
   -- openai stuff
   use 'MunifTanjim/nui.nvim'
   use 'Bryley/neoai.nvim'
-  -- use 'aduros/ai.vim'
 
   -- copilot
   use 'github/copilot.vim'
 
   -- helm
   use 'towolf/vim-helm'
+
+  -- handlbars
+  use 'mustache/vim-mustache-handlebars'
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

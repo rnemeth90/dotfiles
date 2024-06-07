@@ -95,9 +95,18 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export GOPATH="$HOME/repos/golang"
 export GOBIN="$HOME/repos/golang/bin"
 
+# dotnet
+export DOTNET_ROOT="/usr/local/share/dotnet"
+
 # setup PATHs
-export PATH="/usr/local/share/dotnet:/opt/homebrew/bin:/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH"
+export PATH="/opt/homebrew/bin:/home/ryan/bin:$GOPATH/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH:$DOTNET_ROOT"
 for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
+
+NPM_PACKAGES="${HOME}/.npm-packages"
+export PATH="$PATH:$NPM_PACKAGES/bin"
+# Preserve MANPATH if you already defined it somewhere in your config.
+# Otherwise, fall back to `manpath` so we can inherit from `/etc/manpath`.
+export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # Kubernetes
 export KUBE_EDITOR=nvim
