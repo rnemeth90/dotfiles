@@ -78,8 +78,13 @@ return packer.startup(function(use)
 	use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
 	-- Snippets, required for cmp
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
-  use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
+  use({
+    "L3MON4D3/LuaSnip",
+    tag = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+    run = "make install_jsregexp",
+    dependencies = { "rafamadriz/friendly-snippets" },
+  })
+  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
 	-- LSP
 	use { "neovim/nvim-lspconfig" } -- enable LSP
