@@ -116,12 +116,9 @@ return packer.startup(function(use)
   use 'ray-x/go.nvim'
   use 'ray-x/guihua.lua' -- for floating window support
 
-  -- Markdown
-  -- use({
-  --     "iamcco/markdown-preview.nvim",
-  --     run = function() vim.fn["mkdp#util#install"]() end,
-  -- })
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  -- Markdown preview
+  -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use 'toppair/peek.nvim'
 
   -- scrolling
   use 'karb94/neoscroll.nvim'
