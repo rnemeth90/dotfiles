@@ -140,8 +140,11 @@ return packer.startup(function(use)
   -- helm
   use("towolf/vim-helm")
 
-  -- handlbars
+  -- handlebars
   use("mustache/vim-mustache-handlebars")
+
+  -- terraform
+  use("hashivim/vim-terraform")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
