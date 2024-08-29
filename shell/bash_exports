@@ -117,3 +117,5 @@ export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # suppress annoying zsh messages
 export BASH_SILENCE_DEPRECATION_WARNING=1# suppress annoying zsh messages
+
+export XDG_CONFIG_HOME="$HOME/.config"
