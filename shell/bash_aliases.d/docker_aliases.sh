@@ -2,6 +2,8 @@
 
 # docker aliases
 alias d=docker
+alias dps='docker ps'
+alias dpsa='docker ps -a'
 alias di='docker images'
 alias prune='docker system prune'
 alias pruneall='docker system prune --all --force'

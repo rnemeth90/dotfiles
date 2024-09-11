@@ -73,6 +73,9 @@ alias svnkdiff3='svn diff --diff-cmd kdiff3'
 # nvim
 alias n='nvim .'
 
+# watch
+alias watchh='watch '
+
 # perf-tools
 # inspired by https://github.com/orrsella/dotfiles/blob/master/bash/ssh/functions
 perf-tools() {
