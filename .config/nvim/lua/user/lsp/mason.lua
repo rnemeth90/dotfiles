@@ -4,7 +4,6 @@ local servers = {
   "cssls",
   "html",
   "gopls",
-  "tsserver",
   "pyright",
   "bashls",
   "jsonls",
@@ -16,7 +15,7 @@ local servers = {
   -- "csharp_ls",
   "golangci_lint_ls",
   "powershell_es",
-  "tsserver",
+  -- "tsserver",
   --"terraform-ls",
 }
 

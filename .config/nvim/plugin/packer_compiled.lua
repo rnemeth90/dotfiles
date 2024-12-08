@@ -331,6 +331,16 @@ _G.packer_plugins = {
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/vim-mustache-handlebars",
     url = "https://github.com/mustache/vim-mustache-handlebars"
   },
+  ["vim-terraform"] = {
+    loaded = true,
+    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/vim-terraform",
+    url = "https://github.com/hashivim/vim-terraform"
+  },
+  ["vim-tmux-navigator"] = {
+    loaded = true,
+    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/vim-tmux-navigator",
+    url = "https://github.com/christoomey/vim-tmux-navigator"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/which-key.nvim",
