@@ -151,4 +151,7 @@ return packer.startup(function(use)
   if PACKER_BOOTSTRAP then
     require("packer").sync()
   end
+
+  -- tmux
+  use("christoomey/vim-tmux-navigator")
 end)

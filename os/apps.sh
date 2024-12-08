@@ -135,6 +135,12 @@ install_man2html() {
     brew install man2html
 }
 
+install_tmux() {
+    print_in_purple "\n • Installing tmux and tpm \n\n"
+    brew install tmux
+    brew install tpm
+}
+
 main() {
     install_python
     install_wget
@@ -157,6 +163,7 @@ main() {
     install_circumflex
     install_tldr
     install_yq
+    install_tmux
 }
 
 main
