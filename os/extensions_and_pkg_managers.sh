@@ -3,17 +3,7 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-    . "$DOT/setup/utils.sh"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-install_snap() {
-    print_in_purple "\n • Installing snap\n\n"
-    brew install snapd
-    sudo ln -s /var/lib/snapd/snap /snap
-}
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    source "$DOT/utils/utils.sh"
 
 install_homebrew() {
     print_in_purple "\n • Installing Homebrew \n\n"

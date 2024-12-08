@@ -3,15 +3,10 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-  . "$DOT/setup/utils.sh"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  . "$DOT/utils/utils.sh"
 
 create_gitconfig_local() {
-
   declare -r FILE_PATH="$HOME/.gitconfig.local"
-
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   if [ ! -e "$FILE_PATH" ] || [ -z "$FILE_PATH" ]; then
 
@@ -30,11 +25,9 @@ create_gitconfig_local() {
   fi
 
   print_result $? "$FILE_PATH"
-
 }
 
 clone_repos() {
-
   declare -a reposToClone=(
     "git@github.com:rnemeth90/lfcs-notes"
     "git@github.com:rnemeth90/ComicBookInventoryApp.git"
@@ -56,8 +49,6 @@ clone_repos() {
 
   local i=""
   local target=""
-
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   if [ ! -e "$HOME/repos" ]; then
     echo "Creating $HOME/repos ..."
@@ -91,7 +82,6 @@ setup_golang_workdir() {
 }
 
 clone_golang_repos() {
-
   declare -a reposToClone=(
     "git@github.com:rnemeth90/go-test-web-server.git"
     "git@github.com:rnemeth90/go-password-generator.git"
@@ -121,8 +111,6 @@ clone_golang_repos() {
 
   local i=""
   local targetFile=""
-
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
   for i in "${reposToClone[@]}"; do
     target="$HOME/repos/golang/src/github.com/rnemeth90/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
