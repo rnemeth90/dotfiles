@@ -3,7 +3,7 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-    . "$DOT/setup/utils.sh"
+  source "$DOT/utils/utils.sh"
 
 create_symlinks() {
     declare -a FILES_TO_SYMLINK=(

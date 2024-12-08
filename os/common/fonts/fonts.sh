@@ -3,8 +3,8 @@
 declare DOT=$HOME/dotfiles
 
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
-    . "$DOT/setup/utils.sh"
-$()
+    . "$DOT/utils/utils.sh"
+
 install_fonts() {
     print_in_purple "\n • Install Fonts\n\n"
 

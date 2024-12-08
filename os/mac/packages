@@ -1,0 +1,83 @@
+# Homebrew taps
+tap "homebrew/bundle"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+
+# Finding, browsing & reading files
+brew "bat"
+brew "broot"
+brew "fd"
+brew "fzf"
+
+# Git & GitHub
+brew "gh"
+brew "grip"
+brew "lazygit"
+
+# DB stuff
+brew "pgcli"
+
+# Python version manager
+brew "pyenv"
+
+# Scripts
+brew "shellcheck"
+
+# Help
+brew "tldr"
+
+# Super important stuff
+brew "cmatrix"
+
+# Brew packages
+brew "azure-cli"
+brew "bash-completion"
+brew "circumflex"
+brew "dhcpdump"
+brew "docker"
+brew "dotnet-sdk"
+brew "figlet"
+brew "golang"
+brew "google-chrome"
+brew "helm"
+brew "htop"
+brew "hugo"
+brew "jq"
+brew "kubecolor"
+brew "kubetail"
+brew "kubectl"
+brew "luarocks"
+brew "man2html"
+brew "neofetch"
+brew "neovim"
+brew "node"
+brew "nmap"
+brew "openjdk@11"
+brew "php"
+brew "powershell"
+brew "python"
+brew "ranger"
+brew "ripgrep"
+brew "ruby"
+brew "speedtest-cli"
+brew "terraform"
+brew "thefuck"
+brew "tmux"
+brew "tor"
+brew "typescript"
+brew "virtualbox"
+brew "visual-studio-code"
+brew "vlc"
+brew "wireshark"
+brew "wget"
+brew "yq"
+
+# Casks for GUI apps (managed via brew)
+cask "google-chrome"
+cask "iterm2"
+cask "visual-studio-code"
+
+# Custom installations
+tap "golangci/tap"
+brew "golangci-lint"
