@@ -6,7 +6,7 @@
 cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find . -type f -iname "*.sh" -exec chmod +x {} \; && ./setup.sh
 ```
 
-        ## ❔ What does this do?
+## ❔ What does this do?
 
 These are the base "dotfiles" that I use for setting up a new freshly installed [**Linux Mint OS**] to my tastes. The goal of the setup.sh script is to basically setup everything the way I like. Broadly said it covers:
 
