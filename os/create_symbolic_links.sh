@@ -19,7 +19,6 @@ create_symlinks() {
         "shell/curlrc"
         "shell/inputrc"
         "git/gitconfig"
-        "git/gitignore"
         "golang/cobra.yaml"
         "conf"
     )
