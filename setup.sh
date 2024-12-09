@@ -10,20 +10,29 @@ init_setup() {
     sleep 5
 }
 
-install_package_manager() {
+shell_setup() {
+  print_in_purple "\n • create bash config \n\n"
+  ./os/create_local_shellconfig.sh
+  print_in_green "\n • bash config done! \n\n"
+  sleep 5
+}
+
+install_package_managers() {
   print_in_purple "\n • installing package managers \n\n"
   echo "...."
   print_in_purple "\n • finished installing package managers \n\n"
-}
-
-shell_setup() {
-  print_in_purple "\n • create bash config \n\n"
-  ./shell/create_local_shellconfig.sh
   sleep 5
-  print_in_green "\n • bash config done! \n\n"
 }
 
 install_packages() {
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+      OS="mac"
+  elif [[ -f /etc/debian_version ]]; then
+      OS="debian"
+  elif [[ -f /etc/arch-release ]]; then
+      OS="arch"
+  fi
+
   case "$OS" in
     mac)
         print_in_green "\n • Installing packages for Mac..."
@@ -46,6 +55,7 @@ install_packages() {
 }
 
 git_config() {
+
   print_in_purple "\n • create git config \n\n"
   ./git/create_local_gitconfig.sh
   print_in_green "\n • bash git done! \n\n"
@@ -71,7 +81,7 @@ main() {
   shell_setup
   install_packages
   git_config
-  create_and_set_github_ssh_key
+  # create_and_set_github_ssh_key
   install_fonts
 
   source ~/.bashrc

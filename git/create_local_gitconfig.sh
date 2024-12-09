@@ -7,6 +7,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
 
 create_gitconfig_local() {
   declare -r FILE_PATH="$HOME/.gitconfig.local"
+  user=$(whoami)
 
   if [ ! -e "$FILE_PATH" ] || [ -z "$FILE_PATH" ]; then
 
@@ -18,7 +19,7 @@ create_gitconfig_local() {
     [init]
       defaultBranch = main
     [user]
-      name = ryan nemeth
+      name = $user
       email = ryannemeth@live.com
     # signingkey =" \
       >>"$FILE_PATH"
@@ -28,6 +29,7 @@ create_gitconfig_local() {
 }
 
 clone_repos() {
+
   declare -a reposToClone=(
     "git@github.com:rnemeth90/lfcs-notes"
     "git@github.com:rnemeth90/ComicBookInventoryApp.git"
@@ -128,12 +130,15 @@ main() {
   print_in_purple "\n • Create local gitconfig file\n\n"
   create_gitconfig_local
 
-  print_in_purple "\n • Cloning repos\n\n"
-  clone_repos
+  ask_for_confirmation "Do you want to clone Ryan's repositories?"
+    if answer_is_yes; then
+      print_in_purple "\n • Cloning repos\n\n"
+      clone_repos
 
-  print_in_purple "\n • Setting up golang repos\n\n"
-  setup_golang_workdir
-  clone_golang_repos
+      print_in_purple "\n • Setting up golang repos\n\n"
+      setup_golang_workdir
+      clone_golang_repos
+    fi
 }
 
 main
