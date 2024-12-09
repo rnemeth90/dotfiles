@@ -1,4 +1,16 @@
 pycache
 *.pyc
 *.ignore.sh
+*.local
 passwords
+
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+.DS_Store
+*~
+*.swp
+
+work_aliases.sh

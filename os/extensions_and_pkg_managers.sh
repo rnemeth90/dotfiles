@@ -6,36 +6,52 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
     source "$DOT/utils/utils.sh"
 
 install_homebrew() {
-    print_in_purple "\n • Installing Homebrew \n\n"
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    if ! command -v brew >/dev/null 2>&1; then
+        print_in_purple "\n • Installing Homebrew \n\n"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+        print_in_green "\n • Homebrew is already installed. Skipping...\n\n"
+    fi
 }
 
 install_nvm_node_yarn() {
-    print_in_purple "\n • Installing nvm, node and yarn. Use node LTS as default.\n\n"
-    curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-    source ~/.bashrc
-    nvm install --lts
-    nvm use --lts
-    source ~/.bashrc
-    npm install --global yarn
+    if ! command -v nvm >/dev/null 2>&1; then
+        print_in_purple "\n • Installing NVM, Node.js, and Yarn. Setting Node LTS as default.\n\n"
+        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+        source ~/.bashrc
+        nvm install --lts
+        nvm use --lts
+        npm install --global yarn
+    else
+        print_in_green "\n • NVM is already installed. Skipping...\n\n"
+    fi
 }
 
 install_npm() {
-    print_in_purple "\n • Installing npm \n\n"
-    brew install npm
+    if ! command -v npm >/dev/null 2>&1; then
+        print_in_purple "\n • Installing npm \n\n"
+        brew install npm
+    else
+        print_in_green "\n • npm is already installed. Skipping...\n\n"
+    fi
 }
 
 install_cargo() {
-    print_in_purple "\n Installing cargo  \n\n"
-    curl https://sh.rustup.rs -sSf | sh -s -- -y
+    if ! command -v cargo >/dev/null 2>&1; then
+        print_in_purple "\n • Installing Rust and Cargo \n\n"
+        curl https://sh.rustup.rs -sSf | sh -s -- -y
+    else
+        print_in_green "\n • Cargo is already installed. Skipping...\n\n"
+    fi
 }
 
 main() {
     install_homebrew
     install_npm
-    install_snap
     install_nvm_node_yarn
     install_cargo
+
+    print_in_green "\n • All installations completed successfully! \n\n"
 }
 
 main

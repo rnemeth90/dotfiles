@@ -1,37 +1,87 @@
-# rnemeth90's dotfiles
+# rnemeth90's Dotfiles
+
+A collection of configuration files and setup scripts for quickly customizing a freshly installed operating system. These dotfiles support **Linux Mint**, **Debian-based distributions**, **Arch Linux**, and **macOS**.
 
 ## 🔨 Full Setup
 
-```
+Run the following command to clone the repository and start the setup:
+
+```bash
 cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find . -type f -iname "*.sh" -exec chmod +x {} \; && ./setup.sh
 ```
 
-## ❔ What does this do?
+## ❔ What Does This Do?
 
-These are the base "dotfiles" that I use for setting up a new freshly installed [**Linux Mint OS**] to my tastes. The goal of the setup.sh script is to basically setup everything the way I like. Broadly said it covers:
+The [setup.sh](./setup.sh) script covers a variety of tasks to set up my environment:
 
-- initial updates
-- installing some basic gnome extensions, linux package managers (snap+flatpak) and development related package managers (homebrew, nvm+node)
-- installing dev packages - from a Brewfile and with dnf or yum
-- installing applications
-- install Oh My Bash
-- edits some settings and keyboard shortcuts
-- creates bash and git config files + sets up an SSH key for Github
+- System Updates:
+  - Installs all available updates for the detected operating system.
+- Multi-OS Package Managers:
+  - Automatically detects the OS and installs the appropriate package manager:
+  - Linux Mint / Debian: apt
+  - Arch Linux: pacman
+  - macOS: brew
+  - Additionally, installs Snap, Flatpak, and NVM (Node Version Manager).
+- Development Packages:
+  - Installs tools like git, curl, vim, and more, using a Brewfile or the system’s package manager.
+- Applications:
+  - Installs essential applications like tldr, docker, and development tools.
+- Configuration:
+  - Creates .bash.local and .gitconfig.local for environment-specific overrides.
+- Git Setup:
+  - Creates an SSH key and configures Git for use with GitHub.
 
-More specific local needs/overrides for bash + git can be configured by using the
-.bash.local and .gitconfig.local files (created during setup).
+## ✨ Key Features
 
-If you want to use this or parts of it, you should naturally go through the files and see if it makes any sense for you. Personally I worked on this using virtual machines so that's always an option if you want to test it out or try modifying it.
+- Multi-OS Support:
+  - Automatically adapts to the detected operating system, ensuring seamless setup across Linux Mint, Debian-based, Arch Linux, and macOS.
+- Custom Bash Setup:
+  - Includes aliases, exports, and prompt customizations.
+- Git Configuration:
+  - Automatically sets up a Git user, default branch, and GPG signing.
+- Go Workspace:
+  - Creates a Go workspace ($HOME/repos/golang) and clones my Go projects.
+- Repository Cloning:
+  - Clones all my personal GitHub repositories into $HOME/repos.
 
-### 💰 Credits
+## 🛠️ Prerequisites
 
-I took a lot of my initial inspiration from these two repos:
+Before running the setup, ensure the following tools are installed:
 
-https://github.com/alrra/dotfiles (for MacOS or Ubuntu)
+- `git`
+- `curl`
+- `bash`
 
-https://github.com/ruohola/dotfiles (for MacOS)
+## 🔧 Customization
 
-## TO DO:
-- [ ] edit settings in `/etc/default/grub`
-- [ ] thefuck install is not currently working
-- [x] install tldr https://tldr.sh/
+`.bash.local`
+
+This file is created during setup and can be used to define environment-specific configurations. Example:
+
+```
+# Add custom paths
+export PATH="$HOME/custom/bin:$PATH"
+
+# Define environment variables
+export EDITOR="vim"
+```
+
+`.gitconfig.local`
+
+Configure Git settings like username, email, and signing key:
+
+    ```
+    [user]
+      name = John Doe
+      email = john.doe@example.com
+    [commit]
+      gpgsign = true
+    ```
+
+### TO DO:
+
+- Edit settings in /etc/default/grub (e.g., bootloader options).
+- Fix thefuck installation issue.
+- Add support for tldr installation (done).
+
+Test it out and customize it to fit your needs. If you’re not sure, _consider trying it in a virtual machine first!_
