@@ -22,7 +22,7 @@ source_bash_files() {
     local i=""
 
     cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" \
-        && . "$DOT/setup/utils.sh"
+        && . "$DOT/utils/utils.sh"
 
     # shellcheck disable=SC2034
     declare -r OS="$(get_os)"
