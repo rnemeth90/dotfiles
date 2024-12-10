@@ -19,7 +19,7 @@ shell_setup() {
 
 install_package_managers() {
   print_in_green "\n • installing package managers \n\n"
-  echo "...."
+  ./os/extensions_and_pkg_managers.sh
   print_in_green "\n • finished installing package managers \n\n"
   sleep 5
 }
@@ -74,6 +74,18 @@ install_fonts() {
   sleep 5
 }
 
+everything_else() {
+  print_in_green "\n • installing everything else \n\n"
+  ./os/common/go.sh
+  ./os/common/cargo.sh
+  ./os/common/manual.sh
+  ./os/common/npm.sh
+  ./os/common/pip.sh
+  print_in_green "\n finished installing everything else \n\n"
+  sleep 5
+
+}
+
 main() {
   init_setup
   install_package_managers
@@ -82,6 +94,7 @@ main() {
   git_config
   # create_and_set_github_ssh_key
   install_fonts
+  everything_else
 
   source ~/.bashrc
   print_in_green "\n • All done! Remember to set your fonts with lxappearance! \n"
