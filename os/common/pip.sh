@@ -43,6 +43,7 @@ main() {
       requests
       mypy
       numpy
+      thefuck
   )
 
   install_pip_packages "${packages[@]}"

@@ -1,47 +1,98 @@
-azure-cli
-bash-completion
-circumflex
-dhcpdump
-docker
-dotnet-sdk
-fd-find
-figlet
-gh
-gnupg
-golang
-gopls
-google-chrome-stable
-helm
-htop
-hugo
-jq
-julia
-kubecolor
-kubetail
-kubectl
-luarocks
-man2html
-neofetch
-neovim
-node
-nmap
-openjdk@11
-php
-powershell
-python
-ranger
-ripgrep
-rubygems
-rust
-speedtest-cli
-terraform
-thefuck
-tmux
-tor
-typescript
-virtualbox
-visual-studio-code
-vlc
-wireshark
-wget
-yq
+# Version Control
+git             # Version control system
+
+# Text Editors and Tools
+neovim          # Modern text editor
+ranger          # Terminal-based directory browser
+tmux            # Terminal multiplexer
+wget            # Download files from the web
+
+# CLI Power Basics
+aria2           # Resuming download utility (better wget)
+bat             # Output highlighting (better cat)
+broot           # Interactive directory navigation
+ctags           # Indexing of file info and headers
+diff-so-fancy   # Readable file comparisons (better diff)
+duf             # Disk usage and mounted disks info (better df)
+exa             # Enhanced file listing (better ls)
+fzf             # Fuzzy file finder and filtering
+hyperfine       # Benchmarking tool for arbitrary commands
+just            # Command runner and task automation (better make)
+jq              # JSON parser and query tool
+most            # Multi-window scroll pager (better less)
+procs           # Modern process viewer (better ps)
+ripgrep         # Fast text searching within files (better grep)
+scrot           # Screenshot tool via CLI
+sd              # RegEx find and replace (better sed)
+tealdeer        # Simplified and faster man pages
+thefuck         # Auto-correct miss-typed commands
+tree            # Directory tree visualization
+tokei           # Code line counter (better cloc)
+trash-cli       # Command line trash and restore tool
+xsel            # X clipboard copy-paste tool
+zoxide          # Fast directory navigation (better cd)
+
+# Development and Languages
+go              # Go programming language
+rustup          # Rust programming language installer
+python-pip      # Python package manager
+nodejs          # JavaScript runtime
+npm             # Node.js package manager
+crystal         # Crystal programming language
+shards          # Package manager for Crystal
+
+# Security Utilities
+clamav          # Open-source antivirus
+cryptsetup      # Encrypted volume management
+gnupg           # PGP encryption and signing
+git-crypt       # Transparent encryption for git repositories
+lynis           # Security auditing tool
+openssl         # Cryptography and SSL/TLS toolkit
+rkhunter        # Rootkit detection utility
+
+# Monitoring and Management
+btop            # Resource monitoring with UI
+bmon            # Bandwidth utilization monitor
+ctop            # Metrics for containerized applications
+gping           # Interactive ping tool with graphs
+glances         # Comprehensive resource monitor
+goaccess        # Web log analyzer and viewer
+speedtest-cli   # Network speed test utility
+
+# CLI Fun
+cowsay          # ASCII art cow that displays messages
+figlet          # ASCII text as 3D word art
+lolcat          # Rainbow-colored terminal output
+neofetch        # System information display
+
+# Additional Tools
+azure-cli       # Azure command-line interface
+bash-completion # Command completion for Bash
+circumflex      # Terminal enhancement tools
+dhcpdump        # DHCP packet analysis tool
+docker          # Container management
+dotnet-sdk      # .NET SDK
+fd-find         # Simple and fast file search (fd)
+gh              # GitHub command-line interface
+gopls           # Go language server
+helm            # Kubernetes package manager
+htop            # Interactive process viewer
+hugo            # Static site generator
+julia           # Julia programming language
+kubecolor       # Enhanced Kubernetes CLI output
+kubetail        # Kubernetes log tailing utility
+kubectl         # Kubernetes command-line tool
+luarocks        # Lua package manager
+man2html        # Convert man pages to HTML
+openjdk         # Java runtime environment
+php             # PHP programming language
+powershell      # Microsoft PowerShell
+rubygems        # Ruby package manager
+terraform       # Infrastructure as code tool
+typescript      # TypeScript language support
+virtualbox      # Virtualization platform
+visual-studio-code # Code editor
+vlc             # Media player
+wireshark       # Network protocol analyzer
+yq              # YAML parser and query tool
+
