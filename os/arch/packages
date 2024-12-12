@@ -1,13 +1,16 @@
 # Version Control
 git             # Version control system
 
+# Terminals
+alacritty 
+
 # Text Editors and Tools
 neovim          # Modern text editor
 ranger          # Terminal-based directory browser
 tmux            # Terminal multiplexer
 wget            # Download files from the web
 
-# CLI Power Basics
+# CLI tools
 aria2           # Resuming download utility (better wget)
 bat             # Output highlighting (better cat)
 broot           # Interactive directory navigation

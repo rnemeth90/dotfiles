@@ -43,7 +43,7 @@ local kind_icons = {
   Operator = "",
   TypeParameter = "",
 }
--- find more here: https://www.nerdfonts.com/cheat-sheet
+-- find more here: https://www.nerdfonts.com/cheats-sheet
 
 cmp.setup({
   -- snippet engine to use
@@ -52,19 +52,21 @@ cmp.setup({
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
+  
   mapping = { -- keymaps for cmp
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
-    ["<C-s>"] = cmp.mapping(cmp.mapping.complete({
-      config = {
-        sources = {
-          { name = "luasnip" },
-        },
-      },
-    })),
-    -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    -- ctrl + space does not work...
+    -- ["<S-s"] = cmp.mapping(cmp.mapping.complete({
+    -- config = {
+    --   sources = {
+    --     { name = "luasnip" },
+    --     },
+    --   },
+    -- })),
+    ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
     ["<C-e>"] = cmp.mapping({
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),

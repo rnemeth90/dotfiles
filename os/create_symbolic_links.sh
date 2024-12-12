@@ -58,6 +58,7 @@ create_symlinks() {
 
 create_config_symlinks() {
     declare -a FILES_TO_SYMLINK=(
+        ".config/alacritty"
         ".config/autostart"
         ".config/terminator"
         ".config/plank"
