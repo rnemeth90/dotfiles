@@ -76,8 +76,10 @@ brew "yq"
 # Casks for GUI apps (managed via brew)
 cask "google-chrome"
 cask "iterm2"
+cask "alacritty"
 cask "visual-studio-code"
 
 # Custom installations
 tap "golangci/tap"
 brew "golangci-lint"
+
