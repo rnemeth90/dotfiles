@@ -38,7 +38,7 @@ def get_namespace_status(namespace):
 
 def prompt_delete(namespace):
     if DELETE_FLAG:
-        decision = raw_input("Do you want to remove finalizers and delete namespace {}? [y/N]: ".format(namespace))
+        decision = input("Do you want to remove finalizers and delete namespace {}? [y/N]: ".format(namespace))
         if decision.lower() == "y":
             namespace_status = get_namespace_status(namespace)
             print("Status: {}".format(namespace_status))

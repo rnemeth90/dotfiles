@@ -10,6 +10,13 @@ end
 
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.api.nvim_set_keymap(
+  "n",                             -- Normal mode
+  "<leader>e",                     -- Leader key + 'e'
+  ":NvimTreeToggle<CR>",           -- Command to toggle `nvim-tree`
+  { noremap = true, silent = true } -- Options
+)
+
 nvim_tree.setup({
   disable_netrw = true,
   hijack_netrw = true,
@@ -61,7 +68,7 @@ nvim_tree.setup({
     },
   },
   view = {
-    width = 30,
+    width = 25,
     side = "left",
     mappings = {
       list = {

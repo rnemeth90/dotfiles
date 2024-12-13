@@ -63,7 +63,6 @@ return packer.startup(function(use)
   use({ "mfussenegger/nvim-dap" })
   use({ "theHamsta/nvim-dap-virtual-text" })
   use({ "rcarriga/nvim-dap-ui" })
-  use({ "folke/neodev.nvim" })
 
   -- Colorschemes
   use({ "folke/tokyonight.nvim", commit = "66bfc2e8f754869c7b651f3f47a2ee56ae557764" })

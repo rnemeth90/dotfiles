@@ -44,9 +44,18 @@ install_packages() {
         sudo apt update && sudo apt install -y $(cat ./os/debian/packages)
         ;;
     arch)
-        print_in_green "\n • Installing packages for Arch..."
-        sudo pacman -Syu --noconfirm
-        sudo pacman -S --needed --noconfirm $(cat ./os/arch/packages)
+        print_in_green "\n • Installing packages for Arch (Pacman)..."
+        if ! sudo pacman -Syu --noconfirm && sudo pacman -S --needed --noconfirm $(cat ./os/arch/packages); then
+            print_in_yellow "\n • Pacman installation failed. Falling back to yay..."
+            if ! command -v yay &>/dev/null; then
+                print_in_green "\n • Installing yay..."
+                git clone https://aur.archlinux.org/yay.git /usr/bin/local/yay
+                cd /usr/bin/local/yay || exit 1
+                makepkg -si --noconfirm
+                cd - || exit 1
+            fi
+            yay -Syu --noconfirm && yay -S --needed --noconfirm $(cat ./os/arch/packages)
+        fi
         ;;
   esac
 
