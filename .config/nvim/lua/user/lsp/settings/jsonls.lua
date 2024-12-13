@@ -1,3 +1,5 @@
+-- https://www.schemastore.org/json/
+
 local default_schemas = nil
 local status_ok, jsonls_settings = pcall(require, "nlspsettings.jsonls")
 if status_ok then
@@ -98,7 +100,8 @@ local schemas = {
     url = "https://json.schemastore.org/commands.json",
   },
   {
-    description = "AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment.",
+    description =
+    "AWS CloudFormation provides a common language for you to describe and provision all the infrastructure resources in your cloud environment.",
     fileMatch = {
       "*.cf.json",
       "cloudformation.json",
@@ -106,7 +109,8 @@ local schemas = {
     url = "https://raw.githubusercontent.com/awslabs/goformation/v5.2.9/schema/cloudformation.schema.json",
   },
   {
-    description = "The AWS Serverless Application Model (AWS SAM, previously known as Project Flourish) extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application.",
+    description =
+    "The AWS Serverless Application Model (AWS SAM, previously known as Project Flourish) extends AWS CloudFormation to provide a simplified way of defining the Amazon API Gateway APIs, AWS Lambda functions, and Amazon DynamoDB tables needed by your serverless application.",
     fileMatch = {
       "serverless.template",
       "*.sam.json",
@@ -168,9 +172,9 @@ local schemas = {
   },
   {
     description = "Azure Pipeline",
-    fileMatch = { "azpipe.json"},
-    url = "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json"
-  }
+    fileMatch = { "azpipe.json", "pipeline.json", "deploy.json", "build.json" },
+    url = "https://raw.githubusercontent.com/microsoft/azure-pipelines-vscode/master/service-schema.json",
+  },
 }
 
 local function extend(tab1, tab2)
@@ -192,7 +196,7 @@ local opts = {
     commands = {
       Format = {
         function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line "$", 0 })
+          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
         end,
       },
     },
