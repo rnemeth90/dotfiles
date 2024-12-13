@@ -201,11 +201,6 @@ _G.packer_plugins = {
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/neoai.nvim",
     url = "https://github.com/Bryley/neoai.nvim"
   },
-  ["neodev.nvim"] = {
-    loaded = true,
-    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/neodev.nvim",
-    url = "https://github.com/folke/neodev.nvim"
-  },
   ["neoscroll.nvim"] = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/neoscroll.nvim",
