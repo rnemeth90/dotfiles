@@ -3,48 +3,53 @@ if not status_ok then
   return
 end
 
-telescope.load_extension("media_files")
-telescope.load_extension("file_browser")
-
 local actions = require("telescope.actions")
 
 telescope.setup({
   defaults = {
-
-    prompt_prefix = " ",
+    prompt_prefix = "🔍 ",
     selection_caret = " ",
     path_display = { "smart" },
 
-    pickers = {
-      -- Default configuration for builtin pickers goes here:
-      -- picker_name = {
-      --   picker_config_key = value,
-      --   ...
-      -- }
-      -- Now the picker_config_key will be applied every time you call this
-      -- builtin picker
-      find_files = {
-        hidden = true,
+    mappings = {
+      i = {
+        ["<C-n>"] = actions.move_selection_next,
+        ["<C-p>"] = actions.move_selection_previous,
+        ["<C-c>"] = actions.close,
       },
-    },
-    extensions = {
-      -- Your extension configuration goes here:
-      -- extension_name = {
-      --   extension_config_key = value,
-      -- }
-      -- please take a look at the readme of the extension you want to configure
-      media_files = {
-        -- filetypes whitelist
-        -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-        filetypes = { "png", "webp", "jpg", "jpeg" },
-        -- find command (defaults to `fd`)
-        find_cmd = "rg",
-      },
-      file_browser = {
-        theme = "ivy",
-        -- disables netrw and use telescope-file-browser in its place
-        hijack_netrw = true,
+      n = {
+        ["q"] = actions.close,
       },
     },
   },
+
+  pickers = {
+    find_files = {
+      -- find_command = {
+      --   "rg",        -- Use ripgrep
+      --   "--files",   -- List files
+      --   "--hidden",  -- Show hidden files
+      --   "--glob",
+      --   "!**/.git/*", -- Exclude `.git` directory
+      -- },
+      theme = "ivy", -- Apply ivy theme
+      hidden = true, -- Show hidden files
+      no_ignore = true, -- Include ignored files
+    },
+  },
+
+  extensions = {
+    media_files = {
+      filetypes = { "png", "webp", "jpg", "jpeg" },
+      find_cmd = "rg",
+    },
+    file_browser = {
+      theme = "ivy",
+      hijack_netrw = false,
+    },
+  },
 })
+
+-- Load extensions after setup
+telescope.load_extension("media_files")
+telescope.load_extension("file_browser")
