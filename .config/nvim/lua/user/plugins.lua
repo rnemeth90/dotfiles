@@ -88,16 +88,16 @@ return packer.startup(function(use)
   use({ "rafamadriz/friendly-snippets" }) -- a bunch of snippets to use
 
   -- LSP
-  use({ "neovim/nvim-lspconfig" })  -- enable LSP
-  use({ "williamboman/mason.nvim" }) -- simple to use language server installer
-  use({ "williamboman/mason-lspconfig.nvim" })
+  use({ "neovim/nvim-lspconfig" })            -- enable LSP
+  use({ "williamboman/mason.nvim" })          -- simple to use language server installer
+  use({ "williamboman/mason-lspconfig.nvim" }) -- convert lsp names to mason names
   use({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
-  use({ "nvimtools/none-ls.nvim" }) -- for formatters and linters, replaces null-ls
+  use({ "nvimtools/none-ls.nvim" })           -- for formatters and linters, replaces null-ls
 
   use({ "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" })
 
   -- Telescope
-  use({ "nvim-telescope/telescope.nvim", tag = "0.1.4" })
+  use({ "nvim-telescope/telescope.nvim" })
   use({ "nvim-lua/popup.nvim" })
   use({ "nvim-telescope/telescope-media-files.nvim" })
   use({

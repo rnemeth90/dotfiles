@@ -3,6 +3,7 @@ local servers = {
   "lua_ls",
   "cssls",
   "html",
+  "clangd",
   "gopls",
   "pyright",
   "bashls",

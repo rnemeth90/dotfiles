@@ -3,9 +3,9 @@ require("user.plugins")
 require("user.colorscheme")
 require("user.cmp")
 require("user.lsp")
+require("user.telescope")
 
 require("user.luasnip")
-require("user.telescope")
 require("user.gitsigns")
 require("user.treesitter")
 require("user.autopairs")
@@ -26,4 +26,5 @@ require("user.go")
 require("user.nvim-dap-virtual-text")
 require("user.terraform")
 
+-- Always load keymaps last
 require("user.keymaps")

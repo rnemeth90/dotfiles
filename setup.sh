@@ -13,8 +13,8 @@ init_setup() {
 
 shell_setup() {
   print_in_green "\n • create bash config \n\n"
-  ./os/create_local_shellconfig.sh
-  print_in_green "\n • bash config done! \n\n"
+  ./os/create_local_shel.sh
+  print_in_green "\n • bash done! \n\n"
   sleep 5
 }
 
