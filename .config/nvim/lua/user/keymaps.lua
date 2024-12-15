@@ -266,6 +266,37 @@ keymap(
 -- LSP Keymaps
 local M = {}
 
+-- Gitsigns Keymaps
+keymap("n", "]c", function()
+  if vim.wo.diff then
+    return "]c"
+  end
+  vim.schedule(function()
+    require("gitsigns").next_hunk()
+  end)
+  return "<Ignore>"
+end, "Next hunk")
+
+keymap("n", "[c", function()
+  if vim.wo.diff then
+    return "[c"
+  end
+  vim.schedule(function()
+    require("gitsigns").prev_hunk()
+  end)
+  return "<Ignore>"
+end, "Previous hunk")
+
+keymap("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>", "Stage hunk")
+keymap("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk")
+keymap("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>", "Stage buffer")
+keymap("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk")
+keymap("n", "<leader>hp", ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk")
+keymap("n", "<leader>hb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle blame")
+keymap("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>", "View diff")
+keymap("n", "<leader>hD", ":lua require('gitsigns').diffthis('~')<CR>", "View diff (HEAD~)")
+keymap("n", "<leader>ht", ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle deleted lines")
+
 -- Function to set LSP-specific keymaps
 M.lsp_keymaps = function(bufnr)
   local opts = { noremap = true, silent = true }
