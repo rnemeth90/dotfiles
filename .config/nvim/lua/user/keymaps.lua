@@ -121,10 +121,6 @@ keymap("n", "<leader>gf", "vim.lsp.buf.format", "", opts)
 --------------------
 
 -- Telescope
--- keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)  -- Find files
--- keymap("n", "<leader>fg", ":Telescope live_grep<CR>", opts)   -- Live grep
--- keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)     -- Buffers
--- keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)   -- Help tags
 keymap("n", "<leader>g", ":Telescope file_browser<CR>", "", opts)                             -- open telescope file browser
 keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", "", opts) -- Find files
 keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", "", opts)  -- Live grep

@@ -25,16 +25,16 @@ telescope.setup({
 
   pickers = {
     find_files = {
-      -- find_command = {
-      --   "rg",        -- Use ripgrep
-      --   "--files",   -- List files
-      --   "--hidden",  -- Show hidden files
-      --   "--glob",
-      --   "!**/.git/*", -- Exclude `.git` directory
-      -- },
+      find_command = {
+        "rg",     -- Use ripgrep
+        "--files", -- List files
+        "--hidden", -- Show hidden files
+        "--glob",
+        "!**/.git/*", -- Exclude `.git` directory
+      },
       theme = "ivy", -- Apply ivy theme
-      hidden = true, -- Show hidden files
-      no_ignore = true, -- Include ignored files
+      -- hidden = true, -- Show hidden files
+      -- no_ignore = true, -- Include ignored files
     },
   },
 

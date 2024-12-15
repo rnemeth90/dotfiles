@@ -6,6 +6,7 @@ require("user.lsp")
 require("user.telescope")
 
 require("user.luasnip")
+
 require("user.gitsigns")
 require("user.treesitter")
 require("user.autopairs")
@@ -25,6 +26,6 @@ require("user.neoscroll")
 require("user.go")
 require("user.nvim-dap-virtual-text")
 require("user.terraform")
-
+--
 -- Always load keymaps last
 require("user.keymaps")
