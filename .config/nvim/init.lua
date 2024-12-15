@@ -4,11 +4,10 @@ require("user.colorscheme")
 require("user.cmp")
 require("user.lsp")
 require("user.telescope")
-
 require("user.luasnip")
-
 require("user.gitsigns")
 require("user.treesitter")
+
 require("user.autopairs")
 require("user.neoai")
 require("user.comment")

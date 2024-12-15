@@ -71,12 +71,12 @@ return packer.startup(function(use)
   use({ "catppuccin/nvim", as = "catppuccin" })
 
   -- Completions
-  use({ "hrsh7th/nvim-cmp" })                                                             -- The completion plugin
-  use({ "hrsh7th/cmp-buffer" })                                                           -- buffer completions
-  use({ "hrsh7th/cmp-path" })                                                             -- path completions
-  use({ "hrsh7th/cmp-nvim-lsp" })                                                         -- completions for lsp
-  use({ "hrsh7th/cmp-nvim-lua" })                                                         -- completions for lua
-  use({ "saadparwaiz1/cmp_luasnip", commit = "a9de941bcbda508d0a45d28ae366bb3f08db2e36" }) -- snippet completions
+  use({ "hrsh7th/nvim-cmp" })        -- The completion plugin
+  use({ "hrsh7th/cmp-buffer" })      -- buffer completions
+  use({ "hrsh7th/cmp-path" })        -- path completions
+  use({ "hrsh7th/cmp-nvim-lsp" })    -- completions for lsp
+  use({ "hrsh7th/cmp-nvim-lua" })    -- completions for lua
+  use({ "saadparwaiz1/cmp_luasnip" }) -- snippet completions
 
   -- Snippets, required for cmp (completions)
   use({
@@ -106,9 +106,9 @@ return packer.startup(function(use)
   })
 
   -- Treesitter
-  use({
-    "nvim-treesitter/nvim-treesitter",
-  })
+  use("nvim-treesitter/nvim-treesitter")
+  use("nvim-treesitter/nvim-treesitter-textobjects")
+  use("p00f/nvim-ts-rainbow")
 
   -- Git
   use({ "lewis6991/gitsigns.nvim" })
