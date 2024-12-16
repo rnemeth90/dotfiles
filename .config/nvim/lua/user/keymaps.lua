@@ -8,16 +8,6 @@ local luasnip = require("luasnip")
 -- Options
 local opts = { noremap = true, silent = true }
 
--- ToggleTerm Keymaps
-local Terminal = require("toggleterm.terminal").Terminal
-
--- ToggleTerm Custom terminal toggles
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-local node = Terminal:new({ cmd = "node", hidden = true })
-local ncdu = Terminal:new({ cmd = "ncdu", hidden = true })
-local htop = Terminal:new({ cmd = "htop", hidden = true })
-local python = Terminal:new({ cmd = "python", hidden = true })
-
 -- Custom Keymap Function
 local function keymap(mode, lhs, rhs, desc, opts)
   -- Ensure opts is always a table

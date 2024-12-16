@@ -120,3 +120,5 @@ export BASH_SILENCE_DEPRECATION_WARNING=1# suppress annoying zsh messages
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
+
+export SHELL="/bin/bash"

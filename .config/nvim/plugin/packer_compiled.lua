@@ -159,11 +159,6 @@ _G.packer_plugins = {
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/guihua.lua",
     url = "https://github.com/ray-x/guihua.lua"
   },
-  ["impatient.nvim"] = {
-    loaded = true,
-    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/impatient.nvim",
-    url = "https://github.com/lewis6991/impatient.nvim"
-  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -291,11 +286,6 @@ _G.packer_plugins = {
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
-  ["project.nvim"] = {
-    loaded = true,
-    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/project.nvim",
-    url = "https://github.com/ahmedkhalf/project.nvim"
-  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -310,11 +300,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["toggleterm.nvim"] = {
-    loaded = true,
-    path = "/Users/Ryan.Nemeth/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["tokyonight.nvim"] = {
     loaded = true,
