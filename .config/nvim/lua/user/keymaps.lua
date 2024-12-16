@@ -23,12 +23,12 @@ local function keymap(mode, lhs, rhs, desc, opts)
       },
     })
 
-    -- Register with which-key
-    if desc and desc ~= "" then
-      require("which-key").register({
-        [lhs] = { desc },
-      }, { mode = mode })
-    end
+    -- -- Register with which-key
+    -- if desc and desc ~= "" then
+    --   require("which-key").register({
+    --     [lhs] = { desc },
+    --   }, { mode = mode })
+    -- end
     return -- Exit early for cmp.mapping
   end
 
@@ -47,11 +47,11 @@ local function keymap(mode, lhs, rhs, desc, opts)
   vim.api.nvim_set_keymap(mode, lhs, type(rhs) == "string" and rhs or "", options)
 
   -- Register with which-key if description is provided
-  if desc and desc ~= "" then
-    require("which-key").register({
-      [lhs] = { desc },
-    }, { mode = mode })
-  end
+  -- if desc and desc ~= "" then
+  --   require("which-key").register({
+  --     [lhs] = { desc },
+  --   }, { mode = mode })
+  -- end
 end
 
 --------------------
