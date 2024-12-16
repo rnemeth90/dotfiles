@@ -37,7 +37,7 @@ main() {
     install_go_tool "github.com/hidetatz/kubecolor/cmd/kubecolor@latest" "kubecolor"
     install_go_tool "github.com/spf13/cobra-cli@latest" "cobra-cli"
     install_go_tool "github.com/gohugoio/hugo@latest" "hugo"
-
+    install_go_tool "golang.stackrox.io/kube-linter/cmd/kube-linter@latest" "kube-linter"
 }
 
 main

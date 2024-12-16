@@ -61,6 +61,7 @@ gping           # Interactive ping tool with graphs
 glances         # Comprehensive resource monitor
 goaccess        # Web log analyzer and viewer
 speedtest-cli   # Network speed test utility
+power-profiles-daemon # Power management
 
 # CLI Fun
 cowsay          # ASCII art cow that displays messages
@@ -78,6 +79,7 @@ dotnet-sdk      # .NET SDK
 fd-find         # Simple and fast file search (fd)
 gh              # GitHub command-line interface
 gopls           # Go language server
+grub            # boot loader
 helm            # Kubernetes package manager
 htop            # Interactive process viewer
 hugo            # Static site generator
