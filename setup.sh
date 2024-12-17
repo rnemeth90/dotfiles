@@ -13,7 +13,7 @@ init_setup() {
 
 shell_setup() {
   print_in_green "\n • create bash config \n\n"
-  ./os/create_local_shel.sh
+  ./os/create_local_shellconfig.sh
   print_in_green "\n • bash done! \n\n"
   sleep 5
 }
@@ -23,6 +23,25 @@ install_package_managers() {
   ./os/extensions_and_pkg_managers.sh
   print_in_green "\n • finished installing package managers \n\n"
   sleep 5
+}
+
+install_packages_arch() {
+    local packages=("$@")
+
+    for pkg in "${packages[@]}"; do
+        echo "Installing package: $pkg"
+
+        if sudo pacman -S --noconfirm --needed "$pkg"; then
+            echo "✅ Successfully installed $pkg with pacman."
+        else
+            echo "⚠️ Failed to install $pkg with pacman. Trying yay..."
+            if yay -S --noconfirm --needed "$pkg"; then
+                echo "✅ Successfully installed $pkg with yay."
+            else
+                echo "❌ Failed to install $pkg with both pacman and yay."
+            fi
+        fi
+    done
 }
 
 install_packages() {
@@ -37,26 +56,16 @@ install_packages() {
   case "$OS" in
   mac)
     print_in_green "\n • Installing packages for Mac..."
-    brew install $(cat ./os/mac/packages)
+    brew install $(cat ~/dotfiles/os/mac/packages)
     sleep 5
     ;;
   debian)
     print_in_green "\n • Installing packages for Debian..."
-    sudo apt update && sudo apt install -y $(cat ./os/debian/packages)
+    sudo apt update && sudo apt install -y $(cat ~/dotfiles/os/debian/packages)
     ;;
   arch)
     print_in_green "\n • Installing packages for Arch (Pacman)..."
-    if ! sudo pacman -Syu --noconfirm && sudo pacman -S --needed --noconfirm $(cat ./os/arch/packages); then
-      print_in_yellow "\n • Pacman installation failed. Falling back to yay..."
-      if ! command -v yay &>/dev/null; then
-        print_in_green "\n • Installing yay..."
-        git clone https://aur.archlinux.org/yay.git /usr/bin/local/yay
-        cd /usr/bin/local/yay || exit 1
-        makepkg -si --noconfirm
-        cd - || exit 1
-      fi
-      yay -Syu --noconfirm && yay -S --needed --noconfirm $(cat ./os/arch/packages)
-    fi
+    install_packages_arch $(cat ~/dotfiles/os/arch/packages)
     ;;
   esac
 
@@ -79,7 +88,7 @@ create_and_set_github_ssh_key() {
 
 install_fonts() {
   print_in_green "\n • installing fonts \n\n"
-  ./os/fonts/fonts.sh
+  ./os/common/fonts/fonts.sh
   print_in_green "\n finished installing fonts \n\n"
   sleep 5
 }
