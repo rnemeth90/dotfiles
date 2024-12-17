@@ -13,19 +13,19 @@ install_homebrew() {
         print_in_green "\n • Homebrew is already installed. Skipping...\n\n"
     fi
 }
-
-install_nvm_node_yarn() {
-    if ! command -v nvm >/dev/null 2>&1; then
-        print_in_purple "\n • Installing NVM, Node.js, and Yarn. Setting Node LTS as default.\n\n"
-        curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-        source ~/.bashrc
-        nvm install --lts
-        nvm use --lts
-        npm install --global yarn
-    else
-        print_in_green "\n • NVM is already installed. Skipping...\n\n"
-    fi
-}
+#
+# install_nvm_node_yarn() {
+#     if ! command -v nvm >/dev/null 2>&1; then
+#         print_in_purple "\n • Installing NVM, Node.js, and Yarn. Setting Node LTS as default.\n\n"
+#         curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+#         source ~/.bashrc
+#         nvm install --lts
+#         nvm use --lts
+#         npm install --global yarn
+#     else
+#         print_in_green "\n • NVM is already installed. Skipping...\n\n"
+#     fi
+# }
 
 install_npm() {
     if ! command -v npm >/dev/null 2>&1; then
@@ -48,7 +48,7 @@ install_cargo() {
 main() {
     install_homebrew
     install_npm
-    install_nvm_node_yarn
+    # install_nvm_node_yarn
     install_cargo
 
     print_in_green "\n • All installations completed successfully! \n\n"
