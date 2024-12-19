@@ -52,7 +52,7 @@ return packer.startup(function(use)
   use({ "akinsho/bufferline.nvim" })
   use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
   use({ "nvim-lualine/lualine.nvim" })
-  use({ "lukas-reineke/indent-blankline.nvim" })
+  use { "lukas-reineke/indent-blankline.nvim", tag = "v2.*" }
   use({ "goolord/alpha-nvim" })
   use({ "folke/which-key.nvim" })
 
@@ -105,7 +105,7 @@ return packer.startup(function(use)
   -- Treesitter
   use("nvim-treesitter/nvim-treesitter")
   use("nvim-treesitter/nvim-treesitter-textobjects")
-  use("p00f/nvim-ts-rainbow")
+  -- use("p00f/nvim-ts-rainbow")
 
   -- Git
   use({ "lewis6991/gitsigns.nvim" })
