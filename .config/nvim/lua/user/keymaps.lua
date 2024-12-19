@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local cmp = require("cmp")
 local luasnip = require("luasnip")
 
 -- Options
@@ -13,24 +12,6 @@ local function keymap(mode, lhs, rhs, desc, opts)
   -- Ensure opts is always a table
   opts = opts or {}
   local options = vim.tbl_extend("force", { noremap = true, silent = true }, opts)
-
-  -- Handle `cmp.mapping` dynamically
-  if type(rhs) == "table" and (rhs.i or rhs.c) then
-    -- Add mapping to CMP
-    cmp.setup({
-      mapping = {
-        [lhs] = rhs,
-      },
-    })
-
-    -- -- Register with which-key
-    -- if desc and desc ~= "" then
-    --   require("which-key").register({
-    --     [lhs] = { desc },
-    --   }, { mode = mode })
-    -- end
-    return -- Exit early for cmp.mapping
-  end
 
   -- Validate arguments for standard keymaps
   if type(mode) ~= "string" then
@@ -190,67 +171,6 @@ keymap(
   "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='python', hidden=true}):toggle()<CR>",
   "",
   opts
-)
-
--- ToggleTerm Terminal Keymaps Function
-function _G.set_terminal_keymaps()
-  local opts = { noremap = true, silent = true }
-  vim.api.nvim_buf_set_keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-  vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
-end
-
--- ToggleTerm Terminal Mode Navigation
-vim.cmd([[
-  autocmd! TermOpen term://* lua _G.set_terminal_keymaps()
-]])
-
--- CMP Keymaps
-keymap("i", "<C-k>", cmp.mapping.select_prev_item(), "Previous item")
-keymap("i", "<C-j>", cmp.mapping.select_next_item(), "Next item")
-keymap("i", "<C-b>", cmp.mapping.scroll_docs(-1), "Scroll Docs Up")
-keymap("i", "<C-f>", cmp.mapping.scroll_docs(1), "Scroll Docs Down")
-keymap("i", "<C-s>", cmp.mapping.complete(), "Trigger Completion")
-keymap(
-  "i",
-  "<C-e>",
-  cmp.mapping({
-    i = cmp.mapping.abort(),
-    c = cmp.mapping.close(),
-  }),
-  "Close Completion"
-)
--- keymap("i", "<CR>", cmp.mapping.confirm({ select = true }), "Confirm Selection")
-keymap(
-  "i",
-  "<Tab>",
-  cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif luasnip.expand_or_jumpable() then
-      luasnip.expand_or_jump()
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  "Tab Navigation"
-)
-keymap(
-  "i",
-  "<S-Tab>",
-  cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, { "i", "s" }),
-  "Shift-Tab Navigation"
 )
 
 -- LSP Keymaps
