@@ -18,6 +18,7 @@ local servers = {
   "powershell_es",
   -- "tsserver",
   --"terraform-ls",
+  "circleci-yaml-language-server",
 }
 
 local settings = {
@@ -88,6 +89,7 @@ require("mason-tool-installer").setup({
     "shellcheck",
     "editorconfig-checker",
     "gofumpt",
+    "prettier",
     "golines",
     "gomodifytags",
     "gotests",
