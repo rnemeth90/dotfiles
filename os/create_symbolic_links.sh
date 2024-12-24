@@ -59,7 +59,10 @@ create_symlinks() {
 create_config_symlinks() {
     declare -a FILES_TO_SYMLINK=(
         ".config/alacritty"
+        ".config/aria2"
+        ".config/atuin"
         ".config/autostart"
+        ".config/bat"
         ".config/terminator"
         ".config/plank"
         ".config/nvim"

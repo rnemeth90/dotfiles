@@ -1,0 +1,599 @@
+Delivered-To: ryanthomasnemeth@gmail.com
+Received: by 2002:a05:6a10:e284:b0:5b4:75f6:72a7 with SMTP id i4csp1532741pxy;
+        Thu, 19 Dec 2024 02:37:16 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUw5eJ3XJSyWZQnducRjs7zrhM/LUkqnxlCtbdRXthJGnVuWmBiicgrO2/tioUyMuT1rtQM379SQIGK6lj1lzyC@gmail.com
+X-Google-Smtp-Source: AGHT+IHCCiXOnFHPYzT+wBXD9NnLSyfZibzVhcAwqPIIDXcjqqZafmflNTvMm7n347+dbf9vMQf5
+X-Received: by 2002:a17:90b:2707:b0:2f4:49d8:e718 with SMTP id 98e67ed59e1d1-2f449d8e871mr2042039a91.9.1734604635725;
+        Thu, 19 Dec 2024 02:37:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734604635; cv=none;
+        d=google.com; s=arc-20240605;
+        b=Ph7uptTPPpv9UMFB3Ci6YZxViBWZzfDxD1KwZ4EUiLYqvujp5AFdzBU2gjzIfNzRoz
+         kYS072rX7VZ6tE8ELUtEVwn3vs7+en9zQloByZ7VWkBKMWzarWiUTSmIogOPhG5P8m5C
+         6OneKahUA020pUozsZJ+BrKzYxLfg0CctwbOd++YbgHStmBMLdqAPPSShPbghfp1qAx2
+         2EyRYp7axTsqWnwhLJEKEZ9cZwYBmVQ2PAfinq9uQH5cpxi7U+ZX+vIwPGgROLs8InHg
+         raZUcanQ7vhDZa5mzJXN5b45M9r6NjbqqodGH7Ondtgyg2qLet/dGNBofQscM/PMAbwD
+         T7BA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:mime-version:from:date:dkim-signature
+         :resent-from;
+        bh=ts3kF3D1V+GDO8LTx4ePcdHxW/CClfDShkx8vpOxA6o=;
+        fh=M7cPXWY82+TbD5R9zjw7xDEGufjAokjGMhilGMo9A6c=;
+        b=QsTOzIf0k3GsGDyNmyjjZ7KNBob2FUM4DQTCGFVJxycUIxEjSz2XhIN+cDL1k/8rSa
+         7WnbqHhdVAjJIiP2vd/nHJpq+CMj8z7pusFkHKP/9FyJNRQMBS1jo5HViKEjIvdeH7FE
+         5tdpC+Vk31SDKv/SQEBUh/vQkle/HNx+3oZeLYF4P5neVfLBYRL9cZMMFJv5bNCoHU9I
+         Ph3FI+Atxh/JFEE8b+C7TyPUVlsIqPj/jaPmc6L7UCManyOIsHM2TjsngjsRb/xLNUki
+         Rwrb2L7b9IiU9NuIZxtwVbECBXehz10yAkudKHf+VdXk4YbUaCfKg9dWHq+DvBgFzTwf
+         3pLw==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@psiexams.com header.s=s1 header.b=e2SmDKq6;
+       spf=fail (google.com: domain of no-reply@psiexams.com does not designate 2a01:111:f403:83b::201 as permitted sender) smtp.mailfrom=no-reply@psiexams.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=psiexams.com
+Return-Path: <no-reply@psiexams.com>
+Received: from NAM02-BN1-obe.outbound.protection.outlook.com (mail-bn1nam02lp20201.outbound.protection.outlook.com. [2a01:111:f403:83b::201])
+        by mx.google.com with ESMTPS id 98e67ed59e1d1-2f44779c602si1417277a91.22.2024.12.19.02.37.15
+        for <ryanthomasnemeth@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 19 Dec 2024 02:37:15 -0800 (PST)
+Received-SPF: fail (google.com: domain of no-reply@psiexams.com does not designate 2a01:111:f403:83b::201 as permitted sender) client-ip=2a01:111:f403:83b::201;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@psiexams.com header.s=s1 header.b=e2SmDKq6;
+       spf=fail (google.com: domain of no-reply@psiexams.com does not designate 2a01:111:f403:83b::201 as permitted sender) smtp.mailfrom=no-reply@psiexams.com;
+       dmarc=pass (p=NONE sp=NONE dis=NONE) header.from=psiexams.com
+Received: from PH8PR19MB6949.namprd19.prod.outlook.com (2603:10b6:510:22e::19)
+ by CYXPR19MB8403.namprd19.prod.outlook.com (2603:10b6:930:e6::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8272.16; Thu, 19 Dec
+ 2024 10:37:14 +0000
+Resent-From: <ryannemeth@live.com>
+Received: from PH8PR19MB6949.namprd19.prod.outlook.com ([::1]) by
+ PH8PR19MB6949.namprd19.prod.outlook.com ([fe80::7bf4:809a:60ff:f402%6]) with
+ Microsoft SMTP Server id 15.20.8272.005; Thu, 19 Dec 2024 10:37:14 +0000
+Authentication-Results: spf=pass (sender IP is 167.89.2.133)
+ smtp.mailfrom=em4376.psiexams.com; dkim=pass (signature was verified)
+ header.d=psiexams.com;dmarc=pass action=none
+ header.from=psiexams.com;compauth=pass reason=100
+Received-SPF: Pass (protection.outlook.com: domain of em4376.psiexams.com
+ designates 167.89.2.133 as permitted sender) receiver=protection.outlook.com;
+ client-ip=167.89.2.133; helo=o6.ptr6769.psiexams.com; pr=C
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:2E85B1803C290CB1C1C593FD11CA4CB801305F8C644759858E74D8B62574D5AC;UpperCasedChecksum:72A9F9F5D35075DECA9B15645D0233F961224BB1C33A7509C4C4EEB36051D2E6;SizeAsReceived:1612;Count:12
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=psiexams.com;
+	h=content-type:from:mime-version:subject:to:cc:content-type:from:
+	subject:to;
+	s=s1; bh=ts3kF3D1V+GDO8LTx4ePcdHxW/CClfDShkx8vpOxA6o=;
+	b=e2SmDKq6Ix/azqQlXn6fuboToVYAaurVgcjdXlrKTmRmZlvJjE16f/Rdi+AamzfdJGrQ
+	wswe/tShHP8VzqvNvoHISGuSQBMyw59HN51Rq7uQaH5mQ2WbvjR/kPG3bwchr6j3sNsugM
+	X3k4NkND0GSfdeff2crWPqvTLYIpEcUjTTR5s5JjKAPTMT+KB0OufIirGEVqRgCSujH2B+
+	509kBI5ekyD0DnRX8iV1p9AtpcuMKshSjR9JykWPfCowSTlIzRHu34SsD9Afr2OBCA6igb
+	gJagWs+ORutwVQkesiTETFkwUiGviKU3vm+bt16WLz+tf6VrLltcHKUcwIl1TrmQ==
+Content-Type: multipart/mixed; boundary=15e7d739f9cdb36204515aca8b55f2464a9aa804466474d7ae555fb8fed2
+Date: Thu, 19 Dec 2024 10:37:10 +0000 (UTC)
+From: PSI Online <no-reply@psiexams.com>
+Mime-Version: 1.0
+Message-ID: <NFkFMDH_SsOdLt8yrtuhPA@geopod-ismtpd-7>
+Subject: Your PSI Test has been Rescheduled
+X-SG-EID:
+ =?us-ascii?Q?u001=2E1T1vPNg=2FOv2CD6JKAMxzxfeZF72O6wYn=2FTleuYaOUgdwYbWNkyUba3tSu?=
+ =?us-ascii?Q?+QwPX73fa8iKyruQX9WNbJdD8xEkH7Xw09Uz7c+?=
+ =?us-ascii?Q?fRrmSI6hNDVpJcWOtMQ9lGECjZfj+TT66H0zCBp?=
+ =?us-ascii?Q?TR68I7wKTa3Fq4x7vsgujcJ8CpkMOppv3DIcr6h?=
+ =?us-ascii?Q?pBR6qr6Co8=2FlfBEcnpTAg54pbeEfiumSMyCgW8C?=
+ =?us-ascii?Q?t9rOVt2jlH62SnI7hri7zU=3D?=
+To: ryannemeth@live.com
+X-Entity-ID: u001.mw74QUukQ/9UHOUbdSwf3g==
+X-IncomingHeaderCount: 12
+Return-Path: no-reply@psiexams.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+	AM3PEPF0000A78D:EE_|CO1PR19MB4981:EE_|PH8PR19MB6949:EE_|CYXPR19MB8403:EE_
+X-MS-UserLastLogonTime: 12/12/2024 5:43:38 PM
+X-MS-Office365-Filtering-Correlation-Id: 0a8516ec-6127-46aa-9049-08dd201918b6
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 167.89.2.133
+X-SID-PRA: NO-REPLY@PSIEXAMS.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-Microsoft-Antispam:
+ BCL:3;ARA:1444111002|68400799013|10300799035|9400799030|24102599021|6092099012|58200799018|47200799021|9000799050|970799057|1680799054|461199028|21101999018|1122599019|1360799030|1370799030|1380799030|1602099012|4302099013|8516399012|1041999012|3412199025|440099028;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Dec 2024 10:37:11.4086
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a8516ec-6127-46aa-9049-08dd201918b6
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ AM3PEPF0000A78D.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CO1PR19MB4981
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.6355310
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8272.000
+X-MS-Exchange-Inbox-Rules-Loop: ryannemeth@live.com
+X-OriginatorOrg: sct-15-20-7741-18-msonline-outlook-c907d.templateTenant
+
+--15e7d739f9cdb36204515aca8b55f2464a9aa804466474d7ae555fb8fed2
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html; charset=utf-8
+Mime-Version: 1.0
+
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml=
+1/DTD/xhtml1-transitional.dtd">
+<html xmlns=3D"http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset=3D"utf-8"> <!-- utf-8 works for most cases -->
+    <meta name=3D"viewport" content=3D"width=3Ddevice-width"> <!-- Forcing =
+initial-scale shouldn't be necessary -->
+    <meta http-equiv=3D"X-UA-Compatible" content=3D"IE=3Dedge"> <!-- Use th=
+e latest (edge) version of IE rendering engine -->
+    <title></title> <!-- The title tag shows in email notifications, like A=
+ndroid 4.4. -->
+
+    <!--[if mso]>
+        <style>
+			* {
+				font-family: sans-serif !important;
+			}
+		</style>
+    <![endif]-->
+
+
+    <!-- CSS Reset -->
+    <style type=3D"text/css">
+    /* What it does: Remove spaces around the email design added by some em=
+ail clients. */
+    /* Beware: It can remove the padding / margin and add a background colo=
+r to the compose a reply window. */
+    html,
+    body {
+      margin: 0 auto !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+    }
+
+    /* What it does: Stops email clients resizing small text. */
+    * {
+      -ms-text-size-adjust: 100%;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    /* What is does: Centers email on Android 4.4 */
+    div[style*=3D"margin: 16px 0"] {
+      margin: 0 !important;
+    }
+
+    /* What it does: Stops Outlook from adding extra spacing to tables. */
+    table,
+    td {
+      mso-table-lspace: 0pt !important;
+      mso-table-rspace: 0pt !important;
+    }
+
+    /* What it does: Fixes webkit padding issue. Fix for Yahoo mail table a=
+lignment bug. Applies table-layout to the first 2 tables then removes for a=
+nything nested deeper. */
+    table {
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+      Margin: 0 auto !important;
+    }
+
+    table table table {
+      table-layout: auto;
+    }
+
+    /* What it does: Uses a better rendering method when resizing images in=
+ IE. */
+    img {
+      -ms-interpolation-mode: bicubic;
+    }
+
+    /* What it does: A work-around for iOS meddling in triggered links. */
+    .mobile-link--footer a,
+    a[x-apple-data-detectors] {
+      color: inherit !important;
+      text-decoration: underline !important;
+    }
+
+    hr {
+      border: 1px solid #7e94a6
+    }
+  </style>
+
+
+</head>
+
+<body width=3D"100%" bgcolor=3D"#f2f4f6" style=3D"margin: 0;">
+<center style=3D"width: 100%; background: #f2f4f6;">
+
+<!--
+Set the email width. Defined in two places:
+1. max-width for all clients except Desktop Windows Outlook, allowing the e=
+mail to squish on narrow but never go wider than 600px.
+2. MSO tags for Desktop Windows Outlook enforce a 600px width.
+-->
+<div style=3D"max-width: 600px; margin: auto;">
+<!--[if (gte mso 9)|(IE)]>
+    <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"600" a=
+lign=3D"center">
+    <tr>
+    <td>
+<![endif]-->
+
+<!-- Email Top Spacing : BEGIN -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"100%" style=3D"max-width: 600px;">
+    <tr>
+        <td style=3D"padding: 20px 0; text-align: center; height: 50px">
+            &nbsp;
+        </td>
+    </tr>
+</table>
+<!-- Email Top Spacing : BEGIN -->
+
+<!-- Email Body : BEGIN -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" bg=
+color=3D"#ffffff" width=3D"100%"
+       style=3D"max-width: 600px;">
+
+<!-- Email Header Bar : BEGIN -->
+<tr>
+    <td align=3D"center" style=3D"height: 15px; background-color: #9e0442;l=
+ine-height: 0px;" height=3D"15"
+        bgcolor=3D"#9e0442">
+        &nbsp;
+    </td>
+</tr>
+<!-- Email Header Bar : END -->
+
+<!-- Email Logo : BEGIN -->
+<tr>
+    <td align=3D"center" style=3D"text-align: center; padding-top: 40px">
+        <img src=3D"https://olc-wordpress-assets.s3.amazonaws.com/uploads/2=
+019/06/PSI-logo-web.png" width=3D"175" height=3D"58" alt=3D"PSI Testing Exc=
+ellence" border=3D"0" align=3D"center"
+             style=3D"max-width: 175px">
+    </td>
+</tr>
+<!-- Email Logo : END -->
+
+<!-- 1 Column Text + Button : BEGIN -->
+<tr>
+    <td style=3D"padding-top: 40px; padding-left: 20px; padding-right: 20px=
+">
+        <table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" width=3D"10=
+0%">
+            <tr>
+                <td style=3D"font-family: sans-serif; font-size: 18px; colo=
+r: #00294f; text-align: left;" align=3D"left">
+                    <strong>Dear Ryan Nemeth,</strong>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+
+<tr>
+    <td
+        style=3D"padding-top: 30px; padding-left: 20px; padding-bottom: 10p=
+x; padding-right: 20px; font-family: sans-serif; font-size: 14px; color: #2=
+82727; text-align: left;"
+        align=3D"left">
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727;">
+          Thank you for booking your exam with our=20
+        </span>
+        <span style=3D"font-family: sans-serif;  font-style: italic; font-s=
+ize: 14px; color: #282727;">
+          test taker portal.=20
+        </span>
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727;">
+          Your exam appointment is confirmed. Please take a
+          moment to review this email for important information about your =
+exam.
+        </span>=20
+        <br/>
+        <br/>
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727;">
+            Here are the details of your scheduled test session:
+        </span>
+    </td>
+</tr>
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; padding-top: 20px=
+; text-align: left;" align=3D"left">
+
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727;">
+            <strong>Exam: </strong> Certified Kubernetes Security Specialis=
+t (CKS) (English)
+        </span> <br/>
+			<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727;=
+">
+				<strong>Date: </strong> January 19, 2025
+			</span><br/>
+			<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727;=
+">
+				<strong>Start: </strong> 13:00:00 America/New_York
+			</span><br/>
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727;">
+            <strong>Duration: </strong> 120 minutes
+        </span><br/>
+				<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727=
+;">
+					<strong>Location: </strong> Online Proctored Examination
+				</span>
+    </td>
+</tr>
+
+
+
+<!-- Email HR Element : BEGIN -->
+
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; padding-top: 12px=
+; padding-bottom: 12px;">
+        <hr/>
+    </td>
+</tr>
+
+<!-- Email HR Element : END -->
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; font-family: sans=
+-serif; font-size: 14px; color: #282727; text-align: left;"
+        align=3D"left">
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727; text-transform: uppercase;">
+            <strong>Mandatory Identification:</strong>
+        </span>
+
+        <ul style=3D"padding-left: 16px;">
+            <li >
+             If there is any doubt surrounding your identity, you will not =
+be allowed to test and will forfeit your exam fees. Please read these requi=
+rements carefully.
+            </li>
+           <li>All candidates MUST present ONE form of identification. The =
+identification that is used must be valid (current or unexpired) and contai=
+n your photo and signature.</li>
+			<li>Acceptable forms of identification include: driver's license, state =
+identity card (non-driver license), passport, passport card, military ID, g=
+reen card, alien registration, permanent resident card, or national identif=
+ication card.</li>
+			<li>The name on your Primary ID <strong>must exactly match</strong>  <a =
+href=3D"https://docs.linuxfoundation.org/tc-docs/certification/lf-handbook2=
+/exam-preparation-checklist" target=3D"_blank">the verified name</a> on you=
+r exam checklist. </li>
+        </ul>
+    </td>
+</tr>
+
+
+<!-- Email HR Element : BEGIN -->
+
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; padding-top: 12px=
+; padding-bottom: 12px;">
+        <hr/>
+    </td>
+</tr>
+
+<!-- Email HR Element : END -->
+
+	<tr>
+		<td
+			style=3D"padding-left: 20px; padding-right: 20px; font-family: sans-seri=
+f; font-size: 14px; color: #282727; text-align: left;"
+			align=3D"left">
+			<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727;=
+ text-transform: uppercase;">
+				<strong>Day of Exam Expectations:</strong>
+			</span>	=09
+					<ul style=3D"padding-left: 16px;">
+					    <li>On the day of your exam, you can arrive up to 30 minutes early=
+ to start the check-in process. Please note that depending on proctor avail=
+ability, you may need to wait until your exam start time to launch your exa=
+m.</li>
+					<li>You will need to log into <a href=3D"http://trainingportal.linuxfo=
+undation.org/" target=3D"_blank">My Portal</a> and click on the =E2=80=9CTa=
+ke Exam=E2=80=9D link, or you may also use your Linux Foundation ID (LFID) =
+to log into=20
+					<a href=3D"https://test-takers.psiexams.com/linux/test-pro" target=3D"=
+_blank">https://test-takers.psiexams.com/linux/test-pro</a> to start your e=
+xam.</li>
+					<li>You will need to click the "Launch Exam" Button in the PSI Bridge =
+Dashboard (this will prompt you to download and install the PSI Secure Brow=
+ser) </li>
+					<li>You will perform a <a href=3D"https://psi.wistia.com/medias/5kidxd=
+d0ry" target=3D"_blank">Self Check-In</a>, which includes presenting a vali=
+d ID, scan your room and testing environment. Please ensure your testing en=
+vironment is clear, quiet, and free from distractions.</li>
+					<li>A web camera and microphone are required for testing.</li>
+
+					</ul>
+		</td>
+	</tr>
+	<!-- Email HR Element : BEGIN -->
+	<tr>
+		<td
+			style=3D"padding-left: 20px; padding-right: 20px; padding-top: 12px; pad=
+ding-bottom: 12px;">
+			<hr/>
+		</td>
+	</tr>
+	<!-- Email HR Element : END -->
+
+
+
+	<tr>
+		<td
+			style=3D"padding-left: 20px; padding-right: 20px; font-family: sans-seri=
+f; font-size: 14px; color: #282727; text-align: left;"
+			align=3D"left">
+			<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727;=
+ text-transform: uppercase;">
+				<strong>Cancellation and rebooking policy:</strong>
+			</span>
+=09
+			<ul style=3D"padding-left: 16px;">
+				<li>If you need to cancel or reschedule your exam, you may do so yourse=
+lf by logging into <a href=3D"https://trainingportal.linuxfoundation.org/le=
+arn/dashboard" target=3D"_blank">My Portal</a> and selecting the =E2=80=9CC=
+ancel or Reschedule=E2=80=9D option.</li>
+				<li>You will not be able to make changes to the exam reservation when 2=
+4 hours or less remain before the start time of the exam.</li>
+
+			</ul>
+			<strong>No-Show Policy:</strong>
+			<ul>
+			<li>If you are a =E2=80=9CNo-Show=E2=80=9D for your scheduled exam reser=
+vation, you forfeit the exam eligibility and registration fees (no refund),=
+ and you will not be eligible for a free retake.</li>
+			<li>Candidates should review the <a href=3D"https://docs.linuxfoundation=
+.org/tc-docs/certification/lf-handbook2" target=3D"_blank">Linux Foundation=
+ Certification Exams: Candidate Handbook</a> for further information and ex=
+am day rules.</li>
+			</ul>
+		</td>
+	</tr>
+
+
+
+<tr>
+
+    <td
+        style=3D"padding-top: 10px;padding-left: 20px; padding-right: 20px;=
+ font-family: sans-serif; font-size: 14px; color: #282727; text-align: left=
+;"
+        align=3D"left">
+
+			<span style=3D"font-family: sans-serif; font-size: 14px; color: #282727;=
+ ">
+				If you need to reschedule your exam, please use the following link: htt=
+ps://test-takers.psiexams.com/linux/manage.
+			</span> <br/><br/>
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727; ">
+            If you have questions about your exam appointment, please email=
+ <a href=3D"mailto:examschedule@psionline.com">examschedule@psionline.com</=
+a>.
+        </span> <br/><br/>
+
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #28=
+2727; ">
+            Best Regards,<br/>
+            PSI Customer Service<br/>
+        </span>
+    </td>
+</tr>
+
+<!-- Email HR Element : BEGIN -->
+
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; padding-top: 12px=
+; padding-bottom: 12px;">
+        <hr/>
+    </td>
+</tr>
+
+<!-- Email HR Element : END -->
+
+<tr>
+    <td
+        style=3D"padding-left: 20px; padding-right: 20px; padding-top: 10px=
+; padding-bottom: 10px; text-align: center;"
+        align=3D"center">
+
+        <span style=3D"font-family: sans-serif; font-size: 14px; color: #9e=
+0442;">
+            <strong>Please do not reply to this email. This mailbox is not =
+monitored.</strong>
+        </span>
+
+    </td>
+</tr>
+
+<!-- Email Top Spacing : BEGIN -->
+<tr>
+    <td style=3D"padding: 5px 0; text-align: center; height: 5px">
+        &nbsp;
+    </td>
+</tr>
+<!-- Email Top Spacing : END -->
+
+
+<!-- Email Header Bar : BEGIN -->
+<tr>
+    <td align=3D"center" style=3D"height: 15px; background-color: #9e0442;l=
+ine-height: 0px;" height=3D"15"
+        bgcolor=3D"#9e0442">
+        &nbsp;
+    </td>
+</tr>
+<!-- Email Header Bar : END -->
+
+
+</table>
+<!-- Email Body : END -->
+
+<!-- Email Footer : BEGIN -->
+<table cellspacing=3D"0" cellpadding=3D"0" border=3D"0" align=3D"center" wi=
+dth=3D"100%" style=3D"max-width: 600px;">
+    <tr>
+        <td
+            style=3D"padding: 40px 10px;width: 100%;font-size: 14px; font-f=
+amily: sans-serif; mso-height-rule: exactly; text-align: center; color: #00=
+294f;">
+            <span style=3D"color:#00294f; font-size: 12px;">2000/2021 PSI S=
+ervices LLC, All Rights Reserved</span>
+        </td>
+    </tr>
+</table>
+<!-- Email Footer : END -->
+
+<!--[if (gte mso 9)|(IE)]>
+    </td>
+    </tr>
+    </table>
+<![endif]-->
+</div>
+</center>
+<img src=3D"https://u21753931.ct.sendgrid.net/wf/open?upn=3Du001.hZYIskilzA=
+Z4aGxETKc0SWhNq42kz8nyqx4nE5ejv4yNrb3c2svrli9bUGAJjeayhFhARE8fDm0NSr7V4x9NW=
+Y6akBlSabfYm2XSSr21unTeZx6IUQBJdWLtJxoE9e-2FE1yQsCOOp7Aq-2FcFaTbdKBZswkQT8F=
+Yszz9CBnVks-2Bgxa26mALMKPcAPvdwKMV-2BHY43NjjQF-2FqI-2F2dX6bMQz7yCA-3D-3D" a=
+lt=3D"" width=3D"1" height=3D"1" border=3D"0" style=3D"height:1px !importan=
+t;width:1px !important;border-width:0 !important;margin-top:0 !important;ma=
+rgin-bottom:0 !important;margin-right:0 !important;margin-left:0 !important=
+;padding-top:0 !important;padding-bottom:0 !important;padding-right:0 !impo=
+rtant;padding-left:0 !important;"/></body>
+
+</html>
+--15e7d739f9cdb36204515aca8b55f2464a9aa804466474d7ae555fb8fed2
+Content-Disposition: attachment; filename="calendar.ics"
+Content-Transfer-Encoding: base64
+Content-Type: text/calendar; charset=utf-8; name="calendar.ics"
+
+QkVHSU46VkNBTEVOREFSDQpQUk9ESUQ6LS8vZ2l0aHViLmNvbS9yaWFuanMvaWNhbC5uZXQvL05P
+TlNHTUwgaWNhbC5uZXQgNC4wLy9FTg0KVkVSU0lPTjoyLjANCkJFR0lOOlZUSU1FWk9ORQ0KVFpJ
+RDpFdGMvVVRDDQpYLUxJQy1MT0NBVElPTjpFdGMvVVRDDQpFTkQ6VlRJTUVaT05FDQpCRUdJTjpW
+RVZFTlQNCkRFU0NSSVBUSU9OOkNlcnRpZmllZCBLdWJlcm5ldGVzIFNlY3VyaXR5IFNwZWNpYWxp
+c3QgKENLUykNCkRURU5EOjIwMjUwMTE5VDIwMDAwMFoNCkRUU1RBTVA6MjAyNDEyMTlUMTAzNzEw
+Wg0KRFRTVEFSVDoyMDI1MDExOVQxODAwMDBaDQpMT0NBVElPTjpodHRwczovL3Rlc3QtdGFrZXJz
+LnBzaWV4YW1zLmNvbS9saW51eA0KU0VRVUVOQ0U6MA0KU1VNTUFSWTpDZXJ0aWZpZWQgS3ViZXJu
+ZXRlcyBTZWN1cml0eSBTcGVjaWFsaXN0IChDS1MpDQpVSUQ6MTYzYmVkOGUtZmMzZi00MzBhLWJh
+YmQtMDRiZDExMmRlODg0DQpFTkQ6VkVWRU5UDQpFTkQ6VkNBTEVOREFSDQo=
+--15e7d739f9cdb36204515aca8b55f2464a9aa804466474d7ae555fb8fed2--
