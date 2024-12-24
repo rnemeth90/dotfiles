@@ -53,7 +53,7 @@ execute() {
   # Show a spinner if the commands
   # require more time to complete.
 
-  show_spinner "$cmdsPID" "$CMDS" "$MSG"
+  # show_spinner "$cmdsPID" "$CMDS" "$MSG"
 
   # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

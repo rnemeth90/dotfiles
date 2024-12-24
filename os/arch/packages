@@ -1,3 +1,11 @@
+neomutt
+curl
+isync
+msmtp
+pass
+ca-certificates
+gettext
+ueberzug
 pipewire
 pipewire-alsa
 pipewire-jack

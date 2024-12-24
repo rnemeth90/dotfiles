@@ -122,3 +122,5 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export TMUX_CONF="$XDG_CONFIG_HOME/tmux/tmux.conf"
 
 export SHELL="/bin/bash"
+
+export W3M_CONFIG="$HOME/.config/w3m"

@@ -1,0 +1,162 @@
+Delivered-To: ryanthomasnemeth@gmail.com
+Received: by 2002:a05:6a10:e284:b0:5b4:75f6:72a7 with SMTP id i4csp433957pxy;
+        Tue, 17 Dec 2024 10:27:48 -0800 (PST)
+X-Forwarded-Encrypted: i=2; AJvYcCUyzKJ4l78pg7LAgk4sPGc6jgtiRhGX23kJQokU+ZdAn6P89v6u+vBpdV4TwHeiTUZgy+ewdZdR7HsBmqJ7G5cU@gmail.com
+X-Google-Smtp-Source: AGHT+IEEmxABjvsWat8w+DmfcXKbxYlHUV10P4dQW4WsB7y4IQxzwXSaoJdYz56yN9rKK8/Sh8aI
+X-Received: by 2002:a17:902:db0b:b0:216:7ee9:21ff with SMTP id d9443c01a7336-218d52d06c7mr7073475ad.49.1734460068526;
+        Tue, 17 Dec 2024 10:27:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1734460068; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AhvC4mFg0EP+LMWlp1kVVJSzYnc0suSumZhq+jTJw9FDchYbF95uaJcEzQcGLCSltN
+         t87DFOdCNrmqBgjpZJ9iCjFwDhS1QtrZ3p3RQMo6kgu3tC4maX3anXVn5d777oli4LHJ
+         VuDr87uzJXB7Dx+6p6FlgyNN2Wymy7EBNv6kOE2HXr5Hn2gau9DGQ8r28YqJHbogwpJQ
+         GtXzyYmzucZB42EuKFy9ShRXFr/mexGDrNW4cCIPQ8R2imakw5eZGAYu4DkdQFaVI9ct
+         zw3P9Kwc5+4kDxHGkpCt3m32P75pP4GNVMwwPB4d3fsNIwB4PasJYd6pM/6pQxJZU1mA
+         JfGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature
+         :resent-from;
+        bh=1KQ/1xfaFxdK65SidK7y6dcZzFNMkWY+460kvFUJzXg=;
+        fh=QAf3KGm/xEFIvjh9ruAHXoQ42f77tiJyHIm2+NhkkV8=;
+        b=iK6q56BAIDfwhs/3O0GlxEM5z+0uYQeTs8MR65EuaV9RUiINxMCcscYD2FMAZpDnzs
+         Wlpaa+DXRH7wQDr12g3HwI480cso+gBtFa+estUwTe7rTwBS7T9TItYdZFbhSO2NfOTK
+         woCdHQpreQO+JTGZWABAWjBaofKpyuBN7huQFULNlvkfOUhwLBcCPz654c33+N7bToyH
+         0ItrN0AQNIj+3ll4BTaAXcC4s8jCVo3pTeE5TeSPWikQE+vVohmbls7EOivqIgT9r+Md
+         +BT9D0V/ffW0ovXzCVImB0coNw5CYNhIOlcDwWI7jpPqXVA1vZ9J5u/y+8qniW1e0PkR
+         xjkQ==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=LhO9HFhe;
+       spf=pass (google.com: domain of ryannemeth+srs=rkznv=tk=gmail.com=ryannemeth1990@live.com designates 2a01:111:f403:83a::206 as permitted sender) smtp.mailfrom="ryannemeth+SRS=rKznv=TK=gmail.com=ryannemeth1990@live.com";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@gmail.com
+Return-Path: <ryannemeth+SRS=rKznv=TK=gmail.com=ryannemeth1990@live.com>
+Received: from NAM02-SN1-obe.outbound.protection.outlook.com (mail-sn1nam02lp20206.outbound.protection.outlook.com. [2a01:111:f403:83a::206])
+        by mx.google.com with ESMTPS id 41be03b00d2f7-801d5c4e789si8802580a12.586.2024.12.17.10.27.48
+        for <ryanthomasnemeth@gmail.com>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 17 Dec 2024 10:27:48 -0800 (PST)
+Received-SPF: pass (google.com: domain of ryannemeth+srs=rkznv=tk=gmail.com=ryannemeth1990@live.com designates 2a01:111:f403:83a::206 as permitted sender) client-ip=2a01:111:f403:83a::206;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20230601 header.b=LhO9HFhe;
+       spf=pass (google.com: domain of ryannemeth+srs=rkznv=tk=gmail.com=ryannemeth1990@live.com designates 2a01:111:f403:83a::206 as permitted sender) smtp.mailfrom="ryannemeth+SRS=rKznv=TK=gmail.com=ryannemeth1990@live.com";
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com;
+       dara=neutral header.i=@gmail.com
+Received: from PH8PR19MB6949.namprd19.prod.outlook.com (2603:10b6:510:22e::19)
+ by DM6PR19MB3738.namprd19.prod.outlook.com (2603:10b6:5:240::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8251.22; Tue, 17 Dec
+ 2024 18:27:47 +0000
+Resent-From: <ryannemeth@live.com>
+Received: from PH8PR19MB6949.namprd19.prod.outlook.com ([::1]) by
+ PH8PR19MB6949.namprd19.prod.outlook.com ([fe80::7bf4:809a:60ff:f402%6]) with
+ Microsoft SMTP Server id 15.20.8251.015; Tue, 17 Dec 2024 18:27:48 +0000
+Authentication-Results: spf=pass (sender IP is 209.85.208.178)
+ smtp.mailfrom=gmail.com; dkim=pass (signature was verified)
+ header.d=gmail.com;dmarc=pass action=none header.from=gmail.com;compauth=pass
+ reason=100
+Received-SPF: Pass (protection.outlook.com: domain of gmail.com designates
+ 209.85.208.178 as permitted sender) receiver=protection.outlook.com;
+ client-ip=209.85.208.178; helo=mail-lj1-f178.google.com; pr=C
+X-IncomingTopHeaderMarker:
+ OriginalChecksum:BABB011ED3C4AA57DA0D3241C66EB4BA4EA94558C456F2A42D0A814521C9832B;UpperCasedChecksum:6B4CAD2A5C5B8BB5D07E76B78A7F3CD4C28C6812E802960DC7DF779ED0261027;SizeAsReceived:2842;Count:16
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1734460063; x=1735064863; darn=live.com;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1KQ/1xfaFxdK65SidK7y6dcZzFNMkWY+460kvFUJzXg=;
+        b=LhO9HFheTudIC3nrbgtvVaHZyDk6yzVMAd25g9qXHSJxADIS71Nt/8cvvea4AZMT3m
+         wY1qYuo9GzLC8x2/rL6VOZspW+u5Bpub1X2SGtFZlNOJLh92EWOxpI7r+8ZCuQ3Yfj7Q
+         gx50EHeibZQtGJ91tTpymM2VgkYXPxu19iAkWPz5XS4YVGoOx9SCsOYIsH0oN7CQOkaf
+         eItWK6jL2PdWPm+XPdR3kRHoa5oWRn95iKURsBTnEH74CiJMTZqflsYQopvBGZ2XdOLq
+         e0XopXqM55l5k3nLvKOxzE4Crxu096Gm75a2Htn5A9pX+u2QzRKgHGkV7I/J2nEdQo7x
+         GgOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1734460063; x=1735064863;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=1KQ/1xfaFxdK65SidK7y6dcZzFNMkWY+460kvFUJzXg=;
+        b=LhKcE4vxYtIOBHIyN2YaalJN5K9NUwlDR5I3q9XFZlDh4bzqzo1XkoH9bKoqED+qcZ
+         qwENbmk7KipyY/XyLRliJ7bouf59/qm1tgmDVmZYMaf0mAJ1M/X+ERvCoFtJLfD9nYFz
+         fRWrDq77wK531sthyLt1igNQTeYDHwVG7J5qrqMntPYlm9ihJTJ5NPQJVIAEjD22S0r7
+         AHekZrH9dwwSzi2zu1oy5CVCo0zeOoUTOzcIsORfSpDXH/XEV/Rj/TCPASnOUezHHmXo
+         /p3Upjy7DsU2ZcO5uU6hyJ083ToKvG717QDTr/ZL1kl4BMXA92dN5J1eKO74NijYcHAT
+         iD+w==
+X-Forwarded-Encrypted: i=1; AJvYcCWs1n08JgYGdnb9ibjbY8mdDHZFk1rQM2BBskxLd6VyrLBmQ3qZKDojC/VkyKnqbVShtjrM8xFWfMyy@live.com
+X-Gm-Message-State: AOJu0Yym/kWaoBt4x8ZY1jK9/ybzt4e/hq9fRQgS00brVz6I2XDneDtX
+	clZrOaHutXSixr5AeMLTG87+Q533xrQjMyPpgcmS89GGNRh6x3+AptoKnqtKeFaB7kztC1pJuXk
+	60/qOTwrrMQp4TZwTubnbwd6ETxLMaLwR
+X-Gm-Gg: ASbGncs6+x7CQ8o8b9YJNDtVmpES1w+ot8PjFNtJtC6VkEI6HV8rOPLXp+UqTdkeNC7
+	hXC01GJWEcA1oioSZ0x8cuf7PYTGMH6pMILqHQ98=
+MIME-Version: 1.0
+X-Received: by 2002:a05:651c:2227:b0:302:1c90:58f5 with SMTP id
+ 38308e7fff4ca-3044da6b83amr516751fa.1.1734460062560; Tue, 17 Dec 2024
+ 10:27:42 -0800 (PST)
+From: missanp01 - Synology DiskStation <ryannemeth1990@gmail.com>
+Date: Tue, 17 Dec 2024 18:27:42 +0000
+Message-ID: <CAARdeTM45OrUYuJXRa2+zcDSG7u6bHMypVNS11Zv=3HK6fHFeQ@mail.gmail.com>
+Subject: [MISSANP01] Monthly Disk Health Report on missanp01 - Healthy
+To: jess_nemeth@outlook.com, ryannemeth@live.com
+Content-Type: multipart/alternative; boundary="000000000000e7fc6c06297b7360"
+X-IncomingHeaderCount: 16
+Return-Path: ryannemeth1990@gmail.com
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic:
+	CY4PEPF0000E9D2:EE_|LV3PR19MB8513:EE_|PH8PR19MB6949:EE_|DM6PR19MB3738:EE_
+X-MS-UserLastLogonTime: 12/12/2024 5:43:38 PM
+X-MS-Office365-Filtering-Correlation-Id: 1134802d-2473-4d53-bf8e-08dd1ec87fe2
+X-MS-Exchange-EOPDirect: true
+X-Sender-IP: 209.85.208.178
+X-SID-PRA: RYANNEMETH1990@GMAIL.COM
+X-SID-Result: PASS
+X-MS-Exchange-AtpMessageProperties: SA|SL
+X-Microsoft-Antispam:
+ BCL:0;ARA:1444111002|461199028|9020799016|9800799012|13020799006|58200799018|47200799021|2100799027|440099028|3412199025|1360799030|1370799030|1380799030;
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Dec 2024 18:27:44.4181
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1134802d-2473-4d53-bf8e-08dd1ec87fe2
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-AuthSource:
+ CY4PEPF0000E9D2.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
+ 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR19MB8513
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:03.5712435
+X-MS-Exchange-Processed-By-BccFoldering: 15.20.8251.004
+X-MS-Exchange-Inbox-Rules-Loop: ryannemeth@live.com
+X-OriginatorOrg: sct-15-20-4755-11-msonline-outlook-e7757.templateTenant
+
+--000000000000e7fc6c06297b7360
+Content-Type: text/plain; charset="UTF-8"
+
+Dear user,
+
+The following is your monthly report regarding the health of disks on
+missanp01. You can also check the health of individual disks at Storage
+Manager > HDD/SSD > Health Info.
+
+No problem detected with the drives in DSM.
+
+
+Sincerely,
+Synology DiskStation
+
+--000000000000e7fc6c06297b7360
+Content-Type: text/html; charset="UTF-8"
+
+Dear user,<br>
+<br>
+The following is your monthly report regarding the health of disks on missanp01. You can also check the health of individual disks at Storage Manager &gt; HDD/SSD &gt; Health Info.<br>
+<br>
+No problem detected with the drives in DSM.<br><br>
+<br>
+Sincerely,<br>
+Synology DiskStation
+
+
+
+--000000000000e7fc6c06297b7360--
