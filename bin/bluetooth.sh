@@ -1,11 +1,15 @@
 #!/bin/sh
-if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]
-then
-  echo "%{F#66ffffff}"
-else
-  if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]
-  then 
-    echo ""
+
+# Check if Bluetooth is powered on
+if bluetoothctl show | grep -q "Powered: yes"; then
+  if bluetoothctl info | grep -q 'Device'; then
+    # Device connected
+    echo "%{T0}%{F#2193ff}%{T-}" # Use font-0 (Hack Nerd Font)
+  else
+    # No device connected
+    echo "%{T0}%{T-}"
   fi
-  echo "%{F#2193ff}"
+else
+  # Bluetooth powered off
+  echo "%{T0}%{F#66ffffff}%{T-}"
 fi
