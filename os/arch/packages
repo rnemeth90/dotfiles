@@ -1,4 +1,14 @@
 delve
+blueberry
+neomutt
+curl
+isync
+msmtp
+pass
+ca-certificates
+gettext
+ueberzug
+>>>>>>> 25b36bb577f876b50592af92b823e9e1bc3a4b59
 pipewire
 pipewire-alsa
 pipewire-jack

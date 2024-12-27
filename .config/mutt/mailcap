@@ -1,0 +1,4 @@
+text/html; w3m -T text/html -o display_image=1 -o display_link_number=1 %s; copiousoutput
+# text/html; lynx -stdin -dump; copiousoutput
+# text/html; elinks -dump %s; copiousoutput
+# text/html; pandoc -f html -t plain %s; copiousoutput
