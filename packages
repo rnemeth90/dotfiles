@@ -1,0 +1,90 @@
+## System Utilities
+- `7zip` - File compression and extraction utility
+- `ethtool` - Configure and query network device settings
+- `iotop` - Monitor I/O usage by processes
+
+- `inxi` - System information tool
+
+- `iptables-nft` - Packet filtering and NAT for Linux
+
+- `powertop` - Power consumption monitoring and tuning
+- `powertop-auto-tune` - Automate PowerTOP tuning
+- `smartmontools` - Monitor and control storage devices
+- `system-config-printer` - Manage printers
+- `traceroute` - Network path tracing
+- `usb_modeswitch` - USB device mode switching
+- `wireguard-tools` - Tools for WireGuard VPN
+
+- `xdg-user-dirs` - Manage user directories
+- `xdg-user-dirs-gtk` - GTK-based XDG user directory manager
+
+## Development Tools
+- `cmake` - Build system generator
+
+- `doxygen` - Documentation generator for source code
+- `dotnet-sdk-6.0` - .NET development framework
+- `git-delta` - Syntax highlighting for `git diff`
+
+- `gitui` - Terminal-based Git user interface
+- `helix` - Modern terminal-based text editor
+- `lua-language-server` - Language server for Lua
+- `prettierd` - Prettier CLI for code formatting
+- `python-pipx` - Install and manage Python CLI apps
+- `python-poetry` - Python dependency management and packaging
+- `rust-analyzer` - Language server for Rust
+- `stylua` - Lua code formatter
+
+## File Management
+- `dust` - Disk usage analyzer
+- `fd` - Simple and fast alternative to `find`
+- `file-roller` - Archive manager
+- `ncdu` - Disk usage analyzer
+- `unrar` - Extract `.rar` files
+
+## Multimedia and Fonts
+- `adobe-source-han-sans-cn-fonts` - Chinese fonts
+- `adobe-source-han-sans-jp-fonts` - Japanese fonts
+- `adobe-source-han-sans-kr-fonts` - Korean fonts
+- `noto-fonts` - High-quality fonts
+- `noto-fonts-emoji` - Emoji fonts
+- `ttf-dejavu` - DejaVu fonts
+- `ttf-fira-code` - Fira Code fonts
+- `ttf-nerd-fonts-symbols` - Nerd Fonts symbols
+- `gimp` - Image manipulation program
+- `evince` - Document viewer
+
+## Productivity and Utilities
+- `fish` - Friendly interactive shell
+- `lazydocker` - Terminal UI for Docker
+- `lazygit` - Terminal UI for Git
+- `libreoffice-fresh` - Office suite
+- `obsidian` - Markdown-based knowledge management tool
+- `oh-my-zsh` - Zsh configuration framework
+- `starship` - Minimal and customizable shell prompt
+
+## Theming and Appearance
+- `adw-gtk-theme` - GTK theme
+- `arc-gtk-theme` - GTK theme
+- `lxappearance` - Appearance manager for GTK
+- `papirus-icon-theme-git` - Icon theme
+- `whitesur-cursor-theme-git` - Cursor theme
+- `whitesur-gtk-theme` - GTK theme
+- `whitesur-icon-theme-git` - Icon theme
+
+## Games and Emulators
+- `retroarch` - Multi-system emulator
+- `retroarch-assets-glui` - RetroArch assets (GLUI)
+- `retroarch-assets-ozone` - RetroArch assets (Ozone)
+- `retroarch-assets-xmb` - RetroArch assets (XMB)
+- `steam` - Digital game distribution platform
+
+## Communication
+- `proton-vpn-gtk-app` - Proton VPN client
+- `signal-desktop` - Secure messaging app
+
+## Tools for GNOME
+- `gnome-calculator` - Calculator app
+- `gnome-screenshot` - Screenshot tool
+- `gnome-system-monitor` - Process and resource monitor
+- `gnome-text-editor` - Text editor
+- `gparted` - Partition editor

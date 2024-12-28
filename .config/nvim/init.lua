@@ -16,10 +16,11 @@ require("user.lualine")
 require("user.alpha")
 require("user.indentline")
 require("user.autocommands")
+require("user.nvim-dap-go")
+require("user.nvim-dap-virtual-text")
 
 require("user.neoai")
 require("user.go")
-require("user.nvim-dap-virtual-text")
 require("user.terraform")
 --
 -- Always load keymaps last

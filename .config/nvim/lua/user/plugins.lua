@@ -58,8 +58,10 @@ return packer.startup(function(use)
 
   -- Debugger
   use({ "mfussenegger/nvim-dap" })
+  use({ "leoluz/nvim-dap-go" })
   use({ "theHamsta/nvim-dap-virtual-text" })
   use({ "rcarriga/nvim-dap-ui" })
+  use({ "nvim-neotest/nvim-nio"})
 
   -- Colorschemes
   use({ "folke/tokyonight.nvim" })

@@ -72,7 +72,6 @@ create_config_symlinks() {
         ".config/mutt"
         ".config/polybar"
         ".config/picom"
-        ".config/omb"
         ".config/tmux"
     )
 
