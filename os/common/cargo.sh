@@ -20,7 +20,7 @@ install_cargo_package() {
     if cargo install --list | grep -q "$package"; then
         print_in_yellow "\n [✔] $package is already installed. Skipping...\n"
     else
-        if cargo install "$package"; then
+        if cargo install "$package" --locked; then
             print_in_green "\n [✔] Successfully installed $package!\n"
         else
             print_in_red "\n [✖] Failed to install $package.\n"
