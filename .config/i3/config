@@ -8,7 +8,7 @@ font pango:Hack Nerd Font 8
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # wallpapers
-exec --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-01.webp
+exec --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-02.webp
 
 # picom (transparency, etc.)
 exec --no-startup-id picom --config ~/.config/picom/picom.conf
@@ -33,7 +33,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -121,7 +121,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # assign windows to workspaces, use xprop to get class
 assign [class="google-chrome-stable"] $ws1
-assign [class="Alacritty"] $ws2
+assign [class="kitty"] $ws2
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
