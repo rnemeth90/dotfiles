@@ -16,7 +16,7 @@ require("user.lualine")
 require("user.alpha")
 require("user.indentline")
 require("user.autocommands")
-require("user.nvim-dap-go")
+-- require("user.nvim-dap-go")
 require("user.nvim-dap-virtual-text")
 
 require("user.neoai")
