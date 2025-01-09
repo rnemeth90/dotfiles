@@ -22,13 +22,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dimbl
 # nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-# Use pactl to adjust volume in PulseAudio
-set $refresh_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -120,7 +113,7 @@ bindsym $mod+Shift+8 move container to workspace number $ws8
 bindsym $mod+Shift+9 move container to workspace number $ws9
 
 # assign windows to workspaces, use xprop to get class
-assign [class="google-chrome-stable"] $ws1
+assign [class="brave-browser"] $ws1
 assign [class="kitty"] $ws2
 
 # reload the configuration file
@@ -170,7 +163,6 @@ exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh &
 
 # xrandr
 exec --no-startup-id xrandr --output eDP-1 --mode 2256x1504
-
 exec --no-startup-id xrandr --output eDP-1 --mode 2256x1504 --primary --output HDMI-1 --mode 2256x1504 --right-of eDP-1
 
  # remove title bars
@@ -181,6 +173,11 @@ bindsym XF86AudioPlay exec playerctl play
 bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # rofi
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
