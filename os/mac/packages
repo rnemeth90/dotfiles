@@ -11,6 +11,7 @@ brew "fd"
 brew "fzf"
 
 # Git & GitHub
+brew "git-delta"
 brew "gh"
 brew "grip"
 brew "lazygit"
