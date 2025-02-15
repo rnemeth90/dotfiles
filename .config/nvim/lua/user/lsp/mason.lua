@@ -16,7 +16,7 @@ local servers = {
   -- "csharp_ls",
   "golangci_lint_ls",
   "powershell_es",
-  "lua-language-server"
+  -- "lua-language-server"
   -- "tsserver",
   --"terraform-ls",
   -- "circleci-yaml-language-server",
