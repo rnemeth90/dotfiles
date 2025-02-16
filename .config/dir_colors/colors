@@ -1,0 +1,58 @@
+# Configuration file for dircolors
+
+# Default colors
+NORMAL 00      # Normal text
+FILE 00        # Regular files
+DIR 01;34      # Directories (bold blue)
+LINK 01;36     # Symbolic links (bold cyan)
+MULTIHARDLINK 00
+FIFO 40;33     # Named pipes (yellow background, brown text)
+SOCK 01;35     # Sockets (bold magenta)
+DOOR 01;35     # Doors (bold magenta, same as sockets)
+BLK 40;33;01   # Block devices (yellow background, bold brown text)
+CHR 40;33;01   # Character devices (yellow background, bold brown text)
+ORPHAN 01;31   # Orphaned symlinks (bold red)
+MISSING 01;31  # Missing files (bold red)
+EXEC 01;32     # Executable files (bold green)
+
+# Archive files (compressed, tar, etc.)
+.tar 01;31
+.tgz 01;31
+.arj 01;31
+.taz 01;31
+.lzh 01;31
+.zip 01;31
+.z 01;31
+.Z 01;31
+.gz 01;31
+.bz2 01;31
+.tbz2 01;31
+.txz 01;31
+
+# Image and video formats
+.jpg 01;35
+.jpeg 01;35
+.png 01;35
+.gif 01;35
+.bmp 01;35
+.ppm 01;35
+.tiff 01;35
+
+# Source code and script files
+.c 00;33
+.cpp 00;33
+.h 00;33
+.java 00;33
+.py 00;33
+.sh 00;33
+.pl 00;33
+.js 00;33
+.go 00;33
+.rs 00;33
+
+# Logs and text files
+.txt 00;37
+.log 00;37
+.md 00;37
+
+# Make sure to reload using `eval $(dircolors ~/.dir_colors/dircolors)`
