@@ -14,7 +14,7 @@ local servers = {
   "bicep",
   "awk_ls",
   -- "csharp_ls",
-  "golangci_lint_ls",
+  -- "golangci_lint_ls",
   "powershell_es",
   -- "lua-language-server"
   -- "tsserver",
