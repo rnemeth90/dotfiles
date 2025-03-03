@@ -73,6 +73,7 @@ create_config_symlinks() {
         ".config/polybar"
         ".config/picom"
         ".config/tmux"
+        ".config/powershell"
     )
 
     local sourceFile=""
