@@ -183,5 +183,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
 
 # screen backlight
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym $mod+F8 exec --no-startup-id brightnessctl set +5%
+bindsym $mod+F7 exec --no-startup-id brightnessctl set 5%-
