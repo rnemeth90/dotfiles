@@ -47,7 +47,6 @@
   "tokyonight.nvim": { "branch": "main", "commit": "45d22cf0e1b93476d3b6d362d720412b3d34465c" },
   "vim-bbye": { "branch": "master", "commit": "25ef93ac5a87526111f43e5110675032dbcacf56" },
   "vim-helm": { "branch": "master", "commit": "ae1ebc160d2b9b90108477ab10df7a4fc501e358" },
-  "vim-illuminate": { "branch": "master", "commit": "5eeb7951fc630682c322e88a9bbdae5c224ff0aa" },
   "vim-mustache-handlebars": { "branch": "master", "commit": "0153fe03a919add2d6cf2d41b2d5b6e1188bc0e0" },
   "vim-terraform": { "branch": "master", "commit": "24de93afb05078bac6a2e966402cc1f672277708" },
   "which-key.nvim": { "branch": "main", "commit": "8ab96b38a2530eacba5be717f52e04601eb59326" }
