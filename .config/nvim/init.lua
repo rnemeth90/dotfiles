@@ -1,5 +1,6 @@
 require("user.options")
 require("user.plugins")
+-- require("user.plugins-lazy")
 -- require("user.colorscheme")
 require("user.themes.catppuccin")
 require("user.cmp")
