@@ -66,6 +66,7 @@ create_config_symlinks() {
         ".config/terminator"
         ".config/plank"
         ".config/nvim"
+        ".config/nvim-lazy"
         ".config/ranger"
         ".config/i3"
         ".config/neofetch"
