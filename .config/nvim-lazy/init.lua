@@ -9,7 +9,7 @@ require("core.keymaps")
 
 require("core.autocommands")
 
--- require("user.gitsigns")
+require("plugins.gitsigns")
 -- require("user.neoscroll")
 -- require("user.comment")
 -- require("user.autopairs")
