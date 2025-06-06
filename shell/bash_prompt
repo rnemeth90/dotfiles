@@ -15,13 +15,19 @@ function set_win_title(){
     echo -ne "\033]0; $(basename "$PWD") \007"
 }
 
-function parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+# function parse_git_branch() {
+#      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+# }
+parse_git_branch() {
+  git rev-parse --is-inside-work-tree &> /dev/null || return
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null || git describe --tags --exact-match 2>/dev/null)
+  [ -n "$branch" ] && echo " ( $branch)"
 }
 
 main() {
-  export PS1=" \[\e[00;34m\]λ \W \[\e[0m\]$ "
+  # export PS1=" \[\e[00;34m\]λ \W \[\e[0m\]$ "
   # export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+  PS1='\[\e[00;34m\]λ \W\[\e[32m\]$(parse_git_branch)\[\e[0m\] $ '
 }
 main
 
