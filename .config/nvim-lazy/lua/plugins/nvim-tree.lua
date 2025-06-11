@@ -2,6 +2,8 @@ return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
   lazy = false,
+  -- event = "VeryLazy",
+  keys = { "<leader>e" }, -- load only when toggling tree
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
@@ -40,6 +42,12 @@ return {
     -- end
 
     require("nvim-tree").setup({
+      -- actions = {
+      --   remove_file = {
+      --     enable = true,
+      --     -- close_window = true, -- optional: closes tree after deletion
+      --   },
+      -- },
       disable_netrw = true,
       hijack_netrw = true,
       update_cwd = true,
