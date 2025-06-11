@@ -31,7 +31,10 @@ require("lazy").setup({
     { import = "lsp" },
   },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = {
+    enabled = true,
+    notify = false
+  },
 })
 
 -- Might as well set up an easy-access keybinding

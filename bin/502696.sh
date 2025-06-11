@@ -14,10 +14,23 @@ fi
 
 labId=$(echo "$namespace" | awk -F'-' '{print $2}')
 echo "[INFO] labId: ${labId}"
-ipAddress=$(kubectl get service lab-proxy-"$labId" -ojsonpath='{.spec.externalName}')
+ipAddress=$(kubectl get service -n ${namespace} lab-proxy-"$labId" -ojsonpath='{.spec.externalName}')
 echo "[INFO] labIpAddr: ${ipAddress}"
-port=$(kubectl get service lab-proxy-"$labId" -ojsonpath='{.spec.ports[*].port}')
+port=$(kubectl get service -n ${namespace} lab-proxy-"$labId" -ojsonpath='{.spec.ports[*].port}')
 echo "[INFO] port: ${port}"
+
+echo "[INFO] backing up externalName service for namespace: ${namespace}"
+mkdir -p /tmp/backups
+kubectl get service -n ${namespace} --field-selector spec.type=ExternalName -oyaml > /tmp/backups/lab-proxy-"$labId".yaml
+
+serviceName=lab-proxy-${labId}
+svcType=$(kubectl get service -n "${namespace}" "${serviceName}" -o jsonpath='{.spec.type}')
+if [ "$svcType" = "ExternalName" ]; then
+  echo "[INFO] deleting ExternalName service: ${serviceName}"
+  kubectl delete service -n "${namespace}" "${serviceName}"
+else
+  echo "[INFO] ${serviceName} is not of type ExternalName, skipping delete"
+fi
 
 echo "[INFO] creating service and endpoint for namespace: ${namespace}"
 kubectl create -f - <<EOF
@@ -35,7 +48,7 @@ subsets:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lab-proxy-service
+  name: lab-proxy-${labId}
   namespace: ${namespace}
 spec:
   ports:
@@ -46,5 +59,3 @@ spec:
   clusterIP: None
 EOF
 
-echo "[INFO] delete externalName service for namespace: ${namespace}"
-kubectl delete $(kubectl get service --field-selector spec.type=ExternalName -o name)
