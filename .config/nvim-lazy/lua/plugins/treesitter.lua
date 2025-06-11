@@ -5,6 +5,7 @@ return {
 		build = function()
 			pcall(require("nvim-treesitter.install").update({ with_sync = true }))
 		end,
+    event = { "BufReadPost", "BufNewFile" },
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
@@ -13,6 +14,7 @@ return {
 
       -- Add languages to be installed here that you want installed for treesitter
       ensure_installed = {
+        "awk",
         "bash",
         "c",
         "c_sharp",

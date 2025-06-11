@@ -11,6 +11,7 @@ return {
 			"saadparwaiz1/cmp_luasnip",
 			"rafamadriz/friendly-snippets",
 		},
+    event = "InsertEnter",
 		config = function()
       local check_backspace = function()
         local col = vim.fn.col "." - 1
