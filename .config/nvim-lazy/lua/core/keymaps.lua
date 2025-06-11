@@ -1,6 +1,6 @@
 -- Set leader key
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 local luasnip = require("luasnip")
 
@@ -90,6 +90,9 @@ keymap("n", "<leader>gf", "vim.lsp.buf.format", "", opts)
 --------------------
 -- Plugin Keymaps
 --------------------
+
+-- nvimtree
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
 
 -- Telescope
 keymap("n", "<leader>g", ":Telescope file_browser<CR>", "", opts)                             -- open telescope file browser
