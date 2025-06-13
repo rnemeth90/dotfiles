@@ -75,6 +75,7 @@ create_config_symlinks() {
         ".config/picom"
         ".config/tmux"
         ".config/powershell"
+        ".config/dir_colors"
     )
 
     local sourceFile=""

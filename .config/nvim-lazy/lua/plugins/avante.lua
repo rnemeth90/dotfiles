@@ -3,8 +3,6 @@ return {
   event = "VeryLazy",
   version = false, -- Never set this value to "*"! Never!
   opts = {
-    -- add any opts here
-    -- for example
     provider = "openai",
     providers = {
       openai = {
@@ -14,7 +12,7 @@ return {
         extra_request_body = {
           temperature = 0,
           max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-          --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+          reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
         }
       },
     }
