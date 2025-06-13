@@ -31,6 +31,27 @@ if [[ -d $aliases_dir && -r $aliases_dir && -x $aliases_dir ]]; then
     done
 fi
 
+# Set dircolors config path
+DIRCOLORS_PATH="$HOME/.config/dir_colors/colors"
+
+if [[ "$(uname)" == "Darwin" ]]; then
+  # macOS
+  if command -v gdircolors >/dev/null 2>&1 && [[ -f "$DIRCOLORS_PATH" ]]; then
+    eval "$(gdircolors -b "$DIRCOLORS_PATH")"
+  fi
+
+  if command -v gls >/dev/null 2>&1; then
+    alias ls='gls --color=auto'
+  fi
+else
+  # Linux
+  if command -v dircolors >/dev/null 2>&1 && [[ -f "$DIRCOLORS_PATH" ]]; then
+    eval "$(dircolors -b "$DIRCOLORS_PATH")"
+  fi
+
+  alias ls='ls --color=auto'
+fi
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

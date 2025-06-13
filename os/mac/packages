@@ -77,6 +77,7 @@ brew "wireshark"
 brew "wget"
 brew "yq"
 brew "kitty"
+brew "coreutils"
 
 # Casks for GUI apps (managed via brew)
 cask "google-chrome"
