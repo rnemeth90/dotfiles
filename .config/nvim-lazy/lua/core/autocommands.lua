@@ -23,6 +23,17 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    local name = vim.api.nvim_buf_get_name(buf)
+    if name ~= "" and vim.bo[buf].buftype == "" and not vim.bo[buf].modifiable then
+      vim.bo[buf].modifiable = true
+      vim.bo[buf].readonly = false
+    end
+  end,
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   group = general_group,
   pattern = "qf",

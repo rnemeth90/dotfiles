@@ -38,7 +38,7 @@ return {
         "omnisharp",
         "dockerls",
         "bicep",
-        "awk_ls",
+        -- "awk_ls",
         "powershell_es",
       }
 

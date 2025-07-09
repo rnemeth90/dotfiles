@@ -2,52 +2,29 @@ return {
   "nvim-tree/nvim-tree.lua",
   version = "*",
   lazy = false,
-  -- event = "VeryLazy",
-  keys = { "<leader>e" }, -- load only when toggling tree
+  keys = { "<leader>e" },
   dependencies = {
     "nvim-tree/nvim-web-devicons",
   },
   config = function()
-    local api = require("nvim-tree.api")
-
+  local api = require("nvim-tree.api")
 
     local function my_on_attach(bufnr)
       require("helpers.keys").set_leader(" ")
       local map_utils = require("helpers.keys")
 
-      -- Add buffer-local mapping support
       local function buf_map(mode, lhs, rhs, desc)
         map_utils.map(mode, lhs, rhs, desc, { buffer = bufnr })
       end
 
-      buf_map("n", "<CR>", api.node.open.edit, "Open")
-      buf_map("n", "l", api.node.open.edit, "Open")
       buf_map("n", "h", api.node.navigate.parent_close, "Close Directory")
+      buf_map("n", "l", api.node.open.edit, "Open Directory")
       buf_map("n", "v", api.node.open.vertical, "Open: Vertical Split")
       buf_map("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
       buf_map("n", "<leader>r", ":NvimTreeRefresh<CR>", "Refresh NvimTree")
     end
 
-    -- local function my_on_attach()
-    --   require("helpers.keys").set_leader(" ")
-    --   local map_utils = require("helpers.keys")
-    --
-    --   map_utils.map("n", "<CR>", api.node.open.edit, "Open")
-    --   -- map_utils.map("n", "o", api.node.open.edit, "Open")
-    --   map_utils.map("n", "l", api.node.open.edit, "Open")
-    --   map_utils.map("n", "h", api.node.navigate.parent_close, "Close Directory")
-    --   map_utils.map("n", "v", api.node.open.vertical, "Open: Vertical Split")
-    --   map_utils.map("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
-    --   map_utils.map("n", "<leader>r", ":NvimTreeRefresh<CR>", "Refresh NvimTree")
-    -- end
-
     require("nvim-tree").setup({
-      -- actions = {
-      --   remove_file = {
-      --     enable = true,
-      --     -- close_window = true, -- optional: closes tree after deletion
-      --   },
-      -- },
       disable_netrw = true,
       hijack_netrw = true,
       update_cwd = true,
