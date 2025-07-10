@@ -13,7 +13,7 @@ install_homebrew() {
         print_in_green "\n • Homebrew is already installed. Skipping...\n\n"
     fi
 }
-#
+
 # install_nvm_node_yarn() {
 #     if ! command -v nvm >/dev/null 2>&1; then
 #         print_in_purple "\n • Installing NVM, Node.js, and Yarn. Setting Node LTS as default.\n\n"
