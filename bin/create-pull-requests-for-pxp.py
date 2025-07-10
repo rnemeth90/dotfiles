@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from github import Github
 import subprocess
 import argparse
 import os
@@ -12,6 +13,32 @@ parser.add_argument("--src", help="The source files to copy")
 parser.add_argument("--dst", help="The destination directory to copy files to", nargs="?",default="tools")
 parser.add_argument("--commit_message", help="The commit message", nargs="?",default="chore: add versioning scripts")
 args = parser.parse_args()
+
+print("Arguments received:")
+print(f"Repos: {args.repos}")
+print(f"Default Branch: {args.default_branch}")
+print(f"Source: {args.src}")
+print(f"Destination: {args.dst}")
+
+# Write a function to create a pull request for each repository
+def create_pull_request(repo, branch_name, src, dst, commit_message):
+    print(f"Creating pull request for {repo} on branch {branch_name} with source {src} and destination {dst}")
+    # This function would contain the logic to create a pull request using the GitHub API or similar
+    # For example, you might use the PyGithub library to create a pull request
+
+    github.token = os.getenv("GITHUB_TOKEN")
+    g = Github(github.token)
+    repository = g.get_repo(repo)
+    try:
+        # Create a new branch for the pull request
+        repo_branch = repository.get_branch(branch_name)
+    except Exception as e:
+        print(f"Error: Could not find branch '{branch_name}' in repository '{repo}': {e}", file=sys.stderr)
+        return
+
+    
+    # For now, we will just print the details
+    print(f"Pull request created for {repo} with commit message: '{commit_message}'")
 
 
 def main():

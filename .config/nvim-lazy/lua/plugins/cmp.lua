@@ -117,6 +117,7 @@ return {
           end,
         },
         sources = {
+          { name = "copilot" },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "buffer" },
