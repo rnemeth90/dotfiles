@@ -1,91 +1,64 @@
-# Homebrew taps
-tap "homebrew/bundle"
-tap "homebrew/cask-versions"
-tap "homebrew/core"
-tap "homebrew/services"
-
-# Finding, browsing & reading files
-brew "bat"
-brew "broot"
-brew "fd"
-brew "fzf"
-
-# Git & GitHub
-brew "git-delta"
-brew "gh"
-brew "grip"
-brew "lazygit"
-
-# DB stuff
-brew "pgcli"
-
-# Python version manager
-brew "pyenv"
-
-# Scripts
-brew "shellcheck"
-
-# Help
-brew "tldr"
-
-# Super important stuff
-brew "cmatrix"
-
-# Brew packages
-brew "azure-cli"
-brew "bash-completion"
-brew "circumflex"
-brew "dhcpdump"
-brew "docker"
-brew "dotnet-sdk"
-brew "figlet"
-brew "golang"
-brew "delve"
-brew "google-chrome"
-brew "brave-browser"
-brew "helm"
-brew "htop"
-brew "hugo"
-brew "jq"
-cask julia
-brew "kubecolor"
-brew "kubetail"
-brew "kubectl"
-brew "luarocks"
-brew "man2html"
-brew "neofetch"
-brew "neovim"
-brew "node"
-brew "nmap"
-brew "openjdk@11"
-brew "php"
-brew "powershell"
-brew "python"
-brew "ranger"
-brew "ripgrep"
-brew "ruby"
-brew "speedtest-cli"
-brew "terraform"
-brew "thefuck"
-brew "tmux"
-brew "tor"
-brew "typescript"
-brew "virtualbox"
-brew "visual-studio-code"
-brew "vlc"
-brew "wireshark"
-brew "wget"
-brew "yq"
-brew "kitty"
-brew "coreutils"
-
-# Casks for GUI apps (managed via brew)
-cask "google-chrome"
-cask "iterm2"
-cask "alacritty"
-cask "visual-studio-code"
-
-# Custom installations
-tap "golangci/tap"
-brew "golangci-lint"
-
+bat
+broot
+fd
+fzf
+git-delta
+gh
+grip
+lazygit
+pgcli
+pyenv
+shellcheck
+tldr
+cmatrix
+azure-cli
+bash-completion
+circumflex
+dhcpdump
+docker
+dotnet-sdk
+figlet
+golang
+delve
+google-chrome
+brave-browser
+helm
+htop
+hugo
+jq
+julia
+kubecolor
+kubetail
+kubectl
+luarocks
+man2html
+neofetch
+neovim
+node
+nmap
+openjdk@11
+php
+powershell
+python
+ranger
+ripgrep
+ruby
+speedtest-cli
+terraform
+thefuck
+tmux
+tor
+typescript
+virtualbox
+visual-studio-code
+vlc
+wireshark
+wget
+yq
+kitty
+coreutils
+google-chrome
+iterm2
+alacritty
+visual-studio-code
+golangci-lint

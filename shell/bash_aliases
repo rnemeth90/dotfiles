@@ -34,7 +34,7 @@ alias whatsmyip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ll="ls -lh"
 alias m="man"
 alias t="tldr"
-alias n="npm"
+# alias n="npm"
 alias p="cd ~/projects"
 alias y="yarn"
 
@@ -71,7 +71,7 @@ alias ripgrep=rg
 alias svnkdiff3='svn diff --diff-cmd kdiff3'
 
 # nvim
-alias n='nvim .'
+alias n='NVIM_APPNAME=nvim-lazy nvim .'
 
 # watch
 alias watchh='watch '
