@@ -71,6 +71,13 @@ return {
       should_attach = function(_, _)
         return vim.bo.buflisted and vim.bo.buftype == ""
       end,
+
+      -- Enable LSP
+      on_attach = function(client, bufnr)
+        if client.name == "copilot" then
+          vim.lsp.buf_attach_client(bufnr, client.id)
+        end
+      end,
       server = {
         type = "nodejs",
         custom_server_filepath = nil,
