@@ -31,7 +31,7 @@ return {
         "html",
         "clangd",
         "gopls",
-        "pyright",
+        "basedpyright",
         "bashls",
         "jsonls",
         "yamlls",

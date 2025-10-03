@@ -90,5 +90,8 @@ update_tmux_window_name() {
   tmux rename-window "$name"
 }
 
+# Fix terminal control characters (e.g., Ctrl+A, Ctrl+L)
+stty sane
+
 # Run on every prompt
-PROMPT_COMMAND="update_tmux_window_name; $PROMPT_COMMAND"
+# PROMPT_COMMAND="update_tmux_window_name; $PROMPT_COMMAND"
