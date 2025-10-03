@@ -1,3 +1,4 @@
+-- vim.lsp.enable()
 vim.loader.enable()
 -- global neovim options
 local options = {

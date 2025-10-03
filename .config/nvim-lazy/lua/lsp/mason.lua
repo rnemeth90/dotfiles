@@ -36,21 +36,14 @@ return {
         "jsonls",
         "yamlls",
         "omnisharp",
-        -- "csharp_ls",
         "dockerls",
         "bicep",
-        -- "awk_ls",
         "powershell_es",
         "ansiblels",
-        -- "asm_lsp",
         "azure_pipelines_ls",
-        "bicep",
         "docker_compose_language_service",
-        "dockerls",
         "helm_ls",
-        -- "gh-actions-language-server",
         "jqls",
-        -- "java_language_server",
         "nginx_language_server",
         "terraformls",
         "ts_ls",
@@ -65,13 +58,33 @@ return {
       local lspconfig = require("lspconfig")
       local handlers = require("helpers.handlers")
 
+      -- 🔧 Register `copilot` if not already defined
+      if not lsp.settings.copilot then
+        lsp.settings.copilot = {
+          default_config = {
+            cmd = { "copilot-node-server" },
+            filetypes = { "javascript", "typescript", "lua", "python", "go", "rust", "c", "cpp", "sh" },
+            root_dir = function(fname)
+              return require("lspconfig.util").find_git_ancestor(fname) or vim.loop.cwd()
+            end,
+            single_file_support = true,
+          },
+        }
+      end
+
+      -- 🔧 Setup copilot manually
+      lspconfig.copilot.setup({
+        capabilities = handlers.capabilities,
+        on_attach = handlers.on_attach,
+      })
+
+      -- 🚀 Setup all other LSP servers
       for _, server in ipairs(servers) do
         local opts = {
           on_attach = handlers.on_attach,
           capabilities = handlers.capabilities,
         }
 
-        -- load config for lsps from settings directory
         local has_custom_opts, server_opts = pcall(require, "lsp.settings." .. server)
         if has_custom_opts then
           opts = vim.tbl_deep_extend("force", opts, server_opts)
@@ -93,6 +106,7 @@ return {
         ensure_installed = {
           { "golangci-lint", version = "v1.47.0" },
           { "bash-language-server", auto_update = true },
+          "copilot-language-server", -- ✅ this is correct here
           "black",
           "debugpy",
           "flake8",
@@ -115,14 +129,12 @@ return {
           "json-to-struct",
           "misspell",
           "snyk",
-          -- "synk_ls",
           "revive",
           "shfmt",
           "staticcheck",
           "vint",
           "ansible-lint",
           "beautysh",
-          -- "clangd-format",
           "csharpier",
           "delve",
           "fixjson",
@@ -132,17 +144,13 @@ return {
           "gospel",
           "jq",
           "htmlbeautifier",
-          -- "json-lint",
-          -- "kube-linter",
           "luaformatter",
           "markdownlint",
-          -- "nginx_config_formatter",
           "terraform",
-          -- "prometheus-pint",
           "trivy",
           "yamlfix",
           "yamlfmt",
-          "yamllint"
+          "yamllint",
         },
         auto_update = true,
         run_on_start = true,
