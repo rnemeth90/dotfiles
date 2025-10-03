@@ -44,7 +44,7 @@ return {
       },
       auto_install = true,
       sync_install = true,
-      indent = { enable = true },
+      -- indent = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
