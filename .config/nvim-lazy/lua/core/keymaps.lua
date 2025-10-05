@@ -94,16 +94,7 @@ keymap("n", "<leader>gf", "vim.lsp.buf.format", "", opts)
 -- nvimtree
 -- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
 
--- Telescope
--- keymap("n", "<leader>g", ":Telescope file_browser<CR>", "", opts)                             -- open telescope file browser
--- keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<CR>", "", opts) -- Find files
--- keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", "", opts)  -- Live grep
--- keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<CR>", "", opts)    -- List buffers
--- keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<CR>", "", opts)  -- Help tags
---
--- -- Telescope Extensions Keymaps
--- keymap("n", "<leader>fm", "<cmd>lua require('telescope').extensions.media_files.media_files()<CR>", "", opts)   -- Media files
--- keymap("n", "<leader>fe", "<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>", "", opts) -- File browser
+-- Telescope (now handled by telescope.lua plugin)
 --
 -- LSP Keymaps
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", "", opts)          -- Go to definition

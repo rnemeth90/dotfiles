@@ -58,27 +58,6 @@ return {
       local lspconfig = require("lspconfig")
       local handlers = require("helpers.handlers")
 
-      -- 🔧 Register `copilot` if not already defined
-      if not lsp.settings.copilot then
-        lsp.settings.copilot = {
-          default_config = {
-            cmd = { "copilot-node-server" },
-            filetypes = { "javascript", "typescript", "lua", "python", "go", "rust", "c", "cpp", "sh" },
-            root_dir = function(fname)
-              return require("lspconfig.util").find_git_ancestor(fname) or vim.loop.cwd()
-            end,
-            single_file_support = true,
-          },
-        }
-      end
-
-      -- 🔧 Setup copilot manually
-      lspconfig.copilot.setup({
-        capabilities = handlers.capabilities,
-        on_attach = handlers.on_attach,
-      })
-
-      -- 🚀 Setup all other LSP servers
       for _, server in ipairs(servers) do
         local opts = {
           on_attach = handlers.on_attach,
@@ -106,7 +85,7 @@ return {
         ensure_installed = {
           { "golangci-lint", version = "v1.47.0" },
           { "bash-language-server", auto_update = true },
-          "copilot-language-server", -- ✅ this is correct here
+          "copilot-language-server",
           "black",
           "debugpy",
           "flake8",
