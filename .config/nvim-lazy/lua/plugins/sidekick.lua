@@ -6,7 +6,7 @@ return {
       tools = {
         {
           name = "cursor",
-          cmd = { "cursor-agent", "prompt" },
+          cmd = { "cursor-agent" },
           input = "stdin",
           context = true,
         },
