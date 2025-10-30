@@ -74,7 +74,7 @@ export GOBIN="$HOME/repos/golang/bin"
 export DOTNET_ROOT="/usr/local/share/dotnet"
 
 # setup PATHs
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/home/ryan/bin:$GOPATH/bin:/usr/local/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH:$DOTNET_ROOT"
+export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/home/ryan/bin:$GOBIN:$GOPATH/bin:/usr/local/bin:/usr/local/go/bin:/home/ryan/node_modules/.bin:/opt/julia/julia-1.8.5/bin:/home/ryan/.local/bin:$PATH:$DOTNET_ROOT"
 for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
 
 NPM_PACKAGES="${HOME}/.npm-packages"
