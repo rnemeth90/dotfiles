@@ -8,7 +8,7 @@ font pango:Hack Nerd Font 8
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # wallpapers
-exec --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-02.webp
+exec --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-04.webp
 
 # picom (transparency, etc.)
 exec --no-startup-id picom --config ~/.config/picom/picom.conf

@@ -116,24 +116,24 @@ keymap("n", "<leader>tp", ":!terraform plan<CR>", "", opts)
 keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "", opts)
 
 -- Neoscroll Keymaps
-keymap("n", "<C-u>", "<cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 150)<CR>", "", opts)
-keymap("n", "<C-d>", "<cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 150)<CR>", "", opts)
-keymap("n", "<C-b>", "<cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
-keymap("n", "<C-f>", "<cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
-keymap("n", "<C-y>", "<cmd>lua require('neoscroll').scroll(-1, true, 50)<CR>", "", opts)
-keymap("n", "<C-e>", "<cmd>lua require('neoscroll').scroll(1, true, 50)<CR>", "", opts)
-keymap("n", "zt", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zt')<CR>", "", opts)
-keymap("n", "zz", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zz')<CR>", "", opts)
-keymap("n", "zb", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zb')<CR>", "", opts)
+-- keymap("n", "<C-u>", "<cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 150)<CR>", "", opts)
+-- keymap("n", "<C-d>", "<cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 150)<CR>", "", opts)
+-- keymap("n", "<C-b>", "<cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
+-- keymap("n", "<C-f>", "<cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
+-- keymap("n", "<C-y>", "<cmd>lua require('neoscroll').scroll(-1, true, 50)<CR>", "", opts)
+-- keymap("n", "<C-e>", "<cmd>lua require('neoscroll').scroll(1, true, 50)<CR>", "", opts)
+-- keymap("n", "zt", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zt')<CR>", "", opts)
+-- keymap("n", "zz", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zz')<CR>", "", opts)
+-- keymap("n", "zb", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zb')<CR>", "", opts)
 
 -- ToggleTerm Keybindings
-keymap(
-  "n",
-  "<leader>lg",
-  "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='lazygit', hidden=true}):toggle()<CR>",
-  "",
-  opts
-)
+-- keymap(
+--   "n",
+--   "<leader>lg",
+--   "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='lazygit', hidden=true}):toggle()<CR>",
+--   "",
+--   opts
+-- )
 keymap(
   "n",
   "<leader>tn",
@@ -167,35 +167,35 @@ keymap(
 local M = {}
 
 -- Gitsigns Keymaps
-keymap("n", "]c", function()
-  if vim.wo.diff then
-    return "]c"
-  end
-  vim.schedule(function()
-    require("gitsigns").next_hunk()
-  end)
-  return "<Ignore>"
-end, "Next hunk")
-
-keymap("n", "[c", function()
-  if vim.wo.diff then
-    return "[c"
-  end
-  vim.schedule(function()
-    require("gitsigns").prev_hunk()
-  end)
-  return "<Ignore>"
-end, "Previous hunk")
-
-keymap("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>", "Stage hunk")
-keymap("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk")
-keymap("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>", "Stage buffer")
-keymap("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk")
-keymap("n", "<leader>hp", ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk")
-keymap("n", "<leader>hb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle blame")
-keymap("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>", "View diff")
-keymap("n", "<leader>hD", ":lua require('gitsigns').diffthis('~')<CR>", "View diff (HEAD~)")
-keymap("n", "<leader>ht", ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle deleted lines")
+-- keymap("n", "]c", function()
+--   if vim.wo.diff then
+--     return "]c"
+--   end
+--   vim.schedule(function()
+--     require("gitsigns").next_hunk()
+--   end)
+--   return "<Ignore>"
+-- end, "Next hunk")
+--
+-- keymap("n", "[c", function()
+--   if vim.wo.diff then
+--     return "[c"
+--   end
+--   vim.schedule(function()
+--     require("gitsigns").prev_hunk()
+--   end)
+--   return "<Ignore>"
+-- end, "Previous hunk")
+--
+-- keymap("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>", "Stage hunk")
+-- keymap("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk")
+-- keymap("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>", "Stage buffer")
+-- keymap("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk")
+-- keymap("n", "<leader>hp", ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk")
+-- keymap("n", "<leader>hb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle blame")
+-- keymap("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>", "View diff")
+-- keymap("n", "<leader>hD", ":lua require('gitsigns').diffthis('~')<CR>", "View diff (HEAD~)")
+-- keymap("n", "<leader>ht", ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle deleted lines")
 
 -- Function to set LSP-specific keymaps
 M.lsp_keymaps = function(bufnr)
