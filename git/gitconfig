@@ -5,8 +5,8 @@
 [core]
     pager = delta
 
-[interactive]
-    diffFilter = delta --color-only
+#[interactive]
+#    diffFilter = delta --color-only
 
 [delta]
     navigate = true  # use n and N to move between diff sections
@@ -26,3 +26,9 @@
 
 [push]
     autoSetupRemote = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
