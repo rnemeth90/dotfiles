@@ -95,3 +95,6 @@ stty sane
 
 # Run on every prompt
 # PROMPT_COMMAND="update_tmux_window_name; $PROMPT_COMMAND"
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
