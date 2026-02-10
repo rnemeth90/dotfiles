@@ -15,3 +15,5 @@ yarn-error.log*
 
 work_aliases.sh
 *.*~
+
+sqlc

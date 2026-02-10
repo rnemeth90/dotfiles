@@ -124,7 +124,7 @@ EOF
 
     go get github.com/spf13/cobra@latest
     go install github.com/spf13/cobra-cli@latest
-    cobra-cli init
+    $GOBIN/cobra-cli init
     ;;
   *)
     echo "Invalid choice, exiting."

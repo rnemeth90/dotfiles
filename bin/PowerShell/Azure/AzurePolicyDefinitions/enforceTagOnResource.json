@@ -1,0 +1,36 @@
+{
+    "properties": {
+      "displayName": "Vibe - Enforce Tag on Resource Creation",
+      "policyType": "Custom",
+      "mode": "Indexed",
+      "description": "This policy requires that the environment tag be defined on all created resources",
+      "metadata": {
+        "category": "VibeTags",
+        "createdBy": "ae7e7c84-873b-4ef3-bb19-bbe8bd8ee323",
+        "createdOn": "2020-06-23T16:45:45.6149567Z",
+        "updatedBy": "ae7e7c84-873b-4ef3-bb19-bbe8bd8ee323",
+        "updatedOn": "2020-06-23T16:46:25.0440549Z"
+      },
+      "parameters": {
+        "tagName": {
+          "type": "String",
+          "metadata": {
+            "displayName": "Tag Name",
+            "description": "Name of the tag, such as 'environment'"
+          }
+        }
+      },
+      "policyRule": {
+        "if": {
+          "field": "[concat('tags[', parameters('tagName'), ']')]",
+          "exists": "false"
+        },
+        "then": {
+          "effect": "deny"
+        }
+      }
+    },
+    "id": "/subscriptions/72787baf-bb18-45db-8190-887f9d6b6894/providers/Microsoft.Authorization/policyDefinitions/3eafefad-c484-48b7-b5c1-2c7915038711",
+    "type": "Microsoft.Authorization/policyDefinitions",
+    "name": "3eafefad-c484-48b7-b5c1-2c7915038711"
+  }

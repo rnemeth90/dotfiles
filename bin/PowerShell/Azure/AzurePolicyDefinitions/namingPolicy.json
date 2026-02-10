@@ -1,0 +1,43 @@
+{
+    "mode": "All",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Resources/resourceGroups"
+          },
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "field": "name",
+                  "like": "prod-rg-*"
+                },
+                {
+                  "field": "name",
+                  "like": "int-rg-*"
+                },
+                {
+                  "field": "name",
+                  "like": "test-rg-*"
+                },
+                {
+                  "field": "name",
+                  "like": "qa-rg-*"
+                },
+                {
+                  "field": "name",
+                  "like": "dev-rg-*"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "parameters": {}
+  }
