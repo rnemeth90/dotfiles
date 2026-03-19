@@ -1,6 +1,7 @@
 #!/bin/bash
 
-cd "$(dirname "${BASH_SOURCE[0]}")" &&
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$DOTFILES_DIR" &&
   source "utils/utils.sh"
 
 
@@ -56,16 +57,16 @@ install_packages() {
   case "$OS" in
   mac)
     print_in_green "\n • Installing packages for Mac..."
-    brew install $(cat ~/dotfiles/os/mac/packages)
+    brew install $(cat "$DOTFILES_DIR/os/mac/packages")
     sleep 5
     ;;
   debian)
     print_in_green "\n • Installing packages for Debian..."
-    sudo apt update && sudo apt install -y $(cat ~/dotfiles/os/debian/packages)
+    sudo apt update && sudo apt install -y $(cat "$DOTFILES_DIR/os/debian/packages")
     ;;
   arch)
     print_in_green "\n • Installing packages for Arch (Pacman)..."
-    install_packages_arch $(cat ~/dotfiles/os/arch/packages)
+    install_packages_arch $(cat "$DOTFILES_DIR/os/arch/packages")
     ;;
   esac
 
@@ -97,7 +98,9 @@ everything_else() {
   print_in_green "\n • installing everything else \n\n"
   ./os/common/go.sh
   ./os/common/cargo.sh
-  ./os/common/manual.sh
+  if [[ -f /etc/debian_version ]]; then
+    ./os/common/manual.sh
+  fi
   ./os/common/npm.sh
   ./os/common/pip.sh
   print_in_green "\n finished installing everything else \n\n"

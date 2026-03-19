@@ -6,6 +6,11 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
     source "$DOT/utils/utils.sh"
 
 install_homebrew() {
+    if [[ "$OSTYPE" != "darwin"* ]]; then
+        print_in_yellow "\n • Skipping Homebrew (not macOS).\n\n"
+        return
+    fi
+
     if ! command -v brew >/dev/null 2>&1; then
         print_in_purple "\n • Installing Homebrew \n\n"
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -30,7 +35,11 @@ install_homebrew() {
 install_npm() {
     if ! command -v npm >/dev/null 2>&1; then
         print_in_purple "\n • Installing npm \n\n"
-        brew install npm
+        if command -v brew >/dev/null 2>&1; then
+            brew install npm
+        else
+            print_in_yellow "\n • brew not available, skipping npm install via brew.\n\n"
+        fi
     else
         print_in_green "\n • npm is already installed. Skipping...\n\n"
     fi

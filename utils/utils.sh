@@ -70,7 +70,7 @@ execute() {
   print_result $exitCode "$MSG"
 
   if [ $exitCode -ne 0 ]; then
-    print_error <"$TMP_FILE"
+    print_error "$(cat "$TMP_FILE")"
   fi
 
   rm -rf "$TMP_FILE"
@@ -84,7 +84,7 @@ execute() {
 set_trap() {
 
   trap -p "$1" | grep "$2" &>/dev/null ||
-    trap '$2' "$1"
+    trap "$2" "$1"
 
 }
 

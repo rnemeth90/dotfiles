@@ -25,10 +25,12 @@ export PATH="$PATH:$NPM_PACKAGES/bin"
 export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
 
 # ==== fzf ====
-export FZF_IGNORES=Applications,Library,Movies,Music,Pictures,Qt,node_modules,venv,.DS_Store,.Trash,.cache,.git,.mypy_cache,.npm,.pyenv,.pytest_cache,.stack,.temp,__pycache__
-export FZF_DEFAULT_COMMAND='command fd --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
+FZF_EXCLUDE_DIRS=(Applications Library Movies Music Pictures Qt node_modules venv .DS_Store .Trash .cache .git .mypy_cache .npm .pyenv .pytest_cache .stack .temp __pycache__)
+FZF_EXCLUDE_FLAGS=""
+for _d in "${FZF_EXCLUDE_DIRS[@]}"; do FZF_EXCLUDE_FLAGS+=" --exclude ${_d}"; done
+export FZF_DEFAULT_COMMAND="command fd --hidden --no-ignore${FZF_EXCLUDE_FLAGS} ."
 export FZF_DEFAULT_OPTS='--ansi --preview "bat --color=always --style=header,grid --line-range :300 {}"'
-export FZF_ALT_C_COMMAND='command fd --type d --type l --hidden --no-ignore --exclude "{$FZF_IGNORES}" .'
+export FZF_ALT_C_COMMAND="command fd --type d --type l --hidden --no-ignore${FZF_EXCLUDE_FLAGS} ."
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_COMPLETION_TRIGGER='**'
 

@@ -61,13 +61,25 @@ set_github_ssh_key() {
 }
 
 test_ssh_connection() {
-  while true; do
-    chmod 600 ~/.ssh/config
-    chown $USER ~/.ssh/config
+  local max_attempts=12
+  local attempt=0
+
+  chmod 600 ~/.ssh/config
+  chown "$USER" ~/.ssh/config
+
+  while [ $attempt -lt $max_attempts ]; do
+    attempt=$((attempt + 1))
     ssh -T git@github.com
-    [ $? -eq 1 ] && break
+    if [ $? -eq 1 ]; then
+      print_success "SSH connection to GitHub verified."
+      return 0
+    fi
+    print_warning "Attempt $attempt/$max_attempts — retrying in 5s..."
     sleep 5
   done
+
+  print_error "Failed to verify SSH connection after $max_attempts attempts."
+  return 1
 }
 
 main() {

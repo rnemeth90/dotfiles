@@ -34,6 +34,6 @@ if [ -z "$job" ] ; then   # No job? Weird. Okay, that's an error.
   exit 1
 fi
 
-SHELL='which sh'          # To be consistent with cron's default
+SHELL=$(command -v sh)          # To be consistent with cron's default
 
-eval $job               # We’ll exit once the job is finished.
+eval "$job"               # We’ll exit once the job is finished.

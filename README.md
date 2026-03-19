@@ -1,8 +1,8 @@
 # rnemeth90's Dotfiles
 
-A collection of configuration files and setup scripts for quickly customizing a freshly installed operating system. These dotfiles support **Linux Mint**, **Debian-based distributions**, **Arch Linux**, and **macOS**.
+A collection of configuration files and setup scripts for quickly configuring a freshly installed operating system. These dotfiles support **Debian-based distributions**, **Arch Linux**, and **macOS**.
 
-## 🔨 Full Setup
+## Full Setup
 
 Run the following command to clone the repository and start the setup:
 
@@ -10,78 +10,88 @@ Run the following command to clone the repository and start the setup:
 cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find . -type f -iname "*.sh" -exec chmod +x {} \; && ./setup.sh
 ```
 
-## ❔ What Does This Do?
+You can also run individual setup steps by passing a function name:
 
-The [setup.sh](./setup.sh) script covers a variety of tasks to set up my environment:
+```bash
+./setup.sh install_packages
+./setup.sh install_fonts
+```
 
-- System Updates:
-  - Installs all available updates for the detected operating system.
-- Multi-OS Package Managers:
-  - Automatically detects the OS and installs the appropriate package manager:
-  - Linux Mint / Debian: apt
-  - Arch Linux: pacman
-  - macOS: brew
-  - Additionally, installs Snap, Flatpak, and NVM (Node Version Manager).
-- Development Packages:
-  - Installs tools like git, curl, vim, and more, using a Brewfile or the system’s package manager.
-- Applications:
-  - Installs essential applications like tldr, docker, and development tools.
-- Configuration:
-  - Creates .bash.local and .gitconfig.local for environment-specific overrides.
-- Git Setup:
-  - Creates an SSH key and configures Git for use with GitHub.
+## What Does This Do?
 
-## ✨ Key Features
+The [setup.sh](./setup.sh) script runs the following steps in order:
 
-- Multi-OS Support:
-  - Automatically adapts to the detected operating system, ensuring seamless setup across Linux Mint, Debian-based, Arch Linux, and macOS.
-- Custom Bash Setup:
-  - Includes aliases, exports, and prompt customizations.
-- Git Configuration:
-  - Automatically sets up a Git user, default branch, and GPG signing.
-- Go Workspace:
-  - Creates a Go workspace ($HOME/repos/golang) and clones my Go projects.
-- Repository Cloning:
-  - Clones all my personal GitHub repositories into $HOME/repos.
+1. **Symbolic links** -- Links shell configs, Neovim config, and other dotfiles from the repo into `$HOME` and `$HOME/.config`.
+2. **Package managers** -- Installs Homebrew (macOS only), npm (via brew), and Rust/Cargo (via rustup).
+3. **Shell configuration** -- Creates `~/.bash.local` for machine-specific PATH and environment overrides.
+4. **OS packages** -- Detects the OS and installs packages from the appropriate list:
+   - macOS: `brew install` from `os/mac/packages`
+   - Debian/Ubuntu: `apt install` from `os/debian/packages`
+   - Arch: `pacman`/`yay` from `os/arch/packages`
+5. **Git configuration** -- Creates `~/.gitconfig.local` with user identity and default branch settings. Optionally clones personal repositories.
+6. **Fonts** -- Downloads and installs Nerd Fonts from GitHub releases.
+7. **Language tooling** -- Installs CLI tools via `go install`, `cargo install`, `npm install -g`, and `pip install`. On Debian, also runs additional manual installs (Chrome, Azure CLI, VS Code, Terraform, etc.).
 
-## 🛠️ Prerequisites
+## Key Features
 
-Before running the setup, ensure the following tools are installed:
+- **Multi-OS support** -- Automatically detects macOS, Debian, or Arch and runs the appropriate install paths. OS-specific scripts are gated so they only run on their target platform.
+- **Bash configuration** -- Modular setup with separate files for aliases, exports, prompt, options, colors, and autocompletion. Machine-specific overrides go in `~/.bash.local`.
+- **Neovim (lazy.nvim)** -- Full configuration in `.config/nvim-lazy/` with LSP, completion (nvim-cmp), Treesitter, Snacks pickers, and Copilot integration.
+- **Git configuration** -- Shared settings in `git/gitconfig` with local overrides in `~/.gitconfig.local`. SSH key setup is available but disabled by default in the main flow.
+- **Utility scripts** -- A collection of shell scripts in `bin/` for Kubernetes, Azure, Go project scaffolding, VM provisioning, and general automation.
+
+## Prerequisites
+
+Before running the setup, ensure the following are installed:
 
 - `git`
 - `curl`
 - `bash`
 
-## 🔧 Customization
+## Customization
 
-`.bash.local`
+### `.bash.local`
 
-This file is created during setup and can be used to define environment-specific configurations. Example:
+Created during setup. Use this for environment-specific configuration that should not be version-controlled:
 
-```
-# Add custom paths
+```bash
 export PATH="$HOME/custom/bin:$PATH"
-
-# Define environment variables
 export EDITOR="vim"
 ```
 
-`.gitconfig.local`
+### `.gitconfig.local`
 
-Configure Git settings like username, email, and signing key:
+Created during setup. Configure your Git identity and optional commit signing:
 
-    ```
-    [user]
-      name = John Doe
-      email = john.doe@example.com
-    [commit]
-      gpgsign = true
-    ```
+```
+[user]
+  name = John Doe
+  email = john.doe@example.com
+[commit]
+  gpgsign = true
+```
 
-### TO DO:
+## Repository Structure
 
-- Edit settings in /etc/default/grub (e.g., bootloader options).
-- Fix thefuck installation issue.
-- Add support for tldr installation (done).
+```
+dotfiles/
+  setup.sh              Main entry point
+  utils/                Shared shell helpers (colors, prompts, execute)
+  shell/                Bash config files (aliases, exports, prompt, etc.)
+  shell/bash_aliases.d/ Modular alias files (docker, git, k8s, terraform)
+  git/                  Git config and SSH key setup scripts
+  bin/                  Utility scripts and tools
+  os/                   OS detection, symlinks, package lists, installers
+  os/common/            Cross-platform installers (go, cargo, npm, pip, fonts)
+  .config/nvim-lazy/    Neovim configuration (lazy.nvim)
+  .config/              App configs (alacritty, kitty, bat, lazygit, tmux, etc.)
+  conf/                 Misc config files (xinitrc, man page styles)
+  golang/               Cobra CLI template
+  packages              Reference package list with descriptions
+```
 
-Test it out and customize it to fit your needs. If you’re not sure, _consider trying it in a virtual machine first!_
+## TO DO
+
+- Edit settings in `/etc/default/grub` (bootloader options).
+
+Test it out and customize it to fit your needs. If you're not sure, _consider trying it in a virtual machine first._

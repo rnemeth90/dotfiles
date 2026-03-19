@@ -15,11 +15,11 @@ return {
 
     local sources = {
       formatting.prettier.with({
-        filetypes = { "c", "js", "ts", "javascript", "typescript", "css", "html", "scss", "json", "yaml", "markdown", "md" },
+        filetypes = { "javascript", "typescript", "css", "html", "scss", "json", "yaml", "markdown" },
         extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
       }),
       formatting.black.with({
-        filetypes = { "py", "python" },
+        filetypes = { "python" },
         extra_args = { "--fast" },
       }),
       formatting.stylua.with({
@@ -33,7 +33,17 @@ return {
       }),
       diagnostics.eslint.with({
         condition = function(utils)
-          return utils.root_has_file(".eslintrc.js")
+          return utils.root_has_file({
+            ".eslintrc",
+            ".eslintrc.js",
+            ".eslintrc.cjs",
+            ".eslintrc.json",
+            ".eslintrc.yaml",
+            ".eslintrc.yml",
+            "eslint.config.js",
+            "eslint.config.mjs",
+            "eslint.config.cjs",
+          })
         end,
       }),
       completions.spell,

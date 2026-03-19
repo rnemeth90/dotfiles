@@ -58,6 +58,8 @@ return {
       local lspconfig = require("lspconfig")
       local handlers = require("helpers.handlers")
 
+      handlers.setup()
+
       for _, server in ipairs(servers) do
         local opts = {
           on_attach = handlers.on_attach,

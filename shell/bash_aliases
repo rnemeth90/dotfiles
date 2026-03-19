@@ -7,17 +7,9 @@ alias cd..="cd .."
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-alias cp="cp -iv"
-#             │└─ list copied files
-#             └─ prompt before overwriting an existing file
-
 alias mkdir="mkdir -pv"
 #                   │└─ list created directories
 #                   └─ create intermediate directories
-
-alias mv="mv -iv"
-#             │└─ list moved files
-#             └─ prompt before overwriting an existing file
 
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -25,13 +17,12 @@ alias mv="mv -iv"
 alias :q="exit"
 alias q="exit"
 alias c="clear"
-alias d="cd ~/Desktop"
+alias desk="cd ~/Desktop"
 alias dt="cd ~/dotfiles"
 alias doc="cd ~/Documents"
 alias dow="cd ~/Downloads/"
 alias g="git"
 alias whatsmyip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias ll="ls -lh"
 alias m="man"
 alias t="tldr"
 # alias n="npm"
@@ -48,10 +39,8 @@ alias empty-trash="rm -rf ~/.local/share/Trash/files/*"
 
 alias o="xdg-open"
 
-# Make some possibly destructive commands more interactive.
-#alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
+alias mv='mv -iv'
+alias cp='cp -iv'
 alias rm='~/bin/new-rm.sh'
 alias unrm='~/bin/unrm.sh'
 alias python=python3
