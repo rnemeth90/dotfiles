@@ -41,8 +41,8 @@ if [ ! -d $archivedir ] ; then
     echo "$0 failed: can't create $archivedir in $HOME" >&2 
     exit 1
   fi
-  mkdir $archivedir
-  chmod 700 $archivedir# a little bit of privacy, please
+  mkdir "$archivedir"
+  chmod 700 "$archivedir" # a little bit of privacy, please
 fi
 
 for arg 

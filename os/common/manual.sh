@@ -121,10 +121,10 @@ install_terraform() {
 install_speedtest() {
     print_in_green "\n • Installing Speedtest-cli \n\n"
     if command -v speedtest &>/dev/null; then
-      curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-      sudo apt-get install speedtest
-    else
         print_in_green "\n [✔] Speedtest-cli already installed.\n"
+    else
+        curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+        sudo apt-get install -y speedtest
     fi
 }
 

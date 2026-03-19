@@ -12,6 +12,8 @@ yarn-error.log*
 .DS_Store
 *~
 *.swp
+*.bak
+*.ba
 
 work_aliases.sh
 *.*~

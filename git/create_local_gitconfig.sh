@@ -58,11 +58,11 @@ clone_repos() {
   fi
 
   for i in "${reposToClone[@]}"; do
-    target="$HOME/repos/.$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+    target="$HOME/repos/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ ! -e "$target" ]; then
       print_in_purple "\n • cloning $i \n\n"
-      cd $HOME/repos && git clone $i > /dev/null 2>&1
+      cd "$HOME/repos" && git clone "$i" > /dev/null 2>&1
     else
       print_in_yellow "\n • $i already exists \n\n"
     fi

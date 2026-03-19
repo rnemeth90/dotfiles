@@ -19,16 +19,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # plugins, and themes. Aliases can be placed here, though oh-my-bash
 # users are encouraged to define aliases within the OSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-if [ -L ~/.bash_profile ]; then
+if [ -r ~/.bash_profile ]; then
     . ~/.bash_profile
-fi
-
-# Source files from my aliases directory
-aliases_dir=~/.bash_aliases.d
-if [[ -d $aliases_dir && -r $aliases_dir && -x $aliases_dir ]]; then
-    for i in "$aliases_dir"/*; do
-        [[ -f $i && -r $i ]] && . "$i"
-    done
 fi
 
 # Set dircolors config path
@@ -52,10 +44,6 @@ else
   alias ls='ls --color=auto'
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # Sets title to new terminals (windows/tabs)
 # https://askubuntu.com/a/886695
 set-title() {
@@ -70,8 +58,6 @@ set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 
 . "$HOME/.cargo/env"
 
-# Created by `pipx` on 2024-05-30 19:41:22
-export PATH="$PATH:/Users/Ryan.Nemeth/.local/bin"
 
 # --- tmux window renaming ---
 update_tmux_window_name() {
@@ -100,10 +86,10 @@ stty sane
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/ryan/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/home/ryan/Downloads/google-cloud-sdk/path.bash.inc'; fi
+if [ -f "$HOME/Downloads/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/path.bash.inc"; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/ryan/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/home/ryan/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+if [ -f "$HOME/Downloads/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/Downloads/google-cloud-sdk/completion.bash.inc"; fi
 
 # Turso
-export PATH="$PATH:/home/ryan/.turso"
+if [ -d "$HOME/.turso" ]; then export PATH="$PATH:$HOME/.turso"; fi

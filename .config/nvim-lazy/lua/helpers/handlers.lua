@@ -52,19 +52,16 @@ M.setup = function()
 end
 
 M.on_attach = function(client, bufnr)
-  if client.name == "tsserver" then
+  if client.name == "ts_ls" then
     client.server_capabilities.documentFormattingProvider = false
   end
 
-  -- Call keymaps from keymaps.lua
-  -- local keymaps = require("user.keymaps").lsp_keymaps
-  -- keymaps(bufnr)
+  require("core.keymaps").lsp_keymaps(bufnr)
 
   local status_ok, illuminate = pcall(require, "illuminate")
-  if not status_ok then
-    return
+  if status_ok then
+    illuminate.on_attach(client)
   end
-  illuminate.on_attach(client)
 end
 
 return M

@@ -21,4 +21,4 @@ update_prompt() {
   fi
 }
 
-PROMPT_COMMAND=update_prompt
+PROMPT_COMMAND="update_prompt; ${PROMPT_COMMAND}"

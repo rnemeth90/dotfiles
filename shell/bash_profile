@@ -43,12 +43,12 @@ source_bash_files() {
 source_bash_files
 unset -f source_bash_files
 
-for f in ~/.bash_aliases.d/*; do source $f; done
+for f in "$HOME"/.bash_aliases.d/*.sh; do [ -f "$f" ] && . "$f"; done
 
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-# Created by `pipx` on 2024-05-30 19:41:22
-export PATH="$PATH:/Users/Ryan.Nemeth/.local/bin"
+# pipx
+export PATH="$PATH:$HOME/.local/bin"
 
 if [[ $(tty) = /dev/tty1 ]] ; then
   startx

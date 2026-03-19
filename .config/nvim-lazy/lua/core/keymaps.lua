@@ -85,7 +85,7 @@ keymap("v", "jk", "<ESC>", "", opts)
 keymap("v", "kj", "<ESC>", "", opts)
 
 -- formatting --
-keymap("n", "<leader>gf", "vim.lsp.buf.format", "", opts)
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format buffer", opts)
 
 --------------------
 -- Plugin Keymaps
@@ -94,20 +94,15 @@ keymap("n", "<leader>gf", "vim.lsp.buf.format", "", opts)
 -- nvimtree
 -- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
 
--- Telescope (now handled by telescope.lua plugin)
---
--- LSP Keymaps
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", "", opts)          -- Go to definition
-keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", "", opts)                -- Hover documentation
-keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", "", opts)      -- Go to implementation
-keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", "", opts)      -- Rename symbol
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", "", opts) -- Code actions
+-- LSP Keymaps (gd, gD, gr, gI, K are handled by Snacks pickers)
+keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol", opts)
+keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code actions", opts)
 
 -- Diagnostics
-keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", "", opts)         -- Previous diagnostic
-keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", "", opts)         -- Next diagnostic
-keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", "", opts) -- Show diagnostic
-keymap("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", "", opts) -- Diagnostic list
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic", opts)
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic", opts)
+keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostic", opts)
+keymap("n", "<leader>ld", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostic list", opts)
 
 -- terraform --
 keymap("n", "<leader>ti", ":!terraform init<CR>", "", opts)
@@ -157,7 +152,7 @@ keymap(
 )
 keymap(
   "n",
-  "<leader>tp",
+  "<leader>tP",
   "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='python', hidden=true}):toggle()<CR>",
   "",
   opts

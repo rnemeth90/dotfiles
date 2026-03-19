@@ -8,12 +8,12 @@ GITHUB_USERNAME=${GITHUB_USERNAME:-rnemeth90}
 # Extract directory-friendly project name from full module path
 PROJECT_DIR_NAME=$(basename "$PROJECT_NAME")
 
-if [ -z $PROJECT_NAME ]; then
+if [ -z "$PROJECT_NAME" ]; then
   echo "You must specify a project name at arg1"
   exit 1
 fi
 
-if [ -z $GOPATH ] && [ -z $PROJECT_DIRECTORY ]; then
+if [ -z "$GOPATH" ] && [ -z "$PROJECT_DIRECTORY" ]; then
   echo "GOPATH not set and project directory not set"
   exit 1
 fi
@@ -27,22 +27,22 @@ echo "4) Command-line tool (Cobra CLI)"
 read -p "Enter the number of your choice: " TEMPLATE_CHOICE
 
 # Determine the working directory based on input
-if [ $PROJECT_DIRECTORY ]; then
+if [ -n "$PROJECT_DIRECTORY" ]; then
   echo "Creating ${PROJECT_DIR_NAME} directory at ${PROJECT_DIRECTORY}"
-  mkdir -p $PROJECT_DIRECTORY
-  WORKING_DIRECTORY=$PROJECT_DIRECTORY/$PROJECT_DIR_NAME
+  mkdir -p "$PROJECT_DIRECTORY"
+  WORKING_DIRECTORY="$PROJECT_DIRECTORY/$PROJECT_DIR_NAME"
 else
   echo "Creating ${PROJECT_DIR_NAME} at ${GOPATH}"
-  mkdir -p $GOPATH/$PROJECT_DIR_NAME
-  WORKING_DIRECTORY=$GOPATH/$PROJECT_DIR_NAME
+  mkdir -p "$GOPATH/$PROJECT_DIR_NAME"
+  WORKING_DIRECTORY="$GOPATH/$PROJECT_DIR_NAME"
 fi
 
 # Create root project structure
-mkdir -p $WORKING_DIRECTORY
-cd $WORKING_DIRECTORY
+mkdir -p "$WORKING_DIRECTORY"
+cd "$WORKING_DIRECTORY"
 
 echo "Initializing new Go module..."
-go mod init $PROJECT_NAME
+go mod init "$PROJECT_NAME"
 
 case "$TEMPLATE_CHOICE" in
   1)
@@ -124,7 +124,7 @@ EOF
 
     go get github.com/spf13/cobra@latest
     go install github.com/spf13/cobra-cli@latest
-    $GOBIN/cobra-cli init
+    "$(go env GOPATH)/bin/cobra-cli" init
     ;;
   *)
     echo "Invalid choice, exiting."
@@ -142,8 +142,9 @@ package logic
 // Placeholder for core logic
 EOF
 
-  cat >internal/utils.go <<EOF
-package internal
+  mkdir -p internal/utils
+  cat >internal/utils/utils.go <<EOF
+package utils
 
 // Placeholder for internal utility logic
 EOF
@@ -193,7 +194,7 @@ read -p "Do you want to add Docker support? (y/n): " docker_support
 if [ "$docker_support" == "y" ]; then
   echo "Creating Dockerfile..."
   cat >Dockerfile <<EOF
-FROM golang:1.19 as builder
+FROM golang:1.23 AS builder
 
 WORKDIR /app
 COPY . .
@@ -218,11 +219,11 @@ on:
       - 'v*'
 
 env:
-  GO_VERSION: '1.19'
+  GO_VERSION: '1.23'
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         goos: [linux, windows, darwin]
@@ -230,12 +231,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Set up Go
-        uses: actions/setup-go@v3
+        uses: actions/setup-go@v5
         with:
           go-version: ${{ env.GO_VERSION }}
 
@@ -245,7 +246,7 @@ jobs:
           GOOS=${{ matrix.goos }} GOARCH=${{ matrix.goarch }} go build -o build/${{ matrix.goos }}-${{ matrix.goarch }}/app .
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: build-${{ matrix.goos }}-${{ matrix.goarch }}
           path: build/${{ matrix.goos }}-${{ matrix.goarch }}/
