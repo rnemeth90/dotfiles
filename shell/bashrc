@@ -93,3 +93,8 @@ if [ -f "$HOME/Downloads/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/
 
 # Turso
 if [ -d "$HOME/.turso" ]; then export PATH="$PATH:$HOME/.turso"; fi
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:$HOME/.lmstudio/bin"
+# End of LM Studio CLI section
+
