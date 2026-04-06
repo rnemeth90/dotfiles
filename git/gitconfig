@@ -1,6 +1,5 @@
-[user]
-	name = ryan nemeth
-	email = ryanthomasnemeth@gmail.com
+[include]
+    path = ~/.gitconfig.local
 
 [core]
     pager = delta
