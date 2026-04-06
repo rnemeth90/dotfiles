@@ -71,13 +71,8 @@ clone_repos() {
 
 setup_golang_workdir() {
   print_in_purple "\n • Configuring golang \n\n"
-  if [ ! -e $HOME/repos/golang ]; then
-    sudo mkdir -p $HOME/repos/golang && \
-      # Change value after last '/' to your github username
-      sudo mkdir -p $HOME/repos/golang/src/github.com/rnemeth90 && \
-      sudo mkdir $HOME/repos/golang/pkg && \
-      sudo mkdir $HOME/repos/golang/bin && \
-      sudo chown -R $(whoami): $HOME/repos/golang/
+  if [ ! -e "$HOME/go" ]; then
+    mkdir -p "$HOME/go/bin" "$HOME/go/pkg" "$HOME/go/src"
   else
     print_in_yellow "\n • golang workspace already exists \n\n"
   fi
@@ -115,11 +110,11 @@ clone_golang_repos() {
   local targetFile=""
 
   for i in "${reposToClone[@]}"; do
-    target="$HOME/repos/golang/src/github.com/rnemeth90/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
+    target="$HOME/go/src/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
 
     if [ ! -e "$target" ]; then
       print_in_purple "\n • cloning $i \n\n"
-      cd $HOME/repos/golang/src/github.com/rnemeth90 && git clone $i > /dev/null 2>&1
+      cd "$HOME/go/src" && git clone "$i" > /dev/null 2>&1
     else
       print_in_yellow "\n • $i already exists \n\n"
     fi

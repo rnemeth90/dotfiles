@@ -2,7 +2,7 @@
 # https://www.gnu.org/software/bash/manual/bashref.html#The-Shopt-Builtin
 
 # Automatically prepend `cd` to directory names.
-#shopt -s autocd
+shopt -s autocd
 
 # Autocorrect typos in path names when using the `cd` command.
 shopt -s cdspell

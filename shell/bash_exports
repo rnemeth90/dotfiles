@@ -62,10 +62,9 @@ export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 # go
-export GOPATH="$HOME/repos/golang/src/github.com/rnemeth90"
-export GOBIN="$HOME/repos/golang/bin"
-export PATH="$GOBIN:$GOPATH/bin:$PATH"
-# export GOPATH="$HOME/repos/golang"
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+export PATH="$GOBIN:$PATH"
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
 
 # dotnet
