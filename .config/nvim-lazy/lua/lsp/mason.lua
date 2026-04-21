@@ -55,7 +55,6 @@ return {
         automatic_installation = true,
       })
 
-      local lspconfig = require("lspconfig")
       local handlers = require("helpers.handlers")
 
       handlers.setup()
@@ -71,8 +70,10 @@ return {
           opts = vim.tbl_deep_extend("force", opts, server_opts)
         end
 
-        lspconfig[server].setup(opts)
+        vim.lsp.config(server, opts)
       end
+
+      vim.lsp.enable(servers)
     end,
   },
 

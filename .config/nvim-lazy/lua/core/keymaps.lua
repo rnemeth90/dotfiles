@@ -58,6 +58,9 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", "", opts) -- Resize right
 keymap("n", "<S-l>", ":bnext<CR>", "", opts)     -- Next buffer
 keymap("n", "<S-h>", ":bprevious<CR>", "", opts) -- Previous buffer
 
+-- Keymaps
+keymap("n", "<S-k>", ":Keymaps<CR>", "", opts) 
+
 -- Visual Mode Keymaps
 keymap("v", "<", "<gv", "", opts)  -- Indent left and reselect
 keymap("v", ">", ">gv", "", opts)  -- Indent right and reselect

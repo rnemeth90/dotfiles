@@ -186,21 +186,23 @@ end
 
 local extended_schemas = extend(schemas, default_schemas)
 
-local opts = {
+return {
   settings = {
     json = {
       schemas = extended_schemas,
     },
   },
-  setup = {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-        end,
-      },
-    },
+  commands = {
+    Format = function(_, ctx)
+      local bufnr = (ctx and ctx.bufnr) and ctx.bufnr or vim.api.nvim_get_current_buf()
+      local last = vim.api.nvim_buf_line_count(bufnr)
+      vim.lsp.buf.format({
+        bufnr = bufnr,
+        range = {
+          start = { 1, 0 },
+          ["end"] = { last, 0 },
+        },
+      })
+    end,
   },
 }
-
-return opts
