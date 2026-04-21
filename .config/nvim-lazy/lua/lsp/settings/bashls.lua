@@ -1,5 +1,7 @@
 return {
-  bashIde = {
-    globPattern = "*@(.sh|.bash|.shell)"
-  }
+  settings = {
+    bashIde = {
+      globPattern = "*@(.sh|.bash|.shell)",
+    },
+  },
 }
