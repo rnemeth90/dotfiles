@@ -3,7 +3,6 @@ return {
   cmd = "Copilot",
   event = "InsertEnter",
   dependencies = {
-    "copilotlsp-nvim/copilot-lsp",
     {
       "zbirenbaum/copilot-cmp",
       config = function()
@@ -12,21 +11,7 @@ return {
     },
   },
   config = function()
-    local handlers = require("helpers.handlers")
-
     require("copilot").setup({
-      lsp = {
-        enabled = true,
-        setup = {
-          on_attach = function(client, bufnr)
-            require("sidekick.integrations.copilot").on_attach(client, bufnr)
-            if handlers and handlers.on_attach then
-              handlers.on_attach(client, bufnr)
-            end
-          end,
-          capabilities = handlers and handlers.capabilities or nil,
-        },
-      },
       suggestion = {
         enabled = true,
         auto_trigger = true,

@@ -2,219 +2,87 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-local luasnip = require("luasnip")
-
--- Options
-local opts = { noremap = true, silent = true }
-
 -- Custom Keymap Function
-local function keymap(mode, lhs, rhs, desc, opts)
-  -- Ensure opts is always a table
-  opts = opts or {}
-  local options = vim.tbl_extend("force", { noremap = true, silent = true }, opts)
-
-  -- Validate arguments for standard keymaps
-  if type(mode) ~= "string" then
-    error("Invalid 'mode' argument. Expected string, got: " .. type(mode))
+local function keymap(mode, lhs, rhs, desc, extra_opts)
+  extra_opts = extra_opts or {}
+  local options = vim.tbl_extend("force", { noremap = true, silent = true }, extra_opts)
+  if desc and desc ~= "" then
+    options.desc = desc
   end
-  if type(lhs) ~= "string" then
-    error("Invalid 'lhs' argument. Expected string, got: " .. type(lhs))
-  end
-  if rhs == nil or (type(rhs) ~= "string" and type(rhs) ~= "function") then
-    error("Invalid 'rhs' argument. Expected string or function, got: " .. type(rhs))
-  end
-
-  -- Define the keymap
-  vim.api.nvim_set_keymap(mode, lhs, type(rhs) == "string" and rhs or "", options)
-
-  -- Register with which-key if description is provided
-  -- if desc and desc ~= "" then
-  --   require("which-key").register({
-  --     [lhs] = { desc },
-  --   }, { mode = mode })
-  -- end
+  vim.keymap.set(mode, lhs, rhs, options)
 end
 
 --------------------
 -- General Keymaps
 --------------------
 
-keymap("n", "<leader>w", ":w<CR>", "Save file", opts)   -- Save file
-keymap("n", "<leader>q", ":q<CR>", "Quit Neovim", opts) -- Quit Neovim
+keymap("n", "<leader>w", ":w<CR>", "Save file")
+keymap("n", "<leader>q", ":q<CR>", "Quit Neovim")
 
 -- Window Navigation
-keymap("n", "<C-h>", "<C-w>h", "", opts) -- Move to left window
-keymap("n", "<C-l>", "<C-w>l", "", opts) -- Move to right window
-keymap("n", "<C-j>", "<C-w>j", "", opts) -- Move to bottom window
-keymap("n", "<C-k>", "<C-w>k", "", opts) -- Move to top window
+keymap("n", "<C-h>", "<C-w>h", "Move to left window")
+keymap("n", "<C-l>", "<C-w>l", "Move to right window")
+keymap("n", "<C-j>", "<C-w>j", "Move to bottom window")
+keymap("n", "<C-k>", "<C-w>k", "Move to top window")
 
 -- Resize Splits
-keymap("n", "<C-Up>", ":resize -2<CR>", "", opts)             -- Resize up
-keymap("n", "<C-Down>", ":resize +2<CR>", "", opts)           -- Resize down
-keymap("n", "<C-Left>", ":vertical resize -2<CR>", "", opts)  -- Resize left
-keymap("n", "<C-Right>", ":vertical resize +2<CR>", "", opts) -- Resize right
+keymap("n", "<C-M-Up>", ":resize -2<CR>", "Resize up")
+keymap("n", "<C-M-Down>", ":resize +2<CR>", "Resize down")
+keymap("n", "<C-M-Left>", ":vertical resize -2<CR>", "Resize left")
+keymap("n", "<C-M-Right>", ":vertical resize +2<CR>", "Resize right")
 
 -- Buffer Navigation
-keymap("n", "<S-l>", ":bnext<CR>", "", opts)     -- Next buffer
-keymap("n", "<S-h>", ":bprevious<CR>", "", opts) -- Previous buffer
+keymap("n", "<S-l>", ":bnext<CR>", "Next buffer")
+keymap("n", "<S-h>", ":bprevious<CR>", "Previous buffer")
 
--- Keymaps
-keymap("n", "<S-k>", ":Keymaps<CR>", "", opts) 
-
--- Visual Mode Keymaps
-keymap("v", "<", "<gv", "", opts)  -- Indent left and reselect
-keymap("v", ">", ">gv", "", opts)  -- Indent right and reselect
-keymap("v", "p", '"_dP', "", opts) -- Paste without overwriting register
+-- Visual Mode
+keymap("v", "<", "<gv", "Indent left")
+keymap("v", ">", ">gv", "Indent right")
+keymap("v", "p", '"_dP', "Paste without overwriting register")
 
 -- Move Text
-keymap("v", "<A-j>", ":m .+1<CR>==", "", opts) -- Move text down
-keymap("v", "<A-k>", ":m .-2<CR>==", "", opts) -- Move text up
--- keymap("n", "<A-j>", "<Esc>:m .+1<CR>==gi", opts)
--- keymap("n", "<A-k>", "<Esc>:m .-2<CR>==gi", opts)
-keymap("v", "J", ":m '>+1<CR>gv=gv", "", opts) -- Shift visual selected line down
-keymap("v", "K", ":m '<-2<CR>gv=gv", "", opts) -- Shift visual selected line up
--- keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
--- keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
--- keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
--- keymap("v", "<A-j>", ":m .+1<CR>==", opts)
--- keymap("v", "<A-k>", ":m .-2<CR>==", opts)
--- keymap("v", "p", '"_dP', opts)
+keymap("v", "<A-j>", ":m .+1<CR>==", "Move text down")
+keymap("v", "<A-k>", ":m .-2<CR>==", "Move text up")
 
 -- Press jk fast to exit insert mode
-keymap("i", "jk", "<ESC>", "", opts)
-keymap("i", "kj", "<ESC>", "", opts)
-keymap("v", "jk", "<ESC>", "", opts)
-keymap("v", "kj", "<ESC>", "", opts)
+keymap("i", "jk", "<ESC>", "Exit insert mode")
+keymap("v", "jk", "<ESC>", "Exit visual mode")
 
--- formatting --
-keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format buffer", opts)
+-- Formatting
+keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", "Format buffer")
 
 --------------------
 -- Plugin Keymaps
 --------------------
 
--- nvimtree
--- keymap("n", "<leader>e", ":NvimTreeToggle<CR>", "Toggle NvimTree")
-
--- LSP Keymaps (gd, gD, gr, gI, K are handled by Snacks pickers)
-keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol", opts)
-keymap("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code actions", opts)
+-- LSP (gd, gD, gr, gI handled by Snacks pickers)
+keymap("n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol")
+keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code actions")
 
 -- Diagnostics
-keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic", opts)
-keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic", opts)
-keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostic", opts)
-keymap("n", "<leader>ld", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostic list", opts)
+keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic")
+keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic")
+keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostic")
+keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostic list")
 
--- terraform --
-keymap("n", "<leader>ti", ":!terraform init<CR>", "", opts)
-keymap("n", "<leader>tv", ":!terraform validate<CR>", "", opts)
-keymap("n", "<leader>tp", ":!terraform plan<CR>", "", opts)
-keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "", opts)
+-- Terraform
+keymap("n", "<leader>ti", ":!terraform init<CR>", "Terraform init")
+keymap("n", "<leader>tv", ":!terraform validate<CR>", "Terraform validate")
+keymap("n", "<leader>tp", ":!terraform plan<CR>", "Terraform plan")
+keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "Terraform apply")
 
--- Neoscroll Keymaps
--- keymap("n", "<C-u>", "<cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 150)<CR>", "", opts)
--- keymap("n", "<C-d>", "<cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 150)<CR>", "", opts)
--- keymap("n", "<C-b>", "<cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
--- keymap("n", "<C-f>", "<cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
--- keymap("n", "<C-y>", "<cmd>lua require('neoscroll').scroll(-1, true, 50)<CR>", "", opts)
--- keymap("n", "<C-e>", "<cmd>lua require('neoscroll').scroll(1, true, 50)<CR>", "", opts)
--- keymap("n", "zt", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zt')<CR>", "", opts)
--- keymap("n", "zz", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zz')<CR>", "", opts)
--- keymap("n", "zb", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zb')<CR>", "", opts)
+--------------------
+-- LSP Buffer Keymaps (set on_attach)
+--------------------
 
--- ToggleTerm Keybindings
--- keymap(
---   "n",
---   "<leader>lg",
---   "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='lazygit', hidden=true}):toggle()<CR>",
---   "",
---   opts
--- )
-keymap(
-  "n",
-  "<leader>tn",
-  "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='node', hidden=true}):toggle()<CR>",
-  "",
-  opts
-)
-keymap(
-  "n",
-  "<leader>td",
-  "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='ncdu', hidden=true}):toggle()<CR>",
-  "",
-  opts
-)
-keymap(
-  "n",
-  "<leader>th",
-  "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='htop', hidden=true}):toggle()<CR>",
-  "",
-  opts
-)
-keymap(
-  "n",
-  "<leader>tP",
-  "<cmd>lua require('toggleterm.terminal').Terminal:new({cmd='python', hidden=true}):toggle()<CR>",
-  "",
-  opts
-)
-
--- LSP Keymaps
 local M = {}
 
--- Gitsigns Keymaps
--- keymap("n", "]c", function()
---   if vim.wo.diff then
---     return "]c"
---   end
---   vim.schedule(function()
---     require("gitsigns").next_hunk()
---   end)
---   return "<Ignore>"
--- end, "Next hunk")
---
--- keymap("n", "[c", function()
---   if vim.wo.diff then
---     return "[c"
---   end
---   vim.schedule(function()
---     require("gitsigns").prev_hunk()
---   end)
---   return "<Ignore>"
--- end, "Previous hunk")
---
--- keymap("n", "<leader>hs", ":lua require('gitsigns').stage_hunk()<CR>", "Stage hunk")
--- keymap("n", "<leader>hr", ":lua require('gitsigns').reset_hunk()<CR>", "Reset hunk")
--- keymap("n", "<leader>hS", ":lua require('gitsigns').stage_buffer()<CR>", "Stage buffer")
--- keymap("n", "<leader>hu", ":lua require('gitsigns').undo_stage_hunk()<CR>", "Undo stage hunk")
--- keymap("n", "<leader>hp", ":lua require('gitsigns').preview_hunk()<CR>", "Preview hunk")
--- keymap("n", "<leader>hb", ":lua require('gitsigns').toggle_current_line_blame()<CR>", "Toggle blame")
--- keymap("n", "<leader>hd", ":lua require('gitsigns').diffthis()<CR>", "View diff")
--- keymap("n", "<leader>hD", ":lua require('gitsigns').diffthis('~')<CR>", "View diff (HEAD~)")
--- keymap("n", "<leader>ht", ":lua require('gitsigns').toggle_deleted()<CR>", "Toggle deleted lines")
-
--- Function to set LSP-specific keymaps
 M.lsp_keymaps = function(bufnr)
-  local opts = { noremap = true, silent = true }
-  local keymap = vim.api.nvim_buf_set_keymap
-
-  keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-  keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  keymap(bufnr, "n", "gI", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  keymap(bufnr, "n", "gl", "<cmd>lua vim.diagnostic.open_float()<CR>", opts) -- Show line diagnostic
-  keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<CR>", opts)
-  keymap(bufnr, "n", "<leader>li", "<cmd>LspInfo<CR>", opts)
-  keymap(bufnr, "n", "<leader>lI", "<cmd>LspInstallInfo<CR>", opts)
-  keymap(bufnr, "n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>", opts)
-  keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>", opts)
-  keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+  local bufopts = { buffer = bufnr }
+  keymap("n", "K",           "<cmd>lua vim.lsp.buf.hover()<CR>",          "Hover documentation", bufopts)
+  keymap("n", "gl",          "<cmd>lua vim.diagnostic.open_float()<CR>",  "Show line diagnostic", bufopts)
+  keymap("n", "<leader>li",  "<cmd>LspInfo<CR>",                          "LSP info",             bufopts)
+  keymap("n", "<leader>ls",  "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help",       bufopts)
 end
 
 return M
