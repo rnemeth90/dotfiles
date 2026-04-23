@@ -43,7 +43,7 @@ return {
         enable = true,
       },
       auto_install = true,
-      sync_install = true,
+      sync_install = false,
       -- indent = { enable = true },
       incremental_selection = {
         enable = true,

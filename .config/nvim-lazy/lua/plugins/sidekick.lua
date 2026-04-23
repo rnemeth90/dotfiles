@@ -1,5 +1,6 @@
 return {
   "folke/sidekick.nvim",
+  pin = true,
   lazy = false,
   opts = {
     cli = {

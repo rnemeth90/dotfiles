@@ -24,6 +24,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 })
 
 vim.api.nvim_create_autocmd("BufReadPost", {
+  group = general_group,
   callback = function()
     local buf = vim.api.nvim_get_current_buf()
     local name = vim.api.nvim_buf_get_name(buf)

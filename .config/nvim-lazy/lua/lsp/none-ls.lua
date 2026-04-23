@@ -1,14 +1,14 @@
 return {
   "nvimtools/none-ls.nvim",
+  dependencies = { "nvimtools/none-ls-extras.nvim" },
   event = { "BufReadPre", "BufNewFile" }, -- lazy load for performance
   config = function()
-    local none_ls_status_ok, none_ls = pcall(require, "none-ls")
+    local none_ls_status_ok, none_ls = pcall(require, "null-ls") -- none-ls still uses the old name in the codebase for backwards compatibility
     if not none_ls_status_ok then
       return
     end
 
     local formatting = none_ls.builtins.formatting
-    local diagnostics = none_ls.builtins.diagnostics
     local completions = none_ls.builtins.completion
 
     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
@@ -28,10 +28,10 @@ return {
       formatting.gofmt.with({
         filetypes = { "go" },
       }),
-      diagnostics.flake8.with({
+      require("none-ls.diagnostics.flake8").with({
         extra_args = { "--max-line-length=88" },
       }),
-      diagnostics.eslint.with({
+      require("none-ls.diagnostics.eslint").with({
         condition = function(utils)
           return utils.root_has_file({
             ".eslintrc",

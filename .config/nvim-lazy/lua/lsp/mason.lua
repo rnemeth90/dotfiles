@@ -1,7 +1,6 @@
 return {
   {
     "williamboman/mason.nvim",
-    build = ":MasonUpdate",
     config = function()
       require("mason").setup({
         ui = {
@@ -37,7 +36,6 @@ return {
         "yamlls",
         "omnisharp",
         "dockerls",
-        "bicep",
         "powershell_es",
         "ansiblels",
         "azure_pipelines_ls",
@@ -63,10 +61,22 @@ return {
         local opts = {
           on_attach = handlers.on_attach,
           capabilities = handlers.capabilities,
+          -- Fallback root_dir so rootUri is never sent as null.
+          -- Node.js servers (ts_ls, jsonls, yamlls, html, cssls, etc.) crash
+          -- when rootUri is null because they call String(null) -> "null" and
+          -- then try to parse it as a URI.  If no workspace marker is found,
+          -- use the file's own directory so the URI is always valid.
+          root_dir = function(bufnr)
+            local fname = vim.api.nvim_buf_get_name(bufnr)
+            if fname == "" then return nil end
+            return vim.fs.root(bufnr, { ".git", "package.json", "go.mod", "Cargo.toml", "Makefile" })
+              or vim.fn.fnamemodify(fname, ":h")
+          end,
         }
 
         local has_custom_opts, server_opts = pcall(require, "lsp.settings." .. server)
         if has_custom_opts then
+          -- server_opts takes precedence, so a custom root_dir there wins
           opts = vim.tbl_deep_extend("force", opts, server_opts)
         end
 
@@ -86,7 +96,7 @@ return {
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
-          { "golangci-lint", version = "v1.47.0" },
+          "golangci-lint",
           { "bash-language-server", auto_update = true },
           "copilot-language-server",
           "black",
@@ -110,7 +120,6 @@ return {
           "impl",
           "json-to-struct",
           "misspell",
-          "snyk",
           "revive",
           "shfmt",
           "staticcheck",
