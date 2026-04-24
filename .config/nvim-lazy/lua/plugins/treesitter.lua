@@ -37,7 +37,7 @@ return {
       ignore_install = { "phpdoc" },
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = { "markdown", "yaml" },
+        -- additional_vim_regex_highlighting = { "markdown", "yaml" },
       },
       autopairs = {
         enable = true,
