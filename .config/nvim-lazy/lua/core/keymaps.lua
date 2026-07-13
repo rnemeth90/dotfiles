@@ -26,10 +26,10 @@ keymap("n", "<C-j>", "<C-w>j", "Move to bottom window")
 keymap("n", "<C-k>", "<C-w>k", "Move to top window")
 
 -- Resize Splits
-keymap("n", "<C-M-Up>", ":resize -2<CR>", "Resize up")
-keymap("n", "<C-M-Down>", ":resize +2<CR>", "Resize down")
-keymap("n", "<C-M-Left>", ":vertical resize -2<CR>", "Resize left")
-keymap("n", "<C-M-Right>", ":vertical resize +2<CR>", "Resize right")
+keymap("n", "<C-s-Up>", ":resize -2<CR>", "Resize up")
+keymap("n", "<C-s-Down>", ":resize +2<CR>", "Resize down")
+keymap("n", "<C-s-Left>", ":vertical resize -2<CR>", "Resize left")
+keymap("n", "<C-s-Right>", ":vertical resize +2<CR>", "Resize right")
 
 -- Buffer Navigation
 keymap("n", "<S-l>", ":bnext<CR>", "Next buffer")

@@ -33,6 +33,7 @@ return {
         "markdown",
         "markdown_inline",
         "powershell",
+        "helm",
       },
       ignore_install = { "phpdoc" },
       highlight = {

@@ -1,3 +1,14 @@
+-- Helm filetype detection
+vim.filetype.add({
+  pattern = {
+    [".*/templates/.*%.yaml"] = "helm",
+    [".*/templates/.*%.yml"] = "helm",
+    [".*/templates/.*%.tpl"] = "helm",
+    ["helmfile.*%.yaml"] = "helm",
+    ["helmfile.*%.yml"] = "helm",
+  },
+})
+
 -- General settings
 local general_group = vim.api.nvim_create_augroup("autocmd_general", { clear = true })
 
