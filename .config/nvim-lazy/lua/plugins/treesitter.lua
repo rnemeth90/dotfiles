@@ -21,6 +21,7 @@ return {
         "go",
         "javascript",
         "hcl",
+        "terraform",
         "json",
         "lua",
         "python",

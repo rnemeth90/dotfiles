@@ -36,7 +36,6 @@ return {
         "yamlls",
         "omnisharp",
         "dockerls",
-        "powershell_es",
         "ansiblels",
         "azure_pipelines_ls",
         "docker_compose_language_service",
@@ -51,6 +50,14 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = servers,
         automatic_installation = true,
+        -- Disabled: mason-lspconfig's default `automatic_enable = true` will
+        -- silently `vim.lsp.enable()` its own *built-in* default config for
+        -- ANY mason-installed package it recognizes (e.g. it did this for
+        -- "powershell_es" the moment "powershell-editor-services" was added
+        -- to mason-tool-installer below), bypassing our custom settings and
+        -- competing with powershell.nvim's own client of the same name. We
+        -- explicitly `vim.lsp.enable(servers)` ourselves below instead.
+        automatic_enable = false,
       })
 
       local handlers = require("helpers.handlers")
@@ -62,15 +69,18 @@ return {
           on_attach = handlers.on_attach,
           capabilities = handlers.capabilities,
           -- Fallback root_dir so rootUri is never sent as null.
-          -- Node.js servers (ts_ls, jsonls, yamlls, html, cssls, etc.) crash
-          -- when rootUri is null because they call String(null) -> "null" and
-          -- then try to parse it as a URI.  If no workspace marker is found,
-          -- use the file's own directory so the URI is always valid.
-          root_dir = function(bufnr)
+          -- vim.lsp.enable calls root_dir(bufnr, on_dir) — the function
+          -- must invoke on_dir(path) to trigger server start.  Returning
+          -- a value alone does nothing because the caller ignores it.
+          root_dir = function(bufnr, on_dir)
             local fname = vim.api.nvim_buf_get_name(bufnr)
-            if fname == "" then return nil end
-            return vim.fs.root(bufnr, { ".git", "package.json", "go.mod", "Cargo.toml", "Makefile" })
+            if not fname or fname == "" then return end
+            local root = vim.fs.root(fname, {
+              ".git", "package.json", "go.mod", "Cargo.toml", "Makefile",
+              "*.sln", "*.csproj", "*.tfvars", "main.tf",
+            })
               or vim.fn.fnamemodify(fname, ":h")
+            on_dir(root)
           end,
         }
 
@@ -98,7 +108,7 @@ return {
         ensure_installed = {
           "golangci-lint",
           { "bash-language-server", auto_update = true },
-          "copilot-language-server",
+          { "powershell-editor-services", auto_update = true },
           "black",
           "debugpy",
           "flake8",
@@ -138,6 +148,8 @@ return {
           "luaformatter",
           "markdownlint",
           "terraform",
+          "tflint",
+          "netcoredbg",
           "trivy",
           "yamlfix",
           "yamlfmt",

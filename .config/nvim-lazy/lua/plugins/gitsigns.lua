@@ -37,6 +37,7 @@ return {
     -- Inspect
     { "<leader>ghp", function() require("gitsigns").preview_hunk() end,                        desc = "Preview hunk" },
     { "<leader>ghb", function() require("gitsigns").blame_line({ full = true }) end,           desc = "Blame line" },
+    { "<leader>ghB", function() require("gitsigns").toggle_current_line_blame() end,          desc = "Toggle inline blame" },
 
     -- Text object: select hunk with ih in visual/operator mode
     { "ih", "<cmd>Gitsigns select_hunk<CR>", mode = { "o", "x" }, desc = "Select hunk" },

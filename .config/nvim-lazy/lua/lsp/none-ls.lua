@@ -25,10 +25,13 @@ return {
       formatting.stylua.with({
         filetypes = { "lua" },
       }),
-      formatting.gofmt.with({
-        filetypes = { "go" },
+      formatting.csharpier.with({
+        filetypes = { "cs" },
       }),
-      require("none-ls.diagnostics.flake8").with({
+      formatting.terraform_fmt.with({
+        filetypes = { "terraform", "terraform-vars", "hcl" },
+      }),
+require("none-ls.diagnostics.flake8").with({
         extra_args = { "--max-line-length=88" },
       }),
       require("none-ls.diagnostics.eslint").with({
@@ -53,7 +56,14 @@ return {
       debug = false,
       sources = sources,
       on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
+        local fmt_filetypes = {
+          javascript = true, typescript = true, css = true, html = true,
+          scss = true, json = true, yaml = true, markdown = true,
+          python = true, lua = true, cs = true,
+          terraform = true, ["terraform-vars"] = true, hcl = true,
+        }
+        local ft = vim.bo[bufnr].filetype
+        if client.supports_method("textDocument/formatting") and fmt_filetypes[ft] then
           vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
           vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,

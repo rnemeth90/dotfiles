@@ -1,6 +1,5 @@
 -- Themes
 return {
-	"typicode/bg.nvim",
 	"ellisonleao/gruvbox.nvim",
 	{
 		"catppuccin/nvim",
@@ -12,10 +11,22 @@ return {
 	},
 	"sainnhe/everforest",
 	"savq/melange-nvim",
-  {
-    "navarasu/onedark.nvim",
-    priority = 1000,
-    name = "onedark",
-    lazy = false,
-  }
+	{
+		"navarasu/onedark.nvim",
+		priority = 1000,
+		name = "onedark",
+		lazy = false,
+	},
+	{
+		"folke/tokyonight.nvim",
+		name = "tokyonight",
+	},
+	{
+		"rebelot/kanagawa.nvim",
+		name = "kanagawa",
+	},
+	{
+		"EdenEast/nightfox.nvim",
+		name = "nightfox",
+	},
 }
