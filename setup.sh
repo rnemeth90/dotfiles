@@ -149,6 +149,8 @@ main() {
   print_section "Dotfiles Setup"
   print_info "Log file: $LOG_FILE"
 
+  sudo_keepalive
+
   init_setup
   install_package_managers
   shell_setup

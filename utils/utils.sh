@@ -235,6 +235,30 @@ print_log_path() {
 
 
 # ─────────────────────────────────────────────
+#  Sudo keep-alive
+# ─────────────────────────────────────────────
+
+sudo_keepalive() {
+  # Prompt once, then refresh the token in the background every 60s
+  # for the lifetime of the calling process.
+  print_info "Sudo access required for system configuration"
+  sudo -v || { print_error "sudo authentication failed"; exit 1; }
+
+  ( while true; do
+      sudo -n true
+      sleep 60
+      kill -0 "$$" 2>/dev/null || exit
+    done
+  ) &
+
+  _SUDO_KEEPALIVE_PID=$!
+  # Clean up the background job when the script exits
+  trap 'kill "$_SUDO_KEEPALIVE_PID" 2>/dev/null' EXIT
+  print_success "Sudo credentials cached for this session"
+}
+
+
+# ─────────────────────────────────────────────
 #  User interaction
 # ─────────────────────────────────────────────
 
