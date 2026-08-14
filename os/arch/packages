@@ -130,7 +130,9 @@ tlp-rdw
 prettierd
 procs
 python-pip
+pacman-contrib
 ranger
+reflector
 retroarch
 retroarch-assets-glui
 retroarch-assets-ozone

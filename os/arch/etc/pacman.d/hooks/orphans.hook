@@ -1,0 +1,9 @@
+[Trigger]
+Operation = Remove
+Type = Package
+Target = *
+
+[Action]
+Description = Listing orphaned packages after removal...
+When = PostTransaction
+Exec = /usr/bin/bash -c 'orphans=$(pacman -Qtdq 2>/dev/null); [ -n "$orphans" ] && echo "Orphaned packages: $orphans" || true'

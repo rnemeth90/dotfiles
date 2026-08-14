@@ -25,7 +25,7 @@ gui:
 git:
     paging:
         colorArg: always
-        pager: delta --dark --paging=never
+        pager: delta --dark --syntax-theme=kanagawa --paging=never
         useConfig: false
     commit:
         signOff: false
@@ -190,7 +190,7 @@ keybinding:
         update: u
         bulkMenu: b
 os:
-    editPreset: "nvim-remote"
+    editPreset: "nvim"
 disableStartupPopups: false
 customCommands:
     - key: "b"

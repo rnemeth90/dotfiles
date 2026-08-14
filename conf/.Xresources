@@ -1,0 +1,15 @@
+! Xresources — ThinkPad T420 (96 DPI, 1366x768 standard / 1600x900 HD+)
+
+! DPI — set to match your screen. 96 for standard, 120 for HD+
+Xft.dpi:       96
+Xft.antialias: true
+Xft.hinting:   true
+Xft.hintstyle: hintslight
+Xft.rgba:      rgb
+
+! Cursor
+Xcursor.size:  16
+Xcursor.theme: Adwaita
+
+! Fix Java applications (grey window bug in non-reparenting WMs like i3)
+_JAVA_AWT_WM_NONREPARENTING=1

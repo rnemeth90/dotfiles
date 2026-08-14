@@ -19,6 +19,7 @@ create_symlinks() {
         "shell/curlrc"
         "shell/inputrc"
         "git/gitconfig"
+        "conf/.Xresources"
         "golang/cobra.yaml"
         "conf"
     )
@@ -81,6 +82,12 @@ create_config_symlinks() {
 
     local sourceFile=""
     local targetFile=""
+
+    # check if .config directory exists, if not create it
+    if [ ! -d "$HOME/.config" ]; then
+      mkdir -p "$HOME/.config"
+      print_in_green "Created $HOME/.config directory"
+    fi
 
     for i in "${FILES_TO_SYMLINK[@]}"; do
         sourceFile="$(cd .. && pwd)/$i"
