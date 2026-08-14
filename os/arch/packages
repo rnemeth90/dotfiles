@@ -51,6 +51,7 @@ dotnet-sdk
 dotnet-sdk-6.0
 doxygen
 duf
+dunst
 dust
 ethtool
 evince
@@ -122,10 +123,10 @@ pipewire-pulse
 pipewire-support
 playerctl
 podman
-power-profiles-daemon
 powershell
 powertop
-powertop-auto-tune
+tlp
+tlp-rdw
 prettierd
 procs
 python-pip

@@ -74,6 +74,19 @@ install_packages() {
   sleep 5
 }
 
+setup_tlp() {
+  if [[ -f /etc/arch-release ]]; then
+    print_in_green "\n • Installing TLP config for ThinkPad T420\n"
+    # tp_smapi-dkms is in AUR (provides battery threshold support for T420)
+    yay -S --noconfirm --needed tp_smapi-dkms 2>/dev/null || \
+      print_error "tp_smapi-dkms not installed — battery thresholds unavailable"
+    sudo cp "$DOTFILES_DIR/os/arch/tlp.conf" /etc/tlp.conf
+    sudo systemctl enable --now tlp
+    sudo systemctl enable tlp-sleep
+    print_in_green " • TLP configured and enabled\n"
+  fi
+}
+
 git_config() {
   print_in_green "\n • create git config \n\n"
   ./git/create_local_gitconfig.sh
@@ -113,6 +126,7 @@ main() {
   install_package_managers
   shell_setup
   install_packages
+  setup_tlp
   git_config
   # create_and_set_github_ssh_key
   install_fonts

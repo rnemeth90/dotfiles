@@ -7,3 +7,17 @@ fi
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
+
+# fzf keybindings and completions
+# Ctrl+R: history search  Ctrl+T: file search  Alt+C: cd into dir
+if command -v fzf &>/dev/null; then
+  if [[ "$(uname)" == "Darwin" ]] && [ -f "$(brew --prefix 2>/dev/null)/opt/fzf/shell/key-bindings.bash" ]; then
+    . "$(brew --prefix)/opt/fzf/shell/key-bindings.bash"
+    . "$(brew --prefix)/opt/fzf/shell/completion.bash"
+  elif [ -f /usr/share/fzf/key-bindings.bash ]; then
+    . /usr/share/fzf/key-bindings.bash
+    . /usr/share/fzf/completion.bash
+  elif [ -f /etc/profile.d/fzf.bash ]; then
+    . /etc/profile.d/fzf.bash
+  fi
+fi

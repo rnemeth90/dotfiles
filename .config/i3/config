@@ -4,22 +4,28 @@ set $mod Mod4
 # Font for window titles
 font pango:Hack Nerd Font 8
 
+# Focus does not follow mouse
+focus_follows_mouse no
+
 # passwords, etc.
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
-# wallpapers
-exec --no-startup-id feh --bg-scale ~/dotfiles/os/wallpapers/wall-04.webp
+# wallpaper
+exec --no-startup-id feh --bg-scale ~/dotfiles/os/common/wallpapers/wall-04.webp
 
-# picom (transparency, etc.)
-exec --no-startup-id picom --config ~/.config/picom/picom.conf
+# picom (transparency, blur, shadows)
+exec --no-startup-id picom --config ~/.config/picom/config
 
-# Start XDG autostart .desktop files using dex. See also
-# https://wiki.archlinux.org/index.php/XDG_Autostart
+# XDG autostart .desktop files
 exec --no-startup-id dex --autostart --environment i3
 
+# notifications
+exec --no-startup-id dunst
+
+# lock screen on suspend
 exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dimblur
 
-# nm-applet is a desktop environment-independent system tray GUI for it.
+# network tray applet
 exec --no-startup-id nm-applet
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -37,10 +43,9 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
+bindsym $mod+Left  focus left
+bindsym $mod+Down  focus down
+bindsym $mod+Up    focus up
 bindsym $mod+Right focus right
 
 # move focused window
@@ -49,146 +54,182 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Left  move left
+bindsym $mod+Shift+Down  move down
+bindsym $mod+Shift+Up    move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
+# split orientation
 bindsym $mod+Alt+h split h
-
-# split in vertical orientation
 bindsym $mod+Alt+v split v
 
-# enter fullscreen mode for the focused container
+# fullscreen
 bindsym $mod+f fullscreen toggle
 
-# change container layout (stacked, tabbed, toggle split)
+# layout
 bindsym $mod+w layout tabbed
 bindsym $mod+s layout stacking
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# floating
 bindsym $mod+Shift+space floating toggle
+bindsym $mod+space       focus mode_toggle
 
-# change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
-
-# focus the parent container
+# parent container
 bindsym $mod+a focus parent
 
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus       scratchpad show
+
+# Dedicated scratchpad terminal (spawned on demand)
+bindsym $mod+ctrl+t exec --no-startup-id kitty --class=scratchpad-term
+for_window [class="scratchpad-term"] floating enable, resize set 900 600, move position center, move scratchpad
+bindsym $mod+ctrl+s [class="scratchpad-term"] scratchpad show
+
+#################################
+#          Workspaces           #
+#################################
+
+set $ws1  "1: "
+set $ws2  "2: "
+set $ws3  "3: "
+set $ws4  "4: "
+set $ws5  "5: "
+set $ws6  "6: 󰈙"
+set $ws7  "7: "
+set $ws8  "8: "
+set $ws9  "9: "
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
 
-# move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
+# move container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
 
-# assign windows to workspaces, use xprop to get class
-assign [class="brave-browser"] $ws1
-assign [class="kitty"] $ws2
+# Assign windows to workspaces (use xprop to find class names)
+assign [class="brave-browser"]         $ws1
+assign [class="firefox"]               $ws1
+assign [class="kitty"]                 $ws2
+assign [class="Alacritty"]             $ws2
+assign [class="Code"]                  $ws3
+assign [class="jetbrains-idea"]        $ws3
+assign [class="Nemo"]                  $ws4
+assign [class="Thunar"]                $ws4
+assign [class="discord"]               $ws5
+assign [class="Slack"]                 $ws5
+assign [class="Microsoft Teams - Preview"] $ws5
+assign [class="libreoffice-writer"]    $ws6
+assign [class="libreoffice-calc"]      $ws6
+assign [class="Evince"]                $ws6
+assign [class="Spotify"]               $ws7
+assign [class="vlc"]                   $ws7
+assign [class="mpv"]                   $ws7
+assign [class="Virt-manager"]          $ws8
+assign [class="VirtualBox Manager"]    $ws8
+assign [class="Wireshark"]             $ws9
 
-# reload the configuration file
+# Floating windows
+for_window [class="Gnome-calculator"]          floating enable
+for_window [class="File-roller"]               floating enable
+for_window [class="Blueberry.py"]              floating enable
+for_window [class="Nm-connection-editor"]      floating enable
+for_window [class="pavucontrol"]               floating enable
+for_window [class="Lxappearance"]              floating enable
+for_window [class="System-config-printer.py"]  floating enable
+for_window [window_role="pop-up"]              floating enable
+for_window [window_role="bubble"]              floating enable
+for_window [window_role="task_dialog"]         floating enable
+for_window [window_role="dialog"]              floating enable
+for_window [window_role="menu"]                floating enable
+
+#################################
+#        System Controls        #
+#################################
+
+# reload config
 bindsym $mod+Shift+c reload
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart i3
 bindsym $mod+Shift+r restart
 
+# exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+
 # Screenshots
-# Set a custom variable to invoke our script. Makes it easy to refer.
 set $i3screenshot sh $HOME/.config/i3/scripts/screenshot.sh
+bindsym Print            exec --no-startup-id $i3screenshot full
+bindsym Shift+Print      exec --no-startup-id $i3screenshot select
+bindsym $mod+Print       exec --no-startup-id $i3screenshot window
 
-bindsym Print exec --no-startup-id $i3screenshot full
-bindsym Shift+Print exec --no-startup-id $i3screenshot select
-bindsym $mod+Print exec --no-startup-id $i3screenshot window
-
-# Lock Screen
+# Lock screen
 bindsym $mod+x exec "betterlockscreen -l dimblur"
 
-# resize window (you can also use the mouse for that)
+# resize mode
 mode "resize" {
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+  bindsym h resize shrink width  10 px or 10 ppt
+  bindsym j resize grow   height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
+  bindsym l resize grow   width  10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left  resize shrink width  10 px or 10 ppt
+  bindsym Down  resize grow   height 10 px or 10 ppt
+  bindsym Up    resize shrink height 10 px or 10 ppt
+  bindsym Right resize grow   width  10 px or 10 ppt
 
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+  bindsym $mod+r mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# Gaps https://github.com/Airblader/i3
+# Gaps
 gaps inner 2
 gaps outer 0
 gaps horizontal 0
 
-# start polybar
-exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh &
-
-# xrandr
-exec --no-startup-id xrandr --output eDP-1 --mode 2256x1504
-exec --no-startup-id xrandr --output eDP-1 --mode 2256x1504 --primary --output HDMI-1 --mode 2256x1504 --right-of eDP-1
-
- # remove title bars
+# Remove title bars
 new_window 1pixel
 
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play
-bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+# start polybar
+exec_always --no-startup-id ~/.config/polybar/launch_polybar.sh
+
+# xrandr — T420 uses LVDS1 (internal, 1366x768 standard / 1600x900 HD+)
+# External outputs: VGA1, DP1, HDMI1 (dock)
+exec --no-startup-id xrandr --output LVDS1 --auto --primary
+
+# Media controls
+bindsym XF86AudioPlay        exec playerctl play
+bindsym XF86AudioPause       exec playerctl pause
+bindsym XF86AudioNext        exec playerctl next
+bindsym XF86AudioPrev        exec playerctl previous
+
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMute        exec --no-startup-id pactl set-sink-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute     exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
-# rofi
+# Screen backlight (ThinkPad T420 function keys)
+bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Application launcher
+bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
-
-# screen backlight
-# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
-bindsym $mod+F8 exec --no-startup-id brightnessctl set +5%
-bindsym $mod+F7 exec --no-startup-id brightnessctl set 5%-

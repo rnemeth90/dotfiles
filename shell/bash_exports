@@ -36,7 +36,6 @@ export FZF_COMPLETION_TRIGGER='**'
 
 # ==== Shell ====
 export SHELL="/bin/bash"
-export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # ==== Directory Locations ====
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -53,6 +52,9 @@ export NVM_DIR="$HOME/.nvm"
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv &>/dev/null; then
+  eval "$(pyenv init -)"
+fi
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -67,8 +69,12 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 export GOMODCACHE="$HOME/.cache/go/pkg/mod"
 
-# dotnet
-export DOTNET_ROOT="/usr/local/share/dotnet"
+# dotnet — path differs by OS
+if [[ "$(uname)" == "Darwin" ]]; then
+  export DOTNET_ROOT="/usr/local/share/dotnet"
+else
+  export DOTNET_ROOT="/usr/share/dotnet"
+fi
 export PATH="$DOTNET_ROOT:$PATH"
 
 # krew / Kubernetes
@@ -80,8 +86,14 @@ export PATH="${CARGO_ROOT:-$HOME/.cargo}/bin:$PATH"
 
 # ==== System PATH Setup ====
 
-# Homebrew / Coreutils / local bin
-export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:$HOME/bin:/usr/local/bin:/usr/local/go/bin:/opt/julia/julia-1.8.5/bin:$PATH"
+if [[ "$(uname)" == "Darwin" ]]; then
+  # macOS: Homebrew coreutils, Homebrew bin, Julia
+  export BASH_SILENCE_DEPRECATION_WARNING=1
+  export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/julia/julia-1.8.5/bin:$PATH"
+fi
+
+# local bin + standard system paths
+export PATH="$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH"
 
 # Add any /usr/bin/*/bin dynamically
-for d in /usr/bin/*/bin; do PATH="$PATH:$d"; done
+for d in /usr/bin/*/bin; do [ -d "$d" ] && PATH="$PATH:$d"; done

@@ -72,6 +72,7 @@ create_config_symlinks() {
         ".config/neofetch"
         ".config/mutt"
         ".config/polybar"
+        ".config/dunst"
         ".config/picom"
         ".config/tmux"
         ".config/powershell"
