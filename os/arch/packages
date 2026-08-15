@@ -44,6 +44,7 @@ delve
 dhcpdump
 diff-so-fancy
 discord
+dmenu
 docker
 docker-buildx
 docker-compose
@@ -84,6 +85,13 @@ helm
 htop
 hugo
 hyperfine
+i3
+i3-wm 
+i3blocks
+i3block
+i3status 
+lightdm 
+lightdm-gtk-greeter
 inxi
 iotop
 iptables-nft
@@ -115,6 +123,7 @@ openjdk
 openssl
 pass
 php
+picom
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -123,6 +132,7 @@ pipewire-pulse
 pipewire-support
 playerctl
 podman
+polybar
 powershell
 powertop
 tlp
@@ -159,6 +169,7 @@ trash-cli
 tree
 typescript
 ueberzug
+ufw
 unrar
 usb_modeswitch
 virtualbox
@@ -172,6 +183,8 @@ wireshark-cli
 wireshark-qt
 xdg-user-dirs
 xdg-user-dirs-gtk
+xorg-server 
+xorg-xinit 
 xsel
 xxd
 yq
