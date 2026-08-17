@@ -4,8 +4,7 @@ set -euo pipefail
 #######################################
 # Defaults
 #######################################
-INGRESS_CLASS="nginx-ingress-pub-dam-c900"
-# INGRESS_CLASS="nginx-ingress-pub-pm-r09"
+INGRESS_CLASS=""
 TTL=300
 DRY_RUN=false
 PARALLEL=5

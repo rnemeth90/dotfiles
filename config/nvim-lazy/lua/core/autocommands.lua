@@ -134,6 +134,29 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+-- C / C++ man page lookup
+-- K tries section 3 (C stdlib: printf, malloc, …) then section 2
+-- (POSIX syscalls: open, read, …), falling back to LSP hover when
+-- neither section has a page for the word under the cursor.
+local c_group = vim.api.nvim_create_augroup("autocmd_c", { clear = true })
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = c_group,
+  pattern = { "c", "cpp" },
+  callback = function()
+    vim.keymap.set("n", "K", function()
+      local word = vim.fn.expand("<cword>")
+      local ok = pcall(vim.cmd, "Man 3 " .. word)
+      if not ok then
+        ok = pcall(vim.cmd, "Man 2 " .. word)
+      end
+      if not ok then
+        vim.lsp.buf.hover()
+      end
+    end, { buffer = true, silent = true, desc = "Man page (3→2) / LSP hover" })
+  end,
+})
+
 -- PowerShell indent settings
 -- Matches codeFormatting.indentationSize (4) in plugins/powershell.lua
 -- so manual typing/indenting matches what the LSP formatter produces on save.

@@ -80,7 +80,15 @@ local M = {}
 
 M.lsp_keymaps = function(bufnr)
   local bufopts = { buffer = bufnr }
-  keymap("n", "K",           "<cmd>lua vim.lsp.buf.hover()<CR>",          "Hover documentation", bufopts)
+  local ft = vim.bo[bufnr].filetype
+
+  -- C/C++: K is handled by the FileType autocmd in autocommands.lua
+  -- (man page lookup with LSP hover fallback). Setting it here would
+  -- overwrite that mapping since on_attach fires after FileType.
+  if ft ~= "c" and ft ~= "cpp" then
+    keymap("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", "Hover documentation", bufopts)
+  end
+
   keymap("n", "gl",          "<cmd>lua vim.diagnostic.open_float()<CR>",  "Show line diagnostic", bufopts)
   keymap("n", "<leader>li",  "<cmd>LspInfo<CR>",                          "LSP info",             bufopts)
   keymap("n", "<leader>ls",  "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Signature help",       bufopts)
