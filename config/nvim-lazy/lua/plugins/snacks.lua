@@ -2,6 +2,21 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  dependencies = {
+    {
+      "echasnovski/mini.icons",
+      opts = {},
+      init = function()
+        -- Make mini.icons respond to require("nvim-web-devicons") calls
+        -- so that all plugins (lualine, alpha, bufferline, etc.) get
+        -- consistent, correctly-mapped Nerd Font v3 icons.
+        package.preload["nvim-web-devicons"] = function()
+          require("mini.icons").mock_nvim_web_devicons()
+          return package.loaded["nvim-web-devicons"]
+        end
+      end,
+    },
+  },
   ---@type snacks.Config
   opts = {
     bigfile = { enabled = true },

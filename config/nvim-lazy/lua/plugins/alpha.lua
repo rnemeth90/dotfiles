@@ -1,6 +1,6 @@
 return {
   "goolord/alpha-nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
+  dependencies = { "echasnovski/mini.icons" },
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
