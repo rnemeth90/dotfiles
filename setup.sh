@@ -137,7 +137,7 @@ everything_else() {
 
   execute "./os/common/go.sh"    "Go tools"
   execute "./os/common/cargo.sh" "Rust/Cargo tools"
-  execute "./os/common/npm.sh"   "npm global packages"
+  # execute "./os/common/npm.sh"   "npm global packages"
   execute "./os/common/pip.sh"   "pip packages"
 
   if [[ -f /etc/debian_version ]]; then
