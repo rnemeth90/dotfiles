@@ -105,6 +105,9 @@ setup_arch_system() {
   execute "sudo cp '$DOTFILES_DIR/os/arch/etc/systemd/logind.conf' /etc/systemd/logind.conf" \
     "Installing logind.conf (lid-close suspend)"
 
+  execute "sudo cp '$DOTFILES_DIR/os/arch/etc/X11/Xwrapper.config' /etc/X11/Xwrapper.config" \
+    "Installing Xwrapper.config (allow startx from non-console sessions)"
+
   execute "sudo mkdir -p /etc/xdg/reflector && sudo cp '$DOTFILES_DIR/os/arch/etc/xdg/reflector/reflector.conf' /etc/xdg/reflector/reflector.conf" \
     "Installing reflector mirror config"
 
