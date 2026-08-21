@@ -12,7 +12,7 @@ for i in $repos;do
   fi
     
 
-  git clone git@github-aprimo:aprimo-org/$i.git
+  git clone git@github.com:aprimo-org/$i.git
   if [ $? -ne 0 ]; then
     echo -e "\033[31mFailed to clone $i\033[0m"
     continue

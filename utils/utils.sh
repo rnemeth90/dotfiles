@@ -257,6 +257,37 @@ sudo_keepalive() {
   print_success "Sudo credentials cached for this session"
 }
 
+# ─────────────────────────────────────────────
+#  GitHub CLI helpers
+# ─────────────────────────────────────────────
+
+# Installs the gh CLI if it isn't already available, so automatic
+# SSH key upload can be used both from setup.sh and from
+# git/set_github_ssh_key.sh when run standalone.
+ensure_gh_installed() {
+  if cmd_exists "gh"; then
+    return 0
+  fi
+
+  print_warning "gh CLI not found — attempting to install it"
+
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    cmd_exists "brew" && brew install gh &>>"$LOG_FILE"
+  elif [[ -f /etc/arch-release ]]; then
+    sudo pacman -S --noconfirm --needed gh &>>"$LOG_FILE" || yay -S --noconfirm --needed gh &>>"$LOG_FILE"
+  elif [[ -f /etc/debian_version ]]; then
+    sudo apt update &>>"$LOG_FILE" && sudo apt install -y gh &>>"$LOG_FILE"
+  fi
+
+  if cmd_exists "gh"; then
+    print_success "gh CLI installed"
+    return 0
+  else
+    print_warning "Could not install gh CLI — falling back to manual key upload"
+    return 1
+  fi
+}
+
 
 # ─────────────────────────────────────────────
 #  User interaction

@@ -6,6 +6,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" &&
   . "$DOT/utils/utils.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# ensure_gh_installed is defined in utils/utils.sh (shared with setup.sh).
 
 add_ssh_configs() {
 
@@ -27,9 +28,38 @@ copy_public_ssh_key_to_clipboard() {
   fi
 }
 
+# Uploads the public key to GitHub via the API using an authenticated `gh`.
+# Returns 0 on success, 1 if `gh` is missing/unauthenticated so callers can
+# fall back to the manual clipboard/browser flow.
+upload_public_ssh_key_via_gh() {
+  local pubKeyFile="$1"
+
+  if ! cmd_exists "gh"; then
+    return 1
+  fi
+
+  if ! gh auth status &>/dev/null; then
+    print_warning "gh CLI is installed but not authenticated (run 'gh auth login' to enable automatic key upload)"
+    return 1
+  fi
+
+  local title="$(hostname)-$(date +%Y%m%d%H%M%S)"
+  if gh ssh-key add "$pubKeyFile" --title "$title" &>>"$LOG_FILE"; then
+    print_success "Uploaded public SSH key to GitHub via gh CLI (title: $title)"
+    return 0
+  else
+    print_warning "gh ssh-key add failed — falling back to manual upload"
+    return 1
+  fi
+}
+
 generate_ssh_keys() {
-  ask "Please provide an email address: " && printf "\n"
-  ssh-keygen -t ed25519 -C "$(get_answer)" -f "$1"
+  local email="${GITHUB_SSH_EMAIL:-}"
+  if [ -z "$email" ]; then
+    ask "Please provide an email address: " && printf "\n"
+    email="$(get_answer)"
+  fi
+  ssh-keygen -t ed25519 -C "$email" -f "$1"
   print_result $? "Generate SSH keys"
 }
 
@@ -54,10 +84,16 @@ set_github_ssh_key() {
 
   generate_ssh_keys "$sshKeyFileName"
   add_ssh_configs "$sshKeyFileName"
-  copy_public_ssh_key_to_clipboard "${sshKeyFileName}.pub"
-  open_github_ssh_page
-  test_ssh_connection &&
+
+  ensure_gh_installed
+  if upload_public_ssh_key_via_gh "${sshKeyFileName}.pub"; then
     rm "${sshKeyFileName}.pub"
+  else
+    copy_public_ssh_key_to_clipboard "${sshKeyFileName}.pub"
+    open_github_ssh_page
+    test_ssh_connection &&
+      rm "${sshKeyFileName}.pub"
+  fi
 }
 
 test_ssh_connection() {

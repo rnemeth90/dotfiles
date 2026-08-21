@@ -3,13 +3,15 @@
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$DOTFILES_DIR" && source "utils/utils.sh"
 
-_TOTAL_STEPS=8
+_TOTAL_STEPS=9
 
 # ─────────────────────────────────────────────
 
 init_setup() {
-  print_step 1 $_TOTAL_STEPS "Creating symbolic links"
+  print_step 1 $_TOTAL_STEPS "Configuring OS"
   ./os/create_symbolic_links.sh
+  ./os/create_dir_structure.sh
+  print_success "OS setup complete."
 }
 
 shell_setup() {
@@ -129,14 +131,23 @@ git_config() {
   print_success "Git config done"
 }
 
+github_ssh_setup() {
+  print_step 6 $_TOTAL_STEPS "Configuring GitHub SSH access"
+  # gh is already installed/authenticated and the SSH email already
+  # collected by collect_github_prereqs, so this step normally runs
+  # non-interactively; it only prompts if that pre-flight step was skipped.
+  ./git/set_github_ssh_key.sh
+  print_success "GitHub SSH access ready"
+}
+
 install_fonts() {
-  print_step 6 $_TOTAL_STEPS "Installing fonts"
+  print_step 7 $_TOTAL_STEPS "Installing fonts"
   ./os/common/fonts/fonts.sh >>"$LOG_FILE" 2>&1
   print_success "Fonts installed"
 }
 
 everything_else() {
-  print_step 7 $_TOTAL_STEPS "Installing language toolchains"
+  print_step 8 $_TOTAL_STEPS "Installing language toolchains"
 
   execute "./os/common/go.sh"    "Go tools"
   execute "./os/common/cargo.sh" "Rust/Cargo tools"
@@ -148,11 +159,38 @@ everything_else() {
   fi
 }
 
+# Collects everything GitHub-related up front (right after the sudo
+# prompt) so the rest of setup.sh can run unattended: installs gh,
+# authenticates it if needed, and grabs the email used for the SSH
+# key generated later in github_ssh_setup.
+collect_github_prereqs() {
+  print_section "GitHub Setup"
+
+  ensure_gh_installed || return 0
+
+  if ! gh auth status &>/dev/null; then
+    print_info "Authenticating gh CLI (required to auto-upload your SSH key)"
+    gh auth login
+  fi
+
+  if gh auth status &>/dev/null; then
+    print_success "gh CLI authenticated"
+  else
+    print_warning "gh CLI not authenticated — SSH key upload will fall back to a manual step later"
+  fi
+
+  if ssh -T git@github.com &>/dev/null; [[ $? -ne 1 ]]; then
+    ask "Please provide an email address for your GitHub SSH key: " && printf "\n"
+    export GITHUB_SSH_EMAIL="$(get_answer)"
+  fi
+}
+
 main() {
   print_section "Dotfiles Setup"
   print_info "Log file: $LOG_FILE"
 
   sudo_keepalive
+  collect_github_prereqs
 
   init_setup
   install_package_managers
@@ -161,10 +199,11 @@ main() {
   setup_tlp
   setup_arch_system
   git_config
+  github_ssh_setup
   install_fonts
   everything_else
 
-  print_step 8 $_TOTAL_STEPS "Finalising"
+  print_step 9 $_TOTAL_STEPS "Finalising"
   # shellcheck disable=SC1090
   source ~/.bashrc
 

@@ -57,6 +57,35 @@ create_symlinks() {
     done
 }
 
+create_bin_symlink() {
+    local sourceDir="$(cd .. && pwd)/bin"
+    local targetDir="$HOME/bin"
+
+    if [ ! -e "$sourceDir" ]; then
+        print_error "Source directory '$sourceDir' does not exist."
+        return
+    fi
+
+    if [ ! -e "$targetDir" ]; then
+        execute \
+            "ln -fs $sourceDir $targetDir" \
+            "$targetDir → $sourceDir"
+    elif [ "$(readlink "$targetDir")" == "$sourceDir" ]; then
+        print_success "$targetDir → $sourceDir"
+    else
+        ask_for_confirmation "'$targetDir' already exists. Do you want to overwrite it?"
+        if answer_is_yes; then
+            mv "$targetDir" "${targetDir}.bak"
+            print_in_green "Backed up $targetDir to ${targetDir}.bak"
+            execute \
+                "ln -fs $sourceDir $targetDir" \
+                "$targetDir → $sourceDir"
+        else
+            print_error "$targetDir → $sourceDir"
+        fi
+    fi
+}
+
 create_config_symlinks() {
     declare -a FILES_TO_SYMLINK=(
         "config/alacritty"
@@ -73,6 +102,7 @@ create_config_symlinks() {
         "config/neofetch"
         "config/mutt"
         "config/polybar"
+        "config/rofi"
         "config/dunst"
         "config/picom"
         "config/tmux"
@@ -122,6 +152,9 @@ create_config_symlinks() {
 main() {
     print_in_purple "\n • Creating symbolic links\n\n"
     create_symlinks "$@"
+
+    print_in_purple "\n • Linking bin directory\n\n"
+    create_bin_symlink "$@"
 
     print_in_purple "\n • Linking config directories\n\n"
     create_config_symlinks "$@"

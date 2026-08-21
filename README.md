@@ -4,7 +4,17 @@ A collection of configuration files and setup scripts for quickly configuring a 
 
 ## Full Setup
 
-Run the following command to clone the repository and start the setup:
+### Fresh machine (no git required yet)
+
+On a brand-new machine that doesn't even have `git`/`gh` installed, run the bootstrap script. It installs `git` and `gh`, clones this repo into `~/dotfiles`, and automatically hands off to `setup.sh`:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/rnemeth90/dotfiles/main/bootstrap.sh | bash
+```
+
+### Already have git
+
+If `git` is already installed, you can clone the repository and start the setup directly:
 
 ```bash
 cd && git clone https://github.com/rnemeth90/dotfiles.git && cd dotfiles && find . -type f -iname "*.sh" -exec chmod +x {} \; && ./setup.sh
@@ -37,16 +47,17 @@ The [setup.sh](./setup.sh) script runs the following steps in order:
 - **Multi-OS support** -- Automatically detects macOS, Debian, or Arch and runs the appropriate install paths. OS-specific scripts are gated so they only run on their target platform.
 - **Bash configuration** -- Modular setup with separate files for aliases, exports, prompt, options, colors, and autocompletion. Machine-specific overrides go in `~/.bash.local`.
 - **Neovim (lazy.nvim)** -- Full configuration in `.config/nvim-lazy/` with LSP, completion (nvim-cmp), Treesitter, Snacks pickers, and Copilot integration.
-- **Git configuration** -- Shared settings in `git/gitconfig` with local overrides in `~/.gitconfig.local`. SSH key setup is available but disabled by default in the main flow.
+- **Git configuration** -- Shared settings in `git/gitconfig` with local overrides in `~/.gitconfig.local`. `setup.sh` also runs `git/set_github_ssh_key.sh`, which generates a GitHub SSH key and uploads it automatically via an authenticated `gh` CLI (installing `gh` if needed), falling back to a manual clipboard/browser step if `gh` isn't available or authenticated.
 - **Utility scripts** -- A collection of shell scripts in `bin/` for Kubernetes, Azure, Go project scaffolding, VM provisioning, and general automation.
 
 ## Prerequisites
 
-Before running the setup, ensure the following are installed:
+To run `bootstrap.sh` on a fresh machine, you only need:
 
-- `git`
 - `curl`
 - `bash`
+
+`bootstrap.sh` installs `git` and `gh` for you before cloning the repo. If you're cloning manually instead (see above), ensure `git` is installed first.
 
 ## Customization
 

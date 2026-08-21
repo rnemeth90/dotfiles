@@ -5,6 +5,14 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     source "$DOT/utils/utils.sh"
 
+install yay() {
+  if [[ -f /etc/arch-release ]]; then
+
+
+
+  fi
+}
+
 install_homebrew() {
     if [[ "$OSTYPE" != "darwin"* ]]; then
         print_in_yellow "\n • Skipping Homebrew (not macOS).\n\n"
