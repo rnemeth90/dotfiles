@@ -30,24 +30,13 @@ create_gitconfig_local() {
 
 clone_repos() {
 
-  declare -a reposToClone=(
-    "git@github.com:rnemeth90/lfcs-notes"
-    "git@github.com:rnemeth90/ComicBookInventoryApp.git"
-    "git@github.com:rnemeth90/rnemeth90.github.io.git"
-    "git@github.com:rnemeth90/helm-charts.git"
-    "git@github.com:rnemeth90/dockprom.git"
-    "git@github.com:rnemeth90/notes.git"
-    "git@github.com:rnemeth90/shell-scripts.git"
-    "git@github.com:rnemeth90/core-dns-bouncer.git"
-    "git@github.com:rnemeth90/PracticeProjects.git"
-    "git@github.com:rnemeth90/docker-bind.git"
-    "git@github.com:rnemeth90/docker-chronyd.git"
-    "git@github.com:rnemeth90/DungeonMaster_v2.git"
-    "git@github.com:rnemeth90/azure-code.git"
-    "git@github.com:rnemeth90/pod-inspector.git"
-    "git@github.com:rnemeth90/pure-sh-bible.git"
-    "git@github.com:rnemeth90/notes.git"
-  )
+  declare -a reposToClone=()
+
+  while IFS= read -r repo; do
+    if [ -n "$repo" ]; then
+      reposToClone+=("git@github.com:${repo}.git")
+    fi
+  done < "$DOT/repos"
 
   local i=""
   local target=""
@@ -56,6 +45,8 @@ clone_repos() {
     echo "Creating $HOME/repos ..."
     sudo mkdir $HOME/repos && sudo chown -R $(whoami): $HOME/repos
   fi
+
+  ensure_ssh_agent
 
   for i in "${reposToClone[@]}"; do
     target="$HOME/repos/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"
@@ -108,6 +99,8 @@ clone_golang_repos() {
 
   local i=""
   local targetFile=""
+
+  ensure_ssh_agent
 
   for i in "${reposToClone[@]}"; do
     target="$HOME/go/src/$(printf "%s" "$i" | sed "s/.*\/\(.*\)/\1/g")"

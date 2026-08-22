@@ -288,6 +288,37 @@ ensure_gh_installed() {
   fi
 }
 
+# ─────────────────────────────────────────────
+#  SSH agent helpers
+# ─────────────────────────────────────────────
+
+# Starts (or reuses) an ssh-agent and loads passphrase-protected keys once,
+# so cloning many repositories over SSH back-to-back (see clone_repos and
+# clone_golang_repos in git/create_local_gitconfig.sh) only prompts for the
+# key passphrase a single time instead of on every `git clone`.
+ensure_ssh_agent() {
+  # ssh-add -l: exit 0 = agent running with keys loaded, 1 = agent running
+  # but empty, 2 = can't reach an agent (none running/misconfigured).
+  ssh-add -l &>/dev/null
+  local status=$?
+
+  if [ "$status" -eq 2 ]; then
+    eval "$(ssh-agent -s)" >/dev/null
+    # Only kill the agent we started ourselves, and only when this
+    # (sub)shell exits, so it doesn't leak background processes.
+    trap 'kill "$SSH_AGENT_PID" 2>/dev/null' EXIT
+    ssh-add -l &>/dev/null
+    status=$?
+  fi
+
+  if [ "$status" -eq 1 ]; then
+    local key
+    for key in "$HOME/.ssh/github" "$HOME/.ssh/id_ed25519" "$HOME/.ssh/id_rsa"; do
+      [ -f "$key" ] && ssh-add "$key" 2>/dev/null
+    done
+  fi
+}
+
 
 # ─────────────────────────────────────────────
 #  User interaction

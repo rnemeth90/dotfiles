@@ -5,12 +5,25 @@ declare DOT=$HOME/dotfiles
 cd "$(dirname "${BASH_SOURCE[0]}")" &&
     source "$DOT/utils/utils.sh"
 
-install yay() {
-  if [[ -f /etc/arch-release ]]; then
+install_yay() {
+    if [[ ! -f /etc/arch-release ]]; then
+        print_in_yellow "\n • Skipping yay (not Arch Linux).\n\n"
+        return
+    fi
 
+    if command -v yay >/dev/null 2>&1; then
+        print_in_green "\n • yay is already installed. Skipping...\n\n"
+        return
+    fi
 
+    print_in_purple "\n • Installing yay \n\n"
 
-  fi
+    if [[ ! -d ~/repos/aur.archlinux.org/yay-bin ]]; then
+        mkdir -p ~/repos/aur.archlinux.org/
+        git clone https://aur.archlinux.org/yay-bin.git ~/repos/aur.archlinux.org/yay-bin
+    fi
+
+    (cd ~/repos/aur.archlinux.org/yay-bin && makepkg -si --noconfirm)
 }
 
 install_homebrew() {
@@ -65,6 +78,7 @@ install_cargo() {
 main() {
     install_homebrew
     install_npm
+    install_yay
     # install_nvm_node_yarn
     install_cargo
 
