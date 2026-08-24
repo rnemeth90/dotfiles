@@ -104,7 +104,10 @@ return packer.startup(function(use)
   })
 
   -- Treesitter
-  use("nvim-treesitter/nvim-treesitter")
+  -- Pinned to "master" (the classic API branch) since our config (treesitter.lua,
+  -- vim-illuminate, nvim-ts-context-commentstring) relies on `nvim-treesitter.configs`,
+  -- which was removed in the "main" branch rewrite.
+  use({ "nvim-treesitter/nvim-treesitter", branch = "master" })
   use("nvim-treesitter/nvim-treesitter-textobjects")
   -- use("p00f/nvim-ts-rainbow")
 
