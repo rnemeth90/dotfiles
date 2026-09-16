@@ -72,6 +72,8 @@ keymap("n", "<leader>tv", ":!terraform validate<CR>", "Terraform validate")
 keymap("n", "<leader>tp", ":!terraform plan<CR>", "Terraform plan")
 keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "Terraform apply")
 
+-- DAP (Debugger) keymaps are buffer-local; see plugins/nvim-dap.lua
+
 --------------------
 -- LSP Buffer Keymaps (set on_attach)
 --------------------

@@ -41,7 +41,6 @@ return {
         "docker_compose_language_service",
         "helm_ls",
         "jqls",
-        "nginx_language_server",
         "terraformls",
         "ts_ls",
         "vimls",

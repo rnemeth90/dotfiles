@@ -77,10 +77,10 @@ install_cargo() {
 
 main() {
     install_homebrew
-    install_npm
-    install_yay
+    # install_npm
+    # install_yay
     # install_nvm_node_yarn
-    install_cargo
+    # install_cargo
 
     print_in_green "\n • All installations completed successfully! \n\n"
 }

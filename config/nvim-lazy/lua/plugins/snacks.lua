@@ -34,7 +34,18 @@ return {
     picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = {
+      enabled = true,
+      animate = {
+        duration = { step = 10, total = 120 }, -- faster than default 200ms
+        easing = "outQuad",                    -- snappy start, smooth stop
+      },
+      animate_repeat = {
+        delay = 100,
+        duration = { step = 5, total = 30 },   -- near-instant on fast repeated scrolls
+        easing = "linear",
+      },
+    },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     styles = {

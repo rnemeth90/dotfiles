@@ -173,6 +173,25 @@ keymap(
   opts
 )
 
+-- DAP (Debugger) Keymaps
+keymap("n", "<F5>", "<cmd>lua require('dap').continue()<CR>", "Debug: Continue", opts)
+keymap("n", "<F10>", "<cmd>lua require('dap').step_over()<CR>", "Debug: Step over", opts)
+keymap("n", "<F11>", "<cmd>lua require('dap').step_into()<CR>", "Debug: Step into", opts)
+keymap("n", "<F12>", "<cmd>lua require('dap').step_out()<CR>", "Debug: Step out", opts)
+keymap("n", "<leader>db", "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Debug: Toggle breakpoint", opts)
+keymap(
+  "n",
+  "<leader>dB",
+  "<cmd>lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>",
+  "Debug: Conditional breakpoint",
+  opts
+)
+keymap("n", "<leader>dr", "<cmd>lua require('dap').repl.toggle()<CR>", "Debug: Toggle REPL", opts)
+keymap("n", "<leader>dR", "<cmd>lua require('dap').run_last()<CR>", "Debug: Run last", opts)
+keymap("n", "<leader>dt", "<cmd>lua require('dap').terminate()<CR>", "Debug: Terminate", opts)
+keymap("n", "<leader>du", "<cmd>lua require('dapui').toggle()<CR>", "Debug: Toggle UI", opts)
+keymap("n", "<leader>dgt", "<cmd>lua require('dap-go').debug_test()<CR>", "Debug: Go test (nearest)", opts)
+
 -- LSP Keymaps
 local M = {}
 

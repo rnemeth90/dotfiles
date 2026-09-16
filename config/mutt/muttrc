@@ -1,6 +1,41 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source ~/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc
 source ~/.config/mutt/themes/dracula
-# source ~/.config/mutt/mailcap
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/ryan/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ryanthomasnemeth@gmail.com"
+source ~/.config/mutt/mailcap
+
+##### Behavior #####
+
+set sleep_time = 0    # be faster
+set beep = no         # no beep sound
+set move = no         # don't auto-archive read mail
+
+##### HTML / Mailcap #####
+
+set implicit_autoview
+auto_view text/html
+alternative_order text/plain text/html
+macro index,pager \cb "<pipe-message>urlview<enter>" "open links with urlview"
+
+##### Sidebar #####
+
+set sidebar_visible = yes
+set sidebar_width = 20
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+
+bind index,pager \CN sidebar-next           # Ctrl-n Next Folder
+bind index,pager \CP sidebar-prev           # Ctrl-p Previous Folder
+bind index,pager \CI sidebar-open           # Ctrl-i Open Folder
+bind index,pager \CB sidebar-toggle-visible # Ctrl-b Toggle Sidebar
+
+##### Vim-like Navigation #####
+
+bind attach,index,pager \CD next-page
+bind attach,index,pager \CU previous-page
+bind pager g top
+bind pager G bottom
+bind attach,index g first-entry
+bind attach,index G last-entry
+
+##### Index Format #####
+
+set index_format = "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"

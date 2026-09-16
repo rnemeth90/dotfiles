@@ -133,7 +133,7 @@ pipewire-support
 playerctl
 podman
 polybar
-powershell
+#powershell
 powertop
 tlp
 tlp-rdw
