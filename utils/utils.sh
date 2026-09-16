@@ -272,11 +272,11 @@ ensure_gh_installed() {
   print_warning "gh CLI not found — attempting to install it"
 
   if [[ "$OSTYPE" == "darwin"* ]]; then
-    cmd_exists "brew" && brew install gh &>>"$LOG_FILE"
+    cmd_exists "brew" && brew install gh &>"$LOG_FILE"
   elif [[ -f /etc/arch-release ]]; then
-    sudo pacman -S --noconfirm --needed gh &>>"$LOG_FILE" || yay -S --noconfirm --needed gh &>>"$LOG_FILE"
+    sudo pacman -S --noconfirm --needed gh| sudo tee -a "$LOG_FILE" || yay -S --noconfirm --needed gh &>"$LOG_FILE"
   elif [[ -f /etc/debian_version ]]; then
-    sudo apt update &>>"$LOG_FILE" && sudo apt install -y gh &>>"$LOG_FILE"
+    sudo apt update | sudo tee -a "$LOG_FILE" && sudo apt install -y gh | sudo tee -a "$LOG_FILE"
   fi
 
   if cmd_exists "gh"; then

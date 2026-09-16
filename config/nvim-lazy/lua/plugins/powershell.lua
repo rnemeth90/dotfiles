@@ -19,7 +19,7 @@ return {
       powershell = {
         codeFormatting = {
           preset = "OTBS",
-          indentationSize = 2,
+          indentationSize = 4,
           addWhitespaceAroundPipe = true,
           trimWhitespaceAroundPipe = true,
           useCorrectCasing = true,

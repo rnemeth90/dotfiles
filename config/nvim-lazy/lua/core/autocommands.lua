@@ -158,8 +158,6 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- PowerShell indent settings
--- Matches codeFormatting.indentationSize (2) in plugins/powershell.lua
--- so manual typing/indenting matches what the LSP formatter produces on save.
 local powershell_group = vim.api.nvim_create_augroup("autocmd_powershell", { clear = true })
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -172,27 +170,3 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- LSP format-on-save for languages whose server handles formatting natively
--- (Go is handled by go.nvim; JS/TS/Python/Lua/C# by none-ls)
-local lsp_fmt_group = vim.api.nvim_create_augroup("autocmd_lsp_format", { clear = true })
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  group = lsp_fmt_group,
-  pattern = { "*.ps1", "*.psm1", "*.psd1" },
-  callback = function(args)
-    -- powershell_es (PowerShell Editor Services) can take several seconds to
-    -- spin up/respond, especially on a cold start right after opening a
-    -- file. The default vim.lsp.buf.format timeout (1000ms) is too short and
-    -- surfaces as "LSP Timeout". Skip formatting entirely if the client
-    -- isn't attached yet (nothing to format against), and use a generous
-    -- timeout otherwise so a slow-but-alive server isn't cut off mid-save.
-    local clients = vim.lsp.get_clients({ bufnr = args.buf, name = "powershell_es" })
-    if #clients == 0 then return end
-
-    vim.lsp.buf.format({
-      async = false,
-      timeout_ms = 10000,
-      filter = function(client) return client.name == "powershell_es" end,
-    })
-  end,
-})
