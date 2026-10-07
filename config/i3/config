@@ -2,7 +2,7 @@
 set $mod Mod4
 
 # Font for window titles
-font pango:Hack Nerd Font 8
+font pango:JetBrainsMono Nerd Font 8
 
 # Focus does not follow mouse
 focus_follows_mouse no

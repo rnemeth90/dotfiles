@@ -4,7 +4,7 @@
 if bluetoothctl show | grep -q "Powered: yes"; then
   if bluetoothctl info | grep -q 'Device'; then
     # Device connected
-    echo "%{T0}%{F#2193ff}%{T-}" # Use font-0 (Hack Nerd Font)
+    echo "%{T0}%{F#2193ff}%{T-}" # Use font-0 (JetBrains Mono Nerd Font)
   else
     # No device connected
     echo "%{T0}%{T-}"

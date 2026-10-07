@@ -8,9 +8,9 @@ decorations = "None"
 opacity = 0.95
 
 [font]
-normal.family = 'Hack Nerd Font Mono'
-bold.family   = 'Hack Nerd Font Mono'
-italic.family = 'Hack Nerd Font Mono'
+normal.family = 'JetBrainsMono Nerd Font Mono'
+bold.family   = 'JetBrainsMono Nerd Font Mono'
+italic.family = 'JetBrainsMono Nerd Font Mono'
 size = 10
 
 [terminal.shell]
