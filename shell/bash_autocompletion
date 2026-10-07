@@ -5,19 +5,32 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 if [ -f ~/.git-completion.bash ]; then
-  . ~/.git-completion.bash
+  # Lazy-load: sourcing this ~4000-line script costs ~0.1s. Register a
+  # stub completer instead; on first Tab-completion of `git`, it sources
+  # the real script (which re-registers the real completer for later
+  # calls) and immediately re-runs it so the current Tab still works.
+  _lazy_git_completion() {
+    . ~/.git-completion.bash
+    __git_wrap__git_main
+  }
+  complete -o bashdefault -o default -o nospace -F _lazy_git_completion git 2>/dev/null \
+    || complete -o default -o nospace -F _lazy_git_completion git
 fi
 
 # fzf keybindings and completions
 # Ctrl+R: history search  Ctrl+T: file search  Alt+C: cd into dir
 if command -v fzf &>/dev/null; then
-  if [[ "$(uname)" == "Darwin" ]] && [ -f "$(brew --prefix 2>/dev/null)/opt/fzf/shell/key-bindings.bash" ]; then
-    . "$(brew --prefix)/opt/fzf/shell/key-bindings.bash"
-    . "$(brew --prefix)/opt/fzf/shell/completion.bash"
+  # Use the cached HOMEBREW_PREFIX (set in bash_exports) instead of calling
+  # `brew --prefix` here, which spawns a slow Ruby subprocess on every shell start.
+  _brew_prefix="${HOMEBREW_PREFIX:-$(brew --prefix 2>/dev/null)}"
+  if [[ "$(uname)" == "Darwin" ]] && [ -f "$_brew_prefix/opt/fzf/shell/key-bindings.bash" ]; then
+    . "$_brew_prefix/opt/fzf/shell/key-bindings.bash"
+    . "$_brew_prefix/opt/fzf/shell/completion.bash"
   elif [ -f /usr/share/fzf/key-bindings.bash ]; then
     . /usr/share/fzf/key-bindings.bash
     . /usr/share/fzf/completion.bash
   elif [ -f /etc/profile.d/fzf.bash ]; then
     . /etc/profile.d/fzf.bash
   fi
+  unset _brew_prefix
 fi

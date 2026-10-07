@@ -7,10 +7,6 @@
 LOG_FILE="${LOG_FILE:-/tmp/dotfiles-setup-$(date +%Y%m%d-%H%M%S).log}"
 LOG_LEVEL="${LOG_LEVEL:-INFO}"   # DEBUG | INFO | WARN | ERROR
 
-# Ensure log file exists
-mkdir -p "$(dirname "$LOG_FILE")"
-touch "$LOG_FILE"
-
 _log_levels=(DEBUG INFO WARN ERROR)
 
 _level_index() {
@@ -36,6 +32,14 @@ _timestamp() {
 _log_file() {
   local level="$1"
   local msg="$2"
+  # Lazily create the log file/dir on first actual write instead of
+  # unconditionally at source time, since utils.sh is sourced by every
+  # interactive shell (via bash_profile) just to get get_os(), but
+  # logging is only used by setup scripts.
+  if [ ! -e "$LOG_FILE" ]; then
+    mkdir -p "$(dirname "$LOG_FILE")"
+    touch "$LOG_FILE"
+  fi
   printf "[%s] [%s] %s\n" "$(_timestamp)" "$level" "$msg" >> "$LOG_FILE"
 }
 
@@ -79,7 +83,6 @@ print_in_yellow() { print_in_color "$1" 3; }
 #  Structured log functions
 # ─────────────────────────────────────────────
 
-_PREFIX_INFO="$(_cyan     "$(_timestamp)")"
 _prefix()   { printf "%s  " "$(_dim "$(_timestamp)")"; }
 
 print_info() {

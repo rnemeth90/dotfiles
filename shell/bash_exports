@@ -14,15 +14,23 @@ export PYTHONIOENCODING="UTF-8"
 # export LC_ALL=en_US.UTF-8
 
 # ==== Man Page & Less ====
-export LESS_TERMCAP_md="$(tput bold 2>/dev/null)$(tput setaf 2 2>/dev/null)"
-export LESS_TERMCAP_me="$(tput sgr0 2>/dev/null)"
+# Hardcoded ANSI codes instead of `tput` (3 subprocess+terminfo lookups,
+# ~0.1s) — bold+green and reset, matching the raw-escape style already
+# used in bash_prompt.
+export LESS_TERMCAP_md=$'\e[1m\e[32m'
+export LESS_TERMCAP_me=$'\e[0m'
 export MANPAGER="less -X"
 
 # ==== Node.js ====
 export NODE_REPL_HISTORY_SIZE=10000
 NPM_PACKAGES="${HOME}/.npm-packages"
 export PATH="$PATH:$NPM_PACKAGES/bin"
-export MANPATH="${MANPATH-$(manpath)}:$NPM_PACKAGES/share/man"
+# Prepend the npm man path and leave a trailing empty MANPATH component
+# (the trailing colon) so `man` still falls back to its compiled-in
+# default search path. This avoids calling `manpath` (~0.4s: it rebuilds
+# the whole man search path from /etc/man.conf + filesystem scan) on
+# every single shell start.
+export MANPATH="$NPM_PACKAGES/share/man:${MANPATH}:"
 
 # ==== fzf ====
 FZF_EXCLUDE_DIRS=(Applications Library Movies Music Pictures Qt node_modules venv .DS_Store .Trash .cache .git .mypy_cache .npm .pyenv .pytest_cache .stack .temp __pycache__)
@@ -44,16 +52,29 @@ export SSH_KEY_PATH="$HOME/.ssh/rsa_id"
 
 # ==== Language & Toolchains ====
 
-# nvm
+# nvm (lazy-loaded: sourcing nvm.sh eagerly is slow on every shell start)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+if [ -s "$NVM_DIR/nvm.sh" ]; then
+  _load_nvm() {
+    unset -f nvm node npm npx _load_nvm
+    \. "$NVM_DIR/nvm.sh"
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+  }
+  nvm()  { _load_nvm; nvm "$@"; }
+  node() { _load_nvm; node "$@"; }
+  npm()  { _load_nvm; npm "$@"; }
+  npx()  { _load_nvm; npx "$@"; }
+fi
 
-# pyenv
+# pyenv (lazy-loaded: `eval "$(pyenv init -)"` spawns a subprocess on every shell start)
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 if command -v pyenv &>/dev/null; then
-  eval "$(pyenv init -)"
+  pyenv() {
+    unset -f pyenv
+    eval "$(command pyenv init -)"
+    pyenv "$@"
+  }
 fi
 
 # poetry
@@ -90,6 +111,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # macOS: Homebrew coreutils, Homebrew bin, Julia
   export BASH_SILENCE_DEPRECATION_WARNING=1
   export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:/opt/homebrew/bin:/opt/julia/julia-1.8.5/bin:$PATH"
+
+  # Cache the Homebrew prefix once so other startup files (e.g.
+  # bash_autocompletion) don't need to shell out to `brew --prefix`
+  # (a slow Ruby subprocess) on every new shell/tmux window.
+  export HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-/opt/homebrew}"
 fi
 
 # local bin + standard system paths

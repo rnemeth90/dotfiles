@@ -10,12 +10,15 @@ source_bash_files() {
 
     declare -r CURRENT_DIRECTORY="$(pwd)"
 
+    # bash_exports must come before bash_autocompletion (and ideally other
+    # files) since it sets HOMEBREW_PREFIX and other env vars those files
+    # rely on — sourcing it later silently defeats those caches.
     declare -r -a FILES_TO_SOURCE=(
         "fzf.bash"
-        "bash_aliases"
-        "bash_autocompletion"
         "bash_colors"
         "bash_exports"
+        "bash_aliases"
+        "bash_autocompletion"
         "bash_options"
         "bash_prompt"
         "bash.local"  # For local settings that should
