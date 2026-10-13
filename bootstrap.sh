@@ -87,7 +87,7 @@ install_prereqs() {
       ;;
     arch)
       [[ "$need_git" -eq 1 ]] && sudo pacman -S --noconfirm --needed git
-      [[ "$need_gh" -eq 1 ]] && sudo pacman -S --noconfirm --needed gh
+      [[ "$need_gh" -eq 1 ]] && sudo pacman -S --noconfirm --needed github-cli
       ;;
     *)
       error "Unknown OS — please install git and gh manually, then re-run this script."
