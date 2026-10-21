@@ -22,27 +22,68 @@ shell_setup() {
 
 install_package_managers() {
   print_step 3 $_TOTAL_STEPS "Installing package managers"
-  ./os/extensions_and_pkg_managers.sh
+  if ! ./os/extensions_and_pkg_managers.sh; then
+    print_warning "Package manager setup failed"
+    return 1
+  fi
   print_success "Package managers ready"
+}
+
+enable_multilib() {
+  [[ -f /etc/arch-release ]] || return 0
+  grep -qx 'steam' "$DOTFILES_DIR/os/arch/packages" || return 0
+
+  if ! pacman-conf --repo-list | grep -qx 'multilib'; then
+    local pacman_conf=/etc/pacman.conf
+    if grep -Eq '^[[:space:]]*#[[:space:]]*\[multilib\][[:space:]]*$' "$pacman_conf"; then
+      if ! sudo sed -i.bak -E \
+        '/^[[:space:]]*#[[:space:]]*\[multilib\][[:space:]]*$/,/^[[:space:]]*\[/ {
+          s|^[[:space:]]*#[[:space:]]*\[multilib\][[:space:]]*$|[multilib]|
+          s|^[[:space:]]*#[[:space:]]*Include[[:space:]]*=[[:space:]]*/etc/pacman.d/mirrorlist[[:space:]]*$|Include = /etc/pacman.d/mirrorlist|
+        }' "$pacman_conf"; then
+        print_warning "Could not enable the multilib repository"
+        return 1
+      fi
+    else
+      printf '\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n' |
+        sudo tee -a "$pacman_conf" >/dev/null || return 1
+    fi
+  fi
+
+  if ! pacman-conf --repo-list | grep -qx 'multilib'; then
+    print_warning "Could not enable the multilib repository"
+    return 1
+  fi
+  print_success "Enabled multilib repository (required for Steam)"
+
+  if ! sudo pacman -Syu --noconfirm >>"$LOG_FILE" 2>&1; then
+    print_warning "Failed to synchronize and upgrade Arch repositories; see $LOG_FILE"
+    return 1
+  fi
 }
 
 install_packages_arch() {
   local packages=("$@")
   local total=${#packages[@]}
   local i=0
+  local failures=0
 
   for pkg in "${packages[@]}"; do
     ((i++))
     printf "  %s  [%d/%d] %s\r" "$(_cyan "·")" "$i" "$total" "$pkg"
     if sudo pacman -S --noconfirm --needed "$pkg" >>"$LOG_FILE" 2>&1; then
       print_debug "pacman: $pkg"
-    elif yay -S --noconfirm --needed "$pkg" >>"$LOG_FILE" 2>&1; then
+    elif command -v yay >/dev/null 2>&1 && yay -S --noconfirm --needed "$pkg" >>"$LOG_FILE" 2>&1; then
       print_debug "yay: $pkg"
     else
       print_warning "Failed to install $pkg (pacman + yay)"
+      ((failures++))
     fi
   done
   printf "%*s\r" 60 ""   # clear progress line
+  if ((failures > 0)); then
+    print_warning "Package installation failed for $failures of $total packages; see $LOG_FILE"
+  fi
   print_success "Packages installed ($total packages)"
 }
 
@@ -71,8 +112,11 @@ install_packages() {
       ;;
     arch)
       print_info "Installing Arch packages..."
-      install_packages_arch $(cat "$DOTFILES_DIR/os/arch/packages")
-      ;;
+        # enable_multilib || return 1
+        local packages=()
+        mapfile -t packages < <(sed -E 's/^[[:space:]]+|[[:space:]]+$//g' "$DOTFILES_DIR/os/arch/packages" | grep -Ev '^(#|$)')
+        install_packages_arch "${packages[@]}"
+        ;;
     *)
       print_warning "Unknown OS — skipping package installation"
       ;;
@@ -193,9 +237,9 @@ main() {
   collect_github_prereqs
 
   init_setup
-  install_package_managers
+  install_package_managers || return 1
   shell_setup
-  install_packages
+  install_packages || return 1
   setup_tlp
   setup_arch_system
   git_config

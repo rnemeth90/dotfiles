@@ -56,7 +56,7 @@ set-title() {
 # Title I want: '(FirstFolderInPath) LastFolderInPath'
 set-title "($(pwd | cut -d/ -f2)) ${PWD##*/}"
 
-. "$HOME/.cargo/env"
+[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 
 # --- tmux window renaming ---
@@ -97,4 +97,3 @@ if [ -d "$HOME/.turso" ]; then export PATH="$PATH:$HOME/.turso"; fi
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
-

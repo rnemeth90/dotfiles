@@ -18,12 +18,27 @@ install_yay() {
 
     print_in_purple "\n • Installing yay \n\n"
 
-    if [[ ! -d ~/repos/aur.archlinux.org/yay-bin ]]; then
-        mkdir -p ~/repos/aur.archlinux.org/
-        git clone https://aur.archlinux.org/yay-bin.git ~/repos/aur.archlinux.org/yay-bin
+    if ! sudo pacman -S --needed --noconfirm base-devel git; then
+        print_in_yellow "\n • Could not install yay build prerequisites.\n\n"
+        return 1
     fi
 
-    (cd ~/repos/aur.archlinux.org/yay-bin && makepkg -si --noconfirm)
+    if [[ ! -d ~/repos/aur.archlinux.org/yay-bin ]]; then
+        mkdir -p ~/repos/aur.archlinux.org/ || return 1
+        git clone https://aur.archlinux.org/yay-bin.git ~/repos/aur.archlinux.org/yay-bin || return 1
+    fi
+
+    if [[ ! -f ~/repos/aur.archlinux.org/yay-bin/PKGBUILD ]]; then
+        print_in_yellow "\n • yay source checkout is missing its PKGBUILD.\n\n"
+        return 1
+    fi
+
+    if ! (cd ~/repos/aur.archlinux.org/yay-bin && makepkg -si --noconfirm); then
+        print_in_yellow "\n • Failed to build or install yay.\n\n"
+        return 1
+    fi
+
+    command -v yay >/dev/null 2>&1
 }
 
 install_homebrew() {
@@ -77,8 +92,10 @@ install_cargo() {
 
 main() {
     install_homebrew
+    if [[ -f /etc/arch-release ]]; then
+        install_yay || return 1
+    fi
     # install_npm
-    # install_yay
     # install_nvm_node_yarn
     # install_cargo
 

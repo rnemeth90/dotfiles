@@ -20,16 +20,22 @@ create_symlinks() {
         "shell/inputrc"
         "git/gitconfig"
         "conf/.Xresources"
+        "conf/.xinitrc"
         "golang/cobra.yaml"
         "conf"
     )
 
     local sourceFile=""
     local targetFile=""
+    local targetName=""
 
     for i in "${FILES_TO_SYMLINK[@]}"; do
         sourceFile="$(cd .. && pwd)/$i"
-        targetFile="$HOME/.$(basename "$i")"
+        targetName="$(basename "$i")"
+        if [[ "$targetName" != .* ]]; then
+            targetName=".$targetName"
+        fi
+        targetFile="$HOME/$targetName"
 
         if [ ! -e "$sourceFile" ]; then
             print_error "Source file '$sourceFile' does not exist."

@@ -17,7 +17,7 @@ configuration {
 	show-icons: true;
 	icon-theme: "Papirus";
 /*	cache-dir: ;*/
-	steal-focus: false;
+    steal-focus: true;
 /*	dpi: -1;*/
 
 	/*---------- Matching setting ----------*/

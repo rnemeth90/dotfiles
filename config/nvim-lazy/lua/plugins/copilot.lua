@@ -2,11 +2,15 @@ return {
   "zbirenbaum/copilot.lua",
   cmd = "Copilot",
   event = "InsertEnter",
-  dependencies = { "zbirenbaum/copilot-cmp" },
+  dependencies = {
+    "zbirenbaum/copilot-cmp",
+    "copilotlsp-nvim/copilot-lsp",
+  },
   config = function()
     require("copilot").setup({
       suggestion = { enabled = false },
       panel     = { enabled = false },
+      nes       = { enabled = true },
       filetypes = {
         yaml      = false,
         markdown  = false,

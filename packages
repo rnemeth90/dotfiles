@@ -5,7 +5,7 @@
 
 - `inxi` - System information tool
 
-- `iptables-nft` - Packet filtering and NAT for Linux
+- `iptables` - Packet filtering and NAT for Linux
 
 - `powertop` - Power consumption monitoring and tuning
 - `powertop-auto-tune` - Automate PowerTOP tuning

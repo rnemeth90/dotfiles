@@ -16,5 +16,6 @@ theme='style-5'
 
 ## Run
 rofi \
+    -no-lazy-grab \
     -show drun \
     -theme ${dir}/${theme}.rasi

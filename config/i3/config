@@ -32,7 +32,7 @@ exec --no-startup-id nm-applet
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty --hold --config "$HOME/dotfiles/config/kitty/kitty.conf"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -83,7 +83,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus       scratchpad show
 
 # Dedicated scratchpad terminal (spawned on demand)
-bindsym $mod+ctrl+t exec --no-startup-id kitty --class=scratchpad-term
+bindsym $mod+ctrl+t exec --no-startup-id kitty --hold --config "$HOME/dotfiles/config/kitty/kitty.conf" --class=scratchpad-term
 for_window [class="scratchpad-term"] floating enable, resize set 900 600, move position center, move scratchpad
 bindsym $mod+ctrl+s [class="scratchpad-term"] scratchpad show
 
@@ -126,7 +126,6 @@ bindsym $mod+Shift+9 move container to workspace $ws9
 # Assign windows to workspaces (use xprop to find class names)
 assign [class="brave-browser"]         $ws1
 assign [class="firefox"]               $ws1
-assign [class="kitty"]                 $ws2
 assign [class="Alacritty"]             $ws2
 assign [class="Code"]                  $ws3
 assign [class="jetbrains-idea"]        $ws3
@@ -231,5 +230,5 @@ bindsym XF86MonBrightnessUp   exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
 # Application launcher
-bindsym $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
+bindsym --release $mod+d exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
+bindsym --release $mod+p exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh

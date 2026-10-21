@@ -54,7 +54,7 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 # pipx
 export PATH="$PATH:$HOME/.local/bin"
 
-if [[ $(tty) = /dev/tty1 ]] ; then
+if [[ $(tty) = /dev/tty1 && -z ${DISPLAY:-} ]] ; then
   startx
 fi
 
@@ -63,4 +63,4 @@ fi
 export PATH="$PATH:$HOME/.lmstudio/bin"
 # End of LM Studio CLI section
 
-. "$HOME/.cargo/env"
+[ -r "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"

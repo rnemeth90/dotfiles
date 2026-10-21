@@ -16,4 +16,4 @@ xsetroot -cursor_name left_ptr
 # Start dbus if not already running
 export $(dbus-launch)
 
-exec i3
+exec i3 --config "$HOME/.config/i3/config"

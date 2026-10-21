@@ -5,11 +5,8 @@ return {
   opts = {
     cli = {
       tools = {
-        {
-          name = "cursor",
+        cursor = {
           cmd = { "cursor-agent" },
-          input = "stdin",
-          context = true,
         },
       },
       mux = {
@@ -21,9 +18,9 @@ return {
   config = function(_, opts)
     assert(opts.cli and opts.cli.tools, "Missing cli.tools in sidekick config")
 
-    for i, tool in ipairs(opts.cli.tools) do
-      assert(type(tool.name) == "string", "Tool at index " .. i .. " has invalid 'name'")
-      assert(type(tool.cmd) == "table", "Tool at index " .. i .. " must define `cmd` as a table")
+    for name, tool in pairs(opts.cli.tools) do
+      assert(type(name) == "string", "Sidekick tool names must be strings")
+      assert(type(tool.cmd) == "table", "Sidekick tool " .. name .. " must define `cmd` as a table")
     end
 
     require("sidekick").setup(opts)
