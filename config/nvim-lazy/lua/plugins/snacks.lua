@@ -25,7 +25,7 @@ return {
       enabled = true,
       auto_close = true,
     },
-    indent = { enabled = true },
+    indent = { enabled = true, animate = { enabled = false }, scope = { enabled = false } },
     input = { enabled = true },
     notifier = {
       enabled = true,
@@ -33,21 +33,10 @@ return {
     },
     picker = { enabled = true },
     quickfile = { enabled = true },
-    scope = { enabled = true },
-    scroll = {
-      enabled = true,
-      animate = {
-        duration = { step = 10, total = 120 }, -- faster than default 200ms
-        easing = "outQuad",                    -- snappy start, smooth stop
-      },
-      animate_repeat = {
-        delay = 100,
-        duration = { step = 5, total = 30 },   -- near-instant on fast repeated scrolls
-        easing = "linear",
-      },
-    },
+    scope = { enabled = false },
+    scroll = { enabled = false }, -- animated scrolling made large files feel sluggish
     statuscolumn = { enabled = true },
-    words = { enabled = true },
+    words = { enabled = false },
     styles = {
       notification = {
         -- wo = { wrap = true } -- Wrap notifications

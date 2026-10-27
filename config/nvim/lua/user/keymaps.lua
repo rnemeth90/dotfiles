@@ -126,15 +126,15 @@ keymap("n", "<leader>tp", ":!terraform plan<CR>", "", opts)
 keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "", opts)
 
 -- Neoscroll Keymaps
-keymap("n", "<C-u>", "<cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 150)<CR>", "", opts)
-keymap("n", "<C-d>", "<cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 150)<CR>", "", opts)
-keymap("n", "<C-b>", "<cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
-keymap("n", "<C-f>", "<cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 250)<CR>", "", opts)
-keymap("n", "<C-y>", "<cmd>lua require('neoscroll').scroll(-1, true, 50)<CR>", "", opts)
-keymap("n", "<C-e>", "<cmd>lua require('neoscroll').scroll(1, true, 50)<CR>", "", opts)
-keymap("n", "zt", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zt')<CR>", "", opts)
-keymap("n", "zz", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zz')<CR>", "", opts)
-keymap("n", "zb", "<cmd>lua require('neoscroll').scroll(0, true, 250, 'zb')<CR>", "", opts)
+keymap("n", "<C-u>", "<cmd>lua require('neoscroll').scroll(-vim.wo.scroll, true, 40)<CR>", "", opts)
+keymap("n", "<C-d>", "<cmd>lua require('neoscroll').scroll(vim.wo.scroll, true, 40)<CR>", "", opts)
+keymap("n", "<C-b>", "<cmd>lua require('neoscroll').scroll(-vim.api.nvim_win_get_height(0), true, 60)<CR>", "", opts)
+keymap("n", "<C-f>", "<cmd>lua require('neoscroll').scroll(vim.api.nvim_win_get_height(0), true, 60)<CR>", "", opts)
+keymap("n", "<C-y>", "<cmd>lua require('neoscroll').scroll(-1, true, 20)<CR>", "", opts)
+keymap("n", "<C-e>", "<cmd>lua require('neoscroll').scroll(1, true, 20)<CR>", "", opts)
+keymap("n", "zt", "<cmd>lua require('neoscroll').scroll(0, true, 60, 'zt')<CR>", "", opts)
+keymap("n", "zz", "<cmd>lua require('neoscroll').scroll(0, true, 60, 'zz')<CR>", "", opts)
+keymap("n", "zb", "<cmd>lua require('neoscroll').scroll(0, true, 60, 'zb')<CR>", "", opts)
 
 -- ToggleTerm Keybindings
 keymap(

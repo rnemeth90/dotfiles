@@ -38,6 +38,8 @@ local options = {
   scrolloff = 8,                          -- minimal number of screen lines to keep above and below the cursor
   sidescrolloff = 8,                      -- minimal number of screen columns either side of cursor if wrap is `false`
   guifont = "Hack Nerd Font:h17",              -- the font used in graphical neovim applications
+  mousescroll = "ver:6,hor:6",            -- lines per mouse wheel tick (default 3)
+  foldlevelstart = 99,                    -- start with all folds open
   whichwrap = "bs<>[]hl",                 -- which "horizontal" keys are allowed to travel to prev/next line
 }
 
