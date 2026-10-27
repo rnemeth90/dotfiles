@@ -51,11 +51,20 @@ return {
 					if not ok then
 						return
 					end
+<<<<<<< Updated upstream
 					-- expr folds are costly to recompute on large yaml files
 					if args.match ~= "yaml" and args.match ~= "helm" then
 						vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
 						vim.wo[0][0].foldmethod = "expr"
 					end
+||||||| Stash base
+					vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+					vim.wo[0][0].foldmethod = "expr"
+=======
+					vim.opt.foldenable = false
+					vim.opt.foldmethod = "manual"
+					vim.opt.foldlevel = 99
+>>>>>>> Stashed changes
 					vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
 				end,
 			})
