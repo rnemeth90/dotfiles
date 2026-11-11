@@ -21,9 +21,13 @@ alias glogg='git log --oneline --graph --decorate --all'
 alias gstash='git stash'
 alias gstashp='git stash pop'
 alias gstashl='git stash list'
+alias gm='git micro'
 
 # WIP — save and restore work-in-progress
 alias gwip='git add -A && git commit -m "WIP: work in progress [skip ci]"'
 alias gunwip='git log -1 --pretty=%s | grep -q "WIP" && git reset HEAD~1'
 
 alias git-yolo='git commit -am $(curl -s http://whatthecommit.com/index.txt)'
+
+# github
+alias ghpr='gh pr create --fill --draft'
