@@ -19,11 +19,14 @@ exec --no-startup-id picom --config ~/.config/picom/config
 # XDG autostart .desktop files
 exec --no-startup-id dex --autostart --environment i3
 
+# enable touchpads and tap-to-click
+exec --no-startup-id sh "$HOME/.config/i3/scripts/enable_touchpad.sh"
+
 # notifications
 exec --no-startup-id dunst
 
 # lock screen on suspend
-exec --no-startup-id xss-lock --transfer-sleep-lock -- betterlockscreen -l dimblur
+exec --no-startup-id xss-lock --transfer-sleep-lock -- sh "$HOME/.config/i3/scripts/lock.sh"
 
 # network tray applet
 exec --no-startup-id nm-applet
@@ -178,7 +181,7 @@ bindsym Shift+Print      exec --no-startup-id $i3screenshot select
 bindsym $mod+Print       exec --no-startup-id $i3screenshot window
 
 # Lock screen
-bindsym $mod+x exec "betterlockscreen -l dimblur"
+bindsym $mod+x exec --no-startup-id sh "$HOME/.config/i3/scripts/lock.sh"
 
 # resize mode
 mode "resize" {
