@@ -114,6 +114,7 @@ create_config_symlinks() {
         "config/tmux"
         "config/powershell"
         "config/dir_colors"
+        "config/copilot-system-prompt.md"
     )
 
     local sourceFile=""
