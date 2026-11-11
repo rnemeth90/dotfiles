@@ -27,17 +27,8 @@ vim.keymap.set("n", "<leader>gm", function()
 	print("Micro-committed " .. file)
 end, { desc = "Git micro-commit current file" })
 
--- # Micro-commit every modified file individually
-vim.keymap.set("n", "<leader>gmc", function()
-	local file = vim.fn.expand("%")
-	if file == "" then
-		return
-	end
-	vim.cmd(
-		'!f() { for f in $(git diff --name-only); do git add "$f" && git commit -m "refactor($f): update module spec and inline docs"; done; }; f'
-	)
-	print("Micro-committed " .. file)
-end, { desc = "# Micro-commit every modified file individually" })
+-- Micro-commit every modified file individually (git micro alias in gitconfig)
+vim.keymap.set("n", "<leader>gmc", "<cmd>!git micro<CR>", { desc = "Git micro-commit every modified file" })
 
 keymap("n", "<leader>w", ":w<CR>", "Save file")
 keymap("n", "<leader>q", ":q<CR>", "Quit Neovim")
