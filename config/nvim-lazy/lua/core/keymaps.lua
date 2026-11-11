@@ -28,9 +28,30 @@ vim.keymap.set("n", "<leader>gm", function()
 end, { desc = "Git micro-commit current file" })
 
 -- Micro-commit every modified file individually (git micro alias in gitconfig)
-vim.keymap.set("n", "<leader>gmc", "<cmd>!git micro<CR>", { desc = "Git micro-commit every modified file" })
+keymap("n", "<leader>gM", "<cmd>!git micro<CR>", "Git micro-commit every modified file")
 
-keymap("n", "<leader>w", ":w<CR>", "Save file")
+-- Run a git command in the background and report the result as a notification
+local function git(args)
+	vim.system(vim.list_extend({ "git" }, args), { text = true }, function(res)
+		vim.schedule(function()
+			local out = vim.trim((res.stdout or "") .. "\n" .. (res.stderr or ""))
+			local level = res.code == 0 and vim.log.levels.INFO or vim.log.levels.ERROR
+			vim.notify(out ~= "" and out or ("git " .. args[1] .. " done"), level, { title = "git " .. args[1] })
+		end)
+	end)
+end
+
+keymap("n", "<leader>gp", function() git({ "push" }) end, "Git push")
+keymap("n", "<leader>gP", function() git({ "pull" }) end, "Git pull")
+keymap("n", "<leader>gc", function()
+	vim.ui.input({ prompt = "Commit message: " }, function(msg)
+		if msg and msg ~= "" then
+			git({ "commit", "-m", msg })
+		end
+	end)
+end, "Git commit (staged)")
+
+keymap("n", "<leader>fs", ":w<CR>", "Save file")
 keymap("n", "<leader>q", ":q<CR>", "Quit Neovim")
 
 -- Window Navigation
@@ -77,14 +98,14 @@ keymap("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>", "Code action
 -- Diagnostics
 keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Previous diagnostic")
 keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next diagnostic")
-keymap("n", "<leader>dd", "<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostic")
-keymap("n", "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostic list")
+keymap("n", "<leader>xx", "<cmd>lua vim.diagnostic.open_float()<CR>", "Show diagnostic")
+keymap("n", "<leader>xl", "<cmd>lua vim.diagnostic.setloclist()<CR>", "Diagnostic list")
 
 -- Terraform
 keymap("n", "<leader>ti", ":!terraform init<CR>", "Terraform init")
 keymap("n", "<leader>tv", ":!terraform validate<CR>", "Terraform validate")
 keymap("n", "<leader>tp", ":!terraform plan<CR>", "Terraform plan")
-keymap("n", "<leader>taa", ":!terraform apply -auto-approve<CR>", "Terraform apply")
+keymap("n", "<leader>tA", ":!terraform apply -auto-approve<CR>", "Terraform apply (auto-approve)")
 
 -- DAP (Debugger) keymaps are buffer-local; see plugins/nvim-dap.lua
 
