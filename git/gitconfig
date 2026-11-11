@@ -65,7 +65,7 @@
     cm = "!f() { git commit -m \"$1: $2\"; }; f"
     
     # Micro-commit workflow: stage individual files and commit them instantly
-    micro = "!f() { for file in $(git diff --name-only); do git add \"$file\" && git commit -m \"refactor: update $file architecture specs\"; done; }; f"
+    micro = "!f() { for file in $(git diff --name-only); do git add \"$file\" && git commit -m \"update to $file\"; done; }; f"
 
     # Micro-commit every modified file individually
-    split-commit = "!f() { for f in $(git diff --name-only); do git add \"$f\" && git commit -m \"refactor($f): update module spec and inline docs\"; done; }; f"
+    # split-commit = "!f() { for f in $(git diff --name-only); do git add \"$f\" && git commit -m \"update to file $f\"; done; }; f"
