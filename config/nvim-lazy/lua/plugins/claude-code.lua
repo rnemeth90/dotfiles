@@ -45,8 +45,8 @@ return {
           normal = "<C-,>",
           terminal = "<C-,>",
           variants = {
-            continue = "<leader>cC",
-            verbose = "<leader>cV",
+            continue = "<leader>aC",
+            verbose = "<leader>aV",
           },
         },
         window_navigation = true,
