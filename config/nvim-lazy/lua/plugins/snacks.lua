@@ -47,7 +47,7 @@ return {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
     { "<leader>/",       function() Snacks.picker.grep() end, desc = "Grep" },
-    { "<leader>n",       function() Snacks.picker.notifications() end, desc = "Notification History" },
+    { "<leader>uN", function() Snacks.picker.notifications() end, desc = "Notification History" },
     { "<leader>e",       function() Snacks.explorer() end, desc = "File Explorer" },
     -- Files
     { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
@@ -84,13 +84,13 @@ return {
     { "<leader>lS", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
     { "<leader>lW", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
     -- Diagnostics
-    { "<leader>da", function() Snacks.picker.diagnostics() end, desc = "All Diagnostics" },
-    { "<leader>db", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+    { "<leader>xa", function() Snacks.picker.diagnostics() end, desc = "All Diagnostics" },
+    { "<leader>xb", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
     -- UI
     { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
     { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-    { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-    { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
+    { "<leader>uz", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
+    { "<leader>uZ", function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
     { "<leader>.",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
     -- Terminal
     { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
