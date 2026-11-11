@@ -73,7 +73,7 @@ require("none-ls.diagnostics.flake8").with({
                 async = false,
                 bufnr = bufnr,
                 filter = function(format_client)
-                  return format_client.name == "none-ls"
+                  return format_client.name == "null-ls"
                 end,
               })
             end,
