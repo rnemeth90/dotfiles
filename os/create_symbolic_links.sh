@@ -156,6 +156,61 @@ create_config_symlinks() {
     done
 }
 
+create_newsboat_config() {
+    local sourceConfig="$(cd .. && pwd)/config/newsboat/config"
+    local sourceUrls="$(cd .. && pwd)/config/newsboat/urls"
+    local targetDir="$HOME/.newsboat"
+    local targetConfig="$targetDir/config"
+    local targetUrls="$targetDir/urls"
+
+    if [ ! -d "$targetDir" ]; then
+        mkdir -p "$targetDir"
+        print_in_green "Created $targetDir directory"
+    fi
+
+    if [ ! -e "$sourceConfig" ]; then
+        print_error "Source file '$sourceConfig' does not exist."
+        return
+    fi
+
+    if [ ! -e "$targetConfig" ]; then
+        execute \
+            "cp -f $sourceConfig $targetConfig" \
+            "$targetConfig ← $sourceConfig"
+    elif diff -q "$sourceConfig" "$targetConfig" >/dev/null 2>&1; then
+        print_success "$targetConfig → $sourceConfig"
+    else
+        ask_for_confirmation "'$targetConfig' already exists. Do you want to overwrite it?"
+        if answer_is_yes; then
+            cp -f "$sourceConfig" "$targetConfig"
+            print_in_green "Updated $targetConfig from $sourceConfig"
+        else
+            print_error "$targetConfig → $sourceConfig"
+        fi
+    fi
+
+    if [ ! -e "$sourceUrls" ]; then
+        print_error "Source file '$sourceUrls' does not exist."
+        return
+    fi
+
+    if [ ! -e "$targetUrls" ]; then
+        execute \
+            "cp -f $sourceUrls $targetUrls" \
+            "$targetUrls ← $sourceUrls"
+    elif diff -q "$sourceUrls" "$targetUrls" >/dev/null 2>&1; then
+        print_success "$targetUrls → $sourceUrls"
+    else
+        ask_for_confirmation "'$targetUrls' already exists. Do you want to overwrite it?"
+        if answer_is_yes; then
+            cp -f "$sourceUrls" "$targetUrls"
+            print_in_green "Updated $targetUrls from $sourceUrls"
+        else
+            print_error "$targetUrls → $sourceUrls"
+        fi
+    fi
+}
+
 main() {
     print_in_purple "\n • Creating symbolic links\n\n"
     create_symlinks "$@"
@@ -165,6 +220,9 @@ main() {
 
     print_in_purple "\n • Linking config directories\n\n"
     create_config_symlinks "$@"
+
+    print_in_purple "\n • Installing Newsboat config\n\n"
+    create_newsboat_config "$@"
 }
 
 main "$@"

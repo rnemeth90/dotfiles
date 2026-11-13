@@ -1,0 +1,9 @@
+# Newsboat configuration
+# This file is installed into ~/.newsboat/config during setup.
+
+auto-reload yes
+reload-threads 4
+refresh-on-startup yes
+browser "xdg-open %u"
+show-read-feeds no
+download-path "~/Downloads"

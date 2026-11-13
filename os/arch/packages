@@ -100,6 +100,7 @@ isync
 jq
 julia
 just
+k9s
 kubecolor
 kubectl
 kubetail
@@ -116,6 +117,7 @@ msmtp
 ncdu
 neofetch
 neomutt
+newsboat
 neovim
 nodejs
 npm
@@ -136,6 +138,7 @@ podman
 polybar
 #powershell
 powertop
+termshark
 tlp
 tlp-rdw
 prettierd

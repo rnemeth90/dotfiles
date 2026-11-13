@@ -17,6 +17,7 @@ jq
 luarocks
 man2html
 neofetch
+newsboat
 neovim
 nodejs
 npm
@@ -32,3 +33,4 @@ tor
 vlc
 wireshark
 wget
+termshark

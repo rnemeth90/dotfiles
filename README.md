@@ -48,6 +48,7 @@ The [setup.sh](./setup.sh) script runs the following steps in order:
 - **Bash configuration** -- Modular setup with separate files for aliases, exports, prompt, options, colors, and autocompletion. Machine-specific overrides go in `~/.bash.local`.
 - **Neovim (lazy.nvim)** -- Full configuration in `.config/nvim-lazy/` with LSP, completion (nvim-cmp), Treesitter, Snacks pickers, and Copilot integration.
 - **Git configuration** -- Shared settings in `git/gitconfig` with local overrides in `~/.gitconfig.local`. `setup.sh` also runs `git/set_github_ssh_key.sh`, which generates a GitHub SSH key and uploads it automatically via an authenticated `gh` CLI (installing `gh` if needed), falling back to a manual clipboard/browser step if `gh` isn't available or authenticated.
+- **Newsboat RSS reader** -- Base config and feed list live in `config/newsboat/` and are installed into `~/.newsboat/` during setup so the feed list and browser settings are available immediately.
 - **Utility scripts** -- A collection of shell scripts in `bin/` for Kubernetes, Azure, Go project scaffolding, VM provisioning, and general automation.
 
 ## Prerequisites
