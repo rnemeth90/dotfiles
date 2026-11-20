@@ -1,3 +1,4 @@
+#Requires -Version 7.0
 #Requires -Modules Microsoft.Graph.Authentication
 <#
 .SYNOPSIS
@@ -15,6 +16,10 @@
 .PARAMETER BatchDelaySeconds
     Seconds to pause between batches (useful for throttling). Default 0.
 
+.PARAMETER RemoveOtherOwners
+    After ensuring -Owner is an owner, remove every other owner from each group.
+    Use -DryRun first. Groups synced from on-premises AD are skipped.
+
 .PARAMETER DryRun
     Report what would change without making any changes.
 
@@ -30,6 +35,7 @@ param(
     [string]$Filter,
     [ValidateRange(0, [int]::MaxValue)][int]$BatchSize = 0,
     [ValidateRange(0, 3600)][int]$BatchDelaySeconds = 0,
+    [switch]$RemoveOtherOwners,
     [switch]$DryRun
 )
 
@@ -56,7 +62,7 @@ while ($uri) {
 }
 Write-Host "Groups found: $($groups.Count)"
 
-$stats = @{ Added = 0; WouldAdd = 0; AlreadyOwner = 0; Skipped = 0; Failed = 0 }
+$stats = @{ Added = 0; WouldAdd = 0; AlreadyOwner = 0; Removed = 0; WouldRemove = 0; Skipped = 0; Failed = 0 }
 
 $size = if ($BatchSize -gt 0) { $BatchSize } else { [Math]::Max($groups.Count, 1) }
 $batchCount = [Math]::Ceiling($groups.Count / $size)
@@ -82,29 +88,44 @@ foreach ($g in $groups) {
         }
 
         $owners = @()
-        $ownersUri = "https://graph.microsoft.com/v1.0/groups/$($g.id)/owners?`$select=id&`$top=999"
+        $ownersUri = "https://graph.microsoft.com/v1.0/groups/$($g.id)/owners?`$select=id,displayName,userPrincipalName&`$top=999"
         while ($ownersUri) {
             $p = Invoke-MgGraphRequest -Method GET -Uri $ownersUri
             $owners += $p.value
             $ownersUri = $p.'@odata.nextLink'
         }
 
-        if ($owners.id -contains $ownerUser.id) {
+        $isOwner = $owners.id -contains $ownerUser.id
+
+        if ($isOwner) {
             Write-Host "Already owner: $label"
             $stats.AlreadyOwner++
-            continue
         }
-
-        if ($DryRun) {
+        elseif ($DryRun) {
             Write-Host "[DryRun] Would add owner to: $label" -ForegroundColor Cyan
             $stats.WouldAdd++
-            continue
+        }
+        else {
+            $body = @{ '@odata.id' = "https://graph.microsoft.com/v1.0/users/$($ownerUser.id)" } | ConvertTo-Json
+            Invoke-MgGraphRequest -Method POST -Uri "https://graph.microsoft.com/v1.0/groups/$($g.id)/owners/`$ref" -Body $body -ContentType 'application/json' | Out-Null
+            Write-Host "Added owner to: $label" -ForegroundColor Green
+            $stats.Added++
         }
 
-        $body = @{ '@odata.id' = "https://graph.microsoft.com/v1.0/users/$($ownerUser.id)" } | ConvertTo-Json
-        Invoke-MgGraphRequest -Method POST -Uri "https://graph.microsoft.com/v1.0/groups/$($g.id)/owners/`$ref" -Body $body -ContentType 'application/json' | Out-Null
-        Write-Host "Added owner to: $label" -ForegroundColor Green
-        $stats.Added++
+        if ($RemoveOtherOwners) {
+            foreach ($o in @($owners | Where-Object { $_.id -ne $ownerUser.id })) {
+                $oLabel = "$($o.userPrincipalName ?? $o.displayName ?? $o.id) [$($o.id)] from $label"
+                if ($DryRun) {
+                    Write-Host "[DryRun] Would remove owner $oLabel" -ForegroundColor Cyan
+                    $stats.WouldRemove++
+                }
+                else {
+                    Invoke-MgGraphRequest -Method DELETE -Uri "https://graph.microsoft.com/v1.0/groups/$($g.id)/owners/$($o.id)/`$ref" | Out-Null
+                    Write-Host "Removed owner $oLabel" -ForegroundColor Green
+                    $stats.Removed++
+                }
+            }
+        }
     }
     catch {
         Write-Warning "Failed on $label : $($_.Exception.Message)"
@@ -113,4 +134,4 @@ foreach ($g in $groups) {
 }
 
 Write-Host ''
-Write-Host "Summary: Added=$($stats.Added) WouldAdd=$($stats.WouldAdd) AlreadyOwner=$($stats.AlreadyOwner) Skipped=$($stats.Skipped) Failed=$($stats.Failed)"
+Write-Host "Summary: Added=$($stats.Added) WouldAdd=$($stats.WouldAdd) AlreadyOwner=$($stats.AlreadyOwner) Removed=$($stats.Removed) WouldRemove=$($stats.WouldRemove) Skipped=$($stats.Skipped) Failed=$($stats.Failed)"
