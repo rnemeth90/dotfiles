@@ -1,13 +1,16 @@
 # vim: filetype=neomuttrc
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source ~/.config/mutt/themes/dracula
-source ~/.config/mutt/mailcap
+source ~/.config/mutt/themes/kanagawa
+set mailcap_path = ~/.config/mutt/mailcap:/etc/mailcap
 
 ##### Behavior #####
 
 set sleep_time = 0    # be faster
 set beep = no         # no beep sound
 set move = no         # don't auto-archive read mail
+set pager_index_lines = 8
+set pager_stop = yes
+set menu_scroll = yes
 
 ##### HTML / Mailcap #####
 
@@ -31,11 +34,15 @@ bind index,pager \CB sidebar-toggle-visible # Ctrl-b Toggle Sidebar
 
 bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
-bind pager g top
+bind pager gg top
 bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
+bind index gg first-entry
+bind attach g first-entry
+bind attach G last-entry
 
 ##### Index Format #####
 
 set index_format = "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
+source /home/rtn/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/rtn/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ryanthomasnemeth@gmail.com"
+macro index,pager <F5> "<shell-escape>mailsync ryanthomasnemeth@gmail.com<enter>" "Sync mail"

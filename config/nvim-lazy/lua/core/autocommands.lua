@@ -36,6 +36,14 @@ vim.api.nvim_create_autocmd("User", {
 -- General settings
 local general_group = vim.api.nvim_create_augroup("autocmd_general", { clear = true })
 
+-- Save modified buffers when Neovim loses focus
+vim.api.nvim_create_autocmd("FocusLost", {
+  group = general_group,
+  callback = function()
+    vim.cmd("wall")
+  end,
+})
+
 -- Close some filetypes with <q>
 vim.api.nvim_create_autocmd("FileType", {
   group = general_group,

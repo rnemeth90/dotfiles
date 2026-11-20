@@ -1,1 +1,32 @@
-display_image=true
+# Display
+display_image true
+auto_image true
+inline_img_protocol 4
+ext_image_viewer false
+display_link true
+display_link_number true
+decode_url true
+open_tab_blank true
+
+# Kanagawa Wave terminal palette
+color true
+high-intensity true
+basic_color white
+bg_color default
+anchor_color blue
+image_color green
+form_color yellow
+mark_color cyan
+active_style true
+active_color cyan
+visited_anchor true
+visited_color magenta
+
+# Navigation
+use_mouse true
+wrap_search true
+ignorecase_search true
+smartcase_search true
+use_history true
+history 100
+confirm_qq true

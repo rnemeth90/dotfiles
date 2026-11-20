@@ -128,19 +128,10 @@ setup_tlp() {
 
   print_section "TLP Battery Management"
 
-  print_info "Installing tp_smapi-dkms from AUR..."
-  if yay -S --noconfirm --needed tp_smapi-dkms >>"$LOG_FILE" 2>&1; then
-    print_success "tp_smapi-dkms installed (T420 battery thresholds enabled)"
-  else
-    print_warning "tp_smapi-dkms unavailable — battery thresholds will not apply"
-  fi
-
   execute "sudo cp '$DOTFILES_DIR/os/arch/tlp.conf' /etc/tlp.conf" \
     "Installing TLP config"
-  execute "sudo systemctl enable --now tlp" \
-    "Enabling TLP service"
-  execute "sudo systemctl enable tlp-sleep" \
-    "Enabling TLP sleep hook"
+  execute "sudo systemctl enable --now tlp && sudo systemctl restart tlp" \
+    "Applying TLP config and enabling service"
 }
 
 setup_arch_system() {

@@ -1,0 +1,33 @@
+# Kanagawa Wave terminal palette
+
+color normal color7 default
+color error color15 color1
+color indicator color0 color6
+color markers color1 default
+color message color14 default
+color prompt color11 default
+color search color0 color3
+color status color15 color0
+color tilde color8 default
+color tree color6 default
+
+color index color1 default ~D
+color index color1 default ~F
+color index color10 default ~N
+color index color5 default ~Q
+color index color8 default ~R
+color index color6 default ~v
+
+color hdrdefault color12 default
+color header color15 default "^Subject:"
+color attachment color11 default
+color body color6 default "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+"
+color body color4 default "(https?|ftp)://[^[:space:]]+"
+color quoted color8 default
+color quoted1 color12 default
+color quoted2 color6 default
+color quoted3 color3 default
+color quoted4 color5 default
+color signature color8 default
+color bold color15 default
+color underline color14 default

@@ -23,7 +23,8 @@ end
 -- local colorscheme = get_if_available('everforest')
 -- local colorscheme = get_if_available('melange')
 -- local colorscheme = get_if_available('tokyonight', { style = "storm" })
-local colorscheme = get_if_available('kanagawa', { theme = "wave" })
+-- local colorscheme = get_if_available('kanagawa', { theme = "wave" })
 -- local colorscheme = get_if_available('nightfox')
+local colorscheme = get_if_available("carbonfox")
 
 return colorscheme
