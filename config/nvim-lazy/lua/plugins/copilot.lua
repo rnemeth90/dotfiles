@@ -8,8 +8,8 @@ return {
 		{
 			"CopilotC-Nvim/CopilotChat.nvim",
 			opts = function()
-				-- Path to your custom prompt file inside stdpath("config") (~/.config/nvim)
-				local prompt_path = vim.fn.stdpath("config") .. "~/.config/copilot-system-prompt.md"
+				-- Path to your custom prompt file (~/.config/copilot-system-prompt.md)
+				local prompt_path = vim.fn.expand("~/.config/copilot-system-prompt.md")
 				local system_prompt = ""
 
 				if vim.fn.filereadable(prompt_path) == 1 then
