@@ -8,6 +8,8 @@ set mailcap_path = ~/.config/mutt/mailcap:/etc/mailcap
 set sleep_time = 0    # be faster
 set beep = no         # no beep sound
 set move = no         # don't auto-archive read mail
+set delete = yes
+set editor = "nvim"
 set pager_index_lines = 8
 set pager_stop = yes
 set menu_scroll = yes
@@ -46,3 +48,4 @@ set index_format = "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
 source /home/rtn/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc
 macro index,pager i1 '<sync-mailbox><enter-command>source /home/rtn/.config/mutt/accounts/ryanthomasnemeth@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to ryanthomasnemeth@gmail.com"
 macro index,pager <F5> "<shell-escape>mailsync ryanthomasnemeth@gmail.com<enter>" "Sync mail"
+macro index,pager d "<delete-message><sync-mailbox>" "Delete to Trash"
