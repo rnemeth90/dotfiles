@@ -139,6 +139,17 @@ setup_arch_system() {
 
   print_section "Arch System Configuration"
 
+  local setup_user="${SUDO_USER:-$(id -un)}"
+  local group groups_changed=0
+  for group in audio video; do
+    if ! id -nG "$setup_user" | tr ' ' '\n' | grep -Fxq "$group"; then
+      if execute "sudo usermod -aG '$group' '$setup_user'" "Adding $setup_user to the $group group"; then
+        groups_changed=1
+      fi
+    fi
+  done
+  ((groups_changed)) && print_info "Log out and back in for the group changes to take effect."
+
   execute "sudo cp '$DOTFILES_DIR/os/arch/etc/systemd/logind.conf' /etc/systemd/logind.conf" \
     "Installing logind.conf (lid-close suspend)"
 
