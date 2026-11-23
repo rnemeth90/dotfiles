@@ -45,6 +45,7 @@ The [setup.sh](./setup.sh) script runs the following steps in order:
 ## Key Features
 
 - **Multi-OS support** -- Automatically detects macOS, Debian, or Arch and runs the appropriate install paths. OS-specific scripts are gated so they only run on their target platform.
+- **Arch device access** -- Adds the setup account to the `audio` and `video` groups for audio-device and backlight access on systems that use group-based permissions. Log out and back in after setup for the changes to take effect.
 - **Bash configuration** -- Modular setup with separate files for aliases, exports, prompt, options, colors, and autocompletion. Machine-specific overrides go in `~/.bash.local`.
 - **Neovim (lazy.nvim)** -- Full configuration in `.config/nvim-lazy/` with LSP, completion (nvim-cmp), Treesitter, Snacks pickers, and Copilot integration.
 - **Git configuration** -- Shared settings in `git/gitconfig` with local overrides in `~/.gitconfig.local`. `setup.sh` also runs `git/set_github_ssh_key.sh`, which generates a GitHub SSH key and uploads it automatically via an authenticated `gh` CLI (installing `gh` if needed), falling back to a manual clipboard/browser step if `gh` isn't available or authenticated.
